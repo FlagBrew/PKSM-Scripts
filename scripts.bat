@@ -17,6 +17,29 @@
 @py -3 PKSMScript.py "Set max Camera Shots" -i 0x65604 4 9999999 1
 @py -3 PKSMScript.py "Set max Thumbs Up" -i 0x6560C 4 9999999 1
 @py -3 PKSMScript.py "Set max Camera Version" -i 0x65600 2 4 1
+@py -3 PKSMScript.py "Set Moon time" -i 0x4a48 8 43200 1
+@py -3 PKSMScript.py "Set Sun time" -i 0x4a48 8 86400 1
+
+@py -3 PKSMScript.py "Reset Cosmog" -i 0x2688 1 167 1
+@py -3 PKSMScript.py "Reset Aerodactyl" -i 0x260f 1 32 1
+@py -3 PKSMScript.py "Reset Porygon" -i 0x260d 1 16 1
+@py -3 PKSMScript.py "Reset Surfing Pikachu" -i 0x2610 1 0 1
+@py -3 PKSMScript.py "Reset Poipole" -i 0x25f1 1 95 1
+@py -3 PKSMScript.py "Reset Solgaleo and Lunala" -i 0x269b 1 0xd7 1
+@py -3 PKSMScript.py "Reset Necrozma" -i 0x2692 1 0x72 1
+@py -3 PKSMScript.py "Reset Tapu Bulu" -i 0x2164 1 0x01 1
+@py -3 PKSMScript.py "Reset Tapu Fini" -i 0x2128 1 0x03 1
+@py -3 PKSMScript.py "Reset Stakataka (Ultramoon)" -i 0x27f2 1 0x04 1
+@py -3 PKSMScript.py "Reset Tapu Lele" -i 0x2162 1 0x01 1
+@py -3 PKSMScript.py "Reset Zygarde" -i 0x23e6 1 0x01 1
+@py -3 PKSMScript.py "Reset Groudon Kyogre and Rayquaza" -i 0x27e8 1 0x80 1
+@py -3 PKSMScript.py "Reset Xerneas and Yveltal" -i 0x27f9 1 0x50 1
+@py -3 PKSMScript.py "Reset Giratina Cresselia Cobalion Terrakion Virizion Tornadus Thundurus and Reshiram" -i 0x27e6 1 0x00 1
+@py -3 PKSMScript.py "Reset Articuno Zapdos Moltres and Mewtwo" -i 0x27f8 1 0x00 1
+@py -3 PKSMScript.py "Reset Ho-Oh Uxie Mesprit Azelf Dialga Palkia Heatran and Regigigas" -i 0x27e5 1 0x00 1
+@py -3 PKSMScript.py "Reset Zekrom Landorus Kyurem Latias Latios Regirock Regice and Registeel" -i 0x27e7 1 0x00 1
+@py -3 PKSMScript.py "Reset Raikou Entei Suicune and Lugia" -i 0x27e4 1 0x0F 1
+@py -3 PKSMScript.py "Reset Magearna" -i 0x2687 1 223 1
 
 @py -3 PKSMScript.py "Set Vivillon Icy Snow form" -i 0x4530 1 0 1
 @py -3 PKSMScript.py "Set Vivillon Polar form" -i 0x4530 1 1 1
@@ -100,6 +123,7 @@
 @py -3 PKSMScript.py "Inject living dex" -i 0x33000 186064 "data/living6.bin" 1
 @py -3 PKSMScript.py "Set max Battle Points" -i 0x4230 2 9999 1
 @py -3 PKSMScript.py "Set max Current Pokemiles" -i 0x1F4FC 4 9999999 1
+@py -3 PKSMScript.py "Unlock & max all O-Powers" -i 0x17400 68 "data/ORAS_OPower.bin" 1
 
 @mkdir oras
 @cp *.pksm oras
@@ -128,6 +152,7 @@
 @py -3 PKSMScript.py "Clear Mystery Gift data" -i 0x1C800 1 0x0 2704
 @py -3 PKSMScript.py "Set max money" -i 0x21100 4 9999999 1
 @py -3 PKSMScript.py "Inject living dex" -i 0x00400 4080 "data/living5/boxdata BOX 1.bin" 1 -i 0x01400 4080 "data/living5/boxdata BOX 2.bin" 1 -i 0x02400 4080 "data/living5/boxdata BOX 3.bin" 1 -i 0x03400 4080 "data/living5/boxdata BOX 4.bin" 1 -i 0x04400 4080 "data/living5/boxdata BOX 5.bin" 1 -i 0x05400 4080 "data/living5/boxdata BOX 6.bin" 1 -i 0x06400 4080 "data/living5/boxdata BOX 7.bin" 1 -i 0x07400 4080 "data/living5/boxdata BOX 8.bin" 1 -i 0x08400 4080 "data/living5/boxdata BOX 9.bin" 1 -i 0x09400 4080 "data/living5/boxdata BOX 10.bin" 1 -i 0x0A400 4080 "data/living5/boxdata BOX 11.bin" 1 -i 0x0B400 4080 "data/living5/boxdata BOX 12.bin" 1 -i 0x0C400 4080 "data/living5/boxdata BOX 13.bin" 1 -i 0x0D400 4080 "data/living5/boxdata BOX 14.bin" 1 -i 0x0E400 4080 "data/living5/boxdata BOX 15.bin" 1 -i 0x0F400 4080 "data/living5/boxdata BOX 16.bin" 1 -i 0x10400 4080 "data/living5/boxdata BOX 17.bin" 1 -i 0x11400 4080 "data/living5/boxdata BOX 18.bin" 1 -i 0x12400 4080 "data/living5/boxdata BOX 19.bin" 1 -i 0x13400 4080 "data/living5/boxdata BOX 20.bin" 1 -i 0x14400 4080 "data/living5/boxdata BOX 21.bin" 1 -i 0x15400 4080 "data/living5/boxdata BOX 22.bin" 1 -i 0x16400 4080 "data/living5/boxdata BOX 23.bin" 1 -i 0x17400 4080 "data/living5/boxdata BOX 24.bin" 1 
+@py -3 PKSMScript.py "Set max Battle Points" -i 0x21B00 2 9999 1
 
 @mkdir b2w2
 @cp *.pksm b2w2
@@ -137,27 +162,28 @@
 @py -3 PKSMScript.py "Clear Mystery Gift data" -i 0x1C800 1 0x0 2704
 @py -3 PKSMScript.py "Set max money" -i 0x21200 4 9999999 1
 @py -3 PKSMScript.py "Inject living dex" -i 0x00400 4080 "data/living5/boxdata BOX 1.bin" 1 -i 0x01400 4080 "data/living5/boxdata BOX 2.bin" 1 -i 0x02400 4080 "data/living5/boxdata BOX 3.bin" 1 -i 0x03400 4080 "data/living5/boxdata BOX 4.bin" 1 -i 0x04400 4080 "data/living5/boxdata BOX 5.bin" 1 -i 0x05400 4080 "data/living5/boxdata BOX 6.bin" 1 -i 0x06400 4080 "data/living5/boxdata BOX 7.bin" 1 -i 0x07400 4080 "data/living5/boxdata BOX 8.bin" 1 -i 0x08400 4080 "data/living5/boxdata BOX 9.bin" 1 -i 0x09400 4080 "data/living5/boxdata BOX 10.bin" 1 -i 0x0A400 4080 "data/living5/boxdata BOX 11.bin" 1 -i 0x0B400 4080 "data/living5/boxdata BOX 12.bin" 1 -i 0x0C400 4080 "data/living5/boxdata BOX 13.bin" 1 -i 0x0D400 4080 "data/living5/boxdata BOX 14.bin" 1 -i 0x0E400 4080 "data/living5/boxdata BOX 15.bin" 1 -i 0x0F400 4080 "data/living5/boxdata BOX 16.bin" 1 -i 0x10400 4080 "data/living5/boxdata BOX 17.bin" 1 -i 0x11400 4080 "data/living5/boxdata BOX 18.bin" 1 -i 0x12400 4080 "data/living5/boxdata BOX 19.bin" 1 -i 0x13400 4080 "data/living5/boxdata BOX 20.bin" 1 -i 0x14400 4080 "data/living5/boxdata BOX 21.bin" 1 -i 0x15400 4080 "data/living5/boxdata BOX 22.bin" 1 -i 0x16400 4080 "data/living5/boxdata BOX 23.bin" 1 -i 0x17400 4080 "data/living5/boxdata BOX 24.bin" 1 
+@py -3 PKSMScript.py "Set max Battle Points" -i 0x21D00 2 9999 1
 
 @mkdir bw
 @cp *.pksm bw
 @del *.pksm
 
 @rem HGSS SCRIPTS
-@rem @py -3 PKSMScript.py "Clear Mystery Gift data (experimental)" -i 0x9D3C 1 0x0 2336 -i 0x49D3C 1 0x0 2336
+@py -3 PKSMScript.py "Clear Mystery Gift data" -i 0x9D3C 1 0x0 2336
 
 @mkdir hgss
 @cp *.pksm hgss
 @del *.pksm
 
 @rem PT SCRIPTS
-@rem @py -3 PKSMScript.py "Clear Mystery Gift data (experimental)" -i 0xB4C0 1 0x0 2336 -i 0x4B4C0 1 0x0 2336
+@py -3 PKSMScript.py "Clear Mystery Gift data" -i 0xB4C0 1 0x0 2336
 
 @mkdir pt
 @cp *.pksm pt
 @del *.pksm
 
 @rem DP SCRIPTS
-@rem @py -3 PKSMScript.py "Clear Mystery Gift data (experimental)" -i 0xA7D0 1 0x0 2124 -i 0x4A7D0 1 0x0 2124
+@py -3 PKSMScript.py "Clear Mystery Gift data" -i 0xA7D0 1 0x0 2124
 
 @mkdir dp
 @cp *.pksm dp
