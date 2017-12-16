@@ -84,6 +84,7 @@
 @py -3 PKSMScript.py "Set max Camera Shots" -i 0x65004 4 9999999 1
 @py -3 PKSMScript.py "Set max Thumbs Up" -i 0x6500C 4 9999999 1
 @py -3 PKSMScript.py "Set max Camera Version" -i 0x65000 2 4 1
+@py -3 PKSMScript.py "Set all Zygarde Cells (cores not included)" -i 0x1D42 1 95 1 -i 0x1D52 1 95 1 -i 0x1D8C 2 512 95
 
 @py -3 PKSMScript.py "Set Vivillon Icy Snow form form" -i 0x4130 1 0 1
 @py -3 PKSMScript.py "Set Vivillon Polar form" -i 0x4130 1 1 1
@@ -170,6 +171,7 @@
 
 @rem HGSS SCRIPTS
 @py -3 PKSMScript.py "Clear Mystery Gift data" -i 0x9D3C 1 0x0 2336
+@py -3 PKSMScript.py "Max money held by mother" -i 0xC0D8 2 999999 1
 
 @mkdir hgss
 @cp *.pksm hgss
