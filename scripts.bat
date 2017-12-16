@@ -125,6 +125,7 @@
 @py -3 PKSMScript.py "Set max Battle Points" -i 0x4230 2 9999 1
 @py -3 PKSMScript.py "Set max Current Pokemiles" -i 0x1F4FC 4 9999999 1
 @py -3 PKSMScript.py "Unlock & max all O-Powers" -i 0x17400 68 "data/ORAS_OPower.bin" 1
+@py -3 PKSMScript.py "Reset all legendaries" -i 0x14d11 1 0x0F 1 -i 0x14d12 1 0x00 1 -i 0x14d13 1 0x06 1 -i 0x14d16 1 0xDC 1 -i 0x14d1b 1 0xEF 1 -i 0x14d1c 1 0xEB 1 -i 0x14d30 1 0x22 1 -i 0x14d4c 1 0x61 1 -i 0x14d4d 1 0x7E 1 -i 0x14d71 1 0xF7 1 -i 0x14d72 1 0x8C 1 -i 0x14d73 1 0x8F 1 -i 0x14e5b 1 0x00 1 -i 0x14e5c 1 0x00 1 -i 0x14e5d 1 0x00 1 -i 0x14e5e 1 0x00 1 -i 0x14e5f 1 0x00 1 -i 0x14e68 1 0x17 1
 
 @mkdir oras
 @cp *.pksm oras
@@ -186,6 +187,10 @@
 
 @rem DP SCRIPTS
 @py -3 PKSMScript.py "Clear Mystery Gift data" -i 0xA7D0 1 0x0 2124
+@py -3 PKSMScript.py "Set max money" -i 0x78 4 999999 1
+@py -3 PKSMScript.py "Set max Battle Points" -i 0x65F8 2 9999 1
+@py -3 PKSMScript.py "Set max Underground Flags" -i 0x3A60 4 999999 1
+@py -3 PKSMScript.py "Get all Pokewatch apps" -i 0x114D 1 25 1 -i 0x114F 1 1 25 -i 0x1170 1 1 1
 
 @mkdir dp
 @cp *.pksm dp
