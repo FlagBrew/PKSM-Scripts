@@ -84,6 +84,11 @@
 @py -3 PKSMScript.py "Set max Thumbs Up" -i 0x6500C 4 9999999 1
 @py -3 PKSMScript.py "Set max Camera Version" -i 0x65000 2 4 1
 @py -3 PKSMScript.py "Set all Zygarde Cells (cores not included)" -i 0x1D42 1 95 1 -i 0x1D52 1 95 1 -i 0x1D8C 2 512 95
+@py -3 PKSMScript.py "All Items 99x" -i 0x0 1340 "data/SM_AllItems.bin" 1
+@py -3 PKSMScript.py "All Berries 99x" -i 0xC47 268 "data/SM_AllBerries.bin" 1
+@py -3 PKSMScript.py "All Medicine 99x" -i 0xB48 216 "data/SM_AllMedicines.bin" 1
+@py -3 PKSMScript.py "All TMs Owned" -i 0x998 400 "data/SM_AllTM.bin" 1
+@py -3 PKSMScript.py "All Z-Crystals Owned" -i 0xD68 116 "data/SM_AllZCrystals.bin" 1
 
 @py -3 PKSMScript.py "Set Vivillon Icy Snow form form" -i 0x4130 1 0 1
 @py -3 PKSMScript.py "Set Vivillon Polar form" -i 0x4130 1 1 1
