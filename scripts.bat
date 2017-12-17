@@ -63,8 +63,7 @@
 @py -3 PKSMScript.py "Set Vivillon Pokeball form" -i 0x4530 1 19 1
 
 @mkdir usum
-@cp *.pksm usum
-@del *.pksm
+@move /Y *.pksm usum
 
 @rem SM SCRIPTS
 @py -3 PKSMScript.py "Save language to JPN" -i 0x1235 1 0x1 1
@@ -108,8 +107,7 @@
 @py -3 PKSMScript.py "Set Vivillon Pokeball form" -i 0x4130 1 19 1
 
 @mkdir sm
-@cp *.pksm sm
-@del *.pksm
+@move /Y *.pksm sm
 
 @rem ORAS SCRIPTS
 @py -3 PKSMScript.py "Save language to JPN" -i 0x1402D 1 0x1 1
@@ -129,8 +127,7 @@
 @py -3 PKSMScript.py "Reset Delta Episode" -i 0x483f 1 0x12 1 -i 0x14d17 1 0xc0 1 -i 0x14d30 1 0x23 1 -i 0x14d35 1 0x06 1 -i 0x14d3f 1 0xff 1 -i 0x14d47 1 0xef 1 -i 0x14d51 1 0xfd 1 -i 0x14d54 1 0xf8 1 -i 0x14d55 1 0xf0 1 -i 0x14d56 1 0xcb 1 -i 0x14d59 1 0x80 1 -i 0x14d5a 1 0x8d 1 -i 0x14d5b 1 0xff 1 -i 0x14d6a 1 0xf7 1 -i 0x14d6e 1 0xff 1 -i 0x14d6f 1 0xd7 1 -i 0x14d70 1 0x8a 1 -i 0x14d73 1 0x8d 1 -i 0x14e45 1 0xfc 1 -i 0x14e51 1 0x01 1 -i 0x14e59 1 0x7f 1 -i 0x14e5f 1 0x04 1 -i 0x14e65 1 0x3e 1 -i 0x14e69 1 0x99 1
 
 @mkdir oras
-@cp *.pksm oras
-@del *.pksm
+@move /Y *.pksm oras
 
 @rem XY SCRIPTS
 @py -3 PKSMScript.py "Save language to JPN" -i 0x1402D 1 0x1 1
@@ -150,8 +147,7 @@
 @py -3 PKSMScript.py "Reset Legendary Birds" -i 0x483f 1 0x1b 1 -i 0x14bcc 1 0x01 1
 
 @mkdir xy
-@cp *.pksm xy
-@del *.pksm
+@move /Y *.pksm xy
 
 @rem B2W2 SCRIPTS
 @py -3 PKSMScript.py "Clear Mystery Gift data" -i 0x1C800 1 0x0 2704
@@ -160,8 +156,7 @@
 @py -3 PKSMScript.py "Set max Battle Points" -i 0x21B00 2 9999 1
 
 @mkdir b2w2
-@cp *.pksm b2w2
-@del *.pksm
+@move /Y *.pksm b2w2
 
 @rem BW SCRIPTS
 @py -3 PKSMScript.py "Clear Mystery Gift data" -i 0x1C800 1 0x0 2704
@@ -170,23 +165,20 @@
 @py -3 PKSMScript.py "Set max Battle Points" -i 0x21D00 2 9999 1
 
 @mkdir bw
-@cp *.pksm bw
-@del *.pksm
+@move /Y *.pksm bw
 
 @rem HGSS SCRIPTS
 @py -3 PKSMScript.py "Clear Mystery Gift data" -i 0x9D3C 1 0x0 2336
-@py -3 PKSMScript.py "Max money held by mother" -i 0xC0D8 2 999999 1
+@py -3 PKSMScript.py "Max money held by mother" -i 0xC0D8 4 999999 1
 
 @mkdir hgss
-@cp *.pksm hgss
-@del *.pksm
+@move /Y *.pksm hgss
 
 @rem PT SCRIPTS
 @py -3 PKSMScript.py "Clear Mystery Gift data" -i 0xB4C0 1 0x0 2336
 
 @mkdir pt
-@cp *.pksm pt
-@del *.pksm
+@move /Y *.pksm pt
 
 @rem DP SCRIPTS
 @py -3 PKSMScript.py "Clear Mystery Gift data" -i 0xA7D0 1 0x0 2124
@@ -194,12 +186,16 @@
 @py -3 PKSMScript.py "Set max Battle Points" -i 0x65F8 2 9999 1
 @py -3 PKSMScript.py "Set max Underground Flags" -i 0x3A60 4 999999 1
 @py -3 PKSMScript.py "Get all Pokewatch apps" -i 0x114D 1 25 1 -i 0x114F 1 1 25 -i 0x1170 1 1 1
-@py -3 PKSMScript.py "Give all items 99x" -i 0x620 643 "data/DP_AllItems.bin" 1
 @py -3 PKSMScript.py "Set all legendaries battlable" -i 0x0e08 1 0x08 1 -i 0x0e09 1 0x02 1 -i 0x0e0a 1 0x29 1 -i 0x0e0b 1 0x02 1 -i 0x0e0c 1 0x12 1 -i 0x0e0d 1 0x03 1 -i 0x0e0e 1 0x28 1 -i 0x0e0f 1 0x10 1 -i 0x0e22 1 0x09 1 -i 0x0e23 1 0x12 1 -i 0x0e24 1 0x12 1 -i 0x0e25 1 0x11 1 -i 0x0e26 1 0x23 1 -i 0x0e27 1 0x11 1 -i 0x0ecc 1 0x05 1 -i 0x0ed8 1 0x01 1 -i 0x0fff 1 0x8C 1 -i 0x1000 1 0xEA 1 -i 0x1001 1 0x10 1 -i 0x1002 1 0x08 1 -i 0x1003 1 0x50 1 -i 0x101b 1 0x7F 1 -i 0x101b 1 0xDF 1 -i 0x101b 1 0xBF 1 -i 0x101b 1 0x1F 1 -i 0x1027 1 0x10 1 -i 0x1028 1 0x00 1 -i 0x1029 1 0xD0 1 -i 0x1029 1 0xB0 1 -i 0x1029 1 0x70 1 -i 0x1029 1 0xE0 1 -i 0x1029 1 0x00 1 -i 0x102b 1 0x93 1
 @py -3 PKSMScript.py "Set all legendaries disappeared" -i 0x0e08 1 0x00 1 -i 0x0e09 1 0x00 1 -i 0x0e0a 1 0x00 1 -i 0x0e0b 1 0x00 1 -i 0x0e0c 1 0x00 1 -i 0x0e0d 1 0x00 1 -i 0x0e0e 1 0x00 1 -i 0x0e0f 1 0x00 1 -i 0x0e22 1 0x00 1 -i 0x0e23 1 0x00 1 -i 0x0e24 1 0x00 1 -i 0x0e25 1 0x00 1 -i 0x0e26 1 0x00 1 -i 0x0e27 1 0x00 1 -i 0x0ecc 1 0x04 1 -i 0x0ed8 1 0x02 1 -i 0x0fff 1 0xCC 1 -i 0x1000 1 0xEB 1 -i 0x1001 1 0x30 1 -i 0x1002 1 0x00 1 -i 0x1003 1 0x40 1 -i 0x101b 1 0xFF 1 -i 0x1027 1 0x50 1 -i 0x1028 1 0x02 1 -i 0x1029 1 0xF0 1 -i 0x102b 1 0x97 1
 @py -3 PKSMScript.py "Reset Darkrai" -i 0x1027 1 0x50 1 -i 0x0e22 1 0x09 1 -i 0x0e23 1 0x12 1
 @py -3 PKSMScript.py "Reset Palkia" -i 0x0ecc 1 0x05 1
+@py -3 PKSMScript.py "Give all items 99x" -i 0x623 644 "data/DP_AllItems.bin" 1
+@py -3 PKSMScript.py "Give all medicines 99x" -i 0xB40 152 "data/DP_AllMedicines.bin" 1
+@py -3 PKSMScript.py "Give all battle items 99x" -i 0xD1C 52 "data/DP_AllBattleItems.bin" 1
+@py -3 PKSMScript.py "Give all berries 99x" -i 0xBE0 256 "data/DP_AllBerries.bin" 1
+@py -3 PKSMScript.py "Give all TM&HM 99x" -i 0x980 400 "data/DP_AllTMHM.bin" 1
+@py -3 PKSMScript.py "Give all pokeballs 99x" -i 0xCE0 60 "data/DP_AllPokeballs.bin" 1
 
 @mkdir dp
-@cp *.pksm dp
-@del *.pksm
+@move /Y *.pksm dp
