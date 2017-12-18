@@ -175,6 +175,15 @@
 @rem HGSS SCRIPTS
 @py -3 PKSMScript.py "Clear Mystery Gift data" -i 0x9D3C 1 0x0 2336
 @py -3 PKSMScript.py "Max money held by mother" -i 0xC0D8 4 999999 1
+@py -3 PKSMScript.py "Set max money" -i 0x78 4 999999 1
+@py -3 PKSMScript.py "Set max Battle Points" -i 0x5BB8 2 9999 1
+@py -3 PKSMScript.py "Give all items 99x" -i 0x644 648 "data\HGSS_AllItems.bin" 1
+@py -3 PKSMScript.py "Give all medicines 99x" -i 0xB64 152 "data\HGSS_AllMedicines.bin" 1
+@py -3 PKSMScript.py "Give all battle items 99x" -i 0xD64 52 "data\HGSS_AllBattleItems.bin" 1
+@py -3 PKSMScript.py "Give all berries 99x" -i 0xC04 256 "data\HGSS_AllBerries.bin" 1
+@py -3 PKSMScript.py "Give all TM&HM 99x" -i 0x9A0 400 "data\HGSS_AllTMHM.bin" 1
+@py -3 PKSMScript.py "Give all pokeballs 99x" -i 0xD04 96 "data\HGSS_AllPokeballs.bin" 1
+@py -3 PKSMScript.py "Give all Apricorns 99x" -i 0xE558 1 99 7
 
 @mkdir hgss
 @move /Y *.pksm hgss
