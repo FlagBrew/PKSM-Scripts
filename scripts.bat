@@ -150,6 +150,10 @@
 @py -3 PKSMScript.py "Set max Current Pokemiles" -i 0x1E4FC 4 9999999 1
 @py -3 PKSMScript.py "Reset Mewtwo and Zygarde" -i 0x14d74 1 0x01 1 -i 0x14d5e 1 0x1f 1 -i 0x14d0a 1 0x80 1
 @py -3 PKSMScript.py "Reset Legendary Birds" -i 0x483f 1 0x1b 1 -i 0x14bcc 1 0x01 1
+@py -3 PKSMScript.py "Give all berries 99x" -i 0xE68 268 "data\XY_AllBerries.bin" 1
+@py -3 PKSMScript.py "Give all items 99x" -i 0x400 1156 "data\XY_AllItems.bin" 1
+@py -3 PKSMScript.py "Give all medicines 99x" -i 0xD68 204 "data\XY_AllMedicines.bin" 1
+@py -3 PKSMScript.py "All TMs and HMs owned" -i 0xBC0 420 "data\XY_AllTMHM.bin" 1
 
 @mkdir xy
 @move /Y *.pksm xy
