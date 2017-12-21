@@ -192,6 +192,7 @@
 @py -3 PKSMScript.py "Give all TM&HM 99x" -i 0x9A0 400 "data\HGSS_AllTMHM.bin" 1
 @py -3 PKSMScript.py "Give all pokeballs 99x" -i 0xD04 96 "data\HGSS_AllPokeballs.bin" 1
 @py -3 PKSMScript.py "Give all Apricorns 99x" -i 0xE558 1 99 7
+@py -3 PKSMScript.py "Unlock all Pokewalker Courses" -i 0xE70C 1 0xFF 3 -i 0xE70F 1 0x7F 1
 
 @mkdir hgss
 @move /Y *.pksm hgss
