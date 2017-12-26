@@ -193,6 +193,8 @@
 @py -3 PKSMScript.py "Give all pokeballs 99x" -i 0xD04 96 "data\HGSS_AllPokeballs.bin" 1
 @py -3 PKSMScript.py "Give all Apricorns 99x" -i 0xE558 1 99 7
 @py -3 PKSMScript.py "Unlock all Pokewalker Courses" -i 0xE70C 1 0xFF 3 -i 0xE70F 1 0x7F 1
+@py -3 PKSMScript.py "Reset Legendary Beasts" -i 0xf26 1 0x00 1 -i 0x10fd 1 0xb1 1
+@py -3 PKSMScript.py "Reset Articuno Moltres and Mewtwo" -i 0x1124 1 0x0f 1
 
 @mkdir hgss
 @move /Y *.pksm hgss
