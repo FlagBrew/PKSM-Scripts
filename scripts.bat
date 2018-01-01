@@ -90,7 +90,7 @@
 @py -3 PKSMScript.py "All TMs Owned" -i 0x998 400 "data/SM_AllTM.bin" 1
 @py -3 PKSMScript.py "All Z-Crystals Owned" -i 0xD68 116 "data/SM_AllZCrystals.bin" 1
 
-@py -3 PKSMScript.py "Set Vivillon Icy Snow form form" -i 0x4130 1 0 1
+@py -3 PKSMScript.py "Set Vivillon Icy Snow form" -i 0x4130 1 0 1
 @py -3 PKSMScript.py "Set Vivillon Polar form" -i 0x4130 1 1 1
 @py -3 PKSMScript.py "Set Vivillon Tundra form" -i 0x4130 1 2 1
 @py -3 PKSMScript.py "Set Vivillon Continental form" -i 0x4130 1 3 1
@@ -135,6 +135,27 @@
 @py -3 PKSMScript.py "Give all medicines 99x" -i 0xD70 216 "data\ORAS_AllMedicines.bin" 1
 @py -3 PKSMScript.py "All TMs and HMs owned" -i 0xBC0 428 "data\ORAS_AllTMHM.bin" 1
 
+@py -3 PKSMScript.py "Set Vivillon Icy Snow form" -i 0x4244 1 0 1
+@py -3 PKSMScript.py "Set Vivillon Polar form" -i 0x4244 1 1 1
+@py -3 PKSMScript.py "Set Vivillon Tundra form" -i 0x4244 1 2 1
+@py -3 PKSMScript.py "Set Vivillon Continental form" -i 0x4244 1 3 1
+@py -3 PKSMScript.py "Set Vivillon Garden form" -i 0x4244 1 4 1
+@py -3 PKSMScript.py "Set Vivillon Elegant form" -i 0x4244 1 5 1
+@py -3 PKSMScript.py "Set Vivillon Meadow form" -i 0x4244 1 6 1
+@py -3 PKSMScript.py "Set Vivillon Modern form" -i 0x4244 1 7 1
+@py -3 PKSMScript.py "Set Vivillon Marine form" -i 0x4244 1 8 1
+@py -3 PKSMScript.py "Set Vivillon Archipelago form" -i 0x4244 1 9 1
+@py -3 PKSMScript.py "Set Vivillon High-Plains form" -i 0x4244 1 10 1
+@py -3 PKSMScript.py "Set Vivillon Sandstorm form" -i 0x4244 1 11 1
+@py -3 PKSMScript.py "Set Vivillon River form" -i 0x4244 1 12 1
+@py -3 PKSMScript.py "Set Vivillon Monsoon form" -i 0x4244 1 13 1
+@py -3 PKSMScript.py "Set Vivillon Savannah form" -i 0x4244 1 14 1
+@py -3 PKSMScript.py "Set Vivillon Sun form" -i 0x4244 1 15 1
+@py -3 PKSMScript.py "Set Vivillon Ocean form" -i 0x4244 1 16 1
+@py -3 PKSMScript.py "Set Vivillon Jungle form" -i 0x4244 1 17 1
+@py -3 PKSMScript.py "Set Vivillon Fancy form" -i 0x4244 1 18 1
+@py -3 PKSMScript.py "Set Vivillon Pokeball form" -i 0x4244 1 19 1
+
 @mkdir oras
 @move /Y *.pksm oras
 
@@ -158,6 +179,27 @@
 @py -3 PKSMScript.py "Give all items 99x" -i 0x400 1156 "data\XY_AllItems.bin" 1
 @py -3 PKSMScript.py "Give all medicines 99x" -i 0xD68 204 "data\XY_AllMedicines.bin" 1
 @py -3 PKSMScript.py "All TMs and HMs owned" -i 0xBC0 420 "data\XY_AllTMHM.bin" 1
+
+@py -3 PKSMScript.py "Set Vivillon Icy Snow form" -i 0x4250 1 0 1
+@py -3 PKSMScript.py "Set Vivillon Polar form" -i 0x4250 1 1 1
+@py -3 PKSMScript.py "Set Vivillon Tundra form" -i 0x4250 1 2 1
+@py -3 PKSMScript.py "Set Vivillon Continental form" -i 0x4250 1 3 1
+@py -3 PKSMScript.py "Set Vivillon Garden form" -i 0x4250 1 4 1
+@py -3 PKSMScript.py "Set Vivillon Elegant form" -i 0x4250 1 5 1
+@py -3 PKSMScript.py "Set Vivillon Meadow form" -i 0x4250 1 6 1
+@py -3 PKSMScript.py "Set Vivillon Modern form" -i 0x4250 1 7 1
+@py -3 PKSMScript.py "Set Vivillon Marine form" -i 0x4250 1 8 1
+@py -3 PKSMScript.py "Set Vivillon Archipelago form" -i 0x4250 1 9 1
+@py -3 PKSMScript.py "Set Vivillon High-Plains form" -i 0x4250 1 10 1
+@py -3 PKSMScript.py "Set Vivillon Sandstorm form" -i 0x4250 1 11 1
+@py -3 PKSMScript.py "Set Vivillon River form" -i 0x4250 1 12 1
+@py -3 PKSMScript.py "Set Vivillon Monsoon form" -i 0x4250 1 13 1
+@py -3 PKSMScript.py "Set Vivillon Savannah form" -i 0x4250 1 14 1
+@py -3 PKSMScript.py "Set Vivillon Sun form" -i 0x4250 1 15 1
+@py -3 PKSMScript.py "Set Vivillon Ocean form" -i 0x4250 1 16 1
+@py -3 PKSMScript.py "Set Vivillon Jungle form" -i 0x4250 1 17 1
+@py -3 PKSMScript.py "Set Vivillon Fancy form" -i 0x4250 1 18 1
+@py -3 PKSMScript.py "Set Vivillon Pokeball form" -i 0x4250 1 19 1
 
 @mkdir xy
 @move /Y *.pksm xy
