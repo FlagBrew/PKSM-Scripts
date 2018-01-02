@@ -9,7 +9,7 @@
 @py -3 PKSMScript.py "Save language to CHS" -i 0x1435 1 0x9 1
 @py -3 PKSMScript.py "Save language to CHT" -i 0x1435 1 0xA 1
 @py -3 PKSMScript.py "Clear Mystery Gift data" -i 0x66200 1 0x0 12928
-@py -3 PKSMScript.py "Set max money" -i 0x4400 4 9999999 1
+@py -3 PKSMScript.py "Set max money" -i 0x4404 4 9999999 1
 @py -3 PKSMScript.py "Inject living dex" -i 0x5200 186992 "data/living7.bin" 1
 @py -3 PKSMScript.py "Set max Battle Points" -i 0x0451C 4 9999 1
 @py -3 PKSMScript.py "Set max Festival Coins" -i 0x51308 4 9999999 1
@@ -76,7 +76,7 @@
 @py -3 PKSMScript.py "Save language to CHS" -i 0x1235 1 0x9 1
 @py -3 PKSMScript.py "Save language to CHT" -i 0x1235 1 0xA 1
 @py -3 PKSMScript.py "Clear Mystery Gift data" -i 0x65C00 1 0x0 12928
-@py -3 PKSMScript.py "Set max money" -i 0x4000 4 9999999 1
+@py -3 PKSMScript.py "Set max money" -i 0x4004 4 9999999 1
 @py -3 PKSMScript.py "Inject living dex" -i 0x4E00 186064 "data/living7.bin" 1
 @py -3 PKSMScript.py "Set max Battle Points" -i 0x0411C 4 9999 1
 @py -3 PKSMScript.py "Set max Festival Coins" -i 0x50D08 4 9999999 1
