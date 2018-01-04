@@ -257,6 +257,7 @@
 @py -3 PKSMScript.py "Give all pokeballs 99x" -i 0xCEC 60 "data/DPPt_AllPokeballs.bin" 1
 @py -3 PKSMScript.py "Set 32 people met Underground" -i 0x3cb4 2 32 1
 @py -3 PKSMScript.py "Set max Game Corner coins" -i 0x88 2 50000 1
+@py -3 PKSMScript.py "Get all Pokewatch apps" -i 0x1161 1 25 1 -i 0x1163 1 1 25 -i 0x1184 1 1 1
 
 @mkdir pt
 @move /Y *.pksm pt
