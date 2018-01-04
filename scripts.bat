@@ -239,6 +239,7 @@
 @py -3 PKSMScript.py "Unlock all Pokewalker Courses" -i 0xE70C 1 0xFF 3 -i 0xE70F 1 0x07 1
 @py -3 PKSMScript.py "Reset Legendary Beasts" -i 0xf26 1 0x00 1 -i 0x10fd 1 0xb1 1
 @py -3 PKSMScript.py "Reset Articuno Moltres and Mewtwo" -i 0x1124 1 0x0f 1
+@py -3 PKSMScript.py "Set max Game Corner coins" -i 0x84 2 50000 1
 
 @mkdir hgss
 @move /Y *.pksm hgss
@@ -254,6 +255,8 @@
 @py -3 PKSMScript.py "Give all berries 99x" -i 0xBEC 256 "data/DPPt_AllBerries.bin" 1
 @py -3 PKSMScript.py "Give all TM&HM 99x" -i 0x98C 400 "data/DPPt_AllTMHM.bin" 1
 @py -3 PKSMScript.py "Give all pokeballs 99x" -i 0xCEC 60 "data/DPPt_AllPokeballs.bin" 1
+@py -3 PKSMScript.py "Set 32 people met Underground" -i 0x3cb4 2 32 1
+@py -3 PKSMScript.py "Set max Game Corner coins" -i 0x88 2 50000 1
 
 @mkdir pt
 @move /Y *.pksm pt
@@ -274,6 +277,8 @@
 @py -3 PKSMScript.py "Give all berries 99x" -i 0xBE0 256 "data/DPPt_AllBerries.bin" 1
 @py -3 PKSMScript.py "Give all TM&HM 99x" -i 0x980 400 "data/DPPt_AllTMHM.bin" 1
 @py -3 PKSMScript.py "Give all pokeballs 99x" -i 0xCE0 60 "data/DPPt_AllPokeballs.bin" 1
+@py -3 PKSMScript.py "Set 32 people met Underground" -i 0x3a2c 2 32 1
+@py -3 PKSMScript.py "Set max Game Corner coins" -i 0x84 2 50000 1
 
 @mkdir dp
 @move /Y *.pksm dp
