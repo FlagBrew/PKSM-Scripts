@@ -20,6 +20,13 @@
 @py -3 PKSMScript.py "Set Moon time" -i 0x4a48 8 43200 1
 @py -3 PKSMScript.py "Set Sun time" -i 0x4a48 8 86400 1
 
+@py -3 PKSMScript.py "All Rotom Powers 99x" -i 0xDFC 44 "data\USUM_AllRotomPowers.bin" 1
+@py -3 PKSMScript.py "All Berries 99x" -i 0xC64 268 "data\USUM_AllBerries.bin" 1
+@py -3 PKSMScript.py "All Items 99x" -i 0x0 1340 "data\USUM_AllItems.bin" 1
+@py -3 PKSMScript.py "All Medicines 99x" -i 0xB74 216 "data\USUM_AllMedicine.bin" 1
+@py -3 PKSMScript.py "All TMs Owned" -i 0x9C4 400 "data\USUM_AllTM.bin" 1
+@py -3 PKSMScript.py "All Z-Crystals Owned" -i 0xD70 140 "data\USUM_AllZCrystals.bin" 1
+
 @py -3 PKSMScript.py "Reset Cosmog" -i 0x2688 1 167 1
 @py -3 PKSMScript.py "Reset Aerodactyl" -i 0x260f 1 32 1
 @py -3 PKSMScript.py "Reset Porygon" -i 0x260d 1 16 1
