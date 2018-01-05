@@ -29,7 +29,6 @@ def main(args):
 		length = int(arglength, 0)
 		
 		try:
-			int (argpayload, 0)
 			payload = int(argpayload, 0).to_bytes(length, byteorder = 'little')
 		except ValueError as e:
 			with open(argpayload, 'rb') as f:
