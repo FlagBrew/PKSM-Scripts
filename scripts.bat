@@ -228,6 +228,13 @@
 @py -3 PKSMScript.py "Reset Victini" -i 0x20222 1 0x02 1 -i 0x204ee 1 0xd2 1 -i 0x204ef 1 0x5b 1 -i 0x23f5a 1 0xd2 1 -i 0x23f5b 1 0x5b 1
 @py -3 PKSMScript.py "Reset Darmanitan" -i 0x203ce 1 0x7f 1 -i 0x203cf 1 0x30 1 -i 0x204ee 1 0x65 1 -i 0x204ef 1 0xa4 1 -i 0x23f5a 1 0x65 1 -i 0x23f5b 1 0xa4 1
 @py -3 PKSMScript.py "Reset Fossil Choice" -i 0x2038e 1 0x04 1 -i 0x204ee 1 0x17 1 -i 0x204ef 1 0xdd 1 -i 0x23f5a 1 0x17 1 -i 0x23f5b 1 0xdd 1
+@py -3 PKSMScript.py "Give all items 99x (illegal)" -i 0x18400 1044 "data\BW_AllItems_illegal.bin" 1
+@py -3 PKSMScript.py "Give all items 99x" -i 0x18400 976 "data\BW_AllItems.bin" 1
+@py -3 PKSMScript.py "All TMs and HMs owned (illegal)" -i 0x18a24 404 "data\BWB2W2_AllTMHM.bin" 1
+@py -3 PKSMScript.py "All TMs and HMs owned" -i 0x18a24 400 "data\BW_AllTMHM.bin" 1
+@py -3 PKSMScript.py "Give all medicine 99x" -i 0x18bd8 188 "data\BWB2W2_AllMedicine.bin" 1
+@py -3 PKSMScript.py "Give all berries 99x (illegal)" -i 0x18c98 256 "data\BWB2W2_AllBerries_illegal.bin" 1
+@py -3 PKSMScript.py "Give all berries 99x" -i 0x18c98 248 "data\BWB2W2_AllBerries.bin" 1
 
 @mkdir bw
 @move /Y *.pksm bw
