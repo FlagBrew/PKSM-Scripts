@@ -13,6 +13,7 @@
 @py -3 PKSMScript.py "Inject living dex" -i 0x5200 186992 "data/living7.bin" 1
 @py -3 PKSMScript.py "Set max Battle Points" -i 0x0451C 4 9999 1
 @py -3 PKSMScript.py "Set max Festival Coins" -i 0x51308 4 9999999 1
+@py -3 PKSMScript.py "Set Island Points to 100" -i 0x6BE03 4 100 1
 @py -3 PKSMScript.py "Set 100 hatched eggs" -i 0x6A220 4 100 1
 @py -3 PKSMScript.py "Set max Camera Shots" -i 0x65604 4 9999999 1
 @py -3 PKSMScript.py "Set max Thumbs Up" -i 0x6560C 4 9999999 1
@@ -30,6 +31,7 @@
 @py -3 PKSMScript.py "Reset Cosmog" -i 0x2688 1 167 1
 @py -3 PKSMScript.py "Reset Aerodactyl" -i 0x260f 1 32 1
 @py -3 PKSMScript.py "Reset Porygon" -i 0x260d 1 16 1
+@py -3 PKSMScript.py "Reset Partner Cap Pikachu" -i 0x280A 1 84 1
 @py -3 PKSMScript.py "Reset Surfing Pikachu" -i 0x2610 1 0 1
 @py -3 PKSMScript.py "Reset Poipole" -i 0x25f1 1 95 1
 @py -3 PKSMScript.py "Reset Solgaleo and Lunala" -i 0x269b 1 0xd7 1
@@ -68,6 +70,16 @@
 @py -3 PKSMScript.py "Set Vivillon Jungle form" -i 0x4530 1 17 1
 @py -3 PKSMScript.py "Set Vivillon Fancy form" -i 0x4530 1 18 1
 @py -3 PKSMScript.py "Set Vivillon Pokeball form" -i 0x4530 1 19 1
+
+@py -3 PKSMScript.py "Set Battle Style Normal" -i 0x147A 1 0 1
+@py -3 PKSMScript.py "Set Battle Style Elegant" -i 0x147A 1 1 1
+@py -3 PKSMScript.py "Set Battle Style Girlish" -i 0x147A 1 2 1
+@py -3 PKSMScript.py "Set Battle Style Reverent" -i 0x147A 1 3 1
+@py -3 PKSMScript.py "Set Battle Style Smug" -i 0x147A 1 4 1
+@py -3 PKSMScript.py "Set Battle Style Left-Handed" -i 0x147A 1 5 1
+@py -3 PKSMScript.py "Set Battle Style Passionate" -i 0x147A 1 6 1
+@py -3 PKSMScript.py "Set Battle Style Idol" -i 0x147A 1 7 1
+@py -3 PKSMScript.py "Set Battle Style Nihilist" -i 0x147A 1 8 1
 
 @mkdir usum
 @move /Y *.pksm usum
@@ -304,3 +316,14 @@
 
 @mkdir dp
 @move /Y *.pksm dp
+
+@mkdir scripts
+@move /Y dp scripts
+@move /Y pt scripts
+@move /Y hgss scripts
+@move /Y bw scripts
+@move /Y b2w2 scripts
+@move /Y xy scripts
+@move /Y oras scripts
+@move /Y sm scripts
+@move /Y usum scripts
