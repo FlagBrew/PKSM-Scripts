@@ -49,6 +49,7 @@
 @py -3 PKSMScript.py "Reset Zekrom Landorus Kyurem Latias Latios Regirock Regice and Registeel" -i 0x27e7 1 0x00 1
 @py -3 PKSMScript.py "Reset Raikou Entei Suicune and Lugia" -i 0x27e4 1 0x0F 1
 @py -3 PKSMScript.py "Reset Magearna" -i 0x2687 1 223 1
+@py -3 PKSMScript.py "Reset Main Conflict" -i 0x1e88 1 0xcc 1 -i 0x1e89 1 0x06 1 -i 0x2130 1 0x02 1 -i 0x21ac 1 0xe8 1 -i 0x21ad 1 0xe4 1 -i 0x25f0 1 0x1c 1 -i 0x2802 1 0x09 1 -i 0x2652 1 0x7b 1 -i 0x2653 1 0x7c 1 -i 0x265e 1 0x7f 1 -i 0x265f 1 0x01 1 -i 0x268e 1 0xfd 1 -i 0x26a2 1 0x77 1 -i 0x26a7 1 0xf3 1
 
 @py -3 PKSMScript.py "Set Vivillon Icy Snow form" -i 0x4530 1 0 1
 @py -3 PKSMScript.py "Set Vivillon Polar form" -i 0x4530 1 1 1
