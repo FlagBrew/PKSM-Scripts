@@ -38,7 +38,8 @@
 @py -3 PKSMScript.py "Reset Necrozma" -i 0x2692 1 0x72 1
 @py -3 PKSMScript.py "Reset Tapu Bulu" -i 0x2164 1 0x01 1
 @py -3 PKSMScript.py "Reset Tapu Fini" -i 0x2128 1 0x03 1
-@py -3 PKSMScript.py "Reset Stakataka (Ultramoon)" -i 0x27f2 1 0x04 1
+@py -3 PKSMScript.py "Reset Stakataka" -i 0x27f2 1 0x04 1
+@py -3 PKSMScript.py "Reset Blacephalon" -i 0x27f2 1 0x08 1
 @py -3 PKSMScript.py "Reset Tapu Lele" -i 0x2162 1 0x01 1
 @py -3 PKSMScript.py "Reset Zygarde" -i 0x23e6 1 0x01 1
 @py -3 PKSMScript.py "Reset Groudon Kyogre and Rayquaza" -i 0x27e8 1 0x80 1
