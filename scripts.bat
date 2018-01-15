@@ -38,8 +38,6 @@
 @py -3 PKSMScript.py "Reset Necrozma" -i 0x2692 1 0x72 1
 @py -3 PKSMScript.py "Reset Tapu Bulu" -i 0x2164 1 0x01 1
 @py -3 PKSMScript.py "Reset Tapu Fini" -i 0x2128 1 0x03 1
-@py -3 PKSMScript.py "Reset Stakataka" -i 0x27f2 1 0x04 1
-@py -3 PKSMScript.py "Reset Blacephalon" -i 0x27f2 1 0x08 1
 @py -3 PKSMScript.py "Reset Tapu Lele" -i 0x2162 1 0x01 1
 @py -3 PKSMScript.py "Reset Zygarde" -i 0x23e6 1 0x01 1
 @py -3 PKSMScript.py "Reset Groudon Kyogre and Rayquaza" -i 0x27e8 1 0x80 1
@@ -83,6 +81,13 @@
 @py -3 PKSMScript.py "Set Battle Style Passionate" -i 0x147A 1 6 1
 @py -3 PKSMScript.py "Set Battle Style Idol" -i 0x147A 1 7 1
 @py -3 PKSMScript.py "Set Battle Style Nihilist" -i 0x147A 1 8 1
+@py -3 PKSMScript.py "Reset Stakataka" -i 0x27f2 1 0x04 1
+@py -3 PKSMScript.py "Reset Blacephalon" -i 0x27f2 1 0x08 1
+@py -3 PKSMScript.py "Remove Stakataka and Blacephalon" -i 0x27f2 1 0x00 1
+@py -3 PKSMScript.py "Reset Po Town Nuggets" -i 0x1e6e 1 0x04 1 -i 0x1ea6 1 0xcb 1 -i 0x2616 1 0x00 1 -i 0x2792 1 0x98 1 -i 0x281d 1 0x00 1
+@py -3 PKSMScript.py "Reset Nanu Event" -i 0x23e4 1 0x01 1 -i 0x2616 1 0x20 1 -i 0x26b4 1 0x40 1
+@py -3 PKSMScript.py "Reset Team Skull Pose Event" -i 0x1ea6 1 0xcc 1 -i 0x2410 1 0x02 1 -i 0x2617 1 0x80 1 -i 0x2792 1 0xd8 1
+@py -3 PKSMScript.py "Reset Janator Event" -i 0x1e00 1 0x00 1 -i 0x1e01 1 0x00 1 -i 0x1e7a 1 0x01 1 -i 0x1e7c 1 0x00 1 -i 0x25f9 1 0x08 1 -i 0x2606 1 0x02 1 -i 0x2682 1 0xc0 1
 
 @mkdir usum
 @move /Y *.pksm usum
