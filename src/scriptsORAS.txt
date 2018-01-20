@@ -1,0 +1,40 @@
+# Syntax: "Name of script" -i <offset> <length> <payload (integer or file path)> <repeat>
+"Save language to JPN" -i 0x1402D 1 0x1 1
+"Save language to ENG" -i 0x1402D 1 0x2 1
+"Save language to FRE" -i 0x1402D 1 0x3 1
+"Save language to ITA" -i 0x1402D 1 0x4 1
+"Save language to GER" -i 0x1402D 1 0x5 1
+"Save language to SPA" -i 0x1402D 1 0x7 1
+"Save language to KOR" -i 0x1402D 1 0x8 1
+"Clear Mystery Gift data" -i 0x1CC00 1 0x0 5692
+"Set max money" -i 0x4208 4 9999999 1
+"Inject living dex" -i 0x33000 186064 "data/living6.bin" 1
+"Set max Battle Points" -i 0x4230 2 9999 1
+"Set max Current Pokemiles" -i 0x1F4FC 4 9999999 1
+"Unlock & max all O-Powers" -i 0x17400 68 "data/ORAS_OPower.bin" 1
+"Reset all legendaries" -i 0x14d11 1 0x0F 1 -i 0x14d12 1 0x00 1 -i 0x14d13 1 0x06 1 -i 0x14d16 1 0xDC 1 -i 0x14d1b 1 0xEF 1 -i 0x14d1c 1 0xEB 1 -i 0x14d30 1 0x22 1 -i 0x14d4c 1 0x61 1 -i 0x14d4d 1 0x7E 1 -i 0x14d71 1 0xF7 1 -i 0x14d72 1 0x8C 1 -i 0x14d73 1 0x8F 1 -i 0x14e5b 1 0x00 1 -i 0x14e5c 1 0x00 1 -i 0x14e5d 1 0x00 1 -i 0x14e5e 1 0x00 1 -i 0x14e5f 1 0x00 1 -i 0x14e68 1 0x17 1
+"Reset Delta Episode" -i 0x483f 1 0x12 1 -i 0x14d17 1 0xc0 1 -i 0x14d30 1 0x23 1 -i 0x14d35 1 0x06 1 -i 0x14d3f 1 0xff 1 -i 0x14d47 1 0xef 1 -i 0x14d51 1 0xfd 1 -i 0x14d54 1 0xf8 1 -i 0x14d55 1 0xf0 1 -i 0x14d56 1 0xcb 1 -i 0x14d59 1 0x80 1 -i 0x14d5a 1 0x8d 1 -i 0x14d5b 1 0xff 1 -i 0x14d6a 1 0xf7 1 -i 0x14d6e 1 0xff 1 -i 0x14d6f 1 0xd7 1 -i 0x14d70 1 0x8a 1 -i 0x14d73 1 0x8d 1 -i 0x14e45 1 0xfc 1 -i 0x14e51 1 0x01 1 -i 0x14e59 1 0x7f 1 -i 0x14e5f 1 0x04 1 -i 0x14e65 1 0x3e 1 -i 0x14e69 1 0x99 1
+"Give all berries 99x" -i 0xE70 268 "data/ORAS_AllBerries.bin" 1
+"Give all items 99x" -i 0x400 1220 "data/ORAS_AllItems.bin" 1
+"Give all medicines 99x" -i 0xD70 216 "data/ORAS_AllMedicines.bin" 1
+"All TMs and HMs owned" -i 0xBC0 428 "data/ORAS_AllTMHM.bin" 1
+"Set Vivillon Icy Snow form" -i 0x4244 1 0 1
+"Set Vivillon Polar form" -i 0x4244 1 1 1
+"Set Vivillon Tundra form" -i 0x4244 1 2 1
+"Set Vivillon Continental form" -i 0x4244 1 3 1
+"Set Vivillon Garden form" -i 0x4244 1 4 1
+"Set Vivillon Elegant form" -i 0x4244 1 5 1
+"Set Vivillon Meadow form" -i 0x4244 1 6 1
+"Set Vivillon Modern form" -i 0x4244 1 7 1
+"Set Vivillon Marine form" -i 0x4244 1 8 1
+"Set Vivillon Archipelago form" -i 0x4244 1 9 1
+"Set Vivillon High-Plains form" -i 0x4244 1 10 1
+"Set Vivillon Sandstorm form" -i 0x4244 1 11 1
+"Set Vivillon River form" -i 0x4244 1 12 1
+"Set Vivillon Monsoon form" -i 0x4244 1 13 1
+"Set Vivillon Savannah form" -i 0x4244 1 14 1
+"Set Vivillon Sun form" -i 0x4244 1 15 1
+"Set Vivillon Ocean form" -i 0x4244 1 16 1
+"Set Vivillon Jungle form" -i 0x4244 1 17 1
+"Set Vivillon Fancy form" -i 0x4244 1 18 1
+"Set Vivillon Pokeball form" -i 0x4244 1 19 1
