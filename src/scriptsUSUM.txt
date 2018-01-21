@@ -26,6 +26,14 @@
 "All Medicines 99x" -i 0xB74 216 "data/USUM_AllMedicine.bin" 1
 "All TMs Owned" -i 0x9C4 400 "data/USUM_AllTM.bin" 1
 "All Z-Crystals Owned" -i 0xD70 140 "data/USUM_AllZCrystals.bin" 1
+"Items slot 1 - Beast Ball x999" -i 0x0 2 851 1 -i 0x2 2 999 1
+"Items slot 1 - Bottle Cap x999" -i 0x0 2 795 1 -i 0x2 2 999 1
+"Items slot 1 - Gold Bottle Cap x999" -i 0x0 2 796 1 -i 0x2 2 999 1
+"Items slot 1 - Heart Scale x999" -i 0x0 2 93 1 -i 0x2 2 999 1
+"Items slot 1 - Max Repel x999" -i 0x0 2 77 1 -i 0x2 2 999 1
+"Medicine slot 1 - PP Max x999" -i 0xB74 2 53 1 -i 0xB76 2 999 1
+"Medicine slot 1 - Rare Candy x999" -i 0xB74 2 50 1 -i 0xB76 2 999 1
+"Medicine slots 1-6 - stat vitamins x999" -i 0xB74 2 45 1 -i 0xB76 2 999 1 -i 0xB78 2 46 1 -i 0xB7A 2 999 1 -i 0xB7C 2 47 1 -i 0xB7E 2 999 1 -i 0xB80 2 48 1 -i 0xB82 2 999 1 -i 0xB84 2 49 1 -i 0xB86 2 999 1 -i 0xB88 2 52 1 -i 0xB8A 2 999 1
 "Reset Cosmog" -i 0x2688 1 167 1
 "Reset Aerodactyl" -i 0x260f 1 32 1
 "Reset Porygon" -i 0x260d 1 16 1

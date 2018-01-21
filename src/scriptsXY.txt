@@ -18,6 +18,11 @@
 "Give all items 99x" -i 0x400 1156 "data/XY_AllItems.bin" 1
 "Give all medicines 99x" -i 0xD68 204 "data/XY_AllMedicines.bin" 1
 "All TMs and HMs owned" -i 0xBC0 420 "data/XY_AllTMHM.bin" 1
+"Items slot 1 - Heart Scale x999" -i 0x400 2 93 1 -i 0x402 2 999 1
+"Items slot 1 - Max Repel x999" -i 0x400 2 77 1 -i 0x402 2 999 1
+"Medicine slot 1 - PP Max x999" -i 0xD68 2 53 1 -i 0xD6A 2 999 1
+"Medicine slot 1 - Rare Candy x999" -i 0xD68 2 50 1 -i 0xD6A 2 999 1
+"Medicine slots 1-6 - stat vitamins x999" -i 0xD68 2 45 1 -i 0xD6A 2 999 1 -i 0xD6C 2 46 1 -i 0xD6E 2 999 1 -i 0xD70 2 47 1 -i 0xD72 2 999 1 -i 0xD74 2 48 1 -i 0xD76 2 999 1 -i 0xD78 2 49 1 -i 0xD7A 2 999 1 -i 0xD7C 2 52 1 -i 0xD7E 2 999 1
 "Set Vivillon Icy Snow form" -i 0x4250 1 0 1
 "Set Vivillon Polar form" -i 0x4250 1 1 1
 "Set Vivillon Tundra form" -i 0x4250 1 2 1

@@ -9,6 +9,13 @@
 "Give all berries 99x" -i 0xBEC 256 "data/DPPt_AllBerries.bin" 1
 "Give all TM&HM 99x" -i 0x98C 400 "data/DPPt_AllTMHM.bin" 1
 "Give all pokeballs 99x" -i 0xCEC 60 "data/DPPt_AllPokeballs.bin" 1
+"Items slot 1 - Heart Scale x999" -i 0x630 2 93 1 -i 0x632 2 999 1
+"Items slot 1 - Honey x999" -i 0x630 2 94 1 -i 0x632 2 999 1
+"Items slot 1 - Max Repel x999" -i 0x630 2 77 1 -i 0x632 2 999 1
+"Items slots 1-4 - Shards x999" -i 0x630 2 72 1 -i 0x632 2 999 1 -i 0x634 2 73 1 -i 0x636 2 999 1 -i 0x638 2 74 1 -i 0x63a 2 999 1 -i 0x63c 2 75 1 -i 0x63e 2 999 1
+"Medicine slot 1 - PP Max x999" -i 0xB4C 2 53 1 -i 0xB4E 2 999 1
+"Medicine slot 1 - Rare Candy x999" -i 0xB4C 2 50 1 -i 0xB4E 2 999 1
+"Medicine slots 1-6 - stat vitamins x999" -i 0xB4C 2 45 1 -i 0xB4E 2 999 1 -i 0xB50 2 46 1 -i 0xB52 2 999 1 -i 0xB54 2 47 1 -i 0xB56 2 999 1 -i 0xB58 2 48 1 -i 0xB5A 2 999 1 -i 0xB5C 2 49 1 -i 0xB5E 2 999 1 -i 0xB60 2 52 1 -i 0xB62 2 999 1
 "Set 32 people met Underground" -i 0x3cb4 2 32 1
 "Set max Game Corner coins" -i 0x88 2 50000 1
 "Get all Pokewatch apps" -i 0x1161 1 25 1 -i 0x1163 1 1 25 -i 0x1184 1 1 1

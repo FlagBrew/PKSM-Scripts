@@ -14,5 +14,11 @@
 "Give all berries 99x" -i 0xBE0 256 "data/DPPt_AllBerries.bin" 1
 "Give all TM&HM 99x" -i 0x980 400 "data/DPPt_AllTMHM.bin" 1
 "Give all pokeballs 99x" -i 0xCE0 60 "data/DPPt_AllPokeballs.bin" 1
+"Items slot 1 - Heart Scale x999" -i 0x623 2 93 1 -i 0x625 2 999 1
+"Items slot 1 - Honey x999" -i 0x623 2 94 1 -i 0x625 2 999 1
+"Items slot 1 - Max Repel x999" -i 0x623 2 77 1 -i 0x625 2 999 1
+"Medicine slot 1 - PP Max x999" -i 0xB40 2 53 1 -i 0xB42 2 999 1
+"Medicine slot 1 - Rare Candy x999" -i 0xB40 2 50 1 -i 0xB42 2 999 1
+"Medicine slots 1-6 - stat vitamins x999" -i 0xB40 2 45 1 -i 0xB42 2 999 1 -i 0xB44 2 46 1 -i 0xB46 2 999 1 -i 0xB48 2 47 1 -i 0xB4A 2 999 1 -i 0xB4C 2 48 1 -i 0xB4E 2 999 1 -i 0xB50 2 49 1 -i 0xB52 2 999 1 -i 0xB54 2 52 1 -i 0xB56 2 999 1
 "Set 32 people met Underground" -i 0x3a2c 2 32 1
 "Set max Game Corner coins" -i 0x84 2 50000 1

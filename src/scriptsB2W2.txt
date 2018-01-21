@@ -9,3 +9,10 @@
 "Give all medicine 99x" -i 0x18bd8 188 "data/BWB2W2_AllMedicine.bin" 1
 "Give all berries 99x (illegal)" -i 0x18c98 256 "data/BWB2W2_AllBerries_illegal.bin" 1
 "Give all berries 99x" -i 0x18c98 248 "data/BWB2W2_AllBerries.bin" 1
+"Items slot 1 - Heart Scale x999" -i 0x18400 2 93 1 -i 0x18402 2 999 1
+"Items slot 1 - Max Repel x999" -i 0x18400 2 77 1 -i 0x18402 2 999 1
+"Items slot 1 - Pass Orb x999" -i 0x18400 2 575 1 -i 0x18402 2 999 1
+"Items slots 1-4 - Shards x999" -i 0x18400 2 72 1 -i 0x18402 2 999 1 -i 0x18404 2 73 1 -i 0x18406 2 999 1 -i 0x18408 2 74 1 -i 0x1840a 2 999 1 -i 0x1840c 2 75 1 -i 0x1840e 2 999 1
+"Medicine slot 1 - PP Max x999" -i 0x18BD8 2 53 1 -i 0x18BDA 2 999 1
+"Medicine slot 1 - Rare Candy x999" -i 0x18BD8 2 50 1 -i 0x18BDA 2 999 1
+"Medicine slots 1-6 - stat vitamins x999" -i 0x18BD8 2 45 1 -i 0x18BDA 2 999 1 -i 0x18BDC 2 46 1 -i 0x18BDE 2 999 1 -i 0x18BE0 2 47 1 -i 0x18BE2 2 999 1 -i 0x18BE4 2 48 1 -i 0x18BE6 2 999 1 -i 0x18BE8 2 49 1 -i 0x18BEA 2 999 1 -i 0x18BEC 2 52 1 -i 0x18BEE 2 999 1
