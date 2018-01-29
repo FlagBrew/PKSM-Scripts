@@ -16,3 +16,4 @@
 "Medicine slot 1 - PP Max x999" -i 0x18BD8 2 53 1 -i 0x18BDA 2 999 1
 "Medicine slot 1 - Rare Candy x999" -i 0x18BD8 2 50 1 -i 0x18BDA 2 999 1
 "Medicine slots 1-6 - stat vitamins x999" -i 0x18BD8 2 45 1 -i 0x18BDA 2 999 1 -i 0x18BDC 2 46 1 -i 0x18BDE 2 999 1 -i 0x18BE0 2 47 1 -i 0x18BE2 2 999 1 -i 0x18BE4 2 48 1 -i 0x18BE6 2 999 1 -i 0x18BE8 2 49 1 -i 0x18BEA 2 999 1 -i 0x18BEC 2 52 1 -i 0x18BEE 2 999 1
+"Reset Shiny Haxorus" -i 0x20292 1 0x20 1 -i 0x202d4 1 0xc9 1 -i 0x203e2 2 0xa3bb 1
