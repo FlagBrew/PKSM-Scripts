@@ -30,6 +30,9 @@
 "Medicine slot 1 - PP Max x999" -i 0xB48 3 0xf9c35 1
 "Medicine slot 1 - Rare Candy x999" -i 0xB48 3 0xf9c32 1
 "Medicine slots 1-6 - stat vitamins x999" -i 0xB48 3 0xf9c2d 1 -i 0xB4C 3 0xf9c2e 1 -i 0xB50 3 0xf9c2f 1 -i 0xB54 3 0xf9c30 1 -i 0xB58 3 0xf9c31 1 -i 0xB5C 3 0xf9c34 1
+"Berries slot 1 x897-960" -i 0xC47 1 0xE 1
+"Items slot 1 x897-960" -i 0x0 1 0xE 1
+"Medicines slot 1 x897-960" -i 0xB48 1 0xE 1
 "Set Vivillon Icy Snow form" -i 0x4130 1 0 1
 "Set Vivillon Polar form" -i 0x4130 1 1 1
 "Set Vivillon Tundra form" -i 0x4130 1 2 1

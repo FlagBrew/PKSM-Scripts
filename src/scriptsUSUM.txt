@@ -34,6 +34,10 @@
 "Medicine slot 1 - PP Max x999" -i 0xB74 3 0xf9c35 1
 "Medicine slot 1 - Rare Candy x999" -i 0xB74 3 0xf9c32 1
 "Medicine slots 1-6 - stat vitamins x999" -i 0xB74 3 0xf9c2d 1 -i 0xB78 3 0xf9c2e 1 -i 0xB7C 3 0xf9c2f 1 -i 0xB80 3 0xf9c30 1 -i 0xB84 3 0xf9c31 1 -i 0xB88 3 0xf9c34 1
+"Rotom Powers slot 1 x897-960" -i 0xDFC 1 0xE 1
+"Berries slot 1 x897-960" -i 0xC64 1 0xE 1
+"Items slot 1 x897-960" -i 0x0 1 0xE 1
+"Medicines slot 1 x897-960" -i 0xB74 1 0xE 1
 "Reset Cosmog" -i 0x2688 1 167 1
 "Reset Aerodactyl" -i 0x260f 1 32 1
 "Reset Porygon" -i 0x260d 1 16 1
