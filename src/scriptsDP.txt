@@ -20,7 +20,7 @@
 "Medicine slot 1 - PP Max x999" -i 0xB40 2 53 1 -i 0xB42 2 999 1
 "Medicine slot 1 - Rare Candy x999" -i 0xB40 2 50 1 -i 0xB42 2 999 1
 "Medicine slots 1-6 - stat vitamins x999" -i 0xB40 2 45 1 -i 0xB42 2 999 1 -i 0xB44 2 46 1 -i 0xB46 2 999 1 -i 0xB48 2 47 1 -i 0xB4A 2 999 1 -i 0xB4C 2 48 1 -i 0xB4E 2 999 1 -i 0xB50 2 49 1 -i 0xB52 2 999 1 -i 0xB54 2 52 1 -i 0xB56 2 999 1
-"Items slot 1 x999" -i 0x625 2 999 1
+"Items slot 1 x999" -i 0x626 2 999 1
 "Medicines slot 1 x999" -i 0xB42 2 999 1
 "Battle items slot 1 x999" -i 0xD1E 2 999 1
 "Berries slot 1 x999" -i 0xBE2 2 999 1
