@@ -1,0 +1,147 @@
+# Illegal Items
+
+## DP
+- Shoal Salt
+- Shoal Shell
+- Cherish Ball
+
+## Pt
+- Griseous Orb (only 1 can be obtained; untradeable)
+- Shoal Salt
+- Shoal Shell
+- Cherish Ball
+
+## HGSS
+- Griseous Orb (only 1 can be obtained; untradeable)
+- Shoal Salt
+- Shoal Shell
+- Cherish Ball
+- Sport Ball
+- Park Ball
+
+## BW
+- TM95 - Snarl (unlocked via an unreleased Gen 4 event)
+
+## BW/B2W2
+- Safari Ball
+- Cherish Ball
+- Red Scarf
+- Blue Scarf
+- Pink Scarf
+- Green Scarf
+- Yellow Scarf
+- Fast Ball
+- Level Ball
+- Lure Ball
+- Heavy Ball
+- Love Ball
+- Friend Ball
+- Moon Ball
+- Sport Ball
+- Park Ball
+- Dream Ball
+- Rabuta Berry
+- Pamtre Berry
+
+## XY/ORAS
+- Fighting Gem
+- Flying Gem
+- Poison Gem
+- Ground Gem
+- Rock Gem
+- Bug Gem
+- Ghost Gem
+- Steel Gem
+- Fire Gem
+- Water Gem
+- Grass Gem
+- Electric Gem
+- Psychic Gem
+- Ice Gem
+- Dragon Gem
+- Dark Gem
+- Fairy Gem
+- Relic Band
+- Relic Crown
+- Relic Gold
+- Relic Silver
+- Relic Statue
+- Relic Vase
+- Relic Copper
+- Odd Keystone
+- Cherish Ball
+- Sport Ball
+- Park Ball
+- Fast Ball
+- Friend Ball
+- Heavy Ball
+- Level Ball
+- Love Ball
+- Lure Ball
+- Moon Ball
+- Safari Ball
+
+## SM(/USUM?)
+- Razz Berry
+- Nanab Berry
+- Wepear Berry
+- Cornn Berry
+- Magost Berry
+- Rabuta Berry
+- Nomel Berry
+- Spelon Berry
+- Pamtre Berry
+- Watmel Berry
+- Durin Berry
+- Belue Berry
+- Enigma Berry
+- Micle Berry
+- Custap Berry
+- Jaboca Berry
+- Rowap Berry
+- Macho Brace
+- Fluffy Tail
+- Black Flute
+- Blue Flute
+- Red Flute
+- White Flute
+- Yellow Flute
+- Shoal Salt
+- Shoal Shell
+- Relic Band
+- Relic Crown
+- Relic Gold
+- Relic Silver
+- Relic Statue
+- Relic Vase
+- Relic Copper
+- Discount Coupon
+- Red Scarf
+- Blue Scarf
+- Pink Scarf
+- Green Scarf
+- Yellow Scarf
+- Fighting Gem
+- Flying Gem
+- Poison Gem
+- Ground Gem
+- Rock Gem
+- Bug Gem
+- Ghost Gem
+- Steel Gem
+- Fire Gem
+- Water Gem
+- Grass Gem
+- Electric Gem
+- Psychic Gem
+- Ice Gem
+- Dragon Gem
+- Dark Gem
+- Fairy Gem
+- Odd Keystone
+- Old Amber
+- Cherish Ball
+- Safari Ball
+- Sport Ball
+- Dream Ball
+- Greet Mail

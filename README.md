@@ -35,32 +35,7 @@ These scripts may cause problems in the unlikely event you should ever have to g
 ---
 
 ## Building Scripts
-1. Make sure you have [Python 3](https://www.python.org/downloads/release/python-364/) installed
-    - If already have Python 3 installed, make sure you have the argparse module as well: `sudo pip3 install argparse`
-1. Download or clone the [PKSM-Tools source code](https://github.com/BernardoGiordano/PKSM-Tools)
-1. Use one of the following commands in the Command Line to compile your scripts
-    - Windows
-        - All scripts (in the `.txt` files): `py -3 genScripts.py`
-        - Single script: `py -3 PKSMScript.py "USUM - Set max money" -i 0x4404 4 9999999 1`
-    - Mac / Linux
-        - All scripts (in the `.txt` files): `python3 genScripts.py`
-        - Single script: `python3 PKSMScript.py "USUM - Set max money" -i 0x4404 4 9999999 1`
-
-## Creating Scripts
-PKSMScript syntax: `PKSMScript.py [-h] output [-i ofs len pld rpt]`
-> You can use `PKSMScript.py -h` to view PKSMScript's own documentation
-
-To create completely new scripts, you will need to find the following values:
-- `output` -- the name of your new script
-- `-i` -- denotes the beginning of input values (can be repeated, along with extra sets of `ofs`, `len`, `pld`, and `rpt` values, to change more than one offset with a single script)
-- `ofs` -- the offset (location) in the game's save of the value you want to edit
-- `len` -- how many bytes (offsets) need to be written over
-- `pld` -- the new value you want to write to the save (or a `.bin` file containing a list of values to write)
-- `rpt` -- how many times you want `pld` to be written to the save in succession
-
-
-### Examples
-Examples can be found [here](https://github.com/BernardoGiordano/PKSM-Tools/blob/master/PKSMScript/src/scriptsUSUM.txt).
+See the [docs README](./docs/README.md)
 
 
 ## .pksm file format

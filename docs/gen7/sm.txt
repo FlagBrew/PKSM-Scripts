@@ -1,0 +1,246 @@
+# Sun / Moon
+> Parts surrounded by parentheses were commented out in the PKHeX source code
+
+Meaning                                 Offset        Length        Min Value   Max Value
+- Bag                                   0
+  - held items                          0
+  - Key items                           0x6b8
+  - TM/HM                               0x998
+  - Medicine                            0xb48
+  - Berry                               0xc48
+  - Z-Crystals                          0xd68
+- Trainer1                              0xe00
+  - M                                   0xe00         2
+  - X                                   0xe08         2
+  - Z                                   0xe10         2
+  - Y                                   0xe18         2
+  - R                                   0xe20         4
+  - special location                    0xe24         1
+  - warp continue request               0xe6e         1
+  - step count egg                      0xe70         4
+  - last zone ID                        0xe74         2
+  - step count friendship               0xe76         2
+  - step count affection                0xe78         2
+- (random group)                        0x1000
+- Trainer card                          0x1200
+  - TID                                 0x1200        4             0           65535
+  - SID                                 0x1202        4             0           65535
+  - game                                0x1204        1
+  - gender                              0x1205        1             0           1
+  - Game Sync ID                        0x1210        16
+  - sub-region                          0x122e        1
+  - country                             0x122f        1
+  - console region                      0x1234        1
+  - language                            0x1235        1             1           10
+  - OT (name)                           0x1238
+  - dress up skin color                 0x1254
+  - Multiplayer sprite ID               0x1258
+  - mega unlocked                       0x1278        1             0           1
+  - Z-Move unlocked                     0x1278        1             0           2
+  - ball throw type                     0x127a
+- Party                                 0x1400
+- Event const                           0x1c00
+  - event flag                          0x23d0
+  - Hall of Fame                        0x25c0
+- Pokedex                               0x2a00
+  - owned                               0x2a88
+  - seen
+    - normal male                       0x2af0
+    - normal female                     0x2b7c
+    - shiny male                        0x2c08
+    - shiny female                      0x2c94
+  - display
+    - normal male                       0x2d20
+    - normal female                     0x2dac
+    - shiny male                        0x2e38
+    - shiny female                      0x2ec4
+  - language flags                      0x2f50
+- GTS                                   0x3a00
+- Fused                                 0x3e00
+- Misc                                  0x4000
+  - money                               0x4004        4             0           9999999
+  - stamps                              0x4008
+  - BP                                  0x411c        2             0           9999
+  - days from refreshed                 0x4123        1
+  - Vivillon                            0x4130        1             0           19
+  - starter encryption constant         0x4148
+- Trainer2                              0x4200
+- Config save                           0x4400        4
+- Adventure info                        0x4600
+  - resume year                         0x4604
+  - resume month                        0x4608
+  - resume day                          0x4609
+  - resume hour                         0x460b
+  - resume minute                       0x460c
+  - resume seconds                      0x460d
+  - seconds to start                    0x4628
+  - seconds to fame                     0x4630
+  - Alola time                          0x4648
+- PC layout                             0x4800
+  - box name
+    - Box 1                             0x4800
+    - Box 2                             0x4822
+    - Box 3                             0x4844
+    - Box 4                             0x4866
+    - Box 5                             0x4888
+    - Box 6                             0x48aa
+    - Box 7                             0x48cc
+    - Box 8                             0x48ee
+    - Box 9                             0x4910
+    - Box 10                            0x4932
+    - Box 11                            0x4954
+    - Box 12                            0x4976
+    - Box 13                            0x4998
+    - Box 14                            0x49ba
+    - Box 15                            0x49dc
+    - Box 16                            0x49fe
+    - Box 17                            0x4a20
+    - Box 18                            0x4a42
+    - Box 19                            0x4a64
+    - Box 20                            0x4a86
+    - Box 21                            0x4aa8
+    - Box 22                            0x4aca
+    - Box 23                            0x4aec
+    - Box 24                            0x4b0e
+    - Box 25                            0x4b30
+    - Box 26                            0x4b52
+    - Box 27                            0x4b74
+    - Box 28                            0x4b96
+    - Box 29                            0x4bb8
+    - Box 30                            0x4bda
+    - Box 31                            0x4bfc
+    - Box 32                            0x4c1e
+  - Battle Box flags                    0x4cc4
+  - backgrounds
+    - Box 1                             0x4dc0        1
+    - Box 2                             0x4dc1        1
+    - Box 3                             0x4dc2        1
+    - Box 4                             0x4dc3        1
+    - Box 5                             0x4dc4        1
+    - Box 6                             0x4dc5        1
+    - Box 7                             0x4dc6        1
+    - Box 8                             0x4dc7        1
+    - Box 9                             0x4dc8        1
+    - Box 10                            0x4dc9        1
+    - Box 11                            0x4dca        1
+    - Box 12                            0x4dcb        1
+    - Box 13                            0x4dcc        1
+    - Box 14                            0x4dcd        1
+    - Box 15                            0x4dce        1
+    - Box 16                            0x4dcf        1
+    - Box 17                            0x4dd0        1
+    - Box 18                            0x4dd1        1
+    - Box 19                            0x4dd2        1
+    - Box 20                            0x4dd3        1
+    - Box 21                            0x4dd4        1
+    - Box 22                            0x4dd5        1
+    - Box 23                            0x4dd6        1
+    - Box 24                            0x4dd7        1
+    - Box 25                            0x4dd8        1
+    - Box 26                            0x4dd9        1
+    - Box 27                            0x4dda        1
+    - Box 28                            0x4ddb        1
+    - Box 29                            0x4ddc        1
+    - Box 30                            0x4ddd        1
+    - Box 31                            0x4dde        1
+    - Box 32                            0x4ddf        1
+  - PC flags                            0x4de0
+    - boxes unlocked                    0x4de1
+  - last viewed box                     0x4de3        1             0           31
+- Box                                   0x4e00
+  - Box 1                               0x4e00
+  - Box 2                               0x6930
+  - Box 3                               0x8460
+  - Box 4                               0x9f90
+  - Box 5                               0xbac0
+  - Box 6                               0xd5f0
+  - Box 7                               0xf120
+  - Box 8                               0x10c50
+  - Box 9                               0x12780
+  - Box 10                              0x142b0
+  - Box 11                              0x15de0
+  - Box 12                              0x17910
+  - Box 13                              0x19440
+  - Box 14                              0x1af70
+  - Box 15                              0x1caa0
+  - Box 16                              0x1e5d0
+  - Box 17                              0x20100
+  - Box 18                              0x21c30
+  - Box 19                              0x23760
+  - Box 20                              0x25290
+  - Box 21                              0x26dc0
+  - Box 22                              0x288f0
+  - Box 23                              0x2a420
+  - Box 24                              0x2bf50
+  - Box 25                              0x2da80
+  - Box 26                              0x2f5b0
+  - Box 27                              0x310e0
+  - Box 28                              0x32c10
+  - Box 29                              0x34740
+  - Box 30                              0x36270
+  - Box 31                              0x37da0
+  - Box 32                              0x398d0
+- Resort                                0x3b400
+  - Pokémon                             0x3b412
+  - Poke Bean counts                    0x40a4c
+- Play time                             0x40c00
+  - played hours                        0x40c00       2             0           999
+  - played minutes                      0x40c02       1             0           59
+  - played seconds                      0x40c03       1             0           59
+  - last saved                          0x40c04
+- Overworld                             0x40e00
+- Fashion                               0x42000       0x1a08
+  - wardrobe                            0x42000       0x5a8
+- (Join Festa Personal save)            0x43c00
+- (Join Festa Personal save)            0x4a200
+- Join Festa data                       0x50800
+  - Festa year                          0x50af0
+  - Festa month                         0x50af4
+  - Festa day                           0x50af8
+  - Festa hour                          0x50b00
+  - Festa minute                        0x50b04
+  - Festa second                        0x50b08
+  - Festival coins                      0x50d08       4             0           9999999
+  - total festival coins                0x50d0c       4             0           9999999
+  - Festival Plaza name                 0x50d10
+  - Festa rank                          0x50d3a
+- (Berry spot)                          0x54200
+- (Fishing spot)                        0x54400
+- (Live match data)                     0x54600
+- (Battle Spot data)                    0x64c00
+- Poke Finder save                      0x65000
+  - Poke Finder camera version          0x65000       2             0           4
+  - Poke Finder gyro flag               0x65002       2
+  - Poke Finder snap count              0x65004       4             0           9999999
+  - Poke Finder thumbs total            0x6500c       4             0           9999999
+  - Poke Finder thumbs high             0x65010
+  - Poke Finder tutorial flags          0x65014
+- Wondercard flags                      0x65c00
+  - Wondercard data                     0x65d00
+- Record                                0x69c00
+  - used festival coins                 0x69c98
+- (validation save)                     0x6a000
+- (Game Sync save)                      0x6a800
+- (Poke Diary save)                     0x6aa00
+- Battle Tree                           0x6b200
+  - Streak
+    - current Regular Singles           0x6b200
+    - current Super Singles             0x6b202
+    - max Regular Singles               0x6b204
+    - max Super Singles                 0x6b206
+    - current Regular Doubles           0x6b208
+    - current Super Doubles             0x6b20a
+    - max Regular Doubles               0x6b20c
+    - max Super Doubles                 0x6b20e
+    - current Regular Multi             0x6b210
+    - current Super Multi               0x6b212
+    - max Regular Multi                 0x6b214
+    - max Super Multi                   0x6b216
+- Daycare                               0x6b400
+  - slot 1                              0x6b401
+  - slot 2                              0x6b4ea
+  - has egg                             0x6b5d8
+  - RNG seed                            0x6b5dc
+- (QR reader save data)                 0x6b600
+- QR save data                          0x6b800
+- (Turtle Salmon save)                  0x6ba00
