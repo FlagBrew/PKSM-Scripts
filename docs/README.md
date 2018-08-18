@@ -6,8 +6,8 @@ This folder contains a collection of info on creating scripts for PKSM, as well 
 To start creating scripts for PKSM you will need to make sure you have the following tools/resources installed
 
 #### PC
-- [Python 3](https://www.python.org/downloads/release/python-364/)
-    - If already have Python 3 installed, make sure you have the argparse module as well: `sudo pip3 install argparse`
+- [Python 3](https://www.python.org/downloads/release/python-364/) or [Node.js](https://nodejs.org)
+    - `Python` If already have Python 3 installed, make sure you have the argparse module as well: `sudo pip3 install argparse`
 - [PKSM-Tools source code](https://github.com/BernardoGiordano/PKSM-Tools)
 - [PKHeX](https://projectpokemon.org/home/files/file/1-pkhex/) - A Pokémon save editor for Windows written in C#
     - For those on Mac/Linux there is a Mono build
@@ -26,13 +26,25 @@ To start creating scripts for PKSM you will need to make sure you have the follo
 --------------------------------------------------
 
 ### Compiling Existing Scripts
-1. Open your Command Prompt (Windows) or Terminal (Mac/Linux) to `PKSM-Tools/PKSMScript` and run one of the following:
+Open your Command Prompt (Windows) or Terminal (Mac/Linux) to `PKSM-Tools/PKSMScript` then follow the instructions for your scripting language below
+
+#### Python 3
+- Run one of the following commands
     - Windows
         - All scripts (in the `.txt` files): `py -3 genScripts.py`
         - Single script: `py -3 PKSMScript.py "USUM - Set max money" -i 0x4404 4 9999999 1`
     - Mac / Linux
         - All scripts (in the `.txt` files): `python3 genScripts.py`
         - Single script: `python3 PKSMScript.py "USUM - Set max money" -i 0x4404 4 9999999 1`
+
+#### Node.js
+- Run one of the following commands
+    - Windows
+        - All scripts (in the `.txt` files): `node genScripts.js`
+        - Single script: `node PKSMScript.js "USUM - Set max money" -i 0x4404 4 9999999 1`
+    - Mac / Linux
+        - All scripts (in the `.txt` files): `node genScripts.js`
+        - Single script: `node PKSMScript.js "USUM - Set max money" -i 0x4404 4 9999999 1`
 
 --------------------------------------------------
 
