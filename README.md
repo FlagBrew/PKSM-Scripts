@@ -1,7 +1,7 @@
 # PKSMScript
 
 ## Installing Scripts
-1. Download `PKSMScript.zip` from the [latest release](https://github.com/BernardoGiordano/PKSM-Tools/releases/latest)
+1. Download the [latest release](https://github.com/FlagBrew/PKSM-Scripts/releases/latest)
 1. Extract the contents and copy the `scripts` folder to your SD card so that its path is `sd:/3ds/PKSM/scripts`
 
 ## Legality Warning

@@ -8,7 +8,7 @@ To start creating scripts for PKSM you will need to make sure you have the follo
 #### PC
 - [Python 3](https://www.python.org/downloads/release/python-364/) or [Node.js](https://nodejs.org)
     - `Python` If already have Python 3 installed, make sure you have the argparse module as well: `sudo pip3 install argparse`
-- [PKSM-Tools source code](https://github.com/BernardoGiordano/PKSM-Tools)
+- [PKSM-Scripts source code](https://github.com/FlagBrew/PKSM-Scripts)
 - [PKHeX](https://projectpokemon.org/home/files/file/1-pkhex/) - A Pokémon save editor for Windows written in C#
     - For those on Mac/Linux there is a Mono build
 - hex editor
@@ -17,16 +17,16 @@ To start creating scripts for PKSM you will need to make sure you have the follo
     - Linux: ?
 
 #### 3DS
-- [PKSM](https://github.com/BernardoGiordano/PKSM/releases) -- v5.1.0 or later
+- [PKSM](https://github.com/FlagBrew/PKSM/releases) -- v5.1.0 or later
 - Save manager app for Homebrew/CFW
-    - `CFW` - [Checkpoint](https://github.com/BernardoGiordano/Checkpoint/releases) - works with both 3DS and DS games
+    - `CFW` - [Checkpoint](https://github.com/FlagBrew/Checkpoint/releases) - works with both 3DS and DS games
     - `Homebrew` - ? - for 3DS games
     - `Homebrew` - [TWLSaveTool](https://github.com/TuxSH/TWLSaveTool/releases) - for DS games
 
 --------------------------------------------------
 
 ### Compiling Existing Scripts
-Open your Command Prompt (Windows) or Terminal (Mac/Linux) to `PKSM-Tools/PKSMScript` then follow the instructions for your scripting language below
+Open your Command Prompt (Windows) or Terminal (Mac/Linux) to `PKSM-Scripts` then follow the instructions for your scripting language below
 
 #### Python 3
 - Run one of the following commands
@@ -60,7 +60,7 @@ There are a few options for finding the offset(s) you want to edit in the save f
 - [PKHeX's source code](https://github.com/kwsch/PKHeX) - it helps if you can read C# code (another C-like language works too) and understand the hexadecimal system
 - [Project Pokémon's Technical Documentation pages](https://projectpokemon.org/docs/)
 - search for the offset manually
-- ask for help on the [PKSM Discord server](https://discord.gg/bGKEyfY) (preferably in \#pksm-tools-general)
+- ask for help on the [FlagBrew Discord server](https://discord.gg/bGKEyfY) (preferably in \#pksm-tools-general)
 
 
 ###### Searching for an Offset Manually
@@ -107,11 +107,11 @@ Where...
 #### Getting Your Script Added to the Repo
 If you want your script to be added to the repo so it can be included in the next official release, be sure to do the following:
 1. Compile your script and test that it works
-1. Fork the [PKSM-Tools repo](https://github.com/BernardoGiordano/PKSM-Tools/pulls) (if you haven't already)
+1. Fork the [PKSM-Scripts repo](https://github.com/FlagBrew/PKSM-Scripts) (if you haven't already)
 1. In your fork, find the `txt` file for your game in the `PKSMScript/src` folder and add the compiling command you used (*without* the `py -3 PKSMScript.py` or `python3 PKSMScript.py`) to it
     - The line you add should look like `"Set max money" -i 0x4404 4 9999999 1`
     - If you add the line on a local copy of your fork (on your computer rather than GitHub), remember to push your changes
-1. Submit a [pull request](https://github.com/BernardoGiordano/PKSM-Tools/pulls) on the original repo
+1. Submit a [pull request](https://github.com/FlagBrew/PKSM-Scripts/pulls) on the original repo
 
 
 --------------------------------------------------
