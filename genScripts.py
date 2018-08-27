@@ -8,12 +8,13 @@ def main(args):
 	os.mkdir("scripts")
 	for game in games:
 		generate(game)
-		os.mkdir(game.lower())
+		os.mkdir("scripts/" + game.lower())
+		if os.path.exists("build"):
+			for f in os.listdir("build"):
+				shutil.move("build/" + f, "scripts/" + game.lower())
 		scriptFiles = glob.glob("*.pksm")
 		for pksmFile in scriptFiles:
-			shutil.move(pksmFile,game.lower())
-		shutil.move(game.lower(), "scripts")
-	
+			shutil.move(pksmFile,"scripts/" + game.lower())
 
 def generate(game):
 	with open(os.path.join("src", "scripts%s.txt" % game)) as pksmArgFile:

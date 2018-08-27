@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import argparse
+import argparse, os
 
 
 # PKSM script structure
@@ -13,11 +13,18 @@ import argparse
  
 parser = argparse.ArgumentParser(description = 'Creates .pksm script files')
 parser.add_argument('output', help = 'Output file name')
+parser.add_argument('-d', metavar = ('subdir'), help = 'Subdirectory in which to create the script')
 parser.add_argument('-i', action = 'append', nargs = 4, metavar = ('ofs', 'len', 'pld', 'rpt'), help = 'ofs: offset to write the payload to. len: payload length. pld: payload (can be an integer or a file path), rpt: repeat n times.')
 
 
 def main(args):
 	script = b"PKSMSCRIPT"
+	outdir = ""
+	
+	if args.d:
+		outdir = "build/" + args.d + "/"
+	if outdir != "" and not os.path.exists(outdir):
+		os.makedirs(outdir)
 
 	for arg in args.i:
 		argoffset  = arg[0]
@@ -41,7 +48,7 @@ def main(args):
 		script += payload
 		script += repeat.to_bytes(0x4, byteorder = 'little')
 	
-		with open(args.output + '.pksm', 'wb') as f:
+		with open(outdir + args.output + '.pksm', 'wb') as f:
 			f.write(script)
 
 	
