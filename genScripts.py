@@ -5,6 +5,7 @@ games = ["USUM", "SM", "ORAS", "XY", "B2W2", "BW", "HGSS", "PT", "DP"]
 
 def main(args):
 	shutil.rmtree("scripts", True)
+	shutil.rmtree("build", True)
 	os.mkdir("scripts")
 	for game in games:
 		generate(game)
