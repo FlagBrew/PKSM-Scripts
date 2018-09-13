@@ -1,3 +1,7 @@
 scripts
 *.pksm
 __pycache__
+
+# local script dev stuff
+test
+saves
