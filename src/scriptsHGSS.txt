@@ -27,7 +27,7 @@
 "Set max Game Corner coins" -i 0x84 2 50000 1
 "Fill Fashion Case" -i 0x3f64 0x3a "data/GenIV_Fashion_Case.bin" 1
 "Fill Dex - language entries" -i 0x13fc 1 0x3f 493
-"Fill Dex - Johto seen" -i 12fc 0x2fb "data/dex/HGSS_Johto_seen.bin" 1
+"Fill Dex - Johto seen" -i 0x12fc 0x2fb "data/dex/HGSS_Johto_seen.bin" 1
 "Fill Dex - Johto owned" -i 0x12bc 0x33b "data/dex/HGSS_Johto_owned.bin" 1
 "Fill Dex - National seen" -i 0x12fb 0x2fc "data/dex/HGSS_National_seen.bin" 1
 "Fill Dex - National owned" -i 0x12bc 0x33b "data/dex/HGSS_National_owned.bin" 1
