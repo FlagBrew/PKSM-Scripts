@@ -8,7 +8,17 @@
 "Save language to KOR" -i 0x1402D 1 0x8 1
 "Clear Mystery Gift data" -i 0x1BC00 1 0x0 5692
 "Set max money" -i 0x4208 4 9999999 1
-"Inject living dex" -i 0x22600 186064 "data/living6.bin" 1
+"Mass Inject - living dex" -i 0x22600 186064 "data/inject/Gen6_living.bin" 1
+"Mass inject - ITA rBreedingDitto" -i 0x22600 0x1b30 "data/inject/Gen6_rBreedingDitto_ITA.bin" 1
+"Mass inject - SPA rBreedingDitto" -i 0x22600 0x1b30 "data/inject/Gen6_rBreedingDitto_SPA.bin" 1
+"Mass inject - 10th Anniversary" -i 0x22600 0x1b30 "data/inject/Gen6_10th_Anniversary.bin" 1
+"Mass inject - Colosseum" -i 0x22600 0x3660 "data/inject/Gen6_Colosseum.bin" 1
+"Mass inject - Dream Radar" -i 0x22600 0x1b30 "data/inject/Gen6_Dream_Radar.bin" 1
+"Mass inject - Entree Forest" -i 0x22600 0x1b30 "data/inject/Gen6_Entree_Forest.bin" 1
+"Mass inject - KOR events" -i 0x22600 0x1b30 "data/inject/Gen6_KOR_events.bin" 1
+"Mass inject - N's Pokemon" -i 0x22600 0x1b30 "data/inject/Gen6_N.bin" 1
+"Mass inject - Oblivia Deoxys" -i 0x22600 0x1b30 "data/inject/Gen6_Oblivia_Deoxys.bin" 1
+"Mass inject - XD" -i 0x22600 0x5190 "data/inject/Gen6_XD.bin" 1
 "Set max Style Points" -i 0x154D 1 255 1
 "Set max Battle Points" -i 0x423C 2 9999 1
 "Set max Current Pokemiles" -i 0x1E4FC 4 9999999 1
