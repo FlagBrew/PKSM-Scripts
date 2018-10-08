@@ -1,0 +1,68 @@
+Power                                   XY          ORAS        Min     Max     Legal
+Bargain MAX                             0x16a00     0x17400     0       1       yes
+Hatching 1                              0x16a01     0x17401     0       1       yes
+Hatching 2                              0x16a02     0x17402     0       1       yes
+Hatching 3                              0x16a03     0x17403     0       1       yes
+Hatching S                              0x16a04     0x17404     0       1       yes
+EXP MAX                                 0x16a05     0x17405     0       1       yes
+Bargain 1                               0x16a06     0x17406     0       1       yes
+Bargain 2                               0x16a07     0x17407     0       1       yes
+Bargain 3                               0x16a08     0x17408     0       1       yes
+Bargain S                               0x16a09     0x17409     0       1       yes
+Prize MAX                               0x16a0a     0x1740a     0       1       yes
+Prize 1                                 0x16a0b     0x1740b     0       1       yes
+Prize 2                                 0x16a0c     0x1740c     0       1       yes
+Prize 3                                 0x16a0d     0x1740d     0       1       yes
+Prize S                                 0x16a0e     0x1740e     0       1       yes
+Hatching MAX                            0x16a0f     0x1740f     0       1       yes
+EXP 1                                   0x16a10     0x17410     0       1       yes
+EXP 2                                   0x16a11     0x17411     0       1       yes
+EXP 3                                   0x16a12     0x17412     0       1       yes
+EXP S                                   0x16a13     0x17413     0       1       yes
+Capture MAX                             0x16a14     0x17414     0       1       yes
+Capture 1                               0x16a15     0x17415     0       1       yes
+Capture 2                               0x16a16     0x17416     0       1       yes
+Capture 3                               0x16a17     0x17417     0       1       yes
+Capture S                               0x16a18     0x17418     0       1       yes
+Restore MAX                             0x16a19     0x17419     0       1       yes
+Encounter 1                             0x16a1a     0x1741a     0       1       yes
+Encounter 2                             0x16a1b     0x1741b     0       1       yes
+Encounter 3                             0x16a1c     0x1741c     0       1       yes
+Stealth 1                               0x16a1d     0x1741d     0       1       yes
+Stealth 2                               0x16a1e     0x1741e     0       1       yes
+Stealth 3                               0x16a1f     0x1741f     0       1       yes
+HP Restore 1                            0x16a20     0x17420     0       1       yes
+HP Restore 2                            0x16a21     0x17421     0       1       yes
+HP Restore 3                            0x16a22     0x17422     0       1       yes
+PP Restore 1                            0x16a23     0x17423     0       1       yes
+PP Restore 2                            0x16a24     0x17424     0       1       yes
+PP Restore 3                            0x16a25     0x17425     0       1       yes
+Befriend MAX                            0x16a26     0x17426     0       1       yes
+Befriending 1                           0x16a27     0x17427     0       1       yes
+Befriending 2                           0x16a28     0x17428     0       1       yes
+Befriending 3                           0x16a29     0x17429     0       1       yes
+Befriending S                           0x16a2a     0x1742a     0       1       yes
+(unused)                                0x16a2b     0x1742b     0       1       yes
+Attack 1                                0x16a2c     0x1742c     0       1       yes
+Attack 2                                0x16a2d     0x1742d     0       1       yes
+Attack 3                                0x16a2e     0x1742e     0       1       yes
+Defense 1                               0x16a2f     0x1742f     0       1       yes
+Defense 2                               0x16a30     0x17430     0       1       yes
+Defense 3                               0x16a31     0x17431     0       1       yes
+Special Attack 1                        0x16a32     0x17432     0       1       yes
+Special Attack 2                        0x16a33     0x17433     0       1       yes
+Special Attack 3                        0x16a34     0x17434     0       1       yes
+Special Defense 1                       0x16a35     0x17435     0       1       yes
+Special Defense 2                       0x16a36     0x17436     0       1       yes
+Special Defense 3                       0x16a37     0x17437     0       1       yes
+Speed 1                                 0x16a38     0x17438     0       1       yes
+Speed 2                                 0x16a39     0x17439     0       1       yes
+Speed 3                                 0x16a3a     0x1743a     0       1       yes
+Critical Hit 1                          0x16a3b     0x1743b     0       1       yes
+Critical Hit 2                          0x16a3c     0x1743c     0       1       yes
+Critical Hit 3                          0x16a3d     0x1743d     0       1       yes
+Accuracy 1                              0x16a3e     0x1743e     0       1       yes
+Accuracy 2                              0x16a3f     0x1743f     0       1       yes
+Accuracy 3                              0x16a40     0x17440     0       1       yes
+energy                                  0x16a41     0x17441     0       A
+? usage                                 0x16a42     0x17442

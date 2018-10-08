@@ -51,10 +51,10 @@ Meaning                                 Offset        Length        Min Value   
   - first gender                        0x133c        62
   - second gender                       0x137c        62
   - forms                               0x13c0        32
-  - language flags                      0x13fc
+  - language flags                      0x13fd        493
+  - dex upgrade 3                       0x15ed
   - dex upgrade 1                       0x15ee
   - dex upgrade 2                       0x15ef
-  - dex upgrade 3                       0x15ed
   - forms 2                             0x15f0        7
 - Daycare                               0x15fc
 - Hall stat                             0x230c
@@ -85,25 +85,25 @@ Meaning                                 Offset        Length        Min Value   
 - General Block save count              0xf618
 - General block checksum                0xf626
 - Box                                   0xf700
-  - Box 1                               0x106f0
-  - Box 2                               0x116e0
-  - Box 3                               0x126d0
-  - Box 4                               0x136c0
-  - Box 5                               0x146b0
-  - Box 6                               0x156a0
-  - Box 7                               0x16690
-  - Box 8                               0x17680
-  - Box 9                               0x18670
-  - Box 10                              0x19660
-  - Box 11                              0x1a650
-  - Box 12                              0x1b640
-  - Box 13                              0x1c630
-  - Box 14                              0x1d620
-  - Box 15                              0x1e610
-  - Box 16                              0x1f600
-  - Box 17                              0x205f0
-  - Box 18                              0x215e0
-- current box                           0x21700?
+  - Box 1                               0xf700
+  - Box 2                               0x10700
+  - Box 3                               0x11700
+  - Box 4                               0x12700
+  - Box 5                               0x13700
+  - Box 6                               0x14700
+  - Box 7                               0x15700
+  - Box 8                               0x16700
+  - Box 9                               0x17700
+  - Box 10                              0x18700
+  - Box 11                              0x19700
+  - Box 12                              0x1a700
+  - Box 13                              0x1b700
+  - Box 14                              0x1c700
+  - Box 15                              0x1d700
+  - Box 16                              0x1e700
+  - Box 17                              0x1f700
+  - Box 18                              0x20700
+- current box                           0x21700
 - Box names                             0x21708
 - Box Wallpapers                        0x219d8
 - Storage block checksum                0x21a0e

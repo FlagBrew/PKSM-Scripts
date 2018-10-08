@@ -163,33 +163,6 @@ Meaning                                 Offset        Length        Min Value   
   - owned - previous gen                0x1564a
 - Fused                                 0x16000
 - O-Power                               0x16a00
-  - Bargain MAX                         0x16a00
-  - Hatching 1-S                        0x16a01
-  - EXP MAX                             0x16a05
-  - Bargain 1-S                         0x16a06
-  - Prize MAX                           0x16a0a
-  - Prize 1-S                           0x16a0b
-  - Hatching MAX                        0x16a0f
-  - EXP 1-S                             0x16a10
-  - Capture MAX                         0x16a14
-  - Capture 1-S                         0x16a15
-  - Restore MAX                         0x16a19
-  - Encounter 1-3                       0x16a1a
-  - Stealth 1-3                         0x16a1d
-  - HP Restore 1-3                      0x16a20
-  - PP Restore 1-3                      0x16a23
-  - Befriend MAX                        0x16a26
-  - Befriending 1-S                     0x16a27
-  - (unused)                            0x16a2b
-  - Attack 1-3                          0x16a2c
-  - Defense 1-3                         0x16a2f
-  - Special Attack 1-3                  0x16a32
-  - Special Defense 1-3                 0x16a35
-  - Speed 1-3                           0x16a38
-  - Critical Hit 1-3                    0x16a3b
-  - Accuracy 1-3                        0x16a3e
-  - energy                              0x16a41
-  - ? usage                             0x16a42
 - User metadata                         0x17000
   - PSS outfit                          0x17138
   - Trainer name                        0x17148
@@ -250,36 +223,35 @@ Meaning                                 Offset        Length        Min Value   
 - Link info                             0x1fe00
 - PGL Promotion gifts                   0x20e00
 - Box
-  - Box 1                               0x226e8
-  - Box 2                               0x227d0
-  - Box 3                               0x228b8
-  - Box 4                               0x229a0
-  - Box 5                               0x22a88
-  - Box 6                               0x22b70
-  - Box 7                               0x22c58
-  - Box 8                               0x22d40
-  - Box 9                               0x22e28
-  - Box 10                              0x22f10
-  - Box 11                              0x22ff8
-  - Box 12                              0x230e0
-  - Box 13                              0x231c8
-  - Box 14                              0x232b0
-  - Box 15                              0x23398
-  - Box 16                              0x23480
-  - Box 17                              0x23568
-  - Box 18                              0x23650
-  - Box 19                              0x23738
-  - Box 20                              0x23820
-  - Box 20                              0x23908
-  - Box 21                              0x239f0
-  - Box 22                              0x23ad8
-  - Box 23                              0x23bc0
-  - Box 24                              0x23ca8
-  - Box 25                              0x23d90
-  - Box 26                              0x23e78
-  - Box 27                              0x23f60
-  - Box 28                              0x24048
-  - Box 29                              0x24130
-  - Box 30                              0x24218
-  - Box 31                              0x24300
+  - Box 1                               0x22600
+  - Box 2                               0x24130
+  - Box 3                               0x25c60
+  - Box 4                               0x27790
+  - Box 5                               0x292c0
+  - Box 6                               0x2adf0
+  - Box 7                               0x2c920
+  - Box 8                               0x2e450
+  - Box 9                               0x2ff80
+  - Box 10                              0x31ab0
+  - Box 11                              0x335e0
+  - Box 12                              0x35110
+  - Box 13                              0x36c40
+  - Box 14                              0x38770
+  - Box 15                              0x3a2a0
+  - Box 16                              0x3bdd0
+  - Box 17                              0x3d900
+  - Box 18                              0x3f430
+  - Box 19                              0x40f60
+  - Box 20                              0x42a90
+  - Box 21                              0x445c0
+  - Box 22                              0x460f0
+  - Box 23                              0x47c20
+  - Box 24                              0x49750
+  - Box 25                              0x4b280
+  - Box 26                              0x4cdb0
+  - Box 27                              0x4e8e0
+  - Box 28                              0x50410
+  - Box 29                              0x51f40
+  - Box 30                              0x53a70
+  - Box 31                              0x555a0
 - JPEG                                  0x57200

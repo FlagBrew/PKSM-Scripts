@@ -78,10 +78,11 @@ Meaning                                 Offset        Length        Min Value   
   - first gender                        0x1360        62
   - second gender                       0x13a0        62
   - forms                               0x13e4        32
-  - language flags                      0x1404
-  - dex upgrade 4                       0x1413
-  - Sinnoh Pokédex                      0x1414
-  - National Pokédex upgrade            0x1415
+  - form detection upgrade flag         0x1404        1             0           1
+  - language flags                      0x1405        14
+  - language upgrade flag               0x1413        1             0           1
+  - Pokédex obtained flag               0x1414        1             0           1
+  - National upgrade flag               0x1415        1             0           1
 - Daycare                               0x141c
 - Berry trees                           0x1e84
 - Rival's name                          0x25a8

@@ -3,8 +3,8 @@
 
 > Offsets surrounded by parentheses are for Sun / Moon and are likely not accurate for US/UM
 
-Meaning                                 Offset        Length        Min Value   Max Value           Offset Difference from SM
-- Bag                                   0
+Meaning                                 Offset        Length        Min Value   Max Value
+- Bag                                   0             0x1000
   - held items                          0
   - Key items                           0x6ac
   - TMs                                 0x9c4
@@ -12,7 +12,7 @@ Meaning                                 Offset        Length        Min Value   
   - Berry                               0xc64
   - Z-Crystals                          0xd70
   - Rotom Powers                        0xdfc
-- Trainer1                              0x1000
+- Trainer1                              0x1000        0x200
   - M                                   0x1000        2
   - X                                   0x1008        2
   - Z                                   0x1010        2
@@ -24,7 +24,8 @@ Meaning                                 Offset        Length        Min Value   
   - last zone ID                        0x1074        2
   - step count friendship               0x1076        2
   - step count affection                0x1078        2
-- Trainer Card                          0x1400
+- Random Group                          0x1200        0x200
+- Trainer Card                          0x1400        0x200
   - TID                                 0x1400        4             0           65535
   - SID                                 0x1402        4             0           65535
   - game                                0x1404        1
@@ -40,8 +41,8 @@ Meaning                                 Offset        Length        Min Value   
   - Mega unlocked                       0x1478        1             0           1
   - Z-Move unlocked                     0x1478        1             0           2
   - ball throw type (battle style)      0x147a        1             0           8
-- Party                                 0x1600
-- Event constants                       0x1e00
+- Party                                 0x1600        0x800
+- Event constants                       0x1e00        0xe00
   - Tapu Fini                           0x2128        1
   - Tapu Lele                           0x2162        1
   - Tapu Bulu                           0x2164        1
@@ -64,7 +65,7 @@ Meaning                                 Offset        Length        Min Value   
     - legends 8                         0x27f9        1
     - Partner Cap Pikachu               0x280a        1
   - Hall of Fame                        0x2838
-- Pokédex                               0x2c00
+- Pokédex                               0x2c00        0x1000
   - owned                               0x2c88
   - seen
     - normal male                       0x2cf0
@@ -77,12 +78,12 @@ Meaning                                 Offset        Length        Min Value   
     - shiny male                        0x3038
     - shiny female                      0x30c4
   - language flags                      0x3150
-- GTS                                   0x3c00
-- Fused                                 0x4000
+- GTS                                   0x3c00        0x400
+- Fused                                 0x4000        0x400
   - slot 1                              0x4000
   - slot 2                              0x4104
   - slot 3                              0x4208
-- Misc                                  0x4400
+- Misc                                  0x4400        0x200
   - money                               0x4404        4             0           9999999
   - stamps                              0x4408
   - BP                                  0x451c        2             0           9999
@@ -90,10 +91,10 @@ Meaning                                 Offset        Length        Min Value   
   - Vivillon                            0x4530        1             0           19
   - Surf score                          0x4538
   - starter encryption constant         0x4548
-- Trainer2                              0x4600
+- Trainer2                              0x4600        0x200
   - Rotom OT                            0x4630
 - Config save                           0x4800        4
-- Adventure info                        0x4a00
+- Adventure info                        0x4a00        0x200
   - resume year                         0x4a04
   - resume month                        0x4a08
   - resume day                          0x4a09
@@ -103,8 +104,8 @@ Meaning                                 Offset        Length        Min Value   
   - seconds to start                    0x4a28
   - seconds to fame                     0x4a30
   - Alola time                          0x4a48        8
-- PC layout                             0x4c00
-  - box name
+- PC layout                             0x4c00        0x600
+  - box name                                          0x4c4
     - Box 1                             0x4c00
     - Box 2                             0x4c22
     - Box 3                             0x4c44
@@ -138,7 +139,7 @@ Meaning                                 Offset        Length        Min Value   
     - Box 31                            0x4ffc
     - Box 32                            0x501e
   - Battle Box flags                    0x50c4
-  - backgrounds
+  - backgrounds                                       0x20
     - Box 1                             0x51c0        1
     - Box 2                             0x51c1        1
     - Box 3                             0x51c2        1
@@ -174,7 +175,7 @@ Meaning                                 Offset        Length        Min Value   
   - PC flags                            0x51e0
     - boxes unlocked                    0x51e1
   - last viewed box                     0x51e3
-- Box
+- Box                                                 0x36600
   - Box 1                               0x5200
   - Box 2                               0x6d30
   - Box 3                               0x8860
@@ -206,21 +207,21 @@ Meaning                                 Offset        Length        Min Value   
   - Box 29                              0x34b40
   - Box 30                              0x36670
   - Box 31                              0x381a0
-  - Box 32                              0x39cd0                                                     (+0x400)
-- Resort                                (0x3b400)
-  - Pokémon                             (0x3b412)
-  - Poke Bean counts                    (0x40a4c)
-- Play time                             (0x40c00)
-  - played hours                        (0x40c00)     2             0           999
-  - played minutes                      (0x40c02)     1             0           59
-  - played seconds                      (0x40c03)     1             0           59
-  - last saved                          (0x40c04)
-- Overworld                             (0x40e00)
-- Fashion                               (0x42000)     0x1a08
-  - wardrobe                            (0x42000)     0x5a8
-- (Join Festa Personal save)            (0x43c00)
-- (Join Festa Personal save)            (0x4a200)
-- Join Festa data                       0x50e00                                                     (+0x600)
+  - Box 32                              0x39cd0
+- Poké Pelago                           0x3b800       0x5800
+  - Pokémon                             0x3b812
+  - Poke Bean counts                    0x40e4c
+- Play time                             0x41000       0x200
+  - played hours                        0x41000       2             0           999
+  - played minutes                      0x41002       1             0           59
+  - played seconds                      0x41003       1             0           59
+  - last saved                          0x41004
+- Overworld                             0x41200       0x1400
+- Fashion                               0x42600       0x1c00
+  - wardrobe                            0x42600       0x5a8
+- (Join Festa Personal save)            0x44200       0x6600
+- (Join Festa Personal save)            0x4a800       0x6600
+- Join Festa data                       0x50e00       0x3a00
   - Festa year                          0x510f0
   - Festa month                         0x510f4
   - Festa day                           0x510f8
@@ -231,46 +232,46 @@ Meaning                                 Offset        Length        Min Value   
   - total festival coins                0x5130c       4             0           9999999
   - Festival Plaza name                 0x51310
   - Festa rank                          0x5133a
-- (Berry spot)                          0x54800
-- (Fishing spot)                        0x54a00
-- (Live match data)                     0x54c00
-- (Battle Spot data)                    0x65200
-- Poke Finder save                      0x65600
+- (Berry spot)                          0x54800       0x200
+- (Fishing spot)                        0x54a00       0x200
+- (Live match data)                     0x54c00       0x10600
+- (Battle Spot data)                    0x65200       0x400
+- Poke Finder save                      0x65600       0xc00
   - Poke Finder camera version          0x65600       2             0           4
   - Poke Finder gyro flag               0x60602       2
   - Poke Finder snap count              0x65604       4             0           9999999
   - Poke Finder thumbs total            0x6560c       4
   - Poke Finder thumbs high             0x65610       4             0           9999999
   - Poke Finder tutorial flags          0x65614
-- Wondercard flags                      0x66200
+- Wondercard flags                      0x66200       0x4000
   - Wondercard data                     0x66300                                                     (+0x600)
-- Record                                (0x69c00)
-  - used festival coins                 (0x69c98)
-- (validation save)                     (0x6a000)
-- (Game Sync save)                      (0x6a800)
-- (Poke Diary save)                     (0x6aa00)
-- Battle Tree                           (0x6b200)
+- Record                                0x6a200       0x400
+  - used festival coins                 0x6a298
+- (validation save)                     0x6a600       0x800
+- (Game Sync save)                      0x6ae00       0x200
+- (Poke Diary save)                     0x6b000       0x800
+- Battle Tree                           0x6b800       0x200
   - Streak
-    - current Regular Singles           (0x6b200)
-    - current Super Singles             (0x6b202)
-    - max Regular Singles               (0x6b204)
-    - max Super Singles                 (0x6b206)
-    - current Regular Doubles           (0x6b208)
-    - current Super Doubles             (0x6b20a)
-    - max Regular Doubles               (0x6b20c)
-    - max Super Doubles                 (0x6b20e)
-    - current Regular Multi             (0x6b210)
-    - current Super Multi               (0x6b212)
-    - max Regular Multi                 (0x6b214)
-    - max Super Multi                   (0x6b216)
-- Daycare                               (0x6b400)
-  - slot 1                              (0x6b401)
-  - slot 2                              (0x6b4ea)
-  - has egg                             (0x6b5d8)
-  - RNG seed                            (0x6b5dc)
-- (QR reader save data)                 (0x6b600)
-- QR save data                          (0x6b800)
-- (Turtle Salmon save)                  (0x6ba00)
+    - current Regular Singles           0x6b800
+    - current Super Singles             0x6b802
+    - max Regular Singles               0x6b804
+    - max Super Singles                 0x6b806
+    - current Regular Doubles           0x6b808
+    - current Super Doubles             0x6b80a
+    - max Regular Doubles               0x6b80c
+    - max Super Doubles                 0x6b80e
+    - current Regular Multi             0x6b810
+    - current Super Multi               0x6b812
+    - max Regular Multi                 0x6b814
+    - max Super Multi                   0x6b816
+- Daycare                               0x6ba00       0x200
+  - slot 1                              0x6ba01
+  - slot 2                              0x6baea
+  - has egg                             0x6bbd8
+  - RNG seed                            0x6bbdc
+- (QR reader save data)                 0x6bc00       0x200
+- QR save data                          0x6be00       0x200
+- (Turtle Salmon save)                  0x6c000       0x200
 
 
 ## Legend Groupings
