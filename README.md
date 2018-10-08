@@ -56,6 +56,9 @@ These are notes and details that may be useful to know about scripts that couldn
     - **XD**: 3 boxes
     - everything else: 1 box
 - Not all Pokémon in the mass injection scripts may be legal
+- Only the "Living Dex" scripts update your dex. If you want the contents of a mass inject script to be registered but don't want the full Fill Dex, do one of the following:
+    - deposit the unregistered Pokémon in the Day Care then withdraw them
+    - take them into a wild battle (reported to work but not confirmed)
 - **rBreedingDitto**: the Ditto in these scripts were obtained from [this list on /r/BreedingDittos](https://www.reddit.com/r/BreedingDittos/comments/2wqabp/giveaway_so_you_want_a_ditto/). They are subject to all the conditions and limits set by /r/BreedingDittos (so don't try passing them off as legal on /r/pokemontrades)
 
 ### Fill Dex Scripts

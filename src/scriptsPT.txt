@@ -26,3 +26,9 @@
 "Set max Game Corner coins" -i 0x88 2 50000 1
 "Get all Pokewatch apps" -i 0x1161 1 25 1 -i 0x1163 1 1 25 -i 0x1184 1 1 1
 "Fill Fashion Case" -i 0x4e38 0x3a "data/GenIV_Fashion_Case.bin" 1
+"Fill Dex - language entries" -i 0x1450 1 0x3f 493
+"Fill Dex - Sinnoh seen" -i 0x136c 0x2de "data/dex/Pt_Sinnoh_seen.bin" 1
+"Fill Dex - Sinnoh owned" -i 0x132c 0x31e "data/dex/Pt_Sinnoh_owned.bin" 1
+"Fill Dex - National seen" -i 0x136b 0x2df "data/dex/Pt_National_seen.bin" 1
+"Fill Dex - National owned" -i 0x132c 0x31e "data/dex/Pt_National_owned.bin" 1
+"Fill Dex - Complete" -i 0x132c 0x31e "data/dex/Pt_Complete.bin" 1

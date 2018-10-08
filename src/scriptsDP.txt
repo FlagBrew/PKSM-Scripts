@@ -29,3 +29,9 @@
 "Set 32 people met Underground" -i 0x3a2c 2 32 1
 "Set max Game Corner coins" -i 0x84 2 50000 1
 "Fill Fashion Case" -i 0x4ba8 0x3a "data/GenIV_Fashion_Case.bin" 1
+"Fill Dex - language entries" -i 0x1405 1 0x3f 14
+"Fill Dex - Sinnoh seen" -i 0x1320 0xf6 "data/dex/DP_Sinnoh_seen.bin" 1
+"Fill Dex - Sinnoh owned" -i 0x12e0 0x133 "data/dex/DP_Sinnoh_owned.bin" 1
+"Fill Dex - National seen" -i 0x131f 0xf7 "data/dex/DP_National_seen.bin" 1
+"Fill Dex - National owned" -i 0x12e0 0x136 "data/dex/DP_National_owned.bin" 1
+"Fill Dex - Complete" -i 0x12e0 0x136 "data/dex/DP_Complete.bin" 1

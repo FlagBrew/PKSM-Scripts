@@ -55,6 +55,11 @@ Meaning                                 Offset        Length        Min Value   
     - shiny male                        0x2e38
     - shiny female                      0x2ec4
   - language flags                      0x2f50
+  - Spinda spots
+    - normal male                       0x32e8
+    - normal female                     0x32ec
+    - shiny male                        0x32f0
+    - shiny female                      0x32f4
 - GTS                                   0x3a00
 - Fused                                 0x3e00        0x200
 - Misc                                  0x4000        0x200

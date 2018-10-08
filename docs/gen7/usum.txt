@@ -78,6 +78,11 @@ Meaning                                 Offset        Length        Min Value   
     - shiny male                        0x3038
     - shiny female                      0x30c4
   - language flags                      0x3150
+  - Spinda spots
+    - normal male                       0x34e8
+    - normal female                     0x34ec
+    - shiny male                        0x34f0
+    - shiny female                      0x34f4
 - GTS                                   0x3c00        0x400
 - Fused                                 0x4000        0x400
   - slot 1                              0x4000

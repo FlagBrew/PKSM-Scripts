@@ -160,7 +160,7 @@ Meaning                                 Offset        Length        Min Value   
       - shiny                           0x153b0
   - language flags                      0x153c8
   - Spinda                              0x15648
-  - owned - previous gen                0x1564a
+  - owned - previous gen                0x1564c
 - Fused                                 0x16000
 - O-Power                               0x16a00
 - User metadata                         0x17000

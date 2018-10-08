@@ -10,7 +10,7 @@
 "Save language to CHT" -i 0x1435 1 0xA 1
 "Clear Mystery Gift data" -i 0x66200 1 0x0 12928
 "Set max money" -i 0x4404 4 9999999 1
-"Mass inject - living dex" -i 0x5200 187920 "data/inject/Gen7_living.bin" 1
+"Mass inject - living dex" -i 0x5200 187920 "data/inject/Gen7_living.bin" 1 -i 0x2c88 0x870 "data/dex/USUM_Complete.bin" 1
 "Mass inject - ITA rBreedingDitto" -i 0x5200 0x1b30 "data/inject/Gen7_rBreedingDitto_ITA.bin" 1
 "Mass inject - SPA rBreedingDitto" -i 0x5200 0x1b30 "data/inject/Gen7_rBreedingDitto_SPA.bin" 1
 "Mass inject - 10th Anniversary" -i 0x5200 0x1b30 "data/inject/Gen6_10th_Anniversary.bin" 1
@@ -109,3 +109,10 @@
 "Reset Janitor Event" -i 0x1e00 1 0x00 1 -i 0x1e01 1 0x00 1 -i 0x1e7a 1 0x01 1 -i 0x1e7c 1 0x00 1 -i 0x25f9 1 0x08 1 -i 0x2606 1 0x02 1 -i 0x2682 1 0xc0 1
 "Reset Shiny Exeggcute Battle" -i 0x1ea6 1 0xcb 1 -i 0x260e 1 0xa4 1 -i 0x277c 1 0x00 1
 "Unlock Mega-Evolution" -i 0x1478 1 1 1 -i 0x1f22 1 1 1
+"Fill Dex - language entries" -i 0x3150 1 0xff 0x38a -i 0x34db 1 0x7f 1
+"Fill Dex - Alola seen" -i 0x2cf0 0x808 "data/dex/USUM_Alola_seen.bin" 1
+"Fill Dex - Alola owned" -i 0x2c88 0x870 "data/dex/USUM_Alola_owned.bin" 1
+"Fill Dex - National seen" -i 0x2cf0 0x808 "data/dex/USUM_National_seen.bin" 1
+"Fill Dex - National owned" -i 0x2c88 0x870 "data/dex/USUM_National_owned.bin" 1
+"Fill Dex - Complete" -i 0x2c88 0x870 "data/dex/USUM_Complete.bin" 1
+"Fill Dex - Complete (illegal)" -i 0x2c88 0x870 "data/dex/USUM_Complete_illegal.bin" 1

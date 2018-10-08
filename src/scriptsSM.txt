@@ -10,7 +10,7 @@
 "Save language to CHT" -i 0x1235 1 0xA 1
 "Clear Mystery Gift data" -i 0x65C00 1 0x0 12928
 "Set max money" -i 0x4004 4 9999999 1
-"Mass inject - living dex" -i 0x4E00 186064 "data/inject/Gen7_living.bin" 1
+"Mass inject - living dex" -i 0x4E00 186064 "data/inject/Gen7_living.bin" 1 -i 0x2a88 0x870 "data/dex/SM_Complete.bin" 1
 "Mass inject - ITA rBreedingDitto" -i 0x4e00 0x1b30 "data/inject/Gen7_rBreedingDitto_ITA.bin" 1
 "Mass inject - SPA rBreedingDitto" -i 0x4e00 0x1b30 "data/inject/Gen7_rBreedingDitto_SPA.bin" 1
 "Mass inject - 10th Anniversary" -i 0x4e00 0x1b30 "data/inject/Gen6_10th_Anniversary.bin" 1
@@ -63,3 +63,10 @@
 "Set Vivillon Jungle form" -i 0x4130 1 17 1
 "Set Vivillon Fancy form" -i 0x4130 1 18 1
 "Set Vivillon Pokeball form" -i 0x4130 1 19 1
+"Fill Dex - language entries" -i 0x2f50 1 0xff 0x387 -i 0x32d6 1 0x03 1
+"Fill Dex - Alola seen" -i 0x2af0 0x808 "data/dex/SM_Alola_seen.bin" 1
+"Fill Dex - Alola owned" -i 0x2a88 0x870 "data/dex/SM_Alola_owned.bin" 1
+"Fill Dex - National seen" -i 0x2af0 0x808 "data/dex/SM_National_seen.bin" 1
+"Fill Dex - National owned" -i 0x2a88 0x870 "data/dex/SM_National_owned.bin" 1
+"Fill Dex - Complete" -i 0x2a88 0x870 "data/dex/SM_Complete.bin" 1
+"Fill Dex - Complete (illegal)" -i 0x2a88 0x870 "data/dex/SM_Complete_illegal.bin" 1

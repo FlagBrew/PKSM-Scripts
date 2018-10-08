@@ -8,7 +8,7 @@
 "Save language to KOR" -i 0x1402D 1 0x8 1
 "Clear Mystery Gift data" -i 0x1CC00 1 0x0 5692
 "Set max money" -i 0x4208 4 9999999 1
-"Mass inject - living dex" -i 0x33000 186064 "data/inject/Gen6_living.bin" 1
+"Mass inject - living dex" -i 0x33000 186064 "data/inject/Gen6_living.bin" 1 -i 0x15008 0xc1e "data/dex/ORAS_Complete.bin" 1
 "Mass inject - ITA rBreedingDitto" -i 0x33000 0x1b30 "data/inject/Gen6_rBreedingDitto_ITA.bin" 1
 "Mass inject - SPA rBreedingDitto" -i 0x33000 0x1b30 "data/inject/Gen6_rBreedingDitto_SPA.bin" 1
 "Mass inject - 10th Anniversary" -i 0x33000 0x1b30 "data/inject/Gen6_10th_Anniversary.bin" 1
@@ -57,3 +57,10 @@
 "Set Vivillon Jungle form" -i 0x4244 1 17 1
 "Set Vivillon Fancy form" -i 0x4244 1 18 1
 "Set Vivillon Pokeball form" -i 0x4244 1 19 1
+"Fill Dex - language entries" -i 0x15400 1 0xff 0x276 -i 0x15676 1 0x7f 1
+"Fill Dex - Hoenn seen" -i 0x15068 0xbbe "data/dex/ORAS_Hoenn_seen.bin" 1
+"Fill Dex - Hoenn owned" -i 0x15008 0xc1e "data/dex/ORAS_Hoenn_owned.bin" 1
+"Fill Dex - National seen" -i 0x15068 0xbbe "data/dex/ORAS_National_seen.bin" 1
+"Fill Dex - National owned" -i 0x15008 0xc1e "data/dex/ORAS_National_owned.bin" 1
+"Fill Dex - Complete" -i 0x15008 0xc1e "data/dex/ORAS_Complete.bin" 1
+"Fill Dex - Complete (illegal)" -i 0x15008 0xc1e "data/dex/ORAS_Complete_illegal.bin" 1
