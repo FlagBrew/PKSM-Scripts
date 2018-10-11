@@ -4,6 +4,7 @@ import shlex, PKSMScript, sys, glob, shutil, os
 games = ["USUM", "SM", "ORAS", "XY", "B2W2", "BW", "HGSS", "PT", "DP"]
 
 def main(args):
+	print("Generating scripts...")
 	shutil.rmtree("scripts", True)
 	shutil.rmtree("build", True)
 	os.mkdir("scripts")
