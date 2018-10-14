@@ -27,9 +27,12 @@
 "Set max Thumbs Up" -i 0x6500C 4 9999999 1
 "Set max Camera Version" -i 0x65000 2 4 1
 "Set all Zygarde Cells (cores not included)" -i 0x1D42 1 95 1 -i 0x1D52 1 95 1 -i 0x1D8C 2 512 95
-"All Items 99x" -i 0x0 1340 "data/SM_AllItems.bin" 1
-"All Berries 99x" -i 0xC47 268 "data/SM_AllBerries.bin" 1
-"All Medicine 99x" -i 0xB48 216 "data/SM_AllMedicines.bin" 1
+"All Items 99x" -i 0x0 1168 "data/SM_AllItems.bin" 1
+"All Items 99x (illegal)" -i 0x0 1340 "data/SM_AllItems_illegal.bin" 1
+"All Berries 99x" -i 0xC47 200 "data/SM_AllBerries.bin" 1
+"All Berries 99x (illegal)" -i 0xC47 268 "data/SM_AllBerries_illegal.bin" 1
+"All Medicine 99x" -i 0xB48 204 "data/SM_AllMedicines.bin" 1
+"All Medicine 99x (illegal)" -i 0xB48 216 "data/SM_AllMedicines_illegal.bin" 1
 "All TMs Owned" -i 0x998 400 "data/SM_AllTM.bin" 1
 "All Z-Crystals Owned" -i 0xD68 116 "data/SM_AllZCrystals.bin" 1
 "Items slot 1 - Beast Ball x999" -i 0x0 3 0xf9f53 1

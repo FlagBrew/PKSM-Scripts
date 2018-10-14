@@ -31,9 +31,12 @@
 "Set Moon time" -i 0x4a48 8 43200 1
 "Set Sun time" -i 0x4a48 8 86400 1
 "All Rotom Powers 99x" -i 0xDFC 44 "data/USUM_AllRotomPowers.bin" 1
-"All Berries 99x" -i 0xC64 268 "data/USUM_AllBerries.bin" 1
-"All Items 99x" -i 0x0 1340 "data/USUM_AllItems.bin" 1
-"All Medicines 99x" -i 0xB74 216 "data/USUM_AllMedicine.bin" 1
+"All Berries 99x" -i 0xC64 200 "data/USUM_AllBerries.bin" 1
+"All Berries 99x (illegal)" -i 0xC64 268 "data/USUM_AllBerries_illegal.bin" 1
+"All Items 99x" -i 0x0 1168 "data/USUM_AllItems.bin" 1
+"All Items 99x (illegal)" -i 0x0 1340 "data/USUM_AllItems_illegal.bin" 1
+"All Medicines 99x" -i 0xB74 204 "data/USUM_AllMedicine.bin" 1
+"All Medicines 99x (illegal)" -i 0xB74 216 "data/USUM_AllMedicine_illegal.bin" 1
 "All TMs Owned" -i 0x9C4 400 "data/USUM_AllTM.bin" 1
 "All Z-Crystals Owned" -i 0xD70 140 "data/USUM_AllZCrystals.bin" 1
 "Items slot 1 - Beast Ball x999" -i 0x0 3 0xf9f53 1

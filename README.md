@@ -3,7 +3,7 @@
 ## Table of Contents
 - [Installing Scripts](#installing-scripts)
 - [Legality Warning](#legality-warning)
-    - [Gen 7 (US/UM and Su/Mo)](#gen-7-usum-and-sumo)
+    - [Replaced Scripts](#replaced-scripts)
     - [Past Gen](#past-gen)
 - [Script Notes](#script-notes)
     - [Mass Inject Scripts](#mass-inject-scripts)
@@ -25,22 +25,25 @@ The following is a list of unlabeled scripts (with no legal counterpart) known t
 - `all versions` **Set Vivillon Fancy Form** -- any Scatterbug/Spewpa/Vivillon caught or bred after using this will be illegal
 - `all versions` **Set Vivillon Pokeball form** -- any Scatterbug/Spewpa/Vivillon caught or bred after using this will be illegal
 
-### Gen 7 (US/UM and Su/Mo)
-Discarding or selling the listed items **BEFORE** going online *should* let you avoid trouble
-- `SM, USUM` **Give all items 99x** -- Black Flute, Blue Flute, Blue Scarf, Bug Gem, Cherish Ball, Dark Gem, Discount Coupon, Dragon Gem, Dream Ball, Electric Gem, Fairy Gem, Fighting Gem, Fire Gem, Fluffy Tail, Flying Gem, Ghost Gem, Grass Gem, Green Scarf, Greet Mail, Ground Gem, Ice Gem, Macho Brace, Odd Keystone, Old Amber, Pink Scarf, Poison Gem, Psychic Gem, Red Flute, Red Scarf, Relic Band, Relic Copper, Relic Crown, Relic Gold, Relic Silver, Relic Statue, Relic Vase, Rock Gem, Safari Ball, Shoal Salt, Shoal Shell, Sport Ball, Steel Gem, Water Gem, White Flute, Yellow Flute, Yellow Scarf
-- `SM, USUM` **Give all berries 99x** -- Razz Berry, Nanab Berry, Wepear Berry, Cornn Berry, Magost Berry, Rabuta Berry, Nomel Berry, Spelon Berry, Pamtre Berry, Watmel Berry, Durin Berry, Belue Berry, Enigma Berry, Micle Berry, Custap Berry, Jaboca Berry, Rowap Berry
+### Replaced Scripts
+Old versions of these scripts included the following elements that could be flagged as illegal if a save is put through strict hack checks
+- `SM, USUM` **All items 99x** -- Black Flute, Blue Scarf, Bug Gem, Cherish Ball, Dark Gem, Discount Coupon, Dragon Gem, Dream Ball, Electric Gem, Fairy Gem, Fighting Gem, Fire Gem, Fluffy Tail, Flying Gem, Ghost Gem, Grass Gem, Green Scarf, Greet Mail, Ground Gem, Ice Gem, Macho Brace, Odd Keystone, Old Amber, Pink Scarf, Poison Gem, Psychic Gem, Red Scarf, Relic Band, Relic Copper, Relic Crown, Relic Gold, Relic Silver, Relic Statue, Relic Vase, Rock Gem, Safari Ball, Shoal Salt, Shoal Shell, Sport Ball, Steel Gem, Water Gem, White Flute, Yellow Scarf
+- `SM, USUM` **All Medicine 99x** -- Blue Flute, Red Flute, Yellow Flute
+- `SM, USUM` **All berries 99x** -- Razz Berry, Nanab Berry, Wepear Berry, Cornn Berry, Magost Berry, Rabuta Berry, Nomel Berry, Spelon Berry, Pamtre Berry, Watmel Berry, Durin Berry, Belue Berry, Enigma Berry, Micle Berry, Custap Berry, Jaboca Berry, Rowap Berry
+- `ORAS` **Unlock & max all O-Powers** -- unreleased S levels
+- `XY, ORAS` **Give all items 99x** -- Bug Gem, Cherish Ball, Dark Gem, Dragon Gem, Electric Gem, Fairy Gem, Fast Ball, Fighting Gem, Fire Gem, Flying Gem, Friend Ball, Ghost Gem, Grass Gem, Ground Gem, Heavy Ball, Ice Gem, Level Ball, Love Ball, Lure Ball, Moon Ball, Odd Keystone, Park Ball, Poison Gem, Psychic Gem, Relic Band, Relic Copper, Relic Crown, Relic Gold, Relic Silver, Relic Statue, Relic Vase, Rock Gem, Safari Ball, Sport Ball, Steel Gem, Water Gem
+- `BW, B2W2` **Give all items 99x** -- Blue Scarf, Cherish Ball, Dream Ball, Fast Ball, Friend Ball, Green Scarf, Heavy Ball, Level Ball, Love Ball, Lure Ball, Moon Ball, Park Ball, Pink Scarf, Red Scarf, Safari Ball, Sport Ball, Yellow Scarf
+- `BW, B2W2` **Give all berries 99x** -- Rabuta Berry, Pamtre Berry
+- `BW` **All TMs and HMs owned** -- TM95 Snarl (only available from [an unreleased Gen 4 event](https://bulbapedia.bulbagarden.net/wiki/Lock_Capsule))
+- `HGSS` **Give all pokeballs 99x** -- Cherish Ball, Park Ball, Sport Ball
+- `DP, PT` **Give all pokeballs 99x** -- Cherish Ball
+- `DP` **Give all items 99x** -- Shoal Salt, Shoal Shell
 
 ### Past Gen
 These scripts may cause problems in the unlikely event you should ever have to go through thorough hack checks
-- `ORAS` **Unlock & max all O-Powers** -- includes unreleased S levels
-    - This was replaced with a fully legal version in recent releases
-- `XY, ORAS` **Give all items 99x** -- Bug Gem, Cherish Ball, Dark Gem, Dragon Gem, Electric Gem, Fairy Gem, Fast Ball, Fighting Gem, Fire Gem, Flying Gem, Friend Ball, Ghost Gem, Grass Gem, Ground Gem, Heavy Ball, Ice Gem, Level Ball, Love Ball, Lure Ball, Moon Ball, Odd Keystone, Park Ball, Poison Gem, Psychic Gem, Relic Band, Relic Copper, Relic Crown, Relic Gold, Relic Silver, Relic Statue, Relic Vase, Rock Gem, Safari Ball, Sport Ball, Steel Gem, Water Gem
-- `HGSS` **Unlock all Pokewalker Courses** -- contains unreleased courses?
-- `HGSS` **Give all pokeballs 99x** -- Cherish Ball, Park Ball, Sport Ball
-- `PT, HGSS` **Give all items 99x** -- Griseous Orb (untradeable and only one can be obtained per file), Shoal Salt, Shoal Shell
-- `DP, PT` **Give all pokeballs 99x** -- Cherish Ball
+- `HGSS` **Unlock all Pokewalker Courses** -- Rally, Sightseeing, and Amity Meadow were not released for all regions
+- `PT, HGSS` **Give all items 99x** -- Griseous Orb (untradeable and only one can be obtained per file)
 - `DP, PT` **Get all Pokewatch apps** -- Alarm Clock and Stopwatch were never released
-- `DP` **Give all items 99x** -- Shoal Salt, Shoal Shell
 
 ## Script Notes
 These are notes and details that may be useful to know about scripts that couldn't be summarized to fit in scripts' names
@@ -85,7 +88,7 @@ These are notes and details that may be useful to know about scripts that couldn
 
 ### Item Scripts
 - `SM, USUM` **slot 1 x897-960**: due to the way items are stored in Gen 7 saves and the current limitations of PKSM's scripts, the quantity of the item in the pouch's first slot is set to something in the range of 897 to 960 (depends on the former quantity) rather than 999 like in past generations
-- `Gen IV, V, VI` **All TMs and HMs owned**: fills your TM pouch with *all* TMs and HMs, which may cause problems with story progression
+- `Gen IV, V, VI` **All TMs and HMs**: fills your TM pouch with *all* TMs and HMs, which may cause problems with story progression
 
 ### Reset Scripts
 - `all games` **Reset [pokemon]**: Allows any listed Pokémon to be re-obtained (if gift) or re-battled

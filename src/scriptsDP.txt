@@ -8,12 +8,14 @@
 "Set all legendaries disappeared" -i 0x0e08 1 0x00 1 -i 0x0e09 1 0x00 1 -i 0x0e0a 1 0x00 1 -i 0x0e0b 1 0x00 1 -i 0x0e0c 1 0x00 1 -i 0x0e0d 1 0x00 1 -i 0x0e0e 1 0x00 1 -i 0x0e0f 1 0x00 1 -i 0x0e22 1 0x00 1 -i 0x0e23 1 0x00 1 -i 0x0e24 1 0x00 1 -i 0x0e25 1 0x00 1 -i 0x0e26 1 0x00 1 -i 0x0e27 1 0x00 1 -i 0x0ecc 1 0x04 1 -i 0x0ed8 1 0x02 1 -i 0x0fff 1 0xCC 1 -i 0x1000 1 0xEB 1 -i 0x1001 1 0x30 1 -i 0x1002 1 0x00 1 -i 0x1003 1 0x40 1 -i 0x101b 1 0xFF 1 -i 0x1027 1 0x50 1 -i 0x1028 1 0x02 1 -i 0x1029 1 0xF0 1 -i 0x102b 1 0x97 1
 "Reset Darkrai" -i 0x1027 1 0x50 1 -i 0x0e22 1 0x09 1 -i 0x0e23 1 0x12 1
 "Reset Palkia" -i 0x0ecc 1 0x05 1
-"Give all items 99x" -i 0x624 644 "data/DP_AllItems.bin" 1
+"Give all items 99x" -i 0x624 636 "data/DP_AllItems.bin" 1
+"Give all items 99x (illegal)" -i 0x624 644 "data/DP_AllItems_illegal.bin" 1
 "Give all medicines 99x" -i 0xB40 152 "data/DPPt_AllMedicines.bin" 1
 "Give all battle items 99x" -i 0xD1C 52 "data/DPPt_AllBattleItems.bin" 1
 "Give all berries 99x" -i 0xBE0 256 "data/DPPt_AllBerries.bin" 1
 "Give all TM&HM 99x" -i 0x980 400 "data/DPPt_AllTMHM.bin" 1
-"Give all pokeballs 99x" -i 0xCE0 60 "data/DPPt_AllPokeballs.bin" 1
+"Give all pokeballs 99x" -i 0xCE0 56 "data/DPPt_AllPokeballs.bin" 1
+"Give all pokeballs 99x (illegal)" -i 0xCE0 60 "data/DPPt_AllPokeballs_illegal.bin" 1
 "Items slot 1 - Heart Scale x999" -i 0x624 2 93 1 -i 0x626 2 999 1
 "Items slot 1 - Honey x999" -i 0x624 2 94 1 -i 0x626 2 999 1
 "Items slot 1 - Max Repel x999" -i 0x624 2 77 1 -i 0x626 2 999 1
