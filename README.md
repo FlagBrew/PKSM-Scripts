@@ -12,6 +12,7 @@
     - [Reset Scripts](#reset-scripts)
     - [Other Scripts](#other-scripts)
 - [Making Scripts](#making-scripts)
+- [Credits](#credits)
 - [Script file format](#script-file-format)
 
 ## Installing Scripts
@@ -50,7 +51,6 @@ These are notes and details that may be useful to know about scripts that couldn
 
 ### Mass Inject Scripts
 - All mass injection scripts target the first slot of Box 1 to start injecting the collection. If you're worried about losing some of your Pokémon, make sure to clear out enough of your in-game boxes to make room
-- Each mass injection script overwrites a number of your in-game boxes
     - **Living Dex**
         - Gen 5: 22 boxes
         - Gen 6: 25 boxes
@@ -66,7 +66,7 @@ These are notes and details that may be useful to know about scripts that couldn
 
 ### Fill Dex Scripts
 - Regional Pokédex scripts will overwrite anything you've seen (and owned if you use the "owned" version) which may cause you to lose registration of anything not in your game's regional Pokédex
-- These scripts will fill your dex enough to unlock access to the following:
+- These scripts will fill your dex enough to unlock access to the following rewards:
     - `DP, Pt` **Sinnoh seen**: regional dex diploma, National dex upgrade
     - `HGSS` **Johto owned**: regional dex diploma
     - `DP, Pt, HGSS` **National owned**: national dex diploma
@@ -81,10 +81,11 @@ These are notes and details that may be useful to know about scripts that couldn
     - `ORAS` **Hoenn owned**: regional dex diploma
     - `XY, ORAS` **National owned**: national dex diploma, Shiny Charm
     - `SM, USUM` **Alola owned**: Shiny Charm
-- **National** versions will also unlock all regional rewards
-- **Complete** versions will unlock all the same rewards as the National versions
+- **National** versions will also unlock access to all corresponding regional rewards
+- **owned** versions will also unlock access to all corresponding **seen** rewards
+- **Complete** versions will unlock all the same rewards as the **National owned** versions
 - Only the **Complete** versions will fill in Mythicals (Mew, Celebi, Jirachi, etc.)
-- Only the **Complete (illegal)** version will unlock *all* forms and shiny sprites, including unreleased ones
+- Only the **Complete (illegal)** versions will unlock *all* forms and shiny sprites, including unreleased ones
 
 ### Item Scripts
 - `SM, USUM` **slot 1 x897-960**: due to the way items are stored in Gen 7 saves and the current limitations of PKSM's scripts, the quantity of the item in the pouch's first slot is set to something in the range of 897 to 960 (depends on the former quantity) rather than 999 like in past generations
@@ -111,6 +112,16 @@ These are notes and details that may be useful to know about scripts that couldn
 
 ## Making Scripts
 See the [docs README](./docs/README.md)
+
+---
+
+## Credits
+- bernardogiordano - PKSM, PKSMScript.py, dump.py, scripts
+- Lavorther - scripts
+- piepie62 - genScripts.py
+- SpiredMoth - scripts, documentation, Node.js versions of Python scripts
+- trainboy2019 - scripts
+- wrathsoffire - scripts
 
 ---
 
