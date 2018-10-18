@@ -10,7 +10,12 @@ def main(args):
 	os.mkdir("scripts")
 	for game in games:
 		generate(game)
-		os.mkdir("scripts/" + game.lower())
+
+		if os.path.exists("src/" + game.lower()):
+			shutil.copytree("src/" + game.lower(), "scripts/" + game.lower())
+		else:
+			os.mkdir("scripts/" + game.lower())
+
 		if os.path.exists("build"):
 			for f in os.listdir("build"):
 				shutil.move("build/" + f, "scripts/" + game.lower())
