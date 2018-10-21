@@ -10,17 +10,17 @@
 "Save language to CHT" -i 0x1435 1 0xA 1
 "Clear Mystery Gift data" -i 0x66200 1 0x0 12928
 "Set max money" -i 0x4404 4 9999999 1
-"Mass inject - living dex" -i 0x5200 187920 "data/inject/Gen7_living.bin" 1 -i 0x2c88 0x870 "data/dex/USUM_Complete.bin" 1
-"Mass inject - ITA rBreedingDitto" -i 0x5200 0x1b30 "data/inject/Gen7_rBreedingDitto_ITA.bin" 1
-"Mass inject - SPA rBreedingDitto" -i 0x5200 0x1b30 "data/inject/Gen7_rBreedingDitto_SPA.bin" 1
-"Mass inject - 10th Anniversary" -i 0x5200 0x1b30 "data/inject/Gen6_10th_Anniversary.bin" 1
-"Mass inject - Colosseum" -i 0x5200 0x3660 "data/inject/Gen6_Colosseum.bin" 1
-"Mass inject - Dream Radar" -i 0x5200 0x1b30 "data/inject/Gen6_Dream_Radar.bin" 1
-"Mass inject - Entree Forest" -i 0x5200 0x1b30 "data/inject/Gen6_Entree_Forest.bin" 1
-"Mass inject - KOR events" -i 0x5200 0x1b30 "data/inject/Gen6_KOR_events.bin" 1
-"Mass inject - N's Pokemon" -i 0x5200 0x1b30 "data/inject/Gen6_N.bin" 1
-"Mass inject - Oblivia Deoxys" -i 0x5200 0x1b30 "data/inject/Gen6_Oblivia_Deoxys.bin" 1
-"Mass inject - XD" -i 0x5200 0x5190 "data/inject/Gen6_XD.bin" 1
+"Living dex" -d "inject" -i 0x5200 187920 "data/inject/Gen7_living.bin" 1 -i 0x2c88 0x870 "data/dex/USUM_Complete.bin" 1
+"ITA rBreedingDitto" -d "inject" -i 0x5200 0x1b30 "data/inject/Gen7_rBreedingDitto_ITA.bin" 1
+"SPA rBreedingDitto" -d "inject" -i 0x5200 0x1b30 "data/inject/Gen7_rBreedingDitto_SPA.bin" 1
+"10th Anniversary" -d "inject" -i 0x5200 0x1b30 "data/inject/Gen6_10th_Anniversary.bin" 1
+"Colosseum" -d "inject" -i 0x5200 0x3660 "data/inject/Gen6_Colosseum.bin" 1
+"Dream Radar" -d "inject" -i 0x5200 0x1b30 "data/inject/Gen6_Dream_Radar.bin" 1
+"Entree Forest" -d "inject" -i 0x5200 0x1b30 "data/inject/Gen6_Entree_Forest.bin" 1
+"KOR events" -d "inject" -i 0x5200 0x1b30 "data/inject/Gen6_KOR_events.bin" 1
+"N's Pokemon" -d "inject" -i 0x5200 0x1b30 "data/inject/Gen6_N.bin" 1
+"Oblivia Deoxys" -d "inject" -i 0x5200 0x1b30 "data/inject/Gen6_Oblivia_Deoxys.bin" 1
+"XD" -d "inject" -i 0x5200 0x5190 "data/inject/Gen6_XD.bin" 1
 "Set max Battle Points" -i 0x0451C 4 9999 1
 "Set max Festival Coins" -i 0x51308 4 9999999 1
 "Set Island Points to 100" -i 0x6BE03 4 100 1
@@ -30,70 +30,70 @@
 "Set max Camera Version" -i 0x65600 2 4 1
 "Set Moon time" -i 0x4a48 8 43200 1
 "Set Sun time" -i 0x4a48 8 86400 1
-"All Rotom Powers 99x" -i 0xDFC 44 "data/USUM_AllRotomPowers.bin" 1
-"All Berries 99x" -i 0xC64 200 "data/USUM_AllBerries.bin" 1
-"All Berries 99x (illegal)" -i 0xC64 268 "data/USUM_AllBerries_illegal.bin" 1
-"All Items 99x" -i 0x0 1168 "data/USUM_AllItems.bin" 1
-"All Items 99x (illegal)" -i 0x0 1340 "data/USUM_AllItems_illegal.bin" 1
-"All Medicines 99x" -i 0xB74 204 "data/USUM_AllMedicine.bin" 1
-"All Medicines 99x (illegal)" -i 0xB74 216 "data/USUM_AllMedicine_illegal.bin" 1
-"All TMs Owned" -i 0x9C4 400 "data/USUM_AllTM.bin" 1
-"All Z-Crystals Owned" -i 0xD70 140 "data/USUM_AllZCrystals.bin" 1
-"Items slot 1 - Beast Ball x999" -i 0x0 3 0xf9f53 1
-"Items slot 1 - Bottle Cap x999" -i 0x0 3 0xf9f1b 1
-"Items slot 1 - Gold Bottle Cap x999" -i 0x0 3 0xf9f1c 1
-"Items slot 1 - Heart Scale x999" -i 0x0 3 0xf9c5d 1
-"Items slot 1 - Max Repel x999" -i 0x0 3 0xf9c4d 1
-"Medicine slot 1 - PP Max x999" -i 0xB74 3 0xf9c35 1
-"Medicine slot 1 - Rare Candy x999" -i 0xB74 3 0xf9c32 1
-"Medicine slots 1-6 - stat vitamins x999" -i 0xB74 3 0xf9c2d 1 -i 0xB78 3 0xf9c2e 1 -i 0xB7C 3 0xf9c2f 1 -i 0xB80 3 0xf9c30 1 -i 0xB84 3 0xf9c31 1 -i 0xB88 3 0xf9c34 1
-"Rotom Powers slot 1 x897-960" -i 0xDFe 1 0xE 1
-"Berries slot 1 x897-960" -i 0xC66 1 0xE 1
-"Items slot 1 x897-960" -i 0x2 1 0xE 1
-"Medicines slot 1 x897-960" -i 0xB76 1 0xE 1
-"Reset Cosmog" -i 0x2688 1 167 1
-"Reset Aerodactyl" -i 0x260f 1 32 1
-"Reset Porygon" -i 0x260d 1 16 1
-"Reset Partner Cap Pikachu" -i 0x280A 1 84 1
-"Reset Surfing Pikachu" -i 0x2610 1 0 1
-"Reset Poipole" -i 0x25f1 1 95 1
-"Reset Solgaleo and Lunala" -i 0x269b 1 0xd7 1
-"Reset Necrozma" -i 0x2692 1 0x72 1
-"Reset Tapu Koko" -i 0x2160 1 0x03 1
-"Reset Tapu Bulu" -i 0x2164 1 0x01 1
-"Reset Tapu Fini" -i 0x2128 1 0x03 1
-"Reset Tapu Lele" -i 0x2162 1 0x01 1
-"Reset Zygarde" -i 0x23e6 1 0x01 1
-"Reset Groudon Kyogre and Rayquaza" -i 0x27e8 1 0x80 1
-"Reset Xerneas and Yveltal" -i 0x27f9 1 0x50 1
-"Reset Giratina Cresselia Cobalion Terrakion Virizion Tornadus Thundurus and Reshiram" -i 0x27e6 1 0x00 1
-"Reset Articuno Zapdos Moltres and Mewtwo" -i 0x27f8 1 0x00 1
-"Reset Ho-Oh Uxie Mesprit Azelf Dialga Palkia Heatran and Regigigas" -i 0x27e5 1 0x00 1
-"Reset Zekrom Landorus Kyurem Latias Latios Regirock Regice and Registeel" -i 0x27e7 1 0x00 1
-"Reset Raikou Entei Suicune and Lugia" -i 0x27e4 1 0x0F 1
-"Reset Magearna" -i 0x2687 1 223 1
-"Reset Main Conflict" -i 0x1e88 1 0xcc 1 -i 0x1e89 1 0x06 1 -i 0x2130 1 0x02 1 -i 0x21ac 1 0xe8 1 -i 0x21ad 1 0xe4 1 -i 0x25f0 1 0x1c 1 -i 0x2802 1 0x09 1 -i 0x2652 1 0x7b 1 -i 0x2653 1 0x7c 1 -i 0x265e 1 0x7f 1 -i 0x265f 1 0x01 1 -i 0x268e 1 0xfd 1 -i 0x26a2 1 0x77 1 -i 0x26a7 1 0xf3 1
-"Reset Postgame" -i 0x1ea6 1 0xcb 1 -i 0x1f62 1 0x00 1 -i 0x1f84 1 0x00 1 -i 0x21ac 1 0xd2 1 -i 0x21ad 1 0xf0 1 -i 0x21be 1 0x00 1 -i 0x21c0 1 0x00 1 -i 0x21c2 1 0x00 1 -i 0x21c4 1 0x00 1 -i 0x23de 1 0x00 1 -i 0x2432 1 0x00 1 -i 0x24b4 1 0x00 1 -i 0x24b6 1 0x00 1 -i 0x24b8 1 0x00 1 -i 0x24be 1 0x00 1 -i 0x24c0 1 0x00 1 -i 0x24c2 1 0x00 1 -i 0x25ea 1 0xc8 1 -i 0x25eb 1 0x18 1 -i 0x25f8 1 0x1a 1 -i 0x25fc 1 0xb8 1 -i 0x25fd 1 0x78 1 -i 0x25fe 1 0x00 1 -i 0x25ff 1 0x00 1 -i 0x2600 1 0x01 1 -i 0x2622 1 0x00 1 -i 0x2659 1 0xfb 1 -i 0x2668 1 0xf7 1 -i 0x2678 1 0xeb 1 -i 0x267f 1 0xff 1 -i 0x2680 1 0xf9 1 -i 0x2692 1 0x77 1 -i 0x2699 1 0xfb 1 -i 0x269a 1 0x7e 1 -i 0x269b 1 0x3e 1 -i 0x269c 1 0xdc 1 -i 0x269e 1 0xf5 1 -i 0x269f 1 0xff 1 -i 0x26a2 1 0x63 1 -i 0x26a7 1 0xe3 1 -i 0x26a8 1 0x22 1 -i 0x2738 1 0x0c 1 -i 0x2739 1 0x00 1 -i 0x273a 1 0x00 1 -i 0x278f 1 0xa1 1 -i 0x2791 1 0x00 1 -i 0x2793 1 0x0c 1 -i 0x2794 1 0x00 1 -i 0x2795 1 0x00 1 -i 0x2796 1 0x00 1 -i 0x2797 1 0x00 1 -i 0x279c 1 0x24 1 -i 0x27f9 1 0x40 1 -i 0x27fa 1 0x0c 1 -i 0x2804 1 0x00 1 -i 0x2805 1 0xc0 1
-"Set Vivillon Icy Snow form" -i 0x4530 1 0 1
-"Set Vivillon Polar form" -i 0x4530 1 1 1
-"Set Vivillon Tundra form" -i 0x4530 1 2 1
-"Set Vivillon Continental form" -i 0x4530 1 3 1
-"Set Vivillon Garden form" -i 0x4530 1 4 1
-"Set Vivillon Elegant form" -i 0x4530 1 5 1
-"Set Vivillon Meadow form" -i 0x4530 1 6 1
-"Set Vivillon Modern form" -i 0x4530 1 7 1
-"Set Vivillon Marine form" -i 0x4530 1 8 1
-"Set Vivillon Archipelago form" -i 0x4530 1 9 1
-"Set Vivillon High-Plains form" -i 0x4530 1 10 1
-"Set Vivillon Sandstorm form" -i 0x4530 1 11 1
-"Set Vivillon River form" -i 0x4530 1 12 1
-"Set Vivillon Monsoon form" -i 0x4530 1 13 1
-"Set Vivillon Savannah form" -i 0x4530 1 14 1
-"Set Vivillon Sun form" -i 0x4530 1 15 1
-"Set Vivillon Ocean form" -i 0x4530 1 16 1
-"Set Vivillon Jungle form" -i 0x4530 1 17 1
-"Set Vivillon Fancy form" -i 0x4530 1 18 1
-"Set Vivillon Pokeball form" -i 0x4530 1 19 1
+"All Rotom Powers 99x" -d "items" -i 0xDFC 44 "data/USUM_AllRotomPowers.bin" 1
+"All Berries 99x" -d "items" -i 0xC64 200 "data/USUM_AllBerries.bin" 1
+"All Berries 99x" -d "illegal" -i 0xC64 268 "data/USUM_AllBerries_illegal.bin" 1
+"All Items 99x" -d "items" -i 0x0 1168 "data/USUM_AllItems.bin" 1
+"All Items 99x" -d "illegal" -i 0x0 1340 "data/USUM_AllItems_illegal.bin" 1
+"All Medicines 99x" -d "items" -i 0xB74 204 "data/USUM_AllMedicine.bin" 1
+"All Medicines 99x" -d "illegal" -i 0xB74 216 "data/USUM_AllMedicine_illegal.bin" 1
+"All TMs Owned" -d "items" -i 0x9C4 400 "data/USUM_AllTM.bin" 1
+"All Z-Crystals Owned" -d "items" -i 0xD70 140 "data/USUM_AllZCrystals.bin" 1
+"Items slot 1 - Beast Ball x999" -d "items" -i 0x0 3 0xf9f53 1
+"Items slot 1 - Bottle Cap x999" -d "items" -i 0x0 3 0xf9f1b 1
+"Items slot 1 - Gold Bottle Cap x999" -d "items" -i 0x0 3 0xf9f1c 1
+"Items slot 1 - Heart Scale x999" -d "items" -i 0x0 3 0xf9c5d 1
+"Items slot 1 - Max Repel x999" -d "items" -i 0x0 3 0xf9c4d 1
+"Medicine slot 1 - PP Max x999" -d "items" -i 0xB74 3 0xf9c35 1
+"Medicine slot 1 - Rare Candy x999" -d "items" -i 0xB74 3 0xf9c32 1
+"Medicine slots 1-6 - stat vitamins x999" -d "items" -i 0xB74 3 0xf9c2d 1 -i 0xB78 3 0xf9c2e 1 -i 0xB7C 3 0xf9c2f 1 -i 0xB80 3 0xf9c30 1 -i 0xB84 3 0xf9c31 1 -i 0xB88 3 0xf9c34 1
+"Rotom Powers slot 1 x897-960" -d "items" -i 0xDFe 1 0xE 1
+"Berries slot 1 x897-960" -d "items" -i 0xC66 1 0xE 1
+"Items slot 1 x897-960" -d "items" -i 0x2 1 0xE 1
+"Medicines slot 1 x897-960" -d "items" -i 0xB76 1 0xE 1
+"Cosmog" -d "reset" -i 0x2688 1 167 1
+"Aerodactyl" -d "reset" -i 0x260f 1 32 1
+"Porygon" -d "reset" -i 0x260d 1 16 1
+"Partner Cap Pikachu" -d "reset" -i 0x280A 1 84 1
+"Surfing Pikachu" -d "reset" -i 0x2610 1 0 1
+"Poipole" -d "reset" -i 0x25f1 1 95 1
+"Solgaleo and Lunala" -d "reset" -i 0x269b 1 0xd7 1
+"Necrozma" -d "reset" -i 0x2692 1 0x72 1
+"Tapu Koko" -d "reset" -i 0x2160 1 0x03 1
+"Tapu Bulu" -d "reset" -i 0x2164 1 0x01 1
+"Tapu Fini" -d "reset" -i 0x2128 1 0x03 1
+"Tapu Lele" -d "reset" -i 0x2162 1 0x01 1
+"Zygarde" -d "reset" -i 0x23e6 1 0x01 1
+"Groudon Kyogre and Rayquaza" -d "reset" -i 0x27e8 1 0x80 1
+"Xerneas and Yveltal" -d "reset" -i 0x27f9 1 0x50 1
+"Giratina Cresselia Cobalion Terrakion Virizion Tornadus Thundurus and Reshiram" -d "reset" -i 0x27e6 1 0x00 1
+"Articuno Zapdos Moltres and Mewtwo" -d "reset" -i 0x27f8 1 0x00 1
+"Ho-Oh Uxie Mesprit Azelf Dialga Palkia Heatran and Regigigas" -d "reset" -i 0x27e5 1 0x00 1
+"Zekrom Landorus Kyurem Latias Latios Regirock Regice and Registeel" -d "reset" -i 0x27e7 1 0x00 1
+"Raikou Entei Suicune and Lugia" -d "reset" -i 0x27e4 1 0x0F 1
+"Magearna" -d "reset" -i 0x2687 1 223 1
+"Main Conflict" -d "reset" -i 0x1e88 1 0xcc 1 -i 0x1e89 1 0x06 1 -i 0x2130 1 0x02 1 -i 0x21ac 1 0xe8 1 -i 0x21ad 1 0xe4 1 -i 0x25f0 1 0x1c 1 -i 0x2802 1 0x09 1 -i 0x2652 1 0x7b 1 -i 0x2653 1 0x7c 1 -i 0x265e 1 0x7f 1 -i 0x265f 1 0x01 1 -i 0x268e 1 0xfd 1 -i 0x26a2 1 0x77 1 -i 0x26a7 1 0xf3 1
+"Postgame" -d "reset" -i 0x1ea6 1 0xcb 1 -i 0x1f62 1 0x00 1 -i 0x1f84 1 0x00 1 -i 0x21ac 1 0xd2 1 -i 0x21ad 1 0xf0 1 -i 0x21be 1 0x00 1 -i 0x21c0 1 0x00 1 -i 0x21c2 1 0x00 1 -i 0x21c4 1 0x00 1 -i 0x23de 1 0x00 1 -i 0x2432 1 0x00 1 -i 0x24b4 1 0x00 1 -i 0x24b6 1 0x00 1 -i 0x24b8 1 0x00 1 -i 0x24be 1 0x00 1 -i 0x24c0 1 0x00 1 -i 0x24c2 1 0x00 1 -i 0x25ea 1 0xc8 1 -i 0x25eb 1 0x18 1 -i 0x25f8 1 0x1a 1 -i 0x25fc 1 0xb8 1 -i 0x25fd 1 0x78 1 -i 0x25fe 1 0x00 1 -i 0x25ff 1 0x00 1 -i 0x2600 1 0x01 1 -i 0x2622 1 0x00 1 -i 0x2659 1 0xfb 1 -i 0x2668 1 0xf7 1 -i 0x2678 1 0xeb 1 -i 0x267f 1 0xff 1 -i 0x2680 1 0xf9 1 -i 0x2692 1 0x77 1 -i 0x2699 1 0xfb 1 -i 0x269a 1 0x7e 1 -i 0x269b 1 0x3e 1 -i 0x269c 1 0xdc 1 -i 0x269e 1 0xf5 1 -i 0x269f 1 0xff 1 -i 0x26a2 1 0x63 1 -i 0x26a7 1 0xe3 1 -i 0x26a8 1 0x22 1 -i 0x2738 1 0x0c 1 -i 0x2739 1 0x00 1 -i 0x273a 1 0x00 1 -i 0x278f 1 0xa1 1 -i 0x2791 1 0x00 1 -i 0x2793 1 0x0c 1 -i 0x2794 1 0x00 1 -i 0x2795 1 0x00 1 -i 0x2796 1 0x00 1 -i 0x2797 1 0x00 1 -i 0x279c 1 0x24 1 -i 0x27f9 1 0x40 1 -i 0x27fa 1 0x0c 1 -i 0x2804 1 0x00 1 -i 0x2805 1 0xc0 1
+"Icy Snow form" -d "vivillon" -i 0x4530 1 0 1
+"Polar form" -d "vivillon" -i 0x4530 1 1 1
+"Tundra form" -d "vivillon" -i 0x4530 1 2 1
+"Continental form" -d "vivillon" -i 0x4530 1 3 1
+"Garden form" -d "vivillon" -i 0x4530 1 4 1
+"Elegant form" -d "vivillon" -i 0x4530 1 5 1
+"Meadow form" -d "vivillon" -i 0x4530 1 6 1
+"Modern form" -d "vivillon" -i 0x4530 1 7 1
+"Marine form" -d "vivillon" -i 0x4530 1 8 1
+"Archipelago form" -d "vivillon" -i 0x4530 1 9 1
+"High-Plains form" -d "vivillon" -i 0x4530 1 10 1
+"Sandstorm form" -d "vivillon" -i 0x4530 1 11 1
+"River form" -d "vivillon" -i 0x4530 1 12 1
+"Monsoon form" -d "vivillon" -i 0x4530 1 13 1
+"Savannah form" -d "vivillon" -i 0x4530 1 14 1
+"Sun form" -d "vivillon" -i 0x4530 1 15 1
+"Ocean form" -d "vivillon" -i 0x4530 1 16 1
+"Jungle form" -d "vivillon" -i 0x4530 1 17 1
+"Set Vivillon Fancy form" -d "illegal" -i 0x4530 1 18 1
+"Set Vivillon Pokeball form" -d "illegal" -i 0x4530 1 19 1
 "Set Battle Style Normal" -i 0x147A 1 0 1
 "Set Battle Style Elegant" -i 0x147A 1 1 1
 "Set Battle Style Girlish" -i 0x147A 1 2 1
@@ -103,19 +103,19 @@
 "Set Battle Style Passionate" -i 0x147A 1 6 1
 "Set Battle Style Idol" -i 0x147A 1 7 1
 "Set Battle Style Nihilist" -i 0x147A 1 8 1
-"Reset Stakataka" -i 0x27f2 1 0x04 1
-"Reset Blacephalon" -i 0x27f2 1 0x08 1
-"Remove Stakataka and Blacephalon" -i 0x27f2 1 0x00 1
-"Reset Po Town Nuggets" -i 0x1e6e 1 0x04 1 -i 0x1ea6 1 0xcb 1 -i 0x2616 1 0x00 1 -i 0x2792 1 0x98 1 -i 0x281d 1 0x00 1
-"Reset Nanu Event" -i 0x23e4 1 0x01 1 -i 0x2616 1 0x20 1 -i 0x26b4 1 0x40 1
-"Reset Team Skull Pose Event" -i 0x1ea6 1 0xcc 1 -i 0x2410 1 0x02 1 -i 0x2617 1 0x80 1 -i 0x2792 1 0xd8 1
-"Reset Janitor Event" -i 0x1e00 1 0x00 1 -i 0x1e01 1 0x00 1 -i 0x1e7a 1 0x01 1 -i 0x1e7c 1 0x00 1 -i 0x25f9 1 0x08 1 -i 0x2606 1 0x02 1 -i 0x2682 1 0xc0 1
-"Reset Shiny Exeggcute Battle" -i 0x1ea6 1 0xcb 1 -i 0x260e 1 0xa4 1 -i 0x277c 1 0x00 1
+"Stakataka" -d "reset" -i 0x27f2 1 0x04 1
+"Blacephalon" -d "reset" -i 0x27f2 1 0x08 1
+"Remove Stakataka and Blacephalon" -d "reset" -i 0x27f2 1 0x00 1
+"Po Town Nuggets" -d "reset" -i 0x1e6e 1 0x04 1 -i 0x1ea6 1 0xcb 1 -i 0x2616 1 0x00 1 -i 0x2792 1 0x98 1 -i 0x281d 1 0x00 1
+"Nanu Event" -d "reset" -i 0x23e4 1 0x01 1 -i 0x2616 1 0x20 1 -i 0x26b4 1 0x40 1
+"Team Skull Pose Event" -d "reset" -i 0x1ea6 1 0xcc 1 -i 0x2410 1 0x02 1 -i 0x2617 1 0x80 1 -i 0x2792 1 0xd8 1
+"Janitor Event" -d "reset" -i 0x1e00 1 0x00 1 -i 0x1e01 1 0x00 1 -i 0x1e7a 1 0x01 1 -i 0x1e7c 1 0x00 1 -i 0x25f9 1 0x08 1 -i 0x2606 1 0x02 1 -i 0x2682 1 0xc0 1
+"Shiny Exeggcute Battle" -d "reset" -i 0x1ea6 1 0xcb 1 -i 0x260e 1 0xa4 1 -i 0x277c 1 0x00 1
 "Unlock Mega-Evolution" -i 0x1478 1 1 1 -i 0x1f22 1 1 1
-"Fill Dex - language entries" -i 0x3150 1 0xff 0x38a -i 0x34db 1 0x7f 1
-"Fill Dex - Alola seen" -i 0x2cf0 0x808 "data/dex/USUM_Alola_seen.bin" 1
-"Fill Dex - Alola owned" -i 0x2c88 0x870 "data/dex/USUM_Alola_owned.bin" 1
-"Fill Dex - National seen" -i 0x2cf0 0x808 "data/dex/USUM_National_seen.bin" 1
-"Fill Dex - National owned" -i 0x2c88 0x870 "data/dex/USUM_National_owned.bin" 1
-"Fill Dex - Complete" -i 0x2c88 0x870 "data/dex/USUM_Complete.bin" 1
-"Fill Dex - Complete (illegal)" -i 0x2c88 0x870 "data/dex/USUM_Complete_illegal.bin" 1
+"Language entries" -d "dex" -i 0x3150 1 0xff 0x38a -i 0x34db 1 0x7f 1
+"Alola seen" -d "dex" -i 0x2cf0 0x808 "data/dex/USUM_Alola_seen.bin" 1
+"Alola owned" -d "dex" -i 0x2c88 0x870 "data/dex/USUM_Alola_owned.bin" 1
+"National seen" -d "dex" -i 0x2cf0 0x808 "data/dex/USUM_National_seen.bin" 1
+"National owned" -d "dex" -i 0x2c88 0x870 "data/dex/USUM_National_owned.bin" 1
+"Complete" -d "dex" -i 0x2c88 0x870 "data/dex/USUM_Complete.bin" 1
+"Fill Dex - Complete" -d "illegal" -i 0x2c88 0x870 "data/dex/USUM_Complete_illegal.bin" 1

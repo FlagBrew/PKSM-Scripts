@@ -1,33 +1,33 @@
 # Syntax: "Name of script" -i <offset> <length> <payload (integer or file path)> <repeat>
 "Clear Mystery Gift data" -i 0x1C800 1 0x0 2704
 "Set max money" -i 0x21200 4 9999999 1
-"Mass inject - living dex" -i 0x00400 4080 "data/inject/living5/boxdata BOX 1.bin" 1 -i 0x01400 4080 "data/inject/living5/boxdata BOX 2.bin" 1 -i 0x02400 4080 "data/inject/living5/boxdata BOX 3.bin" 1 -i 0x03400 4080 "data/inject/living5/boxdata BOX 4.bin" 1 -i 0x04400 4080 "data/inject/living5/boxdata BOX 5.bin" 1 -i 0x05400 4080 "data/inject/living5/boxdata BOX 6.bin" 1 -i 0x06400 4080 "data/inject/living5/boxdata BOX 7.bin" 1 -i 0x07400 4080 "data/inject/living5/boxdata BOX 8.bin" 1 -i 0x08400 4080 "data/inject/living5/boxdata BOX 9.bin" 1 -i 0x09400 4080 "data/inject/living5/boxdata BOX 10.bin" 1 -i 0x0A400 4080 "data/inject/living5/boxdata BOX 11.bin" 1 -i 0x0B400 4080 "data/inject/living5/boxdata BOX 12.bin" 1 -i 0x0C400 4080 "data/inject/living5/boxdata BOX 13.bin" 1 -i 0x0D400 4080 "data/inject/living5/boxdata BOX 14.bin" 1 -i 0x0E400 4080 "data/inject/living5/boxdata BOX 15.bin" 1 -i 0x0F400 4080 "data/inject/living5/boxdata BOX 16.bin" 1 -i 0x10400 4080 "data/inject/living5/boxdata BOX 17.bin" 1 -i 0x11400 4080 "data/inject/living5/boxdata BOX 18.bin" 1 -i 0x12400 4080 "data/inject/living5/boxdata BOX 19.bin" 1 -i 0x13400 4080 "data/inject/living5/boxdata BOX 20.bin" 1 -i 0x14400 4080 "data/inject/living5/boxdata BOX 21.bin" 1 -i 0x15400 4080 "data/inject/living5/boxdata BOX 22.bin" 1 -i 0x21608 0x4c8 "data/dex/BW_Complete.bin" 1
+"Mass Inject - living dex" -i 0x00400 4080 "data/inject/living5/boxdata BOX 1.bin" 1 -i 0x01400 4080 "data/inject/living5/boxdata BOX 2.bin" 1 -i 0x02400 4080 "data/inject/living5/boxdata BOX 3.bin" 1 -i 0x03400 4080 "data/inject/living5/boxdata BOX 4.bin" 1 -i 0x04400 4080 "data/inject/living5/boxdata BOX 5.bin" 1 -i 0x05400 4080 "data/inject/living5/boxdata BOX 6.bin" 1 -i 0x06400 4080 "data/inject/living5/boxdata BOX 7.bin" 1 -i 0x07400 4080 "data/inject/living5/boxdata BOX 8.bin" 1 -i 0x08400 4080 "data/inject/living5/boxdata BOX 9.bin" 1 -i 0x09400 4080 "data/inject/living5/boxdata BOX 10.bin" 1 -i 0x0A400 4080 "data/inject/living5/boxdata BOX 11.bin" 1 -i 0x0B400 4080 "data/inject/living5/boxdata BOX 12.bin" 1 -i 0x0C400 4080 "data/inject/living5/boxdata BOX 13.bin" 1 -i 0x0D400 4080 "data/inject/living5/boxdata BOX 14.bin" 1 -i 0x0E400 4080 "data/inject/living5/boxdata BOX 15.bin" 1 -i 0x0F400 4080 "data/inject/living5/boxdata BOX 16.bin" 1 -i 0x10400 4080 "data/inject/living5/boxdata BOX 17.bin" 1 -i 0x11400 4080 "data/inject/living5/boxdata BOX 18.bin" 1 -i 0x12400 4080 "data/inject/living5/boxdata BOX 19.bin" 1 -i 0x13400 4080 "data/inject/living5/boxdata BOX 20.bin" 1 -i 0x14400 4080 "data/inject/living5/boxdata BOX 21.bin" 1 -i 0x15400 4080 "data/inject/living5/boxdata BOX 22.bin" 1 -i 0x21608 0x4c8 "data/dex/BW_Complete.bin" 1
 "Set max Battle Points" -i 0x21D00 2 9999 1
-"Reset Victini" -i 0x20222 1 0x02 1 -i 0x204ee 1 0xd2 1 -i 0x204ef 1 0x5b 1 -i 0x23f5a 1 0xd2 1 -i 0x23f5b 1 0x5b 1
-"Reset Darmanitan" -i 0x203ce 1 0x7f 1 -i 0x203cf 1 0x30 1 -i 0x204ee 1 0x65 1 -i 0x204ef 1 0xa4 1 -i 0x23f5a 1 0x65 1 -i 0x23f5b 1 0xa4 1
-"Reset Fossil Choice" -i 0x2038e 1 0x04 1 -i 0x204ee 1 0x17 1 -i 0x204ef 1 0xdd 1 -i 0x23f5a 1 0x17 1 -i 0x23f5b 1 0xdd 1
-"Reset Starter" -i 0x2016e 1 0x00 1 -i 0x2016f 1 0x00 1 -i 0x20202 1 0x01 1 -i 0x203ba 1 0x30 1 -i 0x203d1 1 0x3e 1
-"Reset Elemental Monkey" -i 0x20206 1 0x00 1 -i 0x204ee 1 0x14 1 -i 0x204ef 1 0x96 1
-"Give all items 99x (illegal)" -i 0x18400 1044 "data/BWB2W2_AllItems_illegal.bin" 1
-"Give all items 99x" -i 0x18400 976 "data/BWB2W2_AllItems.bin" 1
-"All TMs and HMs owned (illegal)" -i 0x18a24 404 "data/BWB2W2_AllTMHM.bin" 1
-"All TMs and HMs owned" -i 0x18a24 400 "data/BW_AllTMHM.bin" 1
-"Give all medicine 99x" -i 0x18bd8 188 "data/BWB2W2_AllMedicine.bin" 1
-"Give all berries 99x (illegal)" -i 0x18c98 256 "data/BWB2W2_AllBerries_illegal.bin" 1
-"Give all berries 99x" -i 0x18c98 248 "data/BWB2W2_AllBerries.bin" 1
-"Items slot 1 - Heart Scale x999" -i 0x18400 2 93 1 -i 0x18402 2 999 1
-"Items slot 1 - Max Repel x999" -i 0x18400 2 77 1 -i 0x18402 2 999 1
-"Items slot 1 - Pass Orb x999" -i 0x18400 2 575 1 -i 0x18402 2 999 1
-"Medicine slot 1 - PP Max x999" -i 0x18BD8 2 53 1 -i 0x18BDA 2 999 1
-"Medicine slot 1 - Rare Candy x999" -i 0x18BD8 2 50 1 -i 0x18BDA 2 999 1
-"Medicine slots 1-6 - stat vitamins x999" -i 0x18BD8 2 45 1 -i 0x18BDA 2 999 1 -i 0x18BDC 2 46 1 -i 0x18BDE 2 999 1 -i 0x18BE0 2 47 1 -i 0x18BE2 2 999 1 -i 0x18BE4 2 48 1 -i 0x18BE6 2 999 1 -i 0x18BE8 2 49 1 -i 0x18BEA 2 999 1 -i 0x18BEC 2 52 1 -i 0x18BEE 2 999 1
-"Items slot 1 x999" -i 0x18402 2 999 1
-"Medicine slot 1 x999" -i 0x18bda 2 999 1
-"Berries slot 1 x999" -i 0x18c9a 2 999 1
-"Fill Dex - language entries" -i 0x21920 1 0xff 0x1af -i 0x21ace 1 0x07 1
-"Fill Dex - Unova seen" -i 0x2165c 0x474 "data/dex/BW_Unova_seen.bin" 1
-"Fill Dex - Unova owned" -i 0x21608 0x4c8 "data/dex/BW_Unova_owned.bin" 1
-"Fill Dex - National seen" -i 0x2165c 0x474 "data/dex/BW_National_seen.bin" 1
-"Fill Dex - National owned" -i 0x21608 0x4c8 "data/dex/BW_National_owned.bin" 1
-"Fill Dex - Complete" -i 0x21608 0x4c8 "data/dex/BW_Complete.bin" 1
-"Fill Dex - Complete (illegal)" -i 0x21608 0x4c8 "data/dex/BW_Complete_illegal.bin" 1
+"Victini" -d "reset" -i 0x20222 1 0x02 1 -i 0x204ee 1 0xd2 1 -i 0x204ef 1 0x5b 1 -i 0x23f5a 1 0xd2 1 -i 0x23f5b 1 0x5b 1
+"Darmanitan" -d "reset" -i 0x203ce 1 0x7f 1 -i 0x203cf 1 0x30 1 -i 0x204ee 1 0x65 1 -i 0x204ef 1 0xa4 1 -i 0x23f5a 1 0x65 1 -i 0x23f5b 1 0xa4 1
+"Fossil Choice" -d "reset" -i 0x2038e 1 0x04 1 -i 0x204ee 1 0x17 1 -i 0x204ef 1 0xdd 1 -i 0x23f5a 1 0x17 1 -i 0x23f5b 1 0xdd 1
+"Starter" -d "reset" -i 0x2016e 1 0x00 1 -i 0x2016f 1 0x00 1 -i 0x20202 1 0x01 1 -i 0x203ba 1 0x30 1 -i 0x203d1 1 0x3e 1
+"Elemental Monkey" -d "reset" -i 0x20206 1 0x00 1 -i 0x204ee 1 0x14 1 -i 0x204ef 1 0x96 1
+"Give all items 99x" -d "illegal" -i 0x18400 1044 "data/BWB2W2_AllItems_illegal.bin" 1
+"Give all items 99x" -d "items" -i 0x18400 976 "data/BWB2W2_AllItems.bin" 1
+"All TMs and HMs owned" -d "illegal" -i 0x18a24 404 "data/BWB2W2_AllTMHM.bin" 1
+"All TMs and HMs owned" -d "items" -i 0x18a24 400 "data/BW_AllTMHM.bin" 1
+"Give all medicine 99x" -d "items" -i 0x18bd8 188 "data/BWB2W2_AllMedicine.bin" 1
+"Give all berries 99x" -d "illegal" -i 0x18c98 256 "data/BWB2W2_AllBerries_illegal.bin" 1
+"Give all berries 99x" -d "items" -i 0x18c98 248 "data/BWB2W2_AllBerries.bin" 1
+"Items slot 1 - Heart Scale x999" -d "items" -i 0x18400 2 93 1 -i 0x18402 2 999 1
+"Items slot 1 - Max Repel x999" -d "items" -i 0x18400 2 77 1 -i 0x18402 2 999 1
+"Items slot 1 - Pass Orb x999" -d "items" -i 0x18400 2 575 1 -i 0x18402 2 999 1
+"Medicine slot 1 - PP Max x999" -d "items" -i 0x18BD8 2 53 1 -i 0x18BDA 2 999 1
+"Medicine slot 1 - Rare Candy x999" -d "items" -i 0x18BD8 2 50 1 -i 0x18BDA 2 999 1
+"Medicine slots 1-6 - stat vitamins x999" -d "items" -i 0x18BD8 2 45 1 -i 0x18BDA 2 999 1 -i 0x18BDC 2 46 1 -i 0x18BDE 2 999 1 -i 0x18BE0 2 47 1 -i 0x18BE2 2 999 1 -i 0x18BE4 2 48 1 -i 0x18BE6 2 999 1 -i 0x18BE8 2 49 1 -i 0x18BEA 2 999 1 -i 0x18BEC 2 52 1 -i 0x18BEE 2 999 1
+"Items slot 1 x999" -d "items" -i 0x18402 2 999 1
+"Medicine slot 1 x999" -d "items" -i 0x18bda 2 999 1
+"Berries slot 1 x999" -d "items" -i 0x18c9a 2 999 1
+"Language entries" -d "dex" -i 0x21920 1 0xff 0x1af -i 0x21ace 1 0x07 1
+"Unova seen" -d "dex" -i 0x2165c 0x474 "data/dex/BW_Unova_seen.bin" 1
+"Unova owned" -d "dex" -i 0x21608 0x4c8 "data/dex/BW_Unova_owned.bin" 1
+"National seen" -d "dex" -i 0x2165c 0x474 "data/dex/BW_National_seen.bin" 1
+"National owned" -d "dex" -i 0x21608 0x4c8 "data/dex/BW_National_owned.bin" 1
+"Complete" -d "dex" -i 0x21608 0x4c8 "data/dex/BW_Complete.bin" 1
+"Fill Dex - Complete" -d "illegal" -i 0x21608 0x4c8 "data/dex/BW_Complete_illegal.bin" 1

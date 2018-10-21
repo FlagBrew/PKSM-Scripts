@@ -3,34 +3,34 @@
 "Max money held by mother" -i 0xC0D8 4 999999 1
 "Set max money" -i 0x78 4 999999 1
 "Set max Battle Points" -i 0x5BB8 2 9999 1
-"Give all items 99x" -i 0x644 640 "data/HGSS_AllItems.bin" 1
-"Give all items 99x (illegal)" -i 0x644 648 "data/HGSS_AllItems_illegal.bin" 1
-"Give all medicines 99x" -i 0xB64 152 "data/HGSS_AllMedicines.bin" 1
-"Give all battle items 99x" -i 0xD64 52 "data/HGSS_AllBattleItems.bin" 1
-"Give all berries 99x" -i 0xC04 256 "data/HGSS_AllBerries.bin" 1
-"Give all TM&HM 99x" -i 0x9A0 400 "data/HGSS_AllTMHM.bin" 1
-"Give all pokeballs 99x" -i 0xD04 84 "data/HGSS_AllPokeballs.bin" 1
-"Give all pokeballs 99x (illegal)" -i 0xD04 96 "data/HGSS_AllPokeballs_illegal.bin" 1
-"Give all Apricorns 99x" -i 0xE558 1 99 7
-"Items slot 1 - Heart Scale x999" -i 0x644 2 93 1 -i 0x646 2 999 1
-"Items slot 1 - Max Repel x999" -i 0x644 2 77 1 -i 0x646 2 999 1
-"Medicine slot 1 - PP Max x999" -i 0xB64 2 53 1 -i 0xB66 2 999 1
-"Medicine slot 1 - Rare Candy x999" -i 0xB64 2 50 1 -i 0xB66 2 999 1
-"Medicine slots 1-6 - stat vitamins x999" -i 0xB64 2 45 1 -i 0xB66 2 999 1 -i 0xB68 2 46 1 -i 0xB6A 2 999 1 -i 0xB6C 2 47 1 -i 0xB6E 2 999 1 -i 0xB70 2 48 1 -i 0xB72 2 999 1 -i 0xB74 2 49 1 -i 0xB76 2 999 1 -i 0xB78 2 52 1 -i 0xB7A 2 999 1
-"Items slot 1 x999" -i 0x646 2 999 1
-"Medicines slot 1 x999" -i 0xB66 2 999 1
-"Battle items slot 1 x999" -i 0xD66 2 999 1
-"Berries slot 1 x999" -i 0xC06 2 999 1
-"TM&HM slot 1 x999" -i 0x9A2 2 999 1
-"Pokeballs slot 1 x999" -i 0xD06 2 999 1
+"Give all items 99x" -d "items" -i 0x644 640 "data/HGSS_AllItems.bin" 1
+"Give all items 99x" -d "illegal" -i 0x644 648 "data/HGSS_AllItems_illegal.bin" 1
+"Give all medicines 99x" -d "items" -i 0xB64 152 "data/HGSS_AllMedicines.bin" 1
+"Give all battle items 99x" -d "items" -i 0xD64 52 "data/HGSS_AllBattleItems.bin" 1
+"Give all berries 99x" -d "items" -i 0xC04 256 "data/HGSS_AllBerries.bin" 1
+"Give all TM&HM 99x" -d "items" -i 0x9A0 400 "data/HGSS_AllTMHM.bin" 1
+"Give all pokeballs 99x" -d "items" -i 0xD04 84 "data/HGSS_AllPokeballs.bin" 1
+"Give all pokeballs 99x" -d "illegal" -i 0xD04 96 "data/HGSS_AllPokeballs_illegal.bin" 1
+"Give all Apricorns 99x" -d "items" -i 0xE558 1 99 7
+"Items slot 1 - Heart Scale x999" -d "items" -i 0x644 2 93 1 -i 0x646 2 999 1
+"Items slot 1 - Max Repel x999" -d "items" -i 0x644 2 77 1 -i 0x646 2 999 1
+"Medicine slot 1 - PP Max x999" -d "items" -i 0xB64 2 53 1 -i 0xB66 2 999 1
+"Medicine slot 1 - Rare Candy x999" -d "items" -i 0xB64 2 50 1 -i 0xB66 2 999 1
+"Medicine slots 1-6 - stat vitamins x999" -d "items" -i 0xB64 2 45 1 -i 0xB66 2 999 1 -i 0xB68 2 46 1 -i 0xB6A 2 999 1 -i 0xB6C 2 47 1 -i 0xB6E 2 999 1 -i 0xB70 2 48 1 -i 0xB72 2 999 1 -i 0xB74 2 49 1 -i 0xB76 2 999 1 -i 0xB78 2 52 1 -i 0xB7A 2 999 1
+"Items slot 1 x999" -d "items" -i 0x646 2 999 1
+"Medicines slot 1 x999" -d "items" -i 0xB66 2 999 1
+"Battle items slot 1 x999" -d "items" -i 0xD66 2 999 1
+"Berries slot 1 x999" -d "items" -i 0xC06 2 999 1
+"TM&HM slot 1 x999" -d "items" -i 0x9A2 2 99 1
+"Pokeballs slot 1 x999" -d "items" -i 0xD06 2 999 1
 "Unlock all Pokewalker Courses" -i 0xE70C 1 0xFF 3 -i 0xE70F 1 0x07 1
-"Reset Legendary Beasts" -i 0xf26 1 0x00 1 -i 0x10fd 1 0xb1 1
-"Reset Articuno Moltres and Mewtwo" -i 0x1124 1 0x0f 1
+"Legendary Beasts" -d "reset" -i 0xf26 1 0x00 1 -i 0x10fd 1 0xb1 1
+"Articuno Moltres and Mewtwo" -d "reset" -i 0x1124 1 0x0f 1
 "Set max Game Corner coins" -i 0x84 2 50000 1
 "Fill Fashion Case" -i 0x3f64 0x3a "data/GenIV_Fashion_Case.bin" 1
-"Fill Dex - language entries" -i 0x13fc 1 0x3f 493
-"Fill Dex - Johto seen" -i 0x12fc 0x2fb "data/dex/HGSS_Johto_seen.bin" 1
-"Fill Dex - Johto owned" -i 0x12bc 0x33b "data/dex/HGSS_Johto_owned.bin" 1
-"Fill Dex - National seen" -i 0x12fb 0x2fc "data/dex/HGSS_National_seen.bin" 1
-"Fill Dex - National owned" -i 0x12bc 0x33b "data/dex/HGSS_National_owned.bin" 1
-"Fill Dex - Complete" -i 0x12bc 0x33b "data/dex/HGSS_Complete.bin" 1
+"Language entries" -d "dex" -i 0x13fc 1 0x3f 493
+"Johto seen" -d "dex" -i 0x12fc 0x2fb "data/dex/HGSS_Johto_seen.bin" 1
+"Johto owned" -d "dex" -i 0x12bc 0x33b "data/dex/HGSS_Johto_owned.bin" 1
+"National seen" -d "dex" -i 0x12fb 0x2fc "data/dex/HGSS_National_seen.bin" 1
+"National owned" -d "dex" -i 0x12bc 0x33b "data/dex/HGSS_National_owned.bin" 1
+"Complete" -d "dex" -i 0x12bc 0x33b "data/dex/HGSS_Complete.bin" 1

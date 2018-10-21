@@ -1,46 +1,40 @@
 #!/usr/bin/env node
 const fs = require('fs');
-const { createInterface } = require('readline');
 const { join } = require('path');
 const pksmScript = require('./PKSMScript');
 
-let err = false;
-
 const games = ['usum', 'sm', 'oras', 'xy', 'b2w2', 'bw', 'hgss', 'pt', 'dp'];
+let subdir; // track if scripts use -d flag
 
-const generate = (game) => {
-    const rl = createInterface({
-        input: fs.createReadStream(join('src', `scripts${game.toUpperCase()}.txt`)),
-        crlfDelay: Infinity,
-    });
-    rl.on('line', (l) => {
+function generate(game) {
+    let scriptSrc = fs.readFileSync(join('src', `scripts${game.toUpperCase()}.txt`), 'utf8');
+    scriptSrc = scriptSrc.split(/\r?\n/);
+    scriptSrc.forEach((l) => {
         if (l.length && l.charAt(0) !== '#') {
-            const line = l.replace(/\\/g, '/');
-
-            let argGroups = line.split(' -i ');
-            let scriptArgs = [];
-            const scriptName = join('scripts', game, argGroups.shift().slice(1, -1));
-            scriptArgs.push(scriptName);
-
-            argGroups = argGroups.map((v) => {
-                const argGroup = ['-i'];
-                const spaces = [v.indexOf(' '), v.lastIndexOf(' ')];
-                spaces.splice(1, 0, v.indexOf(' ', spaces[0] + 1));
-                argGroup.push(v.substring(0, spaces[0]));                                   // offset
-                argGroup.push(v.substring(spaces[0] + 1, spaces[1]));                       // length
-                argGroup.push(v.substring(spaces[1] + 1, spaces[2]).replace(/"/g, ''));     // payload
-                argGroup.push(v.substr(spaces[2] + 1));                                     // repeat
-                return argGroup;
-            });
-            scriptArgs = Array.prototype.concat.apply(scriptArgs, argGroups);
-
+            subdir = l.indexOf(' -d') > -1;
+            let scriptArgs = l.replace(/\\/g, '/').match(/"[^"]+"|'[^']+'|\S+/g);
+            scriptArgs = scriptArgs.map(v => v.replace(/\b'|'\b|"/g, ''));
             pksmScript(scriptArgs);
         }
     });
-};
+}
+
+// abstracted try/catch around FS calls
+function tryFSSync(op, args, errCodes) {
+    try {
+        return fs[`${op}Sync`].apply(fs, args);
+    } catch (e) {
+        if (errCodes.retry && errCodes.retry.indexOf(e.code) > -1) {
+            return fs[`${op}Sync`].apply(fs, args);
+        } else if (errCodes.skip && errCodes.skip.indexOf(e.code) === -1) {
+            console.log(`There was an error trying to execute fs.${op}Sync(${args})`);
+            console.error(e);
+        }
+    }
+}
 
 // recursive rmDir
-const rmDir = (dir) => {
+function rmDir(dir) {
     try {
         fs.accessSync(dir);
         const dirStat = fs.statSync(dir);
@@ -60,53 +54,57 @@ const rmDir = (dir) => {
     } catch (e) {
         if (e.code !== 'ENOENT') {
             console.log(`There was an error accessing or deleting ${dir}`);
-            err = true;
             console.error(e);
         }
     }
-};
+}
 
-// FIXME: is this still not successful 100% of the time?
-const genScripts = (/* args */) => {
-    // TODO: allow user to provide a subset of games to compile scripts for
-    // TODO: error check provided list against internal one
-    // args.splice(0, 2);
-    // const gamesList = (args.length ? args : games);
+function genScripts(/* args */) {
+    console.log('Generating scripts...');
+    const srcContents = fs.readdirSync('src');
 
-    const gamesList = games;
+    // empty existing /build and /scripts directories
+    rmDir('scripts');
+    rmDir('build');
+    tryFSSync('mkdir', ['scripts'], { retry: ['EPERM'] });
 
-    // ensure /scripts exists
-    try {
-        fs.mkdirSync('scripts');
-    } catch (e) {
-        // intentionally empty
-    }
-
-    // empty and delete game's scripts directory
-    gamesList.forEach((game) => {
-        rmDir(join('scripts', game));
-    });
-
-    gamesList.forEach((game) => {
+    games.forEach((game) => {
         // remake game directory
+        // console.log(`Compiling scripts for ${game}`);
         const gameDir = join('scripts', game);
-        try {
-            fs.mkdirSync(gameDir);
-        } catch (e) {
-            if (e.code === 'ENOENT' || e.code === 'EPERM') {
-                fs.mkdirSync(gameDir);
-            } else {
-                console.log(`There was an error creating /scripts/${game}`);
-                console.error(e);
-            }
-        }
+        tryFSSync('mkdir', [gameDir], { retry: ['ENOENT', 'EPERM'] });
 
-        // compile scripts for game
-        generate(game);
+        subdir = false;
+        generate(game); // compile scripts for game
+
+        // move scripts
+        if (subdir) { // scripts with -d flag
+            fs.readdirSync('build').forEach(v => {
+                let files = fs.readdirSync(join('build', v));
+                if (files.length > 0) {
+                    fs.mkdirSync(join(gameDir, v));
+                }
+                files.forEach(f => {
+                    tryFSSync('rename', [join('build', v, f), join(gameDir, v, f)], { retry: ['EPERM'] });
+                });
+            });
+        }
+        if (srcContents.indexOf(game) > -1) {
+            fs.readdirSync(join('src', game)).forEach((v) => {
+                if (v.slice(-2) === '.c') { // picoC scripts
+                    fs.copyFileSync(join('src', game, v), join(gameDir, v));
+                }
+            });
+        }
+        fs.readdirSync('.').forEach((v) => {
+            if (v.slice(-5) === '.pksm') {
+                fs.renameSync(v, join(gameDir, v));
+            }
+        });
     });
 
-    console.log(`All scripts have been compiled${err ? '.' : ' without error! Congrats!'}`);
-};
+    console.log('Finished compiling scripts');
+}
 
 module.exports = genScripts;
 

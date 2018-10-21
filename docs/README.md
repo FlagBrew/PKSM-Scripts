@@ -133,11 +133,13 @@ If you want your script to be added to the repo so it can be included in the nex
 --------------------------------------------------
 
 ## PKSMScript Syntax
-`PKSMScript.py [-h] output [-i ofs len pld rpt]`
-> You can use `PKSMScript.py -h` to view PKSMScript's own documentation
+`PKSMScript.py [-h] output [-d subdir] [-i ofs len pld rpt]`<br />
+`PKSMScript.js [-h] output [-d subdir] [-i ofs len pld rpt]`
+> You can use `PKSMScript.py -h` (Python) or `PKSMScript.js -h` (Node.js) to view PKSMScript's own documentation
 
 To create completely new scripts, you will need to find the following values:
 - `output` -- the name of your new script
+- `-d subdir` -- denotes an optional subdirectory to place the compiled script in
 - `-i` -- denotes the beginning of input values (can be repeated, along with extra sets of `ofs`, `len`, `pld`, and `rpt` values, to change more than one offset with a single script)
 - `ofs` -- the offset (location) in the game's save of the value you want to edit
 - `len` -- how many bytes (offsets) need to be written over
