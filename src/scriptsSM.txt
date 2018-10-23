@@ -46,6 +46,9 @@
 "Berries slot 1 x897-960" -i 0xC49 1 0xE 1
 "Items slot 1 x897-960" -i 0x2 1 0xE 1
 "Medicines slot 1 x897-960" -i 0xB4a 1 0xE 1
+"Renew 1st WonderCard" -i 0x65D52 1 1 1
+"Renew 2nd WonderCard" -i 0x65E5A 1 1 1
+"Renew 3rd WonderCard" -i 0x65F62 1 1 1
 "Set Vivillon Icy Snow form" -i 0x4130 1 0 1
 "Set Vivillon Polar form" -i 0x4130 1 1 1
 "Set Vivillon Tundra form" -i 0x4130 1 2 1
