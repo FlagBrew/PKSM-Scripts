@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint comma-dangle: ["error", "always-multiline"], no-console: "off" */
 const fs = require('fs');
 const { join } = require('path');
 const pksmScript = require('./PKSMScript');
@@ -11,7 +12,7 @@ function generate(game) {
     scriptSrc = scriptSrc.split(/\r?\n/);
     scriptSrc.forEach((l) => {
         if (l.length && l.charAt(0) !== '#') {
-            subdir = l.indexOf(' -d') > -1;
+            subdir = l.indexOf(' -d') > -1 || subdir;
             let scriptArgs = l.replace(/\\/g, '/').match(/"[^"]+"|'[^']+'|\S+/g);
             scriptArgs = scriptArgs.map(v => v.replace(/\b'|'\b|"/g, ''));
             pksmScript(scriptArgs);
@@ -22,10 +23,10 @@ function generate(game) {
 // abstracted try/catch around FS calls
 function tryFSSync(op, args, errCodes) {
     try {
-        return fs[`${op}Sync`].apply(fs, args);
+        return fs[`${op}Sync`](...args);
     } catch (e) {
         if (errCodes.retry && errCodes.retry.indexOf(e.code) > -1) {
-            return fs[`${op}Sync`].apply(fs, args);
+            return fs[`${op}Sync`](...args);
         } else if (errCodes.skip && errCodes.skip.indexOf(e.code) === -1) {
             console.log(`There was an error trying to execute fs.${op}Sync(${args})`);
             console.error(e);
@@ -59,14 +60,31 @@ function rmDir(dir) {
     }
 }
 
+function copyTree(src, dest) {
+    const files = fs.readdirSync(src);
+    tryFSSync('mkdir', [dest], { skip: ['EEXIST'] });
+    files.forEach((file) => {
+        if (fs.statSync(file).isDirectory()) {
+            fs.mkdirSync(join(dest, file));
+            copyTree(join(src, file), join(dest, file));
+        } else {
+            fs.copyFileSync(src, dest);
+        }
+    });
+}
+
 function genScripts(/* args */) {
     console.log('Generating scripts...');
-    const srcContents = fs.readdirSync('src');
 
     // empty existing /build and /scripts directories
     rmDir('scripts');
     rmDir('build');
     tryFSSync('mkdir', ['scripts'], { retry: ['EPERM'] });
+
+    const cScripts = tryFSSync('stat', ['cScripts'], { skip: ['ENOENT'] });
+    if (cScripts && cScripts.isDirectory()) {
+        copyTree('cScripts', join('scripts', 'cScripts'));
+    }
 
     games.forEach((game) => {
         // remake game directory
@@ -79,21 +97,14 @@ function genScripts(/* args */) {
 
         // move scripts
         if (subdir) { // scripts with -d flag
-            fs.readdirSync('build').forEach(v => {
-                let files = fs.readdirSync(join('build', v));
+            fs.readdirSync('build').forEach((v) => {
+                const files = fs.readdirSync(join('build', v));
                 if (files.length > 0) {
                     fs.mkdirSync(join(gameDir, v));
                 }
-                files.forEach(f => {
+                files.forEach((f) => {
                     tryFSSync('rename', [join('build', v, f), join(gameDir, v, f)], { retry: ['EPERM'] });
                 });
-            });
-        }
-        if (srcContents.indexOf(game) > -1) {
-            fs.readdirSync(join('src', game)).forEach((v) => {
-                if (v.slice(-2) === '.c') { // picoC scripts
-                    fs.copyFileSync(join('src', game, v), join(gameDir, v));
-                }
             });
         }
         fs.readdirSync('.').forEach((v) => {

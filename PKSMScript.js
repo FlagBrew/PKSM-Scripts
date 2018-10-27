@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint no-continue: "off" */
+/* eslint no-continue: "off", comma-dangle: ["error", "always-multiline"], no-console: "off" */
 const fs = require('fs');
 const { join, sep } = require('path');
 
@@ -20,7 +20,7 @@ const pksmScript = (args) => {
     let scriptName = args.shift();
 
     // handle '-d' if present
-    let d = [-1, 2, ''];
+    const d = [-1, 2, ''];
     args.forEach((v, i, a) => {
         if (v.slice(0, 2) === '-d' && (v.length === 2 || v.chatAt(2) === '=')) {
             d[0] = i;
@@ -38,7 +38,6 @@ const pksmScript = (args) => {
         scriptName = join('build', d[2], scriptName);       // combine with scriptName to form path
     }
 
-    // FIXME: openSync is failing on "Mass Inject - living dex.pksm" from genScripts.js
     const output = fs.openSync(`${scriptName}.pksm`, 'w');
     let buf = Buffer.from('PKSMSCRIPT');
 
@@ -80,9 +79,6 @@ const pksmScript = (args) => {
     }
     if (args.length) {
         console.log(`Some arguments went unused${!cli ? ` while compiling ${scriptName}.pksm` : ''}`);
-    }
-    if (!cli) {
-        return true;
     }
 };
 
