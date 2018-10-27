@@ -60,30 +60,22 @@ function rmDir(dir) {
     }
 }
 
-function copyTree(src, dest) {
-    const files = fs.readdirSync(src);
-    tryFSSync('mkdir', [dest], { skip: ['EEXIST'] });
-    files.forEach((file) => {
-        if (fs.statSync(file).isDirectory()) {
-            fs.mkdirSync(join(dest, file));
-            copyTree(join(src, file), join(dest, file));
-        } else {
-            fs.copyFileSync(src, dest);
-        }
-    });
-}
-
 function genScripts(/* args */) {
     console.log('Generating scripts...');
+    const srcContents = fs.readdirSync('src');
 
     // empty existing /build and /scripts directories
     rmDir('scripts');
     rmDir('build');
     tryFSSync('mkdir', ['scripts'], { retry: ['EPERM'] });
 
-    const cScripts = tryFSSync('stat', ['cScripts'], { skip: ['ENOENT'] });
-    if (cScripts && cScripts.isDirectory()) {
-        copyTree('cScripts', join('scripts', 'cScripts'));
+    const cScripts = tryFSSync('readdir', [join('src', 'universal')], { skip: ['ENOENT'] });
+    if (cScripts) {
+        cScripts.forEach((f) => {
+            if (f.slice(-2) === '.c') {
+                fs.copyFileSync(join('src', 'universal', f), join('scripts', 'universal', f));
+            }
+        });
     }
 
     games.forEach((game) => {
@@ -105,6 +97,13 @@ function genScripts(/* args */) {
                 files.forEach((f) => {
                     tryFSSync('rename', [join('build', v, f), join(gameDir, v, f)], { retry: ['EPERM'] });
                 });
+            });
+        }
+        if (srcContents.indexOf(game) > -1) {
+            fs.readdirSync(join('src', game)).forEach((v) => {
+                if (v.slice(-2) === '.c') { // game-specific picoC scripts
+                    fs.copyFileSync(join('src', game, v), join(gameDir, v));
+                }
             });
         }
         fs.readdirSync('.').forEach((v) => {
