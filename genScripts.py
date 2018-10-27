@@ -8,8 +8,8 @@ def main(args):
 	shutil.rmtree("scripts", True)
 	shutil.rmtree("build", True)
 	os.mkdir("scripts")
-	if os.path.exists("scripts/universal"):
-		shutil.copytree("scripts/universal", "scripts/universal")
+	if os.path.exists("src/universal"):
+		shutil.copytree("src/universal", "scripts/universal")
 	for game in games:
 		generate(game)
 
