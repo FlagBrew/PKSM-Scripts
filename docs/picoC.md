@@ -3,8 +3,8 @@
 ## API
 ### Arguments passed to `main`
 - `argv`
-    - `argv[0]` save data
-    - `argv[1]` save data length
+    - `argv[0]` pointer to save data, converted to int, passed as text
+    - `argv[1]` save data length (int passed as text)
     - `argv[2]` save's game version (game's index number as found in a Pokémon's *source game* field)
         - D = 10, P = 11, Pt = 12, HG = 7, SS = 8
             - Diamond saves cannot be told apart from Pearl saves and HeartGold saves cannot be told apart from SoulSilver saves
@@ -101,4 +101,26 @@ char choice = (char) gui_menu20x2("Choose the language you want for your save", 
 [11:27 PM] SpiredMoth: So use gui_choice like you did in the sample in the repo?
 [11:28 PM] piepie62: gui_choice and gui_warn are the same thing, except for the fact that you can exit gui_choice with either A or B and it returns which button is pressed, with A being true
 [11:29 PM] piepie62: Actually, on second thought, probably don't use gui_choice just to let users press B; it says confirm or cancel on it
+
+-= from 28 Oct 2018 =-
+[9:18 PM] SpiredMoth: What's the reasoning behind passing save length to C scripts?
+[9:19 PM] piepie62: Prevent segfaults? I actually don't remember why I did
+[9:20 PM] SpiredMoth: Also I'm starting to question the need for atoi in this unsigned char* saveData = (unsigned char*) atoi(argv[0]);
+[9:21 PM] piepie62: I ran into issues passing it as a raw pointer, so just decided to pass the value of the pointer lol
+[9:22 PM] SpiredMoth: Well, while studying what atoi does it seems to me that there's a chance of losing data from the beginning of the save due to its use (it will skip any whitespace it finds at the beginning of the argument before converting it to an int)
+[9:24 PM] piepie62: Yes, but in the passing code, it uses stoi to get the integer value of the pointer
+[9:24 PM] piepie62: Basically, I turn the pointer into an integer, pass the integer as text, then convert that text to an integer to a pointer
+[9:25 PM] SpiredMoth: That I didn't know
+[9:25 PM] piepie62: It's all good
+[9:30 PM] SpiredMoth: Is there an easier way to read/write multiple bytes than going one-by-one?
+[9:31 PM] piepie62: @SpiredMoth Would memcpy fit your needs?
+[9:32 PM] piepie62: It wouldn't if you're trying to write a multibyte value due to the little-endianness of the 3DS
+[9:32 PM] piepie62: In which case you should cast it to an unsigned short* for two-byte values and unsigned int* for four
+[9:33 PM] SpiredMoth: Would using unsigned short and unsigned int work for reading too? That would solve the use cases that are coming to mind atm
+[9:33 PM] piepie62: Yes
+[9:34 PM] piepie62: The weird thing about doing that, though, is that you would have to do it a little differently
+[9:39 PM] piepie62: @SpiredMoth Instead of the normal bracket notation, you'll need to use something like this: unsigned short value = *(unsigned short*)(saveData + offset)
+[9:40 PM] SpiredMoth: And that will read the value properly, considering endianness?
+[9:40 PM] piepie62: Yes
+[9:41 PM] piepie62: To write back, *(unsigned short*)(saveData + offset) = value;
 ```

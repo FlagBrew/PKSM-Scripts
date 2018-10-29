@@ -1,6 +1,7 @@
 #include <picoc_unix.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 int main(int argc, char **argv)
 {
@@ -37,6 +38,7 @@ int main(int argc, char **argv)
     }
 
     struct pkx vivillon[20];
+    char pattern;
     for (int i = 0; i < 20; i++)
     {
         vivillon[i].species = 666;
@@ -50,11 +52,10 @@ int main(int argc, char **argv)
     };
 
     while(true){
-        char pattern = (char)gui_menu6x5("Choose a Vivillon pattern", 20, &labels[0], &vivillon[0], gen);
+        pattern = (char)gui_menu6x5("Choose a Vivillon pattern", 20, &labels[0], &vivillon[0], gen);
         if (pattern > 17)
         {
-            gui_warn("Fancy and Poke Ball", "are event-exclusive patterns");
-            if (gui_choice("Choose this one anyway (A)", "Choose another pattern (B)"))
+            if (gui_choice("Fancy and Poke Ball", "are event-exclusive patterns"))
             {
                 break;
             }
@@ -66,7 +67,7 @@ int main(int argc, char **argv)
     }
 
     saveData[offset] = pattern;
-    gui_warn("Save\'s native Vivillon pattern set to", vivillon[pattern]);
+    gui_warn("Save\'s native Vivillon pattern set to", labels[pattern]);
 
     return 0;
 }
