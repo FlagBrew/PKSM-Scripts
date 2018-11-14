@@ -8,29 +8,29 @@ int main(int argc, char **argv)
     unsigned char *saveData = (unsigned char *)atoi(argv[0]);
     unsigned char version = *argv[2];
     int offset;
-    int gen;
+    enum Generation gen;
 
     switch (version)
     {
     case 24:
     case 25:
         offset = 0x4250;
-        gen = 6;
+        gen = GEN_SIX;
         break;
     case 26:
     case 27:
         offset = 0x4244;
-        gen = 6;
+        gen = GEN_SIX;
         break;
     case 30:
     case 31:
         offset = 0x4130;
-        gen = 7;
+        gen = GEN_SEVEN;
         break;
     case 32:
     case 33:
         offset = 0x4530;
-        gen = 7;
+        gen = GEN_SEVEN;
         break;
     default:
         gui_warn("Vivillon didn't exist before Gen 6", "");
