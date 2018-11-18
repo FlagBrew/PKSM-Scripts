@@ -73,3 +73,42 @@
 "Fill Dex - National owned" -i 0x2a88 0x870 "data/dex/SM_National_owned.bin" 1
 "Fill Dex - Complete" -i 0x2a88 0x870 "data/dex/SM_Complete.bin" 1
 "Fill Dex - Complete (illegal)" -i 0x2a88 0x870 "data/dex/SM_Complete_illegal.bin" 1
+"Items slot 1 - Lucky Egg x999" -i 0x0 3 0xf9ce7 1
+"Items slot 1 - Big Nugget x999" -i 0x0 3 0xf9e45 1
+"Items slot 1 - Comet Shard x999" -i 0x0 3 0xf9e47 1
+"Items slot 1 - Festival Ticket x999" -i 0x0 3 0xf9f4c 1
+"Items slot 1 - Master Ball x999" -i 0x0 3 0xf9c01 1
+"Items slot 1 - Fast Ball x999" -i 0x0 3 0xf9dec 1
+"Items slot 1 - Level Ball x999" -i 0x0 3 0xf9ded 1
+"Items slot 1 - Lure Ball x999" -i 0x0 3 0xf9dee 1
+"Items slot 1 - Heavy Ball x999" -i 0x0 3 0xf9def 1
+"Items slot 1 - Love Ball x999" -i 0x0 3 0xf9df0 1
+"Items slot 1 - Friend Ball x999" -i 0x0 3 0xf9df1 1
+"Items slot 1 - Moon Ball x999" -i 0x0 3 0xf9df2 1
+"Items slot 1 - 4 - All Shards x999" -i 0x0 3 0xf9C48 1 -i 0x4 3 0xf9C49 1 -i 0x8 3 0xf9C4B 1 -i 0xC 3 0xf9C4A 1
+"Medicine slot 1 - Max Elixir x999" -i 0xB48 3 0xf9c29 1
+"Medicine slot 1 - Max Revive x999" -i 0xB48 3 0xf9c1d 1
+"Medicine slot 1 - Sacred Ash x999" -i 0xB48 3 0xf9c2c 1
+"Medicine slot 1 - Ability Capsule x999" -i 0xB48 3 0xf9e85 1
+"Medicine slots 1-6 - Stat Wings x999" -i 0xB48 3 0xf9e35 1 -i 0xB4c 3 0xf9e36 1 -i 0xB50 3 0xf9e37 1 -i 0xB54 3 0xf9e38 1 -i 0xB58 3 0xf9e39 1 -i 0xB5c 3 0xf9e3a 1
+"Receive all Battle Tree Prizes" -i 0x6B352 1 0xc8 1
+"Can Re-buy Festival Plaza Items & Services" -i 0x50b38 4 0x00000000 1 -i 0x50b80 4 0x00000000 1 -i 0x50bc8 4 0x00000000 1 -i 0x50c10 4 0x00000000 1 -i 0x50c58 4 0x00000000 1 -i 0x50ca0 4 0x00000000 1 -i 0x50ce8 4 0x00000000 1
+"All Pokebeans" -i 0x40A4c 1 0xFF 1 -i 0x40A4d 1 0xFF 1 -i 0x40A4e 1 0xFF 1 -i 0x40A4f 1 0xFF 1 -i 0x40A50 1 0xFF 1 -i 0x40A51 1 0xFF 1 -i 0x40A52 1 0xFF 1 -i 0x40A53 1 0xFF 1 -i 0x40A54 1 0xFF 1 -i 0x40A55 1 0xFF 1 -i 0x40A56 1 0xFF 1 -i 0x40A57 1 0xFF 1 -i 0x40A58 1 0xFF 1 -i 0x40A59 1 0xFF 1 -i 0x40A5A 1 0xFF 1
+"Shop 6 Tent Bonus 1 +++GTS" -i 0x50C9E 2 0x0103 1
+"Shop 6 Tent Bonus 2 +++Wonder Trade" -i 0x50C9E 2 0x0203 1
+"Shop 6 Tent Bonus 3 +++Battle Spot" -i 0x50C9E 2 0x0303 1
+"Shop 6 Tent Bonus 4 +++Festival Plaza" -i 0x50C9E 2 0x0403 1
+"Shop 6 Tent Bonus 5 +++Missions" -i 0x50C9E 2 0x0503 1
+"Shop 6 Tent Bonus 6 +++Lottery Shops" -i 0x50C9E 2 0x0603 1
+"Shop 6 Tent Bonus 7 +++Haunted House" -i 0x50C9E 2 0x0703 1
+"Battle Tree Singles 19" -i 0x6B200 2 19 1
+"Battle Tree Super Singles 49" -i 0x6B202 2 49 1
+"Battle Tree Doubles 19" -i 0x6B208 2 19 1
+"Battle Tree Super Doubles 49" -i 0x6B20A 2 49 1
+"Battle Tree Multi 19" -i 0x6B210 2 19 1
+"Battle Tree Super Multi 49" -i 0x6B212 2 49 1
+"Reset Type Null" -i 0x240e 1 156 1
+"10 Zygarde Cells" -i 0x1D42 2 10 1
+"50 Zygarde Cells" -i 0x1D42 2 50 1
+"100 Zygarde Cells" -i 0x1D42 2 100 1
+"999 Zygarde Cells" -i 0x1D42 2 999 1
