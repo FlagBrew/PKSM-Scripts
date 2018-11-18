@@ -34,3 +34,115 @@
 "Fill Dex - National seen" -i 0x136b 0x2df "data/dex/Pt_National_seen.bin" 1
 "Fill Dex - National owned" -i 0x132c 0x31e "data/dex/Pt_National_owned.bin" 1
 "Fill Dex - Complete" -i 0x132c 0x31e "data/dex/Pt_Complete.bin" 1
+"Items slot 1 - Star Piece x65535" -i 0x630 2 91 1 -i 0x632 2 65535 1
+"Items slots 1-4 - Shards x65535" -i 0x630 2 72 1 -i 0x632 2 65535 1 -i 0x634 2 73 1 -i 0x636 2 65535 1 -i 0x638 2 74 1 -i 0x63a 2 65535 1 -i 0x63c 2 75 1 -i 0x63e 2 65535 1
+"Medicine slot 1 - PP Max x65535" -i 0xB4C 2 53 1 -i 0xB4E 2 65535 1
+"Medicine slot 1 - Rare Candy x65535" -i 0xB4C 2 50 1 -i 0xB4E 2 65535 1
+"Give all medicines 65535x" -i 0xB4C 152 "data/other/DPPt_AllMedicines_max.bin" 1
+"Give all berries 65535x" -i 0xBEC 256 "data/other/DPPt_AllBerries_max.bin" 1
+"Give all TM&HM 65535x" -i 0x98C 400 "data/other/DPPt_AllTMHM_max.bin" 1
+"Medicine slot 1 - Max Revive x65535" -i 0xB4C 2 29 1 -i 0xB4E 2 65535 1
+"Medicine slot 1 - Sacred Ash x65535" -i 0xB4C 2 44 1 -i 0xB4E 2 65535 1
+"Medicine slot 1 - Max Elixir x65535" -i 0xB4C 2 41 1 -i 0xB4E 2 65535 1
+"Items slot 1 - Nugget x65535" -i 0x630 2 92 1 -i 0x632 2 65535 1
+"Items slot 1 Quantity x65535" -i 0x632 2 65535 1
+"Items slot 2 Quantity x999" -i 0x636 2 999 1
+"Items slot 2 Quantity x65535" -i 0x636 2 65535 1
+"Items slot 3 Quantity x999" -i 0x63A 2 999 1
+"Items slot 3 Quantity x65535" -i 0x63A 2 65535 1
+"Items slot 4 Quantity x999" -i 0x63E 2 999 1
+"Items slot 4 Quantity x65535" -i 0x63E 2 65535 1
+"Items slot 5 Quantity x999" -i 0x642 2 999 1
+"Items slot 5 Quantity x65535" -i 0x642 2 65535 1
+"Items slot 6 Quantity x999" -i 0x646 2 999 1
+"Items slot 6 Quantity x65535" -i 0x646 2 65535 1
+"Medicine slot 1 Quantity x65535" -i 0xB4E 2 65535 1
+"Medicine slot 2 Quantity x999" -i 0xB52 2 999 1
+"Medicine slot 2 Quantity x65535" -i 0xB52 2 65535 1
+"Medicine slot 3 Quantity x999" -i 0xB56 2 999 1
+"Medicine slot 3 Quantity x65535" -i 0xB56 2 65535 1
+"Medicine slot 4 Quantity x999" -i 0xB5A 2 999 1
+"Medicine slot 4 Quantity x65535" -i 0xB5A 2 65535 1
+"Medicine slot 5 Quantity x999" -i 0xB5E 2 999 1
+"Medicine slot 5 Quantity x65535" -i 0xB5E 2 65535 1
+"Medicine slot 6 Quantity x999" -i 0xB62 2 999 1
+"Medicine slot 6 Quantity x65535" -i 0xB62 2 65535 1
+"Pokeball slot 1 Quantity x65535" -i 0xCEE 2 65535 1
+"Pokeball slot 2 Quantity x999" -i 0xCF2 2 999 1
+"Pokeball slot 2 Quantity x65535" -i 0xCF2 2 65535 1
+"Pokeball slot 3 Quantity x999" -i 0xCF6 2 999 1
+"Pokeball slot 3 Quantity x65535" -i 0xCF6 2 65535 1
+"Pokeball slot 4 Quantity x999" -i 0xCFA 2 999 1
+"Pokeball slot 4 Quantity x65535" -i 0xCFA 2 65535 1
+"Pokeball slot 5 Quantity x999" -i 0xCFE 2 999 1
+"Pokeball slot 5 Quantity x65535" -i 0xCFE 2 65535 1
+"Pokeball slot 6 Quantity x999" -i 0xD02 2 999 1
+"Pokeball slot 6 Quantity x65535" -i 0xD02 2 65535 1
+"Battle Item slot 1 Quantity x65535" -i 0xD2A 2 65535 1
+"Battle Item slot 2 Quantity x999" -i 0xD2E 2 999 1
+"Battle Item slot 2 Quantity x65535" -i 0xD2E 2 65535 1
+"Battle Item slot 3 Quantity x999" -i 0xD32 2 999 1
+"Battle Item slot 3 Quantity x65535" -i 0xD32 2 65535 1
+"Battle Item slot 4 Quantity x999" -i 0xD36 2 999 1
+"Battle Item slot 4 Quantity x65535" -i 0xD36 2 65535 1
+"Battle Item slot 5 Quantity x999" -i 0xD3A 2 999 1
+"Battle Item slot 5 Quantity x65535" -i 0xD3A 2 65535 1
+"Battle Item slot 6 Quantity x999" -i 0xD3E 2 999 1
+"Battle Item slot 6 Quantity x65535" -i 0xD3E 2 65535 1
+"Battle Castle Points Single x9999" -i 0x6970 4 9999 1
+"Battle Castle Points Double x9999" -i 0x6980 4 9999 1
+"Battle Castle Points Multi x9999" -i 0x6990 4 9999 1
+"Battle Tower Single - 14 Streak" -i 0x68E2 2 14 1 -i 0x723E 2 2 1 -i 0x723D 1 31 1
+"Battle Tower Single - 20 Streak" -i 0x68E2 2 20 1 -i 0x723E 2 2 1 -i 0x723D 1 31 1
+"Battle Tower Single- 42 Streak" -i 0x68E2 2 42 1 -i 0x723E 2 6 1 -i 0x723D 1 31 1
+"Battle Tower Single - 48 Streak" -i 0x68E2 2 48 1 -i 0x723E 2 6 1 -i 0x723D 1 31 1
+"Battle Tower Single - 98 Streak" -i 0x68E2 2 98 1 -i 0x723E 2 14 1 -i 0x723D 1 31 1
+"Battle Tower Doubles - 49 Streak" -i 0x68E6 2 49 1 -i 0x7240 2 7 1 -i 0x723D 1 31 1
+"Battle Tower Multi - 49 Streak" -i 0x68EA 2 49 1 -i 0x7242 2 7 1 -i 0x723D 1 31 1
+"Battle Tower Multi Link - 49 Streak" -i 0x6906 2 49 1 -i 0x7244 2 7 1 -i 0x723D 1 31 1
+"Battle Tower Wi-Fi - 49 Streak" -i 0x68F2 2 49 1 -i 0x7246 2 7 1 -i 0x723D 1 31 1
+"Battle Factory Single Lv 50 Max Trades" -i 0x68FA 2 999 1
+"Battle Factory Single Open Max Trades" -i 0x6902 2 999 1
+"Battle Factory Double Lv 50 Max Trades" -i 0x690A 2 999 1
+"Battle Factory Double Open Max Trades" -i 0x6912 2 999 1
+"Battle Factory Multi Lv 50 Max Trades" -i 0x691A 2 999 1
+"Battle Factory Multi Open Max Trades" -i 0x6922 2 999 1
+"Battle Factory Lv 50 - 14 Streak" -i 0x68F6 2 14 1 -i 0x7EF8 1 119 1
+"Battle Factory Lv 50 - 20 Streak" -i 0x68F6 2 20 1 -i 0x7EF8 1 119 1
+"Battle Factory Lv 50 - 42 Streak" -i 0x68F6 2 42 1 -i 0x7EF8 1 119 1
+"Battle Factory Lv 50 - 48 Streak" -i 0x68F6 2 48 1 -i 0x7EF8 1 119 1
+"Battle Factory Open - 14 Streak" -i 0x68FE 2 14 1 -i 0x7EF8 1 119 1
+"Battle Factory Open - 20 Streak" -i 0x68FE 2 20 1 -i 0x7EF8 1 119 1
+"Battle Factory Open - 42 Streak" -i 0x68FE 2 42 1 -i 0x7EF8 1 119 1
+"Battle Factory Open - 48 Streak" -i 0x68FE 2 48 1 -i 0x7EF8 1 119 1
+"Battle Factory Double Lv 50 - 49 Streak" -i 0x6906 2 49 1 -i 0x7EF8 1 119 1
+"Battle Factory Double Open - 49 Streak" -i 0x690E 2 49 1 -i 0x7EF8 1 119 1
+"Battle Factory Multi Lv 50 - 49 Streak" -i 0x6916 2 49 1 -i 0x7EF8 1 119 1
+"Battle Factory Multi Open - 49 Streak" -i 0x691E 2 49 1 -i 0x7EF8 1 119 1
+"Battle Castle Single - 14 Streak" -i 0x696E 2 14 1 -i 0x7F00 1 7 1
+"Battle Castle Single - 20 Streak" -i 0x696E 2 20 1 -i 0x7F00 1 7 1
+"Battle Castle Single - 42 Streak" -i 0x696E 2 42 1 -i 0x7F00 1 7 1
+"Battle Castle Single - 48 Streak" -i 0x696E 2 48 1 -i 0x7F00 1 7 1
+"Battle Castle Double - 49 Streak" -i 0x697E 2 49 1 -i 0x7F00 1 7 1
+"Battle Castle Multi - 49 Streak" -i 0x698E 2 49 1 -i 0x7F00 1 7 1
+"Battle Arcade Single - 14 Streak" -i 0x699E 2 14 1 -i 0x7F04 1 7 1
+"Battle Arcade Single - 20 Streak" -i 0x699E 2 20 1 -i 0x7F04 1 7 1
+"Battle Arcade Double - 49 Streak" -i 0x69A2 2 14 1 -i 0x7F04 1 7 1
+"Battle Arcade Multi - 49 Streak" -i 0x69A6 2 20 1 -i 0x7F04 1 7 1
+"Battle Arcade Single - 42 Streak" -i 0x699E 2 42 1 -i 0x7F04 1 7 1
+"Battle Arcade Single - 48 Streak" -i 0x699E 2 48 1 -i 0x7F04 1 7 1
+# No difference bewtween this and the Poffins below "Poffin 1 - Ultimate Mild" -i 0x52E8 1 28 1 -i 0x52E9 1 255 1 -i 0x52EA 1 255 1 -i 0x52EB 1 255 1 -i 0x52EC 1 255 1 -i 0x52ED 1 255 1 -i 0x52EE 1 1 1
+"Poffin 1 - Mild" -i 0x52E8 1 28 1 -i 0x52E9 1 99 1 -i 0x52EA 1 99 1 -i 0x52EB 1 99 1 -i 0x52EC 1 99 1 -i 0x52ED 1 99 1 -i 0x52EE 1 1 1
+"Poffin 2 - Mild" -i 0x52F0 1 28 1 -i 0x52F1 1 99 1 -i 0x52F2 1 99 1 -i 0x52F3 1 99 1 -i 0x52F4 1 99 1 -i 0x52F5 1 99 1 -i 0x52F6 1 1 1
+"Poffin 3 - Mild" -i 0x52F8 1 28 1 -i 0x52F9 1 99 1 -i 0x52FA 1 99 1 -i 0x52FB 1 99 1 -i 0x52FC 1 99 1 -i 0x52FD 1 99 1 -i 0x52FE 1 1 1
+"Poffin 4 - Mild" -i 0x5300 1 28 1 -i 0x5301 1 99 1 -i 0x5302 1 99 1 -i 0x5303 1 99 1 -i 0x5304 1 99 1 -i 0x5305 1 99 1 -i 0x5306 1 1 1
+"Poffin 5 - Mild" -i 0x5308 1 28 1 -i 0x5309 1 99 1 -i 0x530A 1 99 1 -i 0x530B 1 99 1 -i 0x530C 1 99 1 -i 0x530D 1 99 1 -i 0x530E 1 1 1
+"Poffin 6 - Mild" -i 0x5310 1 28 1 -i 0x5311 1 99 1 -i 0x5312 1 99 1 -i 0x5313 1 99 1 -i 0x5314 1 99 1 -i 0x5315 1 99 1 -i 0x5316 1 1 1
+"Honey Tree - Route 205 - Floraroma Town Side - Wurmple" -i 0x7F38 2 1080 1 -i 0x7F3C 1 1 1 -i 0x7F3D 1 0 1 -i 0x7F3E 1 1 1 -i 0x7F3F 1 3 1
+"Honey Tree - Route 205 - Floraroma Town Side - Burmy" -i 0x7F38 2 1080 1 -i 0x7F3C 1 2 1 -i 0x7F3D 1 0 1 -i 0x7F3E 1 1 1 -i 0x7F3F 1 3 1
+"Honey Tree - Route 205 - Floraroma Town Side - Cherubi" -i 0x7F38 2 1080 1 -i 0x7F3C 1 3 1 -i 0x7F3D 1 0 1 -i 0x7F3E 1 1 1 -i 0x7F3F 1 3 1
+"Honey Tree - Route 205 - Floraroma Town Side - Aipom" -i 0x7F38 2 1080 1 -i 0x7F3C 1 4 1 -i 0x7F3D 1 0 1 -i 0x7F3E 1 1 1 -i 0x7F3F 1 3 1
+"Honey Tree - Route 205 - Floraroma Town Side - Combee" -i 0x7F38 2 1080 1 -i 0x7F3C 1 2 1 -i 0x7F3D 1 1 1 -i 0x7F3E 1 2 1 -i 0x7F3F 1 3 1
+"Honey Tree - Route 205 - Floraroma Town Side - Heracross" -i 0x7F38 2 1080 1 -i 0x7F3C 1 5 1 -i 0x7F3D 1 1 1 -i 0x7F3E 1 2 1 -i 0x7F3F 1 3 1
+"Honey Tree - Route 205 - Floraroma Town Side - Munchlax" -i 0x7F38 2 1080 1 -i 0x7F3C 1 3 1 -i 0x7F3D 1 2 1 -i 0x7F3E 1 3 1 -i 0x7F3F 1 3 1
+"Set 49 Underground flags" -i 0x3ce8 4 49 1
