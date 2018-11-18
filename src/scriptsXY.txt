@@ -67,3 +67,65 @@
 "Fill Dex - National owned - native" -i 0x15008 0x696 "data/dex/XY_National_owned_native.bin" 1
 "Fill Dex - Complete" -i 0x15008 0x696 "data/dex/XY_Complete.bin" 1
 "Fill Dex - Complete (illegal)" -i 0x15008 0x696 "data/dex/XY_Complete_illegal.bin" 1
+"Give all medicines 65535x" -i 0xD68 204 "data/other/XY_AllMedicines_max.bin" 1
+"Give all berries 65535x" -i 0xE68 268 "data/other/XY_AllBerries_max.bin" 1
+"Medicine slots 1-6 - Stat Wings x65535" -i 0xD68 2 565 1 -i 0xD6A 2 65535 1 -i 0xD6C 2 566 1 -i 0xD6E 2 65535 1 -i 0xD70 2 567 1 -i 0xD72 2 65535 1 -i 0xD74 2 568 1 -i 0xD76 2 65535 1 -i 0xD78 2 569 1 -i 0xD7A 2 65535 1 -i 0xD7C 2 570 1 -i 0xD7E 2 65535 1
+"Medicine slot 1 - PP Max x65535" -i 0xD68 2 53 1 -i 0xD6A 2 65535 1
+"Medicine slot 1 - Rare Candy x65535" -i 0xD68 2 50 1 -i 0xD6A 2 65535 1
+"Medicine slot 1 - Sacred Ash x65535" -i 0xD68 2 44 1 -i 0xD6A 2 65535 1
+"Medicine slot 1 - Max Elixir x65535" -i 0xD68 2 41 1 -i 0xD6A 2 65535 1
+"Medicine slot 1 - Max Revive x65535" -i 0xD68 2 29 1 -i 0xD6A 2 65535 1
+"Medicine slot 1 - Ability Capsule x65535" -i 0xD68 2 645 1 -i 0xD6A 2 65535 1
+"Items slot 1 - Comet Shard x999" -i 0x400 2 583 1 -i 0x402 2 65535 1
+"Items slot 1 - Amaze Mulch x999" -i 0x400 2 655 1 -i 0x402 2 999 1
+"Items slot 1 Quantity x65535" -i 0x402 2 65535 1
+"Items slot 2 Quantity x999" -i 0x406 2 999 1
+"Items slot 2 Quantity x65535" -i 0x406 2 65535 1
+"Items slot 3 Quantity x999" -i 0x40A 2 999 1
+"Items slot 3 Quantity x65535" -i 0x40A 2 65535 1
+"Items slot 4 Quantity x999" -i 0x40E 2 999 1
+"Items slot 4 Quantity x65535" -i 0x40E 2 65535 1
+"Items slot 5 Quantity x999" -i 0x412 2 999 1
+"Items slot 5 Quantity x65535" -i 0x412 2 65535 1
+"Items slot 6 Quantity x999" -i 0x416 2 999 1
+"Items slot 6 Quantity x65535" -i 0x416 2 65535 1
+"Medicine slot 1 Quantity x65535" -i 0xD6A 2 65535 1
+"Medicine slot 2 Quantity x999" -i 0xD6E 2 999 1
+"Medicine slot 2 Quantity x65535" -i 0xD6E 2 65535 1
+"Medicine slot 3 Quantity x999" -i 0xD72 2 999 1
+"Medicine slot 3 Quantity x65535" -i 0xD72 2 65535 1
+"Medicine slot 4 Quantity x999" -i 0xD76 2 999 1
+"Medicine slot 4 Quantity x65535" -i 0xD76 2 65535 1
+"Medicine slot 5 Quantity x999" -i 0xD7A 2 999 1
+"Medicine slot 5 Quantity x65535" -i 0xD7A 2 65535 1
+"Medicine slot 6 Quantity x999" -i 0xD7E 2 999 1
+"Medicine slot 6 Quantity x65535" -i 0xD7E 2 65535 1
+"Berry slot 1 Quantity x65535" -i 0xE6A 2 65535 1
+"Berry slot 2 Quantity x999" -i 0xE6E 2 999 1
+"Berry slot 2 Quantity x65535" -i 0xE6E 2 65535 1
+"Berry slot 3 Quantity x999" -i 0xE72 2 999 1
+"Berry slot 3 Quantity x65535" -i 0xE72 2 65535 1
+"Berry slot 4 Quantity x999" -i 0xE76 2 999 1
+"Berry slot 4 Quantity x65535" -i 0xE76 2 65535 1
+"Berry slot 5 Quantity x999" -i 0xE7A 2 999 1
+"Berry slot 5 Quantity x65535" -i 0xE7A 2 65535 1
+"Berry slot 6 Quantity x999" -i 0xE7E 2 999 1
+"Berry slot 6 Quantity x65535" -i 0xE7E 2 65535 1
+"Battle Maison Singles - 19" -i 0x1B1C0 2 19 1
+"Battle Maison Doubles - 19" -i 0x1B1C8 2 19 1
+"Battle Maison Triples - 19" -i 0x1B1D0 2 19 1
+"Battle Maison Rotation - 19" -i 0x1B1D8 2 19 1
+"Battle Maison Multi - 19" -i 0x1B1E0 2 19 1
+"Battle Maison Super Singles - 49" -i 0x1B1C2 2 49 1
+"Battle Maison Super Doubles - 49" -i 0x1B1CA 2 49 1
+"Battle Maison Super Triples - 49" -i 0x1B1D2 2 49 1
+"Battle Maison Super Rotation - 49" -i 0x1B1DA 2 49 1
+"Battle Maison Super Multi - 49" -i 0x1B1E2 2 49 1
+"Supreme Honor Pokepuffs" -i 0x00000 1 22 1 -i 0x00001 1 22 1 -i 0x00002 1 22 1 -i 0x00003 1 22 1 -i 0x00004 1 22 1 -i 0x00005 1 22 1 -i 0x00006 1 22 1 -i 0x00007 1 22 1 -i 0x00008 1 22 1 -i 0x00009 1 22 1 -i 0x0000A 1 22 1 -i 0x0000B 1 22 1 -i 0x0000C 1 22 1 -i 0x0000D 1 22 1 -i 0x0000E 1 22 1 -i 0x0000F 1 22 1 -i 0x00010 1 22 1 -i 0x00011 1 22 1 -i 0x00012 1 22 1 -i 0x00013 1 22 1 -i 0x00014 1 22 1 -i 0x00015 1 22 1 -i 0x00016 1 22 1 -i 0x00017 1 22 1 -i 0x00018 1 22 1 -i 0x00019 1 22 1 -i 0x0001A 1 22 1 -i 0x0001B 1 22 1 -i 0x0001C 1 22 1 -i 0x0001D 1 22 1 -i 0x0001E 1 22 1 -i 0x0001F 1 22 1 -i 0x00020 1 22 1 -i 0x00021 1 22 1 -i 0x00022 1 22 1 -i 0x00023 1 22 1 -i 0x00024 1 22 1 -i 0x00025 1 22 1 -i 0x00026 1 22 1 -i 0x00027 1 22 1 -i 0x00028 1 22 1 -i 0x00029 1 22 1 -i 0x0002A 1 22 1 -i 0x0002B 1 22 1 -i 0x0002C 1 22 1 -i 0x0002D 1 22 1 -i 0x0002E 1 22 1 -i 0x0002F 1 22 1 -i 0x00030 1 22 1 -i 0x00031 1 22 1 -i 0x00032 1 22 1 -i 0x00033 1 22 1 -i 0x00034 1 22 1 -i 0x00035 1 22 1 -i 0x00036 1 22 1 -i 0x00037 1 22 1 -i 0x00038 1 22 1 -i 0x00039 1 22 1 -i 0x0003A 1 22 1 -i 0x0003B 1 22 1 -i 0x0003C 1 22 1 -i 0x0003D 1 22 1 -i 0x0003E 1 22 1 -i 0x0003F 1 22 1 -i 0x00040 1 22 1 -i 0x00041 1 22 1 -i 0x00042 1 22 1 -i 0x00043 1 22 1 -i 0x00044 1 22 1 -i 0x00045 1 22 1 -i 0x00046 1 22 1 -i 0x00047 1 22 1 -i 0x00048 1 22 1 -i 0x00049 1 22 1 -i 0x0004A 1 22 1 -i 0x0004B 1 22 1 -i 0x0004C 1 22 1 -i 0x0004D 1 22 1 -i 0x0004E 1 22 1 -i 0x0004F 1 22 1 -i 0x00050 1 22 1 -i 0x00051 1 22 1 -i 0x00052 1 22 1 -i 0x00053 1 22 1 -i 0x00054 1 22 1 -i 0x00055 1 22 1 -i 0x00056 1 22 1 -i 0x00057 1 22 1 -i 0x00058 1 22 1 -i 0x00059 1 22 1 -i 0x0005A 1 22 1 -i 0x0005B 1 22 1 -i 0x0005C 1 22 1 -i 0x0005D 1 22 1 -i 0x0005E 1 22 1 -i 0x0005F 1 22 1 -i 0x00060 1 22 1 -i 0x00061 1 22 1 -i 0x00062 1 22 1 -i 0x00063 1 22 1
+"All S and MAX O-Powers" -i 0x16A03 1 1 1 -i 0x16A04 1 1 1 -i 0x16A05 1 1 1 -i 0x16A06 1 1 1 -i 0x16A07 1 1 1 -i 0x16A08 1 1 1 -i 0x16A09 1 1 1 -i 0x16A0A 1 1 1 -i 0x16A0B 1 1 1 -i 0x16A0C 1 1 1 -i 0x16A0D 1 1 1 -i 0x16A0E 1 1 1 -i 0x16A0F 1 1 1 -i 0x16A10 1 1 1 -i 0x16A11 1 1 1 -i 0x16A12 1 1 1 -i 0x16A13 1 1 1 -i 0x16A14 1 1 1 -i 0x16A15 1 1 1 -i 0x16A16 1 1 1 -i 0x16A17 1 1 1 -i 0x16A18 1 1 1 -i 0x16A19 1 1 1 -i 0x16A1A 1 1 1 -i 0x16A1B 1 1 1 -i 0x16A1C 1 1 1 -i 0x16A1D 1 1 1 -i 0x16A1E 1 1 1 -i 0x16A1F 1 1 1 -i 0x16A20 1 1 1 -i 0x16A21 1 1 1 -i 0x16A22 1 1 1 -i 0x16A23 1 1 1 -i 0x16A24 1 1 1 -i 0x16A25 1 1 1 -i 0x16A26 1 1 1 -i 0x16A27 1 1 1 -i 0x16A28 1 1 1 -i 0x16A29 1 1 1 -i 0x16A2A 1 1 1 -i 0x16A2B 1 1 1 -i 0x16A2C 1 1 1 -i 0x16A2D 1 1 1 -i 0x16A2E 1 1 1 -i 0x16A2F 1 1 1 -i 0x16A30 1 1 1 -i 0x16A31 1 1 1 -i 0x16A32 1 1 1 -i 0x16A33 1 1 1 -i 0x16A34 1 1 1 -i 0x16A35 1 1 1 -i 0x16A36 1 1 1 -i 0x16A37 1 1 1 -i 0x16A38 1 1 1 -i 0x16A39 1 1 1 -i 0x16A3A 1 1 1 -i 0x16A3B 1 1 1 -i 0x16A3C 1 1 1 -i 0x16A3D 1 1 1 -i 0x16A3E 1 1 1 -i 0x16A3F 1 1 1 -i 0x16A40 1 1 1
+"Pokemon Link - Bank Celebi" -i 0x20000 2630 "data/other/LINK_Celebi.bin" 1
+"Pokemon Link - HA Johto Starters" -i 0x20000 2630 "data/other/LINK_Johto_Starters.bin" 1
+"Pokemon Link - HA Regi Trio" -i 0x20000 2630 "data/other/LINK_Regi_Trio.bin" 1
+"Pokemon Link - Demo Glalie" -i 0x20000 2630 "data/other/LINK_Glalie.bin" 1
+"Pokemon Link - Demo Steelix" -i 0x20000 2630 "data/other/LINK_Steelix.bin" 1
+"Pokemon Link - BP & Pokemiles" -i 0x20000 2630 "data/other/LINK_BP_Pokemiles.bin" 1
