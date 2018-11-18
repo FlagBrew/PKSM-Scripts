@@ -28,3 +28,95 @@
 "Fill Dex - National owned" -i 0x21408 0x4d0 "data/dex/B2W2_National_owned.bin" 1
 "Fill Dex - Complete" -i 0x21408 0x4d0 "data/dex/B2W2_Complete.bin" 1
 "Fill Dex - Complete (illegal)" -i 0x21408 0x4d0 "data/dex/B2W2_Complete_illegal.bin" 1
+"Give all medicine 65535x" -i 0x18bd8 188 "data/other/BWB2W2_AllMedicine_max.bin" 1
+"Give all berries 65535x (illegal)" -i 0x18c98 256 "data/other/BWB2W2_AllBerries_max.bin" 1
+"Medicine slots 1-6 - Stat Wings x65535" -i 0x18BD8 2 565 1 -i 0x18BDA 2 65535 1 -i 0x18BDC 2 566 1 -i 0x18BDE 2 65535 1 -i 0x18BE0 2 567 1 -i 0x18BE2 2 65535 1 -i 0x18BE4 2 568 1 -i 0x18BE6 2 65535 1 -i 0x18BE8 2 569 1 -i 0x18BEA 2 65535 1 -i 0x18BEC 2 570 1 -i 0x18BEE 2 65535 1
+"Items slots 1-4 - Shards x65535" -i 0x18400 2 72 1 -i 0x18402 2 65535 1 -i 0x18404 2 73 1 -i 0x18406 2 65535 1 -i 0x18408 2 74 1 -i 0x1840a 2 65535 1 -i 0x1840c 2 75 1 -i 0x1840e 2 65535 1
+"Items slot 1 - Heart Scale x65535" -i 0x18400 2 93 1 -i 0x18402 2 65535 1
+"Items slot 1 - Pass Orb x65535" -i 0x18400 2 575 1 -i 0x18402 2 999 1
+"Items slot 1 - Relic Crown x65535" -i 0x18400 2 590 1 -i 0x18402 2 65535 1
+"Items slot 1 - Comet Shard x65535" -i 0x18400 2 583 1 -i 0x18402 2 65535 1
+"Items slot 1 - BalmMushroom x65535" -i 0x18400 2 580 1 -i 0x18402 2 65535 1
+"Items slot 1 - Pass Orb x65535" -i 0x18400 2 575 1 -i 0x18402 2 65535 1
+"Medicine slot 1 - PP Max x65535" -i 0x18BD8 2 53 1 -i 0x18BDA 2 65535 1
+"Medicine slot 1 - Rare Candy x65535" -i 0x18BD8 2 50 1 -i 0x18BDA 2 65535 1
+"Medicine slot 1 - Sacred Ash x65535" -i 0x18BD8 2 44 1 -i 0x18BDA 2 65535 1
+"Medicine slot 1 - Max Elixir x65535" -i 0x18BD8 2 41 1 -i 0x18BDA 2 65535 1
+"Medicine slot 1 - Max Revive x65535" -i 0x18BD8 2 29 1 -i 0x18BDA 2 65535 1
+"Items slot 1 - Relic Crown x65535" -i 0x18400 2 92 1 -i 0x18402 2 65535 1
+"Items slot 1 Quantity x65535" -i 0x18402 2 65535 1
+"Items slot 2 Quantity x999" -i 0x18406 2 999 1
+"Items slot 2 Quantity x65535" -i 0x18406 2 65535 1
+"Items slot 3 Quantity x999" -i 0x1840A 2 999 1
+"Items slot 3 Quantity x65535" -i 0x1840A 2 65535 1
+"Items slot 4 Quantity x999" -i 0x1840E 2 999 1
+"Items slot 4 Quantity x65535" -i 0x1840E 2 65535 1
+"Items slot 5 Quantity x999" -i 0x18412 2 999 1
+"Items slot 5 Quantity x65535" -i 0x18412 2 65535 1
+"Items slot 6 Quantity x999" -i 0x18416 2 999 1
+"Items slot 6 Quantity x65535" -i 0x18416 2 65535 1
+"Medicine slot 1 Quantity x65535" -i 0x18BDA 2 65535 1
+"Medicine slot 2 Quantity x999" -i 0x18BDE 2 999 1
+"Medicine slot 2 Quantity x65535" -i 0x18BDE 2 65535 1
+"Medicine slot 3 Quantity x999" -i 0x18BE2 2 999 1
+"Medicine slot 3 Quantity x65535" -i 0x18BE2 2 65535 1
+"Medicine slot 4 Quantity x999" -i 0x18BE6 2 999 1
+"Medicine slot 4 Quantity x65535" -i 0x18BE6 2 65535 1
+"Medicine slot 5 Quantity x999" -i 0x18BEA 2 999 1
+"Medicine slot 5 Quantity x65535" -i 0x18BEA 2 65535 1
+"Medicine slot 6 Quantity x999" -i 0x18BEE 2 999 1
+"Medicine slot 6 Quantity x65535" -i 0x18BEE 2 65535 1
+"Berry slot 1 Quantity x65535" -i 0x18c9A 2 65535 1
+"Berry slot 2 Quantity x999" -i 0x18c9E 2 999 1
+"Berry slot 2 Quantity x65535" -i 0x18c9E 2 65535 1
+"Berry slot 3 Quantity x999" -i 0x18cA2 2 999 1
+"Berry slot 3 Quantity x65535" -i 0x18cA2 2 65535 1
+"Berry slot 4 Quantity x999" -i 0x18cA6 2 999 1
+"Berry slot 4 Quantity x65535" -i 0x18cA6 2 65535 1
+"Berry slot 5 Quantity x999" -i 0x18cAA 2 999 1
+"Berry slot 5 Quantity x65535" -i 0x18cAA 2 65535 1
+"Berry slot 6 Quantity x999" -i 0x18cAE 2 999 1
+"Berry slot 6 Quantity x65535" -i 0x18cAE 2 65535 1
+"Pass Power 1 - HP Restore MAX" -i 0x213A0 1 39 1
+"Pass Power 1 - Hatching MAX" -i 0x213A0 1 40 1
+"Pass Power 1 - Bargain MAX" -i 0x213A0 1 41 1
+"Pass Power 1 - Befriending MAX" -i 0x213A0 1 42 1
+"Pass Power 1 - Exp Points MAX" -i 0x213A0 1 43 1
+"Pass Power 1 - Prize Money MAX" -i 0x213A0 1 44 1
+"Pass Power 1 - Capture MAX" -i 0x213A0 1 45 1
+"Pass Power 1 - Search MAX" -i 0x213A0 1 59 1
+"Pass Power 1 - Grotto MAX" -i 0x213A0 1 61 1
+"Pass Power 1 - Lucky MAX" -i 0x213A0 1 63 1
+"Pass Power 2 - HP Restore MAX" -i 0x213A1 1 39 1
+"Pass Power 2 - Hatching MAX" -i 0x213A1 1 40 1
+"Pass Power 2 - Bargain MAX" -i 0x213A1 1 41 1
+"Pass Power 2 - Befriending MAX" -i 0x213A1 1 42 1
+"Pass Power 2 - Exp Points MAX" -i 0x213A1 1 43 1
+"Pass Power 2 - Prize Money MAX" -i 0x213A1 1 44 1
+"Pass Power 2 - Capture MAX" -i 0x213A1 1 45 1
+"Pass Power 2 - Search MAX" -i 0x213A1 1 59 1
+"Pass Power 2 - Grotto MAX" -i 0x213A1 1 61 1
+"Pass Power 2 - Lucky MAX" -i 0x213A1 1 63 1
+"Pass Power 3 - HP Restore MAX" -i 0x213A2 1 39 1
+"Pass Power 3 - Hatching MAX" -i 0x213A2 1 40 1
+"Pass Power 3 - Bargain MAX" -i 0x213A2 1 41 1
+"Pass Power 3 - Befriending MAX" -i 0x213A2 1 42 1
+"Pass Power 3 - Exp Points MAX" -i 0x213A2 1 43 1
+"Pass Power 3 - Prize Money MAX" -i 0x213A2 1 44 1
+"Pass Power 3 - Capture MAX" -i 0x213A2 1 45 1
+"Pass Power 3 - Explorer MAX" -i 0x213A2 1 59 1
+"Pass Power 3 - Grotto MAX" -i 0x213A2 1 61 1
+"Pass Power 3 - Lucky MAX" -i 0x213A2 1 63 1
+"People Passed - 0" -i 0x21120 4 0 1
+"People Passed - 999" -i 0x21120 4 999 1
+"People Passed - 99999" -i 0x21120 4 99999 1
+"Season - Winter" -i 0x19573 1 3 1
+"Season - Spring" -i 0x19573 1 0 1
+"Season - Summer" -i 0x19573 1 1 1
+"Season - Autumn" -i 0x19573 1 2 1
+"Join Avenue - Import" -i 0x23c00 5888 "data/other/B2W2_Join_Avenue.bin" 1
+"Join Avenue - Restock All Shops" -i 0x2475C 4 0 1 -i 0x24820 4 0 1 -i 0x248E4 4 0 1 -i 0x249A8 4 0 1 -i 0x24A6C 4 0 1 -i 0x24B30 4 0 1 -i 0x24BF4 4 0 1 -i 0x24CB8 4 0 1
+"Join Avenue Lv9 All Shops" -i 0x24759 1 8 1 -i 0x2475A 2 9999 1 -i 0x2481D 1 8 1 -i 0x2481E 2 9999 1 -i 0x248E1 1 8 1 -i 0x248E2 2 9999 1 -i 0x249A5 1 8 1 -i 0x249A6 2 9999 1 -i 0x24A69 1 8 1 -i 0x24A6A 2 9999 1 -i 0x24B2D 1 8 1 -i 0x24B2E 2 9999 1 -i 0x24BF1 1 8 1 -i 0x24BF2 2 9999 1 -i 0x24CB5 1 8 1 -i 0x24CB6 2 9999 1
+"Join Avenue - 7 Day Promotion" -i 0x24FDC 1 0 1 -i 0x24FDE 1 1 1
+"Reset N and Shadow Triad" -i 0x20228 1 2 1 -i 0x202D0 1 214 1 -i 0x203E0 1 27 1 -i 0x203E2 2 26748 1 -i 0x20218 1 0 1
+"Reset Geonet" -i 0x1941C 1 0 1 -i 0x1941D 1 0 1 -i 0x1A93A 1 10 1 -i 0x1A93B 1 133 1 -i 0x25F3A 1 10 1 -i 0x25F3B 1 133 1
