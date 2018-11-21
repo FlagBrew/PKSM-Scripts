@@ -9,7 +9,30 @@ def main(args):
 	shutil.rmtree("build", True)
 	os.mkdir("scripts")
 	if os.path.exists("src/universal"):
-		shutil.copytree("src/universal", "scripts/universal")
+		# shutil.copytree("src/universal", "scripts/universal")
+		os.mkdir("scripts/universal")
+		for path, _, files in os.walk("src/universal"):
+			for fullname in files:
+				data = ""
+				with open(os.path.join(path, fullname), 'r') as f:
+					data = f.read()
+
+				data = data.replace("\r\n", "\n")
+				lines = data.split("\n")
+				out = ""
+				for line in lines:
+					line = line.strip()
+					# preprocessor directives and comments
+					if "#" in line or "//" in line:
+						out += line + "\n"
+					# just in case there are multiline strings/macros
+					elif line[len(line) - 1:] == "\\":
+						out += line + "\n"
+					# all other cases
+					else:
+						out += line
+				with open(os.path.join(path.replace("src/", "scripts/"), fullname), 'w') as f:
+					f.write(out)
 	for game in games:
 		generate(game)
 
