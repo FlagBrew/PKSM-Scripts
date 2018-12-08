@@ -71,6 +71,7 @@ function genScripts(/* args */) {
 
     const cScripts = tryFSSync('readdir', [join('src', 'universal')], { skip: ['ENOENT'] });
     if (cScripts) {
+        fs.mkdirSync(join('scripts', 'universal'));
         cScripts.forEach((f) => {
             if (f.slice(-2) === '.c') {
                 fs.copyFileSync(join('src', 'universal', f), join('scripts', 'universal', f));

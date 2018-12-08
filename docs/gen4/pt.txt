@@ -28,9 +28,9 @@ Meaning                                 Offset        Length        Min Value   
   - balls                               0xcec
   - battle                              0xd28
 - Event Const                           0xdac
-- starter                               0xe0c         2
-- Lotto number                          0xe24         2
-- Prints                                0xe4a
+  - starter                             0xe0c         2
+  - Lotto number                        0xe24         2
+  - Prints                              0xe4a         2
 - Event Flag                            0xfec
 - Fly                                   0x1122
 - has obtained lotto prize              0x1141        1             0           1

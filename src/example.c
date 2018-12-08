@@ -7,6 +7,11 @@ int main(int argc, char** argv)
     unsigned char* saveData = (unsigned char*) atoi(argv[0]);
     int saveLength = atoi(argv[1]);
     unsigned char version = *argv[2];
+    sav_gbo();
+    sav_sbo();
+    sav_boxDecrypt();
+    sav_boxEncrypt();
+
     struct pkx showMe[13];
     char* labels[13];
     for (int i = 0; i < 13; i++)

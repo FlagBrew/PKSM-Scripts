@@ -25,7 +25,7 @@ int main(int argc, char** argv)
             offset = 0x1435;
             break;
         default:
-            gui_warn("DS games cannot change language", "");
+            gui_warn("Changing language not supported", "for this game");
             return 1;
     }
 

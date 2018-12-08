@@ -249,7 +249,7 @@ Meaning                                 Offset        Length        Min Value   
   - Poke Finder thumbs high             0x65610       4             0           9999999
   - Poke Finder tutorial flags          0x65614
 - Wondercard flags                      0x66200       0x4000
-  - Wondercard data                     0x66300                                                     (+0x600)
+  - Wondercard data                     0x66300
 - Record                                0x6a200       0x400
   - used festival coins                 0x6a298
 - (validation save)                     0x6a600       0x800

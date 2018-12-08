@@ -122,6 +122,7 @@ Meaning                                 Offset        Length        Min Value   
 - Contests won                          0x5fe2        2             0           9999
 - Ribbons                               0x5fe6        2             0           9999
 - Capsules in PC                        0x6050
+- Seal                                  0x6178
 - BP                                    0x65f8        2             0           9999
 - Safari Zone Pokémon                   0x72d0        4
 - Swarm Pokémon                         0x72d4        4
@@ -133,7 +134,7 @@ Meaning                                 Offset        Length        Min Value   
 - Wondercard flags                      0xa6d0
 - Wondercard Data                       0xa7fc
 - General Block save count              0xc0f0
-- General block checksum                0xc0fe
+- General block checksum                0xc0fe        2
 - Box                                   0xc104
   - Box 1                               0xc104
   - Box 2                               0xd0f4
@@ -153,5 +154,5 @@ Meaning                                 Offset        Length        Min Value   
   - Box 16                              0x1b014
   - Box 17                              0x1c004
   - Box 18                              0x1cff4
-- Storage block checksum                0x1e2de
+- Storage block checksum                0x1e2de       2
 - Hall of Fame block                    0x20000
