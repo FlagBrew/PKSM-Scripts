@@ -52,7 +52,7 @@ int main(int argc, char **argv)
     };
 
     while(true){
-        pattern = (char)gui_menu6x5("Choose a Vivillon pattern", 20, &labels[0], &vivillon[0], gen);
+        pattern = (char)gui_menu_6x5("Choose a Vivillon pattern", 20, &labels[0], &vivillon[0], gen);
         if (pattern > 17)
         {
             if (gui_choice("Fancy and Poke Ball", "are event-exclusive patterns"))

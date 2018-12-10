@@ -9,8 +9,8 @@ int main(int argc, char** argv)
     unsigned char version = *argv[2];
     sav_gbo();
     sav_sbo();
-    sav_boxDecrypt();
-    sav_boxEncrypt();
+    sav_box_decrypt();
+    sav_box_encrypt();
 
     struct pkx showMe[13];
     char* labels[13];
@@ -25,8 +25,8 @@ int main(int argc, char** argv)
     {
         return 1;
     }
-    gui_menu6x5("This displays Pokemon!", 13, &labels[0], &showMe[0], 7);
-    gui_menu20x2("And this displays text!", 13, &labels[0]);
+    gui_menu_6x5("This displays Pokemon!", 13, &labels[0], &showMe[0], 7);
+    gui_menu_20x2("And this displays text!", 13, &labels[0]);
     gui_warn("Debugging is a pain!", "Ask for a specific debugging build!");
     return 0;
 }

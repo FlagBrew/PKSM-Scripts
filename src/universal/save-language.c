@@ -29,8 +29,8 @@ int main(int argc, char** argv)
             return 1;
     }
 
-    char *languages[9] = {"Japanese", "English", "French", "Italian", "German", "Spanish", "Korean", "Simplified Chinese", "Traditional Chinese"};
-    char choice = (char)gui_menu20x2("Choose the language you want\nfor your save", version < 30 ? 7 : 9, &languages[0]);
+    char *languages[7] = {"\u65e5\u672c\u8a9e", "English", "Fran\u00e7ais", "Italiano", "Deutsche", "Espa\u00f1ol", "\ud55c\uad6d\uc5b4", "\u4e2d\u6587 (\u7b80\u4f53)", "\u4e2d\u6587 (\u7e41\u9ad4)"};
+    char choice = (char)gui_menu_20x2("Choose the language you want\nfor your save", version < 30 ? 7 : 9, &languages[0]);
 
     saveData[offset] = choice + 1;
     gui_warn("Save\'s language set to", languages[choice]);
