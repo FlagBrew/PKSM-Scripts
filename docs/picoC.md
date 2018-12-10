@@ -1,6 +1,11 @@
 # picoC Script Documentation
 
 ## API
+Header inclusion
+```c
+#include <pksm.h>
+```
+
 ### Arguments passed to `main`
 - `argv`
     - `argv[0]` pointer to save data, converted to int, passed as text
@@ -310,6 +315,7 @@ struct pkx *pkxArray = (struct pkx*) &array[0];
 [11:56 PM] piepie62: I would like to ask for @bernardogiordano's opinion on this, though
 [11:57 PM] piepie62: Like, yeah, I can understand where you're coming from, but I both can't think of a good way to do it and don't like the idea in general
 [11:58 PM] piepie62: Even where it currently exists in the application
+
 
 -= from 7 Dec 2018 =-
 [8:00 PM] SpiredMoth: I'm also confused on how the encrypt and decrypt functions are supposed to be used if they're void of both parameters and a return
