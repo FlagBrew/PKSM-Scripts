@@ -30,7 +30,10 @@ Meaning                                 Offset        Length        Min Value   
 - Event const                           0xd9c
   - Starter                             0xdfc         2
   - Lotto number                        0xe14         2
+  - greets towards Spiritomb            0xe18         2             0
   - Darkrai?                            0xe22
+  - total met Underground               0xe2e         2             0
+  - Odd Keystone inserted               0xeb0         2             0           1
   - Palkia?                             0xecc
 - Event flags                           0xfdc
   - Darkrai?                            0x1027

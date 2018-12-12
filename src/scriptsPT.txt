@@ -24,7 +24,7 @@
 "Berries slot 1 x999" -i 0xBEE 2 999 1
 "TM&HM slot 1 x999" -i 0x98E 2 999 1
 "Pokeballs slot 1 x999" -i 0xCEE 2 999 1
-"Set 32 people met Underground" -i 0x3cb4 2 32 1
+"Fulfill Spiritomb encounter requirements" -i 0xec0 1 0x1 1 -i 0xe28 1 0x20 1
 "Set max Game Corner coins" -i 0x88 2 50000 1
 "Get all Pokewatch apps" -i 0x1161 1 25 1 -i 0x1163 1 1 25 -i 0x1184 1 1 1
 "Fill Fashion Case" -i 0x4e38 0x3a "data/GenIV_Fashion_Case.bin" 1
@@ -34,3 +34,35 @@
 "Fill Dex - National seen" -i 0x136b 0x2df "data/dex/Pt_National_seen.bin" 1
 "Fill Dex - National owned" -i 0x132c 0x31e "data/dex/Pt_National_owned.bin" 1
 "Fill Dex - Complete" -i 0x132c 0x31e "data/dex/Pt_Complete.bin" 1
+"Today's Trophy Garden visitor - Eevee" -i 0x7f30 1 0x00 1
+"Today's Trophy Garden visitor - Bonsly" -i 0x7f30 1 0x01 1
+"Today's Trophy Garden visitor - Happiny" -i 0x7f30 1 0x02 1
+"Today's Trophy Garden visitor - Meowth" -i 0x7f30 1 0x03 1
+"Today's Trophy Garden visitor - Cleffa" -i 0x7f30 1 0x04 1
+"Today's Trophy Garden visitor - Clefairy" -i 0x7f30 1 0x05 1
+"Today's Trophy Garden visitor - Igglybuff" -i 0x7f30 1 0x06 1
+"Today's Trophy Garden visitor - Plusle" -i 0x7f30 1 0x07 1
+"Today's Trophy Garden visitor - Jigglypuff" -i 0x7f30 1 0x08 1
+"Today's Trophy Garden visitor - Ditto" -i 0x7f30 1 0x09 1
+"Today's Trophy Garden visitor - Castform" -i 0x7f30 1 0x0a 1
+"Today's Trophy Garden visitor - Minun" -i 0x7f30 1 0x0b 1
+"Today's Trophy Garden visitor - Mime Jr" -i 0x7f30 1 0x0c 1
+"Today's Trophy Garden visitor - Marill" -i 0x7f30 1 0x0d 1
+"Today's Trophy Garden visitor - Chansey" -i 0x7f30 1 0x0e 1
+"Today's Trophy Garden visitor - Azurill" -i 0x7f30 1 0x0f 1
+"Yesterday's Trophy Garden visitor - Eevee" -i 0x7f32 1 0x00 1
+"Yesterday's Trophy Garden visitor - Bonsly" -i 0x7f32 1 0x01 1
+"Yesterday's Trophy Garden visitor - Happiny" -i 0x7f32 1 0x02 1
+"Yesterday's Trophy Garden visitor - Meowth" -i 0x7f32 1 0x03 1
+"Yesterday's Trophy Garden visitor - Cleffa" -i 0x7f32 1 0x04 1
+"Yesterday's Trophy Garden visitor - Clefairy" -i 0x7f32 1 0x05 1
+"Yesterday's Trophy Garden visitor - Igglybuff" -i 0x7f32 1 0x06 1
+"Yesterday's Trophy Garden visitor - Plusle" -i 0x7f32 1 0x07 1
+"Yesterday's Trophy Garden visitor - Jigglypuff" -i 0x7f32 1 0x08 1
+"Yesterday's Trophy Garden visitor - Ditto" -i 0x7f32 1 0x09 1
+"Yesterday's Trophy Garden visitor - Castform" -i 0x7f32 1 0x0a 1
+"Yesterday's Trophy Garden visitor - Minun" -i 0x7f32 1 0x0b 1
+"Yesterday's Trophy Garden visitor - Mime Jr" -i 0x7f32 1 0x0c 1
+"Yesterday's Trophy Garden visitor - Marill" -i 0x7f32 1 0x0d 1
+"Yesterday's Trophy Garden visitor - Chansey" -i 0x7f32 1 0x0e 1
+"Yesterday's Trophy Garden visitor - Azurill" -i 0x7f32 1 0x0f 1
