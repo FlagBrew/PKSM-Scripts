@@ -28,7 +28,7 @@
 "Berries slot 1 x999" -d "items" -i 0xBE2 2 999 1
 "TM&HM slot 1 x999" -d "items" -i 0x982 2 99 1
 "Pokeballs slot 1 x999" -d "items" -i 0xCE2 2 999 1
-"Set 32 people met Underground" -i 0x3a2c 2 32 1
+"Fulfill Spiritomb encounter requirements" -i 0xeb0 1 0x1 1 -i 0xe18 1 0x20 1
 "Set max Game Corner coins" -i 0x84 2 50000 1
 "Fill Fashion Case" -i 0x4ba8 0x3a "data/GenIV_Fashion_Case.bin" 1
 "Language entries" -d "dex" -i 0x1405 1 0x3f 14
