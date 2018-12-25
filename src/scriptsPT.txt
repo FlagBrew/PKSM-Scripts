@@ -34,3 +34,51 @@
 "National seen" -d "dex" -i 0x136b 0x2df "data/dex/Pt_National_seen.bin" 1
 "National owned" -d "dex" -i 0x132c 0x31e "data/dex/Pt_National_owned.bin" 1
 "Complete" -d "dex" -i 0x132c 0x31e "data/dex/Pt_Complete.bin" 1
+"Battle Castle Points Single x9999" -d "frontier" -i 0x6970 4 9999 1
+"Battle Castle Points Double x9999" -d "frontier" -i 0x6980 4 9999 1
+"Battle Castle Points Multi x9999" -d "frontier" -i 0x6990 4 9999 1
+"Battle Tower Single - 14 Streak" -d "frontier" -i 0x68E2 2 14 1 -i 0x723E 2 2 1 -i 0x723D 1 31 1
+"Battle Tower Single - 20 Streak" -d "frontier" -i 0x68E2 2 20 1 -i 0x723E 2 2 1 -i 0x723D 1 31 1
+"Battle Tower Single- 42 Streak" -d "frontier" -i 0x68E2 2 42 1 -i 0x723E 2 6 1 -i 0x723D 1 31 1
+"Battle Tower Single - 48 Streak" -d "frontier" -i 0x68E2 2 48 1 -i 0x723E 2 6 1 -i 0x723D 1 31 1
+"Battle Tower Single - 98 Streak" -d "frontier" -i 0x68E2 2 98 1 -i 0x723E 2 14 1 -i 0x723D 1 31 1
+"Battle Tower Doubles - 49 Streak" -d "frontier" -i 0x68E6 2 49 1 -i 0x7240 2 7 1 -i 0x723D 1 31 1
+"Battle Tower Multi - 49 Streak" -d "frontier" -i 0x68EA 2 49 1 -i 0x7242 2 7 1 -i 0x723D 1 31 1
+"Battle Tower Multi Link - 49 Streak" -d "frontier" -i 0x6906 2 49 1 -i 0x7244 2 7 1 -i 0x723D 1 31 1
+"Battle Tower Wi-Fi - 49 Streak" -d "frontier" -i 0x68F2 2 49 1 -i 0x7246 2 7 1 -i 0x723D 1 31 1
+"Battle Factory Single Lv 50 Max Trades" -d "frontier" -i 0x68FA 2 999 1
+"Battle Factory Single Open Max Trades" -d "frontier" -i 0x6902 2 999 1
+"Battle Factory Double Lv 50 Max Trades" -d "frontier" -i 0x690A 2 999 1
+"Battle Factory Double Open Max Trades" -d "frontier" -i 0x6912 2 999 1
+"Battle Factory Multi Lv 50 Max Trades" -d "frontier" -i 0x691A 2 999 1
+"Battle Factory Multi Open Max Trades" -d "frontier" -i 0x6922 2 999 1
+"Battle Factory Lv 50 - 14 Streak" -d "frontier" -i 0x68F6 2 14 1 -i 0x7EF8 1 119 1
+"Battle Factory Lv 50 - 20 Streak" -d "frontier" -i 0x68F6 2 20 1 -i 0x7EF8 1 119 1
+"Battle Factory Lv 50 - 42 Streak" -d "frontier" -i 0x68F6 2 42 1 -i 0x7EF8 1 119 1
+"Battle Factory Lv 50 - 48 Streak" -d "frontier" -i 0x68F6 2 48 1 -i 0x7EF8 1 119 1
+"Battle Factory Open - 14 Streak" -d "frontier" -i 0x68FE 2 14 1 -i 0x7EF8 1 119 1
+"Battle Factory Open - 20 Streak" -d "frontier" -i 0x68FE 2 20 1 -i 0x7EF8 1 119 1
+"Battle Factory Open - 42 Streak" -d "frontier" -i 0x68FE 2 42 1 -i 0x7EF8 1 119 1
+"Battle Factory Open - 48 Streak" -d "frontier" -i 0x68FE 2 48 1 -i 0x7EF8 1 119 1
+"Battle Factory Double Lv 50 - 49 Streak" -d "frontier" -i 0x6906 2 49 1 -i 0x7EF8 1 119 1
+"Battle Factory Double Open - 49 Streak" -d "frontier" -i 0x690E 2 49 1 -i 0x7EF8 1 119 1
+"Battle Factory Multi Lv 50 - 49 Streak" -d "frontier" -i 0x6916 2 49 1 -i 0x7EF8 1 119 1
+"Battle Factory Multi Open - 49 Streak" -d "frontier" -i 0x691E 2 49 1 -i 0x7EF8 1 119 1
+"Battle Castle Single - 14 Streak" -d "frontier" -i 0x696E 2 14 1 -i 0x7F00 1 7 1
+"Battle Castle Single - 20 Streak" -d "frontier" -i 0x696E 2 20 1 -i 0x7F00 1 7 1
+"Battle Castle Single - 42 Streak" -d "frontier" -i 0x696E 2 42 1 -i 0x7F00 1 7 1
+"Battle Castle Single - 48 Streak" -d "frontier" -i 0x696E 2 48 1 -i 0x7F00 1 7 1
+"Battle Castle Double - 49 Streak" -d "frontier" -i 0x697E 2 49 1 -i 0x7F00 1 7 1
+"Battle Castle Multi - 49 Streak" -d "frontier" -i 0x698E 2 49 1 -i 0x7F00 1 7 1
+"Battle Arcade Single - 14 Streak" -d "frontier" -i 0x699E 2 14 1 -i 0x7F04 1 7 1
+"Battle Arcade Single - 20 Streak" -d "frontier" -i 0x699E 2 20 1 -i 0x7F04 1 7 1
+"Battle Arcade Double - 49 Streak" -d "frontier" -i 0x69A2 2 14 1 -i 0x7F04 1 7 1
+"Battle Arcade Multi - 49 Streak" -d "frontier" -i 0x69A6 2 20 1 -i 0x7F04 1 7 1
+"Battle Arcade Single - 42 Streak" -d "frontier" -i 0x699E 2 42 1 -i 0x7F04 1 7 1
+"Battle Arcade Single - 48 Streak" -d "frontier" -i 0x699E 2 48 1 -i 0x7F04 1 7 1
+"Poffin 1 - Mild" -i 0x52E8 1 28 1 -i 0x52E9 1 99 5 -i 0x52EE 1 1 1
+"Poffin 2 - Mild" -i 0x52F0 1 28 1 -i 0x52F1 1 99 5 -i 0x52F6 1 1 1
+"Poffin 3 - Mild" -i 0x52F8 1 28 1 -i 0x52F9 1 99 5 -i 0x52FE 1 1 1
+"Poffin 4 - Mild" -i 0x5300 1 28 1 -i 0x5301 1 99 5 -i 0x5306 1 1 1
+"Poffin 5 - Mild" -i 0x5308 1 28 1 -i 0x5309 1 99 5 -i 0x530E 1 1 1
+"Poffin 6 - Mild" -i 0x5310 1 28 1 -i 0x5311 1 99 5 -i 0x5316 1 1 1

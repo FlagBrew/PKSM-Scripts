@@ -119,3 +119,73 @@
 "National owned" -d "dex" -i 0x2c88 0x870 "data/dex/USUM_National_owned.bin" 1
 "Complete" -d "dex" -i 0x2c88 0x870 "data/dex/USUM_Complete.bin" 1
 "Fill Dex - Complete" -d "illegal" -i 0x2c88 0x870 "data/dex/USUM_Complete_illegal.bin" 1
+"Renew 1st WonderCard" -i 0x66352 1 1 1
+"Renew 2nd WonderCard" -i 0x6645A 1 1 1
+"Renew 3rd WonderCard" -i 0x66562 1 1 1
+"Items slot 1 - Lucky Egg x999" -d "items" -i 0x0 3 0xf9ce7 1
+"Items slot 1 - Festival Ticket x999" -d "items" -i 0x0 3 0xf9f4c 1
+"Items slot 1 - Fast Ball x999" -d "items" -i 0x0 3 0xf9dec 1
+"Items slot 1 - Level Ball x999" -d "items" -i 0x0 3 0xf9ded 1
+"Items slot 1 - Lure Ball x999" -d "items" -i 0x0 3 0xf9dee 1
+"Items slot 1 - Heavy Ball x999" -d "items" -i 0x0 3 0xf9def 1
+"Items slot 1 - Love Ball x999" -d "items" -i 0x0 3 0xf9df0 1
+"Items slot 1 - Friend Ball x999" -d "items" -i 0x0 3 0xf9df1 1
+"Items slot 1 - Moon Ball x999" -d "items" -i 0x0 3 0xf9df2 1
+"All Rotom Powers 999x" -d "items" -i 0xDFC 44 "data/USUM_AllRotomPowers_max.bin" 1
+"Receive all Battle Tree Prizes" -i 0x6B952 1 0xc8 1
+"Can Re-buy Festival Plaza Items & Services" -d "plaza" -i 0x51138 4 0x00000000 1 -i 0x51180 4 0x00000000 1 -i 0x511c8 4 0x00000000 1 -i 0x51210 4 0x00000000 1 -i 0x51258 4 0x00000000 1 -i 0x512a0 4 0x00000000 1 -i 0x512e8 4 0x00000000 1 -i 0x51300 1 0x03 1
+"Reset Gift Totems" -d "reset" -i 0x24C6 2 0x0000 1
+"Shop 6 Tent Bonus 1 +++GTS" -d "plaza" -i 0x5129E 2 0x0103 1
+"Shop 6 Tent Bonus 2 +++Wonder Trade" -d "plaza" -i 0x5129E 2 0x0203 1
+"Shop 6 Tent Bonus 3 +++Battle Spot" -d "plaza" -i 0x5129E 2 0x0303 1
+"Shop 6 Tent Bonus 4 +++Festival Plaza" -d "plaza" -i 0x5129E 2 0x0403 1
+"Shop 6 Tent Bonus 5 +++Missions" -d "plaza" -i 0x5129E 2 0x0503 1
+"Shop 6 Tent Bonus 6 +++Lottery Shops" -d "plaza" -i 0x5129E 2 0x0603 1
+"Shop 6 Tent Bonus 7 +++Haunted House" -d "plaza" -i 0x5129E 2 0x0703 1
+"All Pokebeans" -i 0x40e4c 1 0xFF 15
+"Battle Tree Singles 19" -i 0x6B800 2 19 1
+"Battle Tree Super Singles 49" -i 0x6B802 2 49 1
+"Battle Tree Doubles 19" -i 0x6B808 2 19 1
+"Battle Tree Super Doubles 49" -i 0x6B80A 2 49 1
+"Battle Tree Multi 19" -i 0x6B810 2 19 1
+"Battle Tree Super Multi 49" -i 0x6B812 2 49 1
+"z01 Festival Plaza - 1st Facility - Big Dreams 5" -d "plaza" -i 0x51110 1 4 1 -i 0x51111 1 3 1
+"z02 Festival Plaza - 1st Facility - Gold Rush 5" -d "plaza" -i 0x51110 1 9 1 -i 0x51111 1 2 1
+"z03 Festival Plaza - 1st Facility - Treasure Hunt 5" -d "plaza" -i 0x51110 1 14 1 -i 0x51111 1 1 1
+"z04 Festival Plaza - 1st Facility - Ghosts Den 5 - Black" -d "plaza" -i 0x51110 1 19 1 -i 0x51111 1 3 1
+"z05 Festival Plaza - 1st Facility - Trick Room 5 - Red" -d "plaza" -i 0x51110 1 24 1 -i 0x51111 1 1 1
+"z06 Festival Plaza - 1st Facility - Confuse Ray 5 - Blue" -d "plaza" -i 0x51110 1 29 1 -i 0x51111 1 0 1
+"z07 Festival Plaza - 1st Facility - Thump-Bump Park 5 - Blue" -d "plaza" -i 0x51110 1 69 1 -i 0x51111 1 0 1
+"z08 Festival Plaza - 1st Facility - Click-Clunk Land 5 - Yellow" -d "plaza" -i 0x51110 1 74 1 -i 0x51111 1 1 1
+"z09 Festival Plaza - 1st Facility - Stomp-Stomp House 5 - Black" -d "plaza" -i 0x51110 1 79 1 -i 0x51111 1 3 1
+"z10 Festival Plaza - 1st Facility - Rare Kitchen 5 - Black" -d "plaza" -i 0x51110 1 51 1 -i 0x51111 1 3 1
+"z11 Festival Plaza - 1st Facility - Battle Table 5 - Red" -d "plaza" -i 0x51110 1 54 1 -i 0x51111 1 2 1
+"z12 Festival Plaza - 1st Facility - Friendship Cafe 5 - Green" -d "plaza" -i 0x51110 1 51 1 -i 0x51111 1 1 1
+"z13 Festival Plaza - 1st Facility - Friendship Parlor 5 - Brown" -d "plaza" -i 0x51110 1 64 1 -i 0x51111 1 3 1
+"z14 Festival Plaza - 1st Facility - Ball Store 5 - Blue" -d "plaza" -i 0x51110 1 32 1 -i 0x51111 1 0 1
+"z15 Festival Plaza - 1st Facility - General Store 5 - Black" -d "plaza" -i 0x51110 1 37 1 -i 0x51111 1 3 1
+"z16 Festival Plaza - 1st Facility - Battle Store 3 - Red" -d "plaza" -i 0x51110 1 40 1 -i 0x51111 1 1 1
+"z17 Festival Plaza - 1st Facility - Soft Drink 3 - Yellow" -d "plaza" -i 0x51110 1 43 1 -i 0x51111 1 2 1
+"z18 Festival Plaza - 1st Facility - Pharmacy 3 - Blue" -d "plaza" -i 0x51110 1 46 1 -i 0x51111 1 0 1
+"z19 Festival Plaza - 1st Facility - Kanto Tent 5 - Red" -d "plaza" -i 0x51110 1 82 1 -i 0x51111 1 0 1
+"z20 Festival Plaza - 1st Facility - Johto Tent 5 - Blue" -d "plaza" -i 0x51110 1 85 1 -i 0x51111 1 1 1
+"z21 Festival Plaza - 1st Facility - Hoenn Tent 5 Gold" -d "plaza" -i 0x51110 1 88 1 -i 0x51111 1 2 1
+"z22 Festival Plaza - 1st Facility - Sinnoh Tent 5 - Black" -d "plaza" -i 0x51110 1 91 1 -i 0x51111 1 3 1
+"z23 Festival Plaza - 1st Facility - Unova Tent 5 - Red" -d "plaza" -i 0x51110 1 94 1 -i 0x51111 1 0 1
+"z24 Festival Plaza - 1st Facility - Kalos Tent 5 - Blue" -d "plaza" -i 0x51110 1 97 1 -i 0x51111 1 1 1
+"z25 Festival Plaza - 1st Facility - Pokemon Fortune Tent 5 - Gold" -d "plaza" -i 0x51110 1 100 1 -i 0x51111 1 2 1
+"z26 Festival Plaza - 1st Facility - Red Dyes 5" -d "plaza" -i 0x51110 1 103 1 -i 0x51111 1 0 1
+"z27 Festival Plaza - 1st Facility - Yellow Dyes 5" -d "plaza" -i 0x51110 1 106 1 -i 0x51111 1 4 1
+"z29 Festival Plaza - 1st Facility - Green Dyes 5" -d "plaza" -i 0x51110 1 109 1 -i 0x51111 1 1 1
+"z30 Festival Plaza - 1st Facility - Blue Dyes 5" -d "plaza" -i 0x51110 1 112 1 -i 0x51111 1 5 1
+"z31 Festival Plaza - 1st Facility - Orange Dyes 5" -d "plaza" -i 0x51110 1 115 1 -i 0x51111 1 2 1
+"z32 Festival Plaza - 1st Facility - Navy Dyes 5" -d "plaza" -i 0x51110 1 118 1 -i 0x51111 1 6 1
+"z33 Festival Plaza - 1st Facility - Purple Dyes 5" -d "plaza" -i 0x51110 1 121 1 -i 0x51111 1 3 1
+"z34 Festival Plaza - 1st Facility - Pink Dyes 5" -d "plaza" -i 0x51110 1 124 1 -i 0x51111 1 7 1
+"z35 Festival Plaza - 1st Facility - Switcheroo - Black" -d "plaza" -i 0x51110 1 127 1 -i 0x51111 1 3 1
+"Reset Type Null" -d "reset" -i 0x2621 1 32 1 -i 0x2659 1 219 1
+"10 Zygarde Cells" -i 0x1F42 2 10 1
+"50 Zygarde Cells" -i 0x1F42 2 50 1
+"100 Zygarde Cells" -i 0x1F42 2 100 1
+"999 Zygarde Cells" -i 0x1F42 2 999 1
+"Reset Red and Blue" -i 0x1E6E 1 55 1 -i 0x1EA6 1 225 1 -i 0x2168 1 1 1

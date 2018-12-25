@@ -67,3 +67,23 @@
 "National owned - native" -d "dex" -i 0x15008 0x696 "data/dex/XY_National_owned_native.bin" 1
 "Complete" -d "dex" -i 0x15008 0x696 "data/dex/XY_Complete.bin" 1
 "Fill Dex - Complete" -d "illegal" -i 0x15008 0x696 "data/dex/XY_Complete_illegal.bin" 1
+"Renew 1st WonderCard" -i 0x1BD52 1 1 1
+"Renew 2nd WonderCard" -i 0x1BE5A 1 1 1
+"Renew 3rd WonderCard" -i 0x1BF62 1 1 1
+"Battle Maison Singles - 19" -i 0x1B1C0 2 19 1
+"Battle Maison Doubles - 19" -i 0x1B1C8 2 19 1
+"Battle Maison Triples - 19" -i 0x1B1D0 2 19 1
+"Battle Maison Rotation - 19" -i 0x1B1D8 2 19 1
+"Battle Maison Multi - 19" -i 0x1B1E0 2 19 1
+"Battle Maison Super Singles - 49" -i 0x1B1C2 2 49 1
+"Battle Maison Super Doubles - 49" -i 0x1B1CA 2 49 1
+"Battle Maison Super Triples - 49" -i 0x1B1D2 2 49 1
+"Battle Maison Super Rotation - 49" -i 0x1B1DA 2 49 1
+"Battle Maison Super Multi - 49" -i 0x1B1E2 2 49 1
+"Supreme Honor Pokepuffs" -i 0x00000 1 22 100
+"Pokemon Link - Bank Celebi" -i 0x20000 2630 "data/link/LINK_Celebi.bin" 1
+"Pokemon Link - HA Johto Starters" -i 0x20000 2630 "data/link/LINK_Johto_Starters.bin" 1
+"Pokemon Link - HA Regi Trio" -i 0x20000 2630 "data/link/LINK_Regi_Trio.bin" 1
+"Pokemon Link - Demo Glalie" -i 0x20000 2630 "data/link/LINK_Glalie.bin" 1
+"Pokemon Link - Demo Steelix" -i 0x20000 2630 "data/link/LINK_Steelix.bin" 1
+"Pokemon Link - BP & Pokemiles" -i 0x20000 2630 "data/link/LINK_BP_Pokemiles.bin" 1

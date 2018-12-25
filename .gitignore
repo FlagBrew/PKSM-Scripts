@@ -2,6 +2,13 @@ scripts
 *.pksm
 __pycache__
 
+# dev tools - Node.js
+dev/**/*
+!dev/**/README.md
+!dev/python/*.py
+!dev/node/*.js
+!dev/node/package.json
+
 # local script dev stuff
 test
 saves

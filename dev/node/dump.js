@@ -1,25 +1,20 @@
 #!/usr/bin/env node
 const { createReadStream, createWriteStream } = require('fs');
+const ArgumentParser = require('argparse').ArgumentParser;
 
-/** argparse code (Python 3)
-
-parser = argparse.ArgumentParser(description = 'Dump portion of file')
-parser.add_argument('input', help = 'Input file name')
-parser.add_argument('output', help = 'Output file name')
-parser.add_argument('offset', help = 'Start offset')
-parser.add_argument('length', help = 'Length to dump')
-*/
+const parser = new ArgumentParser({
+    description: 'Dump portion of file',
+});
+parser.addArgument('input', { help: 'Input file name' });
+parser.addArgument('output', { help: 'Output file name' });
+parser.addArgument('off', { help: 'Start offset' });
+parser.addArgument('len', { help: 'Length to dump' });
 
 const dumpData = (args) => {
-    if (args.length < 4) {
-        console.log('Insufficient arguments were passed.');
-        return;
-    }
-
-    const input = args[0];          // name of file to read data from
-    const output = args[1];         // name of file to write data to
-    const offset = +args[2];        // beginning of data to pull
-    const len = +args[3];           // total number of bytes of data to pull
+    const input = args.input.slice(1, args.input.length - 1);       // name of file to read data from
+    const output = args.output.slice(1, args.output.length - 1);    // name of file to write data to
+    const offset = +args.offset;                                    // beginning of data to pull
+    const len = +args.len;                                          // total number of bytes of data to pull
 
     let wasError = false;
 
@@ -53,5 +48,5 @@ module.exports = dumpData;
 
 // execute if called directly from command line
 if (require.main === module) {
-    dumpData(process.argv.slice(2));
+    dumpData(parser.parseArgs());
 }

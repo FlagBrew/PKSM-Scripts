@@ -73,3 +73,36 @@
 "National owned" -d "dex" -i 0x2a88 0x870 "data/dex/SM_National_owned.bin" 1
 "Complete" -d "dex" -i 0x2a88 0x870 "data/dex/SM_Complete.bin" 1
 "Fill Dex - Complete" -d "illegal" -i 0x2a88 0x870 "data/dex/SM_Complete_illegal.bin" 1
+"Renew 1st WonderCard" -i 0x65D52 1 1 1
+"Renew 2nd WonderCard" -i 0x65E5A 1 1 1
+"Renew 3rd WonderCard" -i 0x65F62 1 1 1
+"Items slot 1 - Lucky Egg x999" -d "items" -i 0x0 3 0xf9ce7 1
+"Items slot 1 - Festival Ticket x999" -d "items" -i 0x0 3 0xf9f4c 1
+"Items slot 1 - Fast Ball x999" -d "items" -i 0x0 3 0xf9dec 1
+"Items slot 1 - Level Ball x999" -d "items" -i 0x0 3 0xf9ded 1
+"Items slot 1 - Lure Ball x999" -d "items" -i 0x0 3 0xf9dee 1
+"Items slot 1 - Heavy Ball x999" -d "items" -i 0x0 3 0xf9def 1
+"Items slot 1 - Love Ball x999" -d "items" -i 0x0 3 0xf9df0 1
+"Items slot 1 - Friend Ball x999" -d "items" -i 0x0 3 0xf9df1 1
+"Items slot 1 - Moon Ball x999" -d "items" -i 0x0 3 0xf9df2 1
+"Receive all Battle Tree Prizes" -i 0x6B352 1 0xc8 1
+"Can Re-buy Festival Plaza Items & Services" -i 0x50b38 4 0x00000000 1 -i 0x50b80 4 0x00000000 1 -i 0x50bc8 4 0x00000000 1 -i 0x50c10 4 0x00000000 1 -i 0x50c58 4 0x00000000 1 -i 0x50ca0 4 0x00000000 1 -i 0x50ce8 4 0x00000000 1
+"All Pokebeans" -i 0x40A4c 1 0xFF 15
+"Shop 6 Tent Bonus 1 +++GTS" -d "plaza" -i 0x50C9E 2 0x0103 1
+"Shop 6 Tent Bonus 2 +++Wonder Trade" -d "plaza" -i 0x50C9E 2 0x0203 1
+"Shop 6 Tent Bonus 3 +++Battle Spot" -d "plaza" -i 0x50C9E 2 0x0303 1
+"Shop 6 Tent Bonus 4 +++Festival Plaza" -d "plaza" -i 0x50C9E 2 0x0403 1
+"Shop 6 Tent Bonus 5 +++Missions" -d "plaza" -i 0x50C9E 2 0x0503 1
+"Shop 6 Tent Bonus 6 +++Lottery Shops" -d "plaza" -i 0x50C9E 2 0x0603 1
+"Shop 6 Tent Bonus 7 +++Haunted House" -d "plaza" -i 0x50C9E 2 0x0703 1
+"Battle Tree Singles 19" -i 0x6B200 2 19 1
+"Battle Tree Super Singles 49" -i 0x6B202 2 49 1
+"Battle Tree Doubles 19" -i 0x6B208 2 19 1
+"Battle Tree Super Doubles 49" -i 0x6B20A 2 49 1
+"Battle Tree Multi 19" -i 0x6B210 2 19 1
+"Battle Tree Super Multi 49" -i 0x6B212 2 49 1
+"Reset Type Null" -d "reset" -i 0x240e 1 156 1
+"10 Zygarde Cells" -i 0x1D42 2 10 1
+"50 Zygarde Cells" -i 0x1D42 2 50 1
+"100 Zygarde Cells" -i 0x1D42 2 100 1
+"999 Zygarde Cells" -i 0x1D42 2 999 1

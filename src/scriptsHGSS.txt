@@ -34,3 +34,50 @@
 "National seen" -d "dex" -i 0x12fb 0x2fc "data/dex/HGSS_National_seen.bin" 1
 "National owned" -d "dex" -i 0x12bc 0x33b "data/dex/HGSS_National_owned.bin" 1
 "Complete" -d "dex" -i 0x12bc 0x33b "data/dex/HGSS_Complete.bin" 1
+"Reset Sinjoh Ruins" -d "reset" -i 0xFDA 1 1 1 -i 0xFE8 1 0 1 -i 0xFEA 1 0 1 -i 0x10D7 1 158 1 -i 0x111F 1 211 1
+"Reset Spiked-Eared Pichu" -d "reset" -i 0x103A 1 2 1
+"Max Pokeathlon Points" -i 0xE548 3 999999 1
+"Reset Red" -d "reset" -i 0x110F 1 2 1
+"Give all Apricorns x255" -d "items" -i 0xE558 1 255 7
+"Battle Castle Points Single x9999" -d "frontier -i 0x52F4 4 9999 1
+"Battle Castle Points Double x9999" -d "frontier -i 0x5304 4 9999 1
+"Battle Castle Points Multi x9999" -d "frontier -i 0x5314 4 9999 1
+"Battle Tower Single - 14 Streak" -d "frontier" -i 0x5266 2 14 1 -i 0x5BC2 2 2 1 -i 0x5BC1 1 31 1
+"Battle Tower Single - 20 Streak" -d "frontier" -i 0x5266 2 20 1 -i 0x5BC2 2 2 1 -i 0x5BC1 1 31 1
+"Battle Tower Single - 42 Streak" -d "frontier" -i 0x5266 2 42 1 -i 0x5BC2 2 6 1 -i 0x5BC1 1 31 1
+"Battle Tower Single - 48 Streak" -d "frontier" -i 0x5266 2 48 1 -i 0x5BC2 2 6 1 -i 0x5BC1 1 31 1
+"Battle Tower Single - 98 Streak" -d "frontier" -i 0x5266 2 98 1 -i 0x5BC2 2 14 1 -i 0x5BC1 1 31 1
+"Battle Tower Double - 49 Streak" -d "frontier" -i 0x526A 2 49 1 -i 0x5BC4 2 7 1 -i 0x5BC1 1 31 1
+"Battle Tower Multi - 49 Streak" -d "frontier" -i 0x526E 2 49 1 -i 0x5BC6 2 7 1 -i 0x5BC1 1 31 1
+"Battle Tower Multi Link - 49 Streak" -d "frontier" -i 0x5272 2 49 1 -i 0x5BC8 2 7 1 -i 0x5BC1 1 31 1
+"Battle Tower Wi-Fi - 49 Streak" -d "frontier" -i 0x5276 2 49 1 -i 0x5BCA 2 7 1 -i 0x5BC1 1 31 1
+"Battle Factory Single Lv 50 Max Trades" -d "frontier" -i 0x527E 2 999 1
+"Battle Factory Single Open Max Trades" -d "frontier" -i 0x5286 2 999 1
+"Battle Factory Double Lv 50 Max Trades" -d "frontier" -i 0x528E 2 999 1
+"Battle Factory Double Open Max Trades" -d "frontier" -i 0x5296 2 999 1
+"Battle Factory Multi Lv 50 Max Trades" -d "frontier" -i 0x529E 2 999 1
+"Battle Factory Multi Open Max Trades" -d "frontier" -i 0x52A6 2 999 1
+"Battle Factory Single Lv 50 - 14 Streak" -d "frontier" -i 0x527A 2 14 1 -i 0x687C 1 119 1
+"Battle Factory Single Lv 50 - 20 Streak" -d "frontier" -i 0x527A 2 20 1 -i 0x687C 1 119 1
+"Battle Factory Single Lv 50 - 42 Streak" -d "frontier" -i 0x527A 2 42 1 -i 0x687C 1 119 1
+"Battle Factory Single Lv 50 - 48 Streak" -d "frontier" -i 0x527A 2 48 1 -i 0x687C 1 119 1
+"Battle Factory Single Open - 14 Streak" -d "frontier" -i 0x5282 2 14 1 -i 0x687C 1 119 1
+"Battle Factory Single Open - 20 Streak" -d "frontier" -i 0x5282 2 20 1 -i 0x687C 1 119 1
+"Battle Factory Single Open - 42 Streak" -d "frontier" -i 0x5282 2 42 1 -i 0x687C 1 119 1
+"Battle Factory Single Open - 48 Streak" -d "frontier" -i 0x5282 2 48 1 -i 0x687C 1 119 1
+"Battle Factory Double Lv 50 - 49 Streak" -d "frontier" -i 0x528A 2 49 1 -i 0x687C 1 119 1
+"Battle Factory Double Open - 49 Streak" -d "frontier" -i 0x5292 2 49 1 -i 0x687C 1 119 1
+"Battle Factory Multi Lv 50 - 49 Streak" -d "frontier" -i 0x529A 2 49 1 -i 0x687C 1 119 1
+"Battle Factory Multi Open - 49 Streak" -d "frontier" -i 0x52A2 2 49 1 -i 0x687C 1 119 1
+"Battle Castle Single - 14 Streak" -d "frontier" -i 0x52F2 2 14 1 -i 0x6884 1 7 1
+"Battle Castle Single - 20 Streak" -d "frontier" -i 0x52F2 2 20 1 -i 0x6884 1 7 1
+"Battle Castle Single - 42 Streak" -d "frontier" -i 0x52F2 2 42 1 -i 0x6884 1 7 1
+"Battle Castle Single - 48 Streak" -d "frontier" -i 0x52F2 2 48 1 -i 0x6884 1 7 1
+"Battle Castle Double - 49 Streak" -d "frontier" -i 0x5302 2 49 1 -i 0x6884 1 7 1
+"Battle Castle Multi - 49 Streak" -d "frontier" -i 0x5312 2 49 1 -i 0x6884 1 7 1
+"Battle Arcade Single - 14 Streak" -d "frontier" -i 0x5322 2 14 1 -i 0x6888 1 7 1
+"Battle Arcade Single - 20 Streak" -d "frontier" -i 0x5322 2 20 1 -i 0x6888 1 7 1
+"Battle Arcade Single - 42 Streak" -d "frontier" -i 0x5322 2 42 1 -i 0x6888 1 7 1
+"Battle Arcade Single - 48 Streak" -d "frontier" -i 0x5322 2 48 1 -i 0x6888 1 7 1
+"Battle Arcade Double - 49 Streak" -d "frontier" -i 0x5326 2 49 1 -i 0x6888 1 7 1
+"Battle Arcade Multi - 49 Streak" -d "frontier" -i 0x532A 2 49 1 -i 0x6888 1 7 1

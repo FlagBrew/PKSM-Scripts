@@ -37,3 +37,16 @@
 "National seen" -d "dex" -i 0x131f 0xf7 "data/dex/DP_National_seen.bin" 1
 "National owned" -d "dex" -i 0x12e0 0x136 "data/dex/DP_National_owned.bin" 1
 "Complete" -d "dex" -i 0x12e0 0x136 "data/dex/DP_Complete.bin" 1
+"Battle Tower Single - 14 Streak" -d "tower" -i 0x5FCC 2 14 1 -i 0x6604 2 2 1 -i 0x6601 1 31 1
+"Battle Tower Single - 42 Streak" -d "tower" -i 0x5FCC 2 42 1 -i 0x6604 2 6 1 -i 0x6601 1 31 1
+"Battle Tower Single - 98 Streak" -d "tower" -i 0x5FCC 2 98 1 -i 0x6604 2 14 1 -i 0x6601 1 31 1
+"Battle Tower Double - 49 Streak" -d "tower" -i 0x5FD0 2 49 1 -i 0x6606 2 7 1 -i 0x6601 1 31 1
+"Battle Tower Multi - 49 Streak" -d "tower" -i 0x5FD4 2 49 1 -i 0x6608 2 7 1 -i 0x6601 1 31 1
+"Battle Tower Multi Link - 49 Streak" -d "tower" -i 0x5FD8 2 49 1 -i 0x660A 2 7 1 -i 0x6601 1 31 1
+"Battle Tower Wi-Fi - 49 Streak" -d "tower" -i 0x5FDC 2 49 1 -i 0x660C 2 7 1 -i 0x6601 1 31 1
+"Poffin 1 - Mild" -i 0x5050 1 28 1 -i 0x5051 1 99 5 -i 0x5056 1 1 1 -i 0x5057 1 0 1
+"Poffin 2 - Mild" -i 0x5058 1 28 1 -i 0x5059 1 99 5 -i 0x505E 1 1 1 -i 0x505F 1 0 1
+"Poffin 3 - Mild" -i 0x5060 1 28 1 -i 0x5061 1 99 5 -i 0x5066 1 1 1 -i 0x5067 1 0 1
+"Poffin 4 - Mild" -i 0x5068 1 28 1 -i 0x5069 1 99 5 -i 0x506E 1 1 1 -i 0x506F 1 0 1
+"Poffin 5 - Mild" -i 0x5070 1 28 1 -i 0x5071 1 99 5 -i 0x5076 1 1 1 -i 0x5077 1 0 1
+"Poffin 6 - Mild" -i 0x5078 1 28 1 -i 0x5079 1 99 5 -i 0x507E 1 1 1 -i 0x507F 1 0 1
