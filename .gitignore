@@ -4,7 +4,8 @@ __pycache__
 
 # dev tools - Node.js
 dev/**/*
-!dev/**/README.md
+!dev/*.md
+!dev/docs/**
 !dev/python/*.py
 !dev/node/*.js
 !dev/node/package.json

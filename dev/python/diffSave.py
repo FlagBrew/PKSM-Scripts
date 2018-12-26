@@ -5,9 +5,12 @@ from saveVersion import getSaveVersion
 
 # argparse setup
 parser = argparse.ArgumentParser(
-    description='Generate a list of differences between 2 or more Gen 4-7 Pokémon save files')
-parser.add_argument('-o', metavar='outFile', nargs=1,
-                    help='File to write diff to (with or without .txt extension) -- if not given, diff is written to console')
+    description='Generate a list of differences between 2 or more Gen 4-7 Pokémon saves')
+parser.add_argument('-o', metavar='outFile',
+                    help='File (.txt) to write diff to -- if not given, diff is written to console')
+parser.add_argument(['-r', '--range'], nargs=2, metavar=('start', 'end'),
+                    help='Specific range to limit diff to, from start (included) to end (excluded)')
+parser.add_argument('-e', action='store_true', help='Flag to include an event diff')
 parser.add_argument('saves', nargs='+',
                     help='Space separated list of save files to diff')
 
@@ -67,7 +70,7 @@ def checkSaveCompat(data):
     return ""
 
 
-def generateDiff(files, data):
+def generateDiff(files, data, diffRange):
     diff = []
 
     # construct diff header
@@ -78,9 +81,15 @@ def generateDiff(files, data):
         tableHeader.append("    Save %d" % (i + 1))
     if split:
         diff.append("\n\nNote: Due to the way Gen 4 saves are stored, data in Save 1 may be more recent than the corresponding data in Save 2")
-    diff.append("\n\n%s\n" % ''.join(tableHeader))
+
+    # event diffing (function call?) goes here
+
+    # range slicing
+    if diffRange != None:
+        pass
 
     # construct diff body
+    diff.append("\n\n%s\n" % ''.join(tableHeader))
     for i in range(len(data[0])):
         offsetDiff = {
             'offset': toPaddedHexString(i, 5),
@@ -129,7 +138,7 @@ def main(params):
         saveFiles[0] = "%s (0x00000:0x3ffff)" % saveName
 
     print("Generating diff...")
-    diff = generateDiff(saveFiles, fileBuffs)
+    diff = generateDiff(saveFiles, fileBuffs, params.range)
 
     # output diff
     if diffs == 0:

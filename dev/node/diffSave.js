@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint no-unused-vars: "off" */
 const fse = require('fs-extra');
 const ArgumentParser = require('argparse').ArgumentParser;
 const getSaveVersion = require('./saveVersion');
@@ -10,13 +9,21 @@ const parser = new ArgumentParser({
     description: 'Generate a list of differences between 2 or more Gen 4-7 Pokémon save files',
 });
 parser.addArgument('-o', {
-    help: 'File to write diff to (with or without .txt extension) -- if not given, diff is written to console',
     metavar: 'outFile',
-    nargs: 1,
+    help: 'File (.txt) to write diff to -- if not given, diff is written to console',
+});
+parser.addArgument(['-r', '--range'], {
+    nargs: 2,
+    metavar: ['start', 'end'],
+    help: 'Specific range to limit diff to, from start (included) to end (excluded)',
+});
+parser.addArgument('-e', {
+    action: 'storeTrue',
+    help: 'Flag to include an event diff',
 });
 parser.addArgument('saves', {
-    help: 'Space separated list of save files to diff',
     nargs: '+',
+    help: 'Space separated list of save files to diff',
 });
 
 /* Global variables */
@@ -36,6 +43,10 @@ function toPaddedHexString(value, padTo) {
     return `0x${paddedHex.slice(-padTo)}`;
 }
 
+/**
+ * @param {String[]} fileNames
+ * @returns {Buffer[]}
+ */
 function loadSaves(fileNames) {
     const saveData = [];
     fileNames.map((v, i) => {
@@ -94,9 +105,10 @@ function checkSaveCompat(data) {
 /**
  * @param {String[]} files
  * @param {Buffer[]} data
+ * @param {Number []} diffRange
  * @returns {String}
  */
-function generateDiff(files, data) {
+function generateDiff(files, data, diffRange) {
     const diff = [];
 
     // construct diff header
@@ -109,9 +121,16 @@ function generateDiff(files, data) {
     if (split) {
         diff.push('\n\nNote: Due to the way Gen 4 saves are stored, data in Save 1 may be more recent than the corresponding data in Save 2');
     }
-    diff.push(`\n\n${tableHeader.join('')}\n`);
+
+    // event diffing (function call?) goes here
+
+    // range slicing
+    if (diffRange) {
+        // blah
+    }
 
     // construct diff body
+    diff.push(`\n\n${tableHeader.join('')}\n`);
     data[0].forEach((d, n) => {
         const offsetDiff = {
             offset: toPaddedHexString(n, 5),
@@ -176,12 +195,12 @@ function main(params) {
     }
 
     console.log('Generating diff...');
-    const diff = generateDiff(saveFiles, fileBuffs);
+    const diff = generateDiff(saveFiles, fileBuffs, params.range);
 
     // output diff
     if (diffs === 0) {
         console.log(`Saves were identical.${outFile !== '' ? outFile : ''}`);
-    } else if (params.o) {
+    } else if (outFile !== '') {
         fse.outputFileSync(outFile, diff);
         console.log(`Diff written to ${outFile} successfully.`);
     } else {
