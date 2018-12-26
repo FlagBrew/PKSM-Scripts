@@ -39,9 +39,9 @@
 "Max Pokeathlon Points" -i 0xE548 3 999999 1
 "Reset Red" -d "reset" -i 0x110F 1 2 1
 "Give all Apricorns x255" -d "items" -i 0xE558 1 255 7
-"Battle Castle Points Single x9999" -d "frontier -i 0x52F4 4 9999 1
-"Battle Castle Points Double x9999" -d "frontier -i 0x5304 4 9999 1
-"Battle Castle Points Multi x9999" -d "frontier -i 0x5314 4 9999 1
+"Battle Castle Points Single x9999" -d "frontier" -i 0x52F4 4 9999 1
+"Battle Castle Points Double x9999" -d "frontier" -i 0x5304 4 9999 1
+"Battle Castle Points Multi x9999" -d "frontier" -i 0x5314 4 9999 1
 "Battle Tower Single - 14 Streak" -d "frontier" -i 0x5266 2 14 1 -i 0x5BC2 2 2 1 -i 0x5BC1 1 31 1
 "Battle Tower Single - 20 Streak" -d "frontier" -i 0x5266 2 20 1 -i 0x5BC2 2 2 1 -i 0x5BC1 1 31 1
 "Battle Tower Single - 42 Streak" -d "frontier" -i 0x5266 2 42 1 -i 0x5BC2 2 6 1 -i 0x5BC1 1 31 1
