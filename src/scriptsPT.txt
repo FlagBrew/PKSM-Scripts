@@ -3,66 +3,82 @@
 "Set max money" -i 0x7c 4 999999 1
 "Set max Battle Points" -i 0x7234 2 9999 1
 "Set max Underground flags" -i 0x3ce8 4 999999 1
-"Give all items 99x" -i 0x630 640 "data/Pt_AllItems.bin" 1
-"Give all items 99x (illegal)" -i 0x630 648 "data/Pt_AllItems_illegal.bin" 1
-"Give all medicines 99x" -i 0xB4C 152 "data/DPPt_AllMedicines.bin" 1
-"Give all battle items 99x" -i 0xD28 52 "data/DPPt_AllBattleItems.bin" 1
-"Give all berries 99x" -i 0xBEC 256 "data/DPPt_AllBerries.bin" 1
-"Give all TM&HM 99x" -i 0x98C 400 "data/DPPt_AllTMHM.bin" 1
-"Give all pokeballs 99x" -i 0xCEC 56 "data/DPPt_AllPokeballs.bin" 1
-"Give all pokeballs 99x (illegal)" -i 0xCEC 60 "data/DPPt_AllPokeballs_illegal.bin" 1
-"Items slot 1 - Heart Scale x999" -i 0x630 2 93 1 -i 0x632 2 999 1
-"Items slot 1 - Honey x999" -i 0x630 2 94 1 -i 0x632 2 999 1
-"Items slot 1 - Max Repel x999" -i 0x630 2 77 1 -i 0x632 2 999 1
-"Items slots 1-4 - Shards x999" -i 0x630 2 72 1 -i 0x632 2 999 1 -i 0x634 2 73 1 -i 0x636 2 999 1 -i 0x638 2 74 1 -i 0x63a 2 999 1 -i 0x63c 2 75 1 -i 0x63e 2 999 1
-"Medicine slot 1 - PP Max x999" -i 0xB4C 2 53 1 -i 0xB4E 2 999 1
-"Medicine slot 1 - Rare Candy x999" -i 0xB4C 2 50 1 -i 0xB4E 2 999 1
-"Medicine slots 1-6 - stat vitamins x999" -i 0xB4C 2 45 1 -i 0xB4E 2 999 1 -i 0xB50 2 46 1 -i 0xB52 2 999 1 -i 0xB54 2 47 1 -i 0xB56 2 999 1 -i 0xB58 2 48 1 -i 0xB5A 2 999 1 -i 0xB5C 2 49 1 -i 0xB5E 2 999 1 -i 0xB60 2 52 1 -i 0xB62 2 999 1
-"Items slot 1 x999" -i 0x632 2 999 1
-"Medicines slot 1 x999" -i 0xB4E 2 999 1
-"Battle items slot 1 x999" -i 0xD2A 2 999 1
-"Berries slot 1 x999" -i 0xBEE 2 999 1
-"TM&HM slot 1 x999" -i 0x98E 2 999 1
-"Pokeballs slot 1 x999" -i 0xCEE 2 999 1
+"Give all items 99x" -d "items" -i 0x630 640 "data/Pt_AllItems.bin" 1
+"Give all items 99x" -d "illegal" -i 0x630 648 "data/Pt_AllItems_illegal.bin" 1
+"Give all medicines 99x" -d "items" -i 0xB4C 152 "data/DPPt_AllMedicines.bin" 1
+"Give all battle items 99x" -d "items" -i 0xD28 52 "data/DPPt_AllBattleItems.bin" 1
+"Give all berries 99x" -d "items" -i 0xBEC 256 "data/DPPt_AllBerries.bin" 1
+"Give all TM&HM 99x" -d "items" -i 0x98C 400 "data/DPPt_AllTMHM.bin" 1
+"Give all pokeballs 99x" -d "items" -i 0xCEC 56 "data/DPPt_AllPokeballs.bin" 1
+"Give all pokeballs 99x" -d "illegal" -i 0xCEC 60 "data/DPPt_AllPokeballs_illegal.bin" 1
+"Items slot 1 - Heart Scale x999" -d "items" -i 0x630 2 93 1 -i 0x632 2 999 1
+"Items slot 1 - Honey x999" -d "items" -i 0x630 2 94 1 -i 0x632 2 999 1
+"Items slot 1 - Max Repel x999" -d "items" -i 0x630 2 77 1 -i 0x632 2 999 1
+"Items slots 1-4 - Shards x999" -d "items" -i 0x630 2 72 1 -i 0x632 2 999 1 -i 0x634 2 73 1 -i 0x636 2 999 1 -i 0x638 2 74 1 -i 0x63a 2 999 1 -i 0x63c 2 75 1 -i 0x63e 2 999 1
+"Medicine slot 1 - PP Max x999" -d "items" -i 0xB4C 2 53 1 -i 0xB4E 2 999 1
+"Medicine slot 1 - Rare Candy x999" -d "items" -i 0xB4C 2 50 1 -i 0xB4E 2 999 1
+"Medicine slots 1-6 - stat vitamins x999" -d "items" -i 0xB4C 2 45 1 -i 0xB4E 2 999 1 -i 0xB50 2 46 1 -i 0xB52 2 999 1 -i 0xB54 2 47 1 -i 0xB56 2 999 1 -i 0xB58 2 48 1 -i 0xB5A 2 999 1 -i 0xB5C 2 49 1 -i 0xB5E 2 999 1 -i 0xB60 2 52 1 -i 0xB62 2 999 1
+"Items slot 1 x999" -d "items" -i 0x632 2 999 1
+"Medicines slot 1 x999" -d "items" -i 0xB4E 2 999 1
+"Battle items slot 1 x999" -d "items" -i 0xD2A 2 999 1
+"Berries slot 1 x999" -d "items" -i 0xBEE 2 999 1
+"TM&HM slot 1 x999" -d "items" -i 0x98E 2 99 1
+"Pokeballs slot 1 x999" -d "items" -i 0xCEE 2 999 1
 "Fulfill Spiritomb encounter requirements" -i 0xec0 1 0x1 1 -i 0xe28 1 0x20 1
 "Set max Game Corner coins" -i 0x88 2 50000 1
 "Get all Pokewatch apps" -i 0x1161 1 25 1 -i 0x1163 1 1 25 -i 0x1184 1 1 1
 "Fill Fashion Case" -i 0x4e38 0x3a "data/GenIV_Fashion_Case.bin" 1
-"Fill Dex - language entries" -i 0x1450 1 0x3f 493
-"Fill Dex - Sinnoh seen" -i 0x136c 0x2de "data/dex/Pt_Sinnoh_seen.bin" 1
-"Fill Dex - Sinnoh owned" -i 0x132c 0x31e "data/dex/Pt_Sinnoh_owned.bin" 1
-"Fill Dex - National seen" -i 0x136b 0x2df "data/dex/Pt_National_seen.bin" 1
-"Fill Dex - National owned" -i 0x132c 0x31e "data/dex/Pt_National_owned.bin" 1
-"Fill Dex - Complete" -i 0x132c 0x31e "data/dex/Pt_Complete.bin" 1
-"Today's Trophy Garden visitor - Eevee" -i 0x7f30 1 0x00 1
-"Today's Trophy Garden visitor - Bonsly" -i 0x7f30 1 0x01 1
-"Today's Trophy Garden visitor - Happiny" -i 0x7f30 1 0x02 1
-"Today's Trophy Garden visitor - Meowth" -i 0x7f30 1 0x03 1
-"Today's Trophy Garden visitor - Cleffa" -i 0x7f30 1 0x04 1
-"Today's Trophy Garden visitor - Clefairy" -i 0x7f30 1 0x05 1
-"Today's Trophy Garden visitor - Igglybuff" -i 0x7f30 1 0x06 1
-"Today's Trophy Garden visitor - Plusle" -i 0x7f30 1 0x07 1
-"Today's Trophy Garden visitor - Jigglypuff" -i 0x7f30 1 0x08 1
-"Today's Trophy Garden visitor - Ditto" -i 0x7f30 1 0x09 1
-"Today's Trophy Garden visitor - Castform" -i 0x7f30 1 0x0a 1
-"Today's Trophy Garden visitor - Minun" -i 0x7f30 1 0x0b 1
-"Today's Trophy Garden visitor - Mime Jr" -i 0x7f30 1 0x0c 1
-"Today's Trophy Garden visitor - Marill" -i 0x7f30 1 0x0d 1
-"Today's Trophy Garden visitor - Chansey" -i 0x7f30 1 0x0e 1
-"Today's Trophy Garden visitor - Azurill" -i 0x7f30 1 0x0f 1
-"Yesterday's Trophy Garden visitor - Eevee" -i 0x7f32 1 0x00 1
-"Yesterday's Trophy Garden visitor - Bonsly" -i 0x7f32 1 0x01 1
-"Yesterday's Trophy Garden visitor - Happiny" -i 0x7f32 1 0x02 1
-"Yesterday's Trophy Garden visitor - Meowth" -i 0x7f32 1 0x03 1
-"Yesterday's Trophy Garden visitor - Cleffa" -i 0x7f32 1 0x04 1
-"Yesterday's Trophy Garden visitor - Clefairy" -i 0x7f32 1 0x05 1
-"Yesterday's Trophy Garden visitor - Igglybuff" -i 0x7f32 1 0x06 1
-"Yesterday's Trophy Garden visitor - Plusle" -i 0x7f32 1 0x07 1
-"Yesterday's Trophy Garden visitor - Jigglypuff" -i 0x7f32 1 0x08 1
-"Yesterday's Trophy Garden visitor - Ditto" -i 0x7f32 1 0x09 1
-"Yesterday's Trophy Garden visitor - Castform" -i 0x7f32 1 0x0a 1
-"Yesterday's Trophy Garden visitor - Minun" -i 0x7f32 1 0x0b 1
-"Yesterday's Trophy Garden visitor - Mime Jr" -i 0x7f32 1 0x0c 1
-"Yesterday's Trophy Garden visitor - Marill" -i 0x7f32 1 0x0d 1
-"Yesterday's Trophy Garden visitor - Chansey" -i 0x7f32 1 0x0e 1
-"Yesterday's Trophy Garden visitor - Azurill" -i 0x7f32 1 0x0f 1
+"language entries" -d "dex" -i 0x1450 1 0x3f 493
+"Sinnoh seen" -d "dex" -i 0x136c 0x2de "data/dex/Pt_Sinnoh_seen.bin" 1
+"Sinnoh owned" -d "dex" -i 0x132c 0x31e "data/dex/Pt_Sinnoh_owned.bin" 1
+"National seen" -d "dex" -i 0x136b 0x2df "data/dex/Pt_National_seen.bin" 1
+"National owned" -d "dex" -i 0x132c 0x31e "data/dex/Pt_National_owned.bin" 1
+"Complete" -d "dex" -i 0x132c 0x31e "data/dex/Pt_Complete.bin" 1
+"Battle Castle Points Single x9999" -d "frontier" -i 0x6970 4 9999 1
+"Battle Castle Points Double x9999" -d "frontier" -i 0x6980 4 9999 1
+"Battle Castle Points Multi x9999" -d "frontier" -i 0x6990 4 9999 1
+"Battle Tower Single - 14 Streak" -d "frontier" -i 0x68E2 2 14 1 -i 0x723E 2 2 1 -i 0x723D 1 31 1
+"Battle Tower Single - 20 Streak" -d "frontier" -i 0x68E2 2 20 1 -i 0x723E 2 2 1 -i 0x723D 1 31 1
+"Battle Tower Single- 42 Streak" -d "frontier" -i 0x68E2 2 42 1 -i 0x723E 2 6 1 -i 0x723D 1 31 1
+"Battle Tower Single - 48 Streak" -d "frontier" -i 0x68E2 2 48 1 -i 0x723E 2 6 1 -i 0x723D 1 31 1
+"Battle Tower Single - 98 Streak" -d "frontier" -i 0x68E2 2 98 1 -i 0x723E 2 14 1 -i 0x723D 1 31 1
+"Battle Tower Doubles - 49 Streak" -d "frontier" -i 0x68E6 2 49 1 -i 0x7240 2 7 1 -i 0x723D 1 31 1
+"Battle Tower Multi - 49 Streak" -d "frontier" -i 0x68EA 2 49 1 -i 0x7242 2 7 1 -i 0x723D 1 31 1
+"Battle Tower Multi Link - 49 Streak" -d "frontier" -i 0x6906 2 49 1 -i 0x7244 2 7 1 -i 0x723D 1 31 1
+"Battle Tower Wi-Fi - 49 Streak" -d "frontier" -i 0x68F2 2 49 1 -i 0x7246 2 7 1 -i 0x723D 1 31 1
+"Battle Factory Single Lv 50 Max Trades" -d "frontier" -i 0x68FA 2 999 1
+"Battle Factory Single Open Max Trades" -d "frontier" -i 0x6902 2 999 1
+"Battle Factory Double Lv 50 Max Trades" -d "frontier" -i 0x690A 2 999 1
+"Battle Factory Double Open Max Trades" -d "frontier" -i 0x6912 2 999 1
+"Battle Factory Multi Lv 50 Max Trades" -d "frontier" -i 0x691A 2 999 1
+"Battle Factory Multi Open Max Trades" -d "frontier" -i 0x6922 2 999 1
+"Battle Factory Lv 50 - 14 Streak" -d "frontier" -i 0x68F6 2 14 1 -i 0x7EF8 1 119 1
+"Battle Factory Lv 50 - 20 Streak" -d "frontier" -i 0x68F6 2 20 1 -i 0x7EF8 1 119 1
+"Battle Factory Lv 50 - 42 Streak" -d "frontier" -i 0x68F6 2 42 1 -i 0x7EF8 1 119 1
+"Battle Factory Lv 50 - 48 Streak" -d "frontier" -i 0x68F6 2 48 1 -i 0x7EF8 1 119 1
+"Battle Factory Open - 14 Streak" -d "frontier" -i 0x68FE 2 14 1 -i 0x7EF8 1 119 1
+"Battle Factory Open - 20 Streak" -d "frontier" -i 0x68FE 2 20 1 -i 0x7EF8 1 119 1
+"Battle Factory Open - 42 Streak" -d "frontier" -i 0x68FE 2 42 1 -i 0x7EF8 1 119 1
+"Battle Factory Open - 48 Streak" -d "frontier" -i 0x68FE 2 48 1 -i 0x7EF8 1 119 1
+"Battle Factory Double Lv 50 - 49 Streak" -d "frontier" -i 0x6906 2 49 1 -i 0x7EF8 1 119 1
+"Battle Factory Double Open - 49 Streak" -d "frontier" -i 0x690E 2 49 1 -i 0x7EF8 1 119 1
+"Battle Factory Multi Lv 50 - 49 Streak" -d "frontier" -i 0x6916 2 49 1 -i 0x7EF8 1 119 1
+"Battle Factory Multi Open - 49 Streak" -d "frontier" -i 0x691E 2 49 1 -i 0x7EF8 1 119 1
+"Battle Castle Single - 14 Streak" -d "frontier" -i 0x696E 2 14 1 -i 0x7F00 1 7 1
+"Battle Castle Single - 20 Streak" -d "frontier" -i 0x696E 2 20 1 -i 0x7F00 1 7 1
+"Battle Castle Single - 42 Streak" -d "frontier" -i 0x696E 2 42 1 -i 0x7F00 1 7 1
+"Battle Castle Single - 48 Streak" -d "frontier" -i 0x696E 2 48 1 -i 0x7F00 1 7 1
+"Battle Castle Double - 49 Streak" -d "frontier" -i 0x697E 2 49 1 -i 0x7F00 1 7 1
+"Battle Castle Multi - 49 Streak" -d "frontier" -i 0x698E 2 49 1 -i 0x7F00 1 7 1
+"Battle Arcade Single - 14 Streak" -d "frontier" -i 0x699E 2 14 1 -i 0x7F04 1 7 1
+"Battle Arcade Single - 20 Streak" -d "frontier" -i 0x699E 2 20 1 -i 0x7F04 1 7 1
+"Battle Arcade Double - 49 Streak" -d "frontier" -i 0x69A2 2 14 1 -i 0x7F04 1 7 1
+"Battle Arcade Multi - 49 Streak" -d "frontier" -i 0x69A6 2 20 1 -i 0x7F04 1 7 1
+"Battle Arcade Single - 42 Streak" -d "frontier" -i 0x699E 2 42 1 -i 0x7F04 1 7 1
+"Battle Arcade Single - 48 Streak" -d "frontier" -i 0x699E 2 48 1 -i 0x7F04 1 7 1
+"Poffin 1 - Mild" -i 0x52E8 1 28 1 -i 0x52E9 1 99 5 -i 0x52EE 1 1 1
+"Poffin 2 - Mild" -i 0x52F0 1 28 1 -i 0x52F1 1 99 5 -i 0x52F6 1 1 1
+"Poffin 3 - Mild" -i 0x52F8 1 28 1 -i 0x52F9 1 99 5 -i 0x52FE 1 1 1
+"Poffin 4 - Mild" -i 0x5300 1 28 1 -i 0x5301 1 99 5 -i 0x5306 1 1 1
+"Poffin 5 - Mild" -i 0x5308 1 28 1 -i 0x5309 1 99 5 -i 0x530E 1 1 1
+"Poffin 6 - Mild" -i 0x5310 1 28 1 -i 0x5311 1 99 5 -i 0x5316 1 1 1

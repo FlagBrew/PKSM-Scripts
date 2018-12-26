@@ -3,28 +3,68 @@
 "Set max money" -i 0x21100 4 9999999 1
 "Mass inject - living dex" -i 0x00400 4080 "data/inject/living5/boxdata BOX 1.bin" 1 -i 0x01400 4080 "data/inject/living5/boxdata BOX 2.bin" 1 -i 0x02400 4080 "data/inject/living5/boxdata BOX 3.bin" 1 -i 0x03400 4080 "data/inject/living5/boxdata BOX 4.bin" 1 -i 0x04400 4080 "data/inject/living5/boxdata BOX 5.bin" 1 -i 0x05400 4080 "data/inject/living5/boxdata BOX 6.bin" 1 -i 0x06400 4080 "data/inject/living5/boxdata BOX 7.bin" 1 -i 0x07400 4080 "data/inject/living5/boxdata BOX 8.bin" 1 -i 0x08400 4080 "data/inject/living5/boxdata BOX 9.bin" 1 -i 0x09400 4080 "data/inject/living5/boxdata BOX 10.bin" 1 -i 0x0A400 4080 "data/inject/living5/boxdata BOX 11.bin" 1 -i 0x0B400 4080 "data/inject/living5/boxdata BOX 12.bin" 1 -i 0x0C400 4080 "data/inject/living5/boxdata BOX 13.bin" 1 -i 0x0D400 4080 "data/inject/living5/boxdata BOX 14.bin" 1 -i 0x0E400 4080 "data/inject/living5/boxdata BOX 15.bin" 1 -i 0x0F400 4080 "data/inject/living5/boxdata BOX 16.bin" 1 -i 0x10400 4080 "data/inject/living5/boxdata BOX 17.bin" 1 -i 0x11400 4080 "data/inject/living5/boxdata BOX 18.bin" 1 -i 0x12400 4080 "data/inject/living5/boxdata BOX 19.bin" 1 -i 0x13400 4080 "data/inject/living5/boxdata BOX 20.bin" 1 -i 0x14400 4080 "data/inject/living5/boxdata BOX 21.bin" 1 -i 0x15400 4080 "data/inject/living5/boxdata BOX 22.bin" 1 -i 0x21408 0x4d0 "data/dex/B2W2_Complete.bin" 1
 "Set max Battle Points" -i 0x21B00 2 9999 1
-"Give all items 99x (illegal)" -i 0x18400 1044 "data/BWB2W2_AllItems_illegal.bin" 1
-"Give all items 99x" -i 0x18400 976 "data/BWB2W2_AllItems.bin" 1
-"All TMs and HMs owned" -i 0x18a24 404 "data/BWB2W2_AllTMHM.bin" 1
-"Give all medicine 99x" -i 0x18bd8 188 "data/BWB2W2_AllMedicine.bin" 1
-"Give all berries 99x (illegal)" -i 0x18c98 256 "data/BWB2W2_AllBerries_illegal.bin" 1
-"Give all berries 99x" -i 0x18c98 248 "data/BWB2W2_AllBerries.bin" 1
-"Items slot 1 - Heart Scale x999" -i 0x18400 2 93 1 -i 0x18402 2 999 1
-"Items slot 1 - Max Repel x999" -i 0x18400 2 77 1 -i 0x18402 2 999 1
-"Items slot 1 - Pass Orb x999" -i 0x18400 2 575 1 -i 0x18402 2 999 1
-"Items slots 1-4 - Shards x999" -i 0x18400 2 72 1 -i 0x18402 2 999 1 -i 0x18404 2 73 1 -i 0x18406 2 999 1 -i 0x18408 2 74 1 -i 0x1840a 2 999 1 -i 0x1840c 2 75 1 -i 0x1840e 2 999 1
-"Medicine slot 1 - PP Max x999" -i 0x18BD8 2 53 1 -i 0x18BDA 2 999 1
-"Medicine slot 1 - Rare Candy x999" -i 0x18BD8 2 50 1 -i 0x18BDA 2 999 1
-"Medicine slots 1-6 - stat vitamins x999" -i 0x18BD8 2 45 1 -i 0x18BDA 2 999 1 -i 0x18BDC 2 46 1 -i 0x18BDE 2 999 1 -i 0x18BE0 2 47 1 -i 0x18BE2 2 999 1 -i 0x18BE4 2 48 1 -i 0x18BE6 2 999 1 -i 0x18BE8 2 49 1 -i 0x18BEA 2 999 1 -i 0x18BEC 2 52 1 -i 0x18BEE 2 999 1
-"Reset Shiny Haxorus" -i 0x20292 1 0x20 1 -i 0x202d4 1 0xc9 1 -i 0x203e2 2 0xa3bb 1
-"Reset All Legendaries" -i 0x20119 1 0x00 1 -i 0x20283 1 0x20 1 -i 0x20287 1 0x08 1 -i 0x202b1 1 0x23 1 -i 0x202c2 1 0x30 1 -i 0x202c3 1 0x08 1 -i 0x202ce 1 0x65 1 -i 0x202d0 1 0x17 1 -i 0x202d1 1 0xe0 1 -i 0x202db 1 0xa9 1
-"Items slot 1 x999" -i 0x18402 2 999 1
-"Medicine slot 1 x999" -i 0x18BDA 2 999 1
-"Berries slot 1 x99" -i 0x18c9A 2 999 1
-"Fill Dex - language entries" -i 0x21728 1 0xff 0x1af -i 0x218d7 1 0x07 1
-"Fill Dex - Unova seen" -i 0x2145c 0x47c "data/dex/B2W2_Unova_seen.bin" 1
-"Fill Dex - Unova owned" -i 0x21408 0x4d0 "data/dex/B2W2_Unova_owned.bin" 1
-"Fill Dex - National seen" -i 0x2145c 0x47c "data/dex/B2W2_National_seen.bin" 1
-"Fill Dex - National owned" -i 0x21408 0x4d0 "data/dex/B2W2_National_owned.bin" 1
-"Fill Dex - Complete" -i 0x21408 0x4d0 "data/dex/B2W2_Complete.bin" 1
-"Fill Dex - Complete (illegal)" -i 0x21408 0x4d0 "data/dex/B2W2_Complete_illegal.bin" 1
+"Give all items 99x" -d "illegal" -i 0x18400 1044 "data/BWB2W2_AllItems_illegal.bin" 1
+"Give all items 99x" -d "items" -i 0x18400 976 "data/BWB2W2_AllItems.bin" 1
+"All TMs and HMs owned" -d "items" -i 0x18a24 404 "data/BWB2W2_AllTMHM.bin" 1
+"Give all medicine 99x" -d "items" -i 0x18bd8 188 "data/BWB2W2_AllMedicine.bin" 1
+"Give all berries 99x" -d "illegal" -i 0x18c98 256 "data/BWB2W2_AllBerries_illegal.bin" 1
+"Give all berries 99x" -d "items" -i 0x18c98 248 "data/BWB2W2_AllBerries.bin" 1
+"Items slot 1 x999" -d "items" -i 0x18402 2 999 1
+"Items slot 1 - Heart Scale x999" -d "items" -i 0x18400 2 93 1 -i 0x18402 2 999 1
+"Items slot 1 - Max Repel x999" -d "items" -i 0x18400 2 77 1 -i 0x18402 2 999 1
+"Items slot 1 - Pass Orb x999" -d "items" -i 0x18400 2 575 1 -i 0x18402 2 999 1
+"Items slot 1 - Pass Orb x65535" -d "powers" -i 0x18400 2 575 1 -i 0x18402 2 999 1
+"Items slots 1-4 - Shards x999" -d "items" -i 0x18400 2 72 1 -i 0x18402 2 999 1 -i 0x18404 2 73 1 -i 0x18406 2 999 1 -i 0x18408 2 74 1 -i 0x1840a 2 999 1 -i 0x1840c 2 75 1 -i 0x1840e 2 999 1
+"Medicine slot 1 x999" -d "items" -i 0x18BDA 2 999 1
+"Medicine slot 1 - PP Max x999" -d "items" -i 0x18BD8 2 53 1 -i 0x18BDA 2 999 1
+"Medicine slot 1 - Rare Candy x999" -d "items" -i 0x18BD8 2 50 1 -i 0x18BDA 2 999 1
+"Medicine slots 1-6 - stat vitamins x999" -d "items" -i 0x18BD8 2 45 1 -i 0x18BDA 2 999 1 -i 0x18BDC 2 46 1 -i 0x18BDE 2 999 1 -i 0x18BE0 2 47 1 -i 0x18BE2 2 999 1 -i 0x18BE4 2 48 1 -i 0x18BE6 2 999 1 -i 0x18BE8 2 49 1 -i 0x18BEA 2 999 1 -i 0x18BEC 2 52 1 -i 0x18BEE 2 999 1
+"Berries slot 1 x99" -d "items" -i 0x18c9A 2 999 1
+"Shiny Haxorus" -d "reset" -i 0x20292 1 0x20 1 -i 0x202d4 1 0xc9 1 -i 0x203e2 2 0xa3bb 1
+"All Legendaries" -d "reset" -i 0x20119 1 0x00 1 -i 0x20283 1 0x20 1 -i 0x20287 1 0x08 1 -i 0x202b1 1 0x23 1 -i 0x202c2 1 0x30 1 -i 0x202c3 1 0x08 1 -i 0x202ce 1 0x65 1 -i 0x202d0 1 0x17 1 -i 0x202d1 1 0xe0 1 -i 0x202db 1 0xa9 1
+"Language entries" -d "dex" -i 0x21728 1 0xff 0x1af -i 0x218d7 1 0x07 1
+"Unova seen" -d "dex" -i 0x2145c 0x47c "data/dex/B2W2_Unova_seen.bin" 1
+"Unova owned" -d "dex" -i 0x21408 0x4d0 "data/dex/B2W2_Unova_owned.bin" 1
+"National seen" -d "dex" -i 0x2145c 0x47c "data/dex/B2W2_National_seen.bin" 1
+"National owned" -d "dex" -i 0x21408 0x4d0 "data/dex/B2W2_National_owned.bin" 1
+"Complete" -d "dex" -i 0x21408 0x4d0 "data/dex/B2W2_Complete.bin" 1
+"Fill Dex - Complete" -d "illegal" -i 0x21408 0x4d0 "data/dex/B2W2_Complete_illegal.bin" 1
+"Pass Power 1 - HP Restore MAX" -d "powers" -i 0x213A0 1 39 1
+"Pass Power 1 - Hatching MAX" -d "powers" -i 0x213A0 1 40 1
+"Pass Power 1 - Bargain MAX" -d "powers" -i 0x213A0 1 41 1
+"Pass Power 1 - Befriending MAX" -d "powers" -i 0x213A0 1 42 1
+"Pass Power 1 - Exp Points MAX" -d "powers" -i 0x213A0 1 43 1
+"Pass Power 1 - Prize Money MAX" -d "powers" -i 0x213A0 1 44 1
+"Pass Power 1 - Capture MAX" -d "powers" -i 0x213A0 1 45 1
+"Pass Power 1 - Search MAX" -d "powers" -i 0x213A0 1 59 1
+"Pass Power 1 - Grotto MAX" -d "powers" -i 0x213A0 1 61 1
+"Pass Power 1 - Lucky MAX" -d "powers" -i 0x213A0 1 63 1
+"Pass Power 2 - HP Restore MAX" -d "powers" -i 0x213A1 1 39 1
+"Pass Power 2 - Hatching MAX" -d "powers" -i 0x213A1 1 40 1
+"Pass Power 2 - Bargain MAX" -d "powers" -i 0x213A1 1 41 1
+"Pass Power 2 - Befriending MAX" -d "powers" -i 0x213A1 1 42 1
+"Pass Power 2 - Exp Points MAX" -d "powers" -i 0x213A1 1 43 1
+"Pass Power 2 - Prize Money MAX" -d "powers" -i 0x213A1 1 44 1
+"Pass Power 2 - Capture MAX" -d "powers" -i 0x213A1 1 45 1
+"Pass Power 2 - Search MAX" -d "powers" -i 0x213A1 1 59 1
+"Pass Power 2 - Grotto MAX" -d "powers" -i 0x213A1 1 61 1
+"Pass Power 2 - Lucky MAX" -d "powers" -i 0x213A1 1 63 1
+"Pass Power 3 - HP Restore MAX" -d "powers" -i 0x213A2 1 39 1
+"Pass Power 3 - Hatching MAX" -d "powers" -i 0x213A2 1 40 1
+"Pass Power 3 - Bargain MAX" -d "powers" -i 0x213A2 1 41 1
+"Pass Power 3 - Befriending MAX" -d "powers" -i 0x213A2 1 42 1
+"Pass Power 3 - Exp Points MAX" -d "powers" -i 0x213A2 1 43 1
+"Pass Power 3 - Prize Money MAX" -d "powers" -i 0x213A2 1 44 1
+"Pass Power 3 - Capture MAX" -d "powers" -i 0x213A2 1 45 1
+"Pass Power 3 - Explorer MAX" -d "powers" -i 0x213A2 1 59 1
+"Pass Power 3 - Grotto MAX" -d "powers" -i 0x213A2 1 61 1
+"Pass Power 3 - Lucky MAX" -d "powers" -i 0x213A2 1 63 1
+"Season - Winter" -i 0x19573 1 3 1
+"Season - Spring" -i 0x19573 1 0 1
+"Season - Summer" -i 0x19573 1 1 1
+"Season - Autumn" -i 0x19573 1 2 1
+"Join Avenue - Restock All Shops" -i 0x2475C 4 0 1 -i 0x24820 4 0 1 -i 0x248E4 4 0 1 -i 0x249A8 4 0 1 -i 0x24A6C 4 0 1 -i 0x24B30 4 0 1 -i 0x24BF4 4 0 1 -i 0x24CB8 4 0 1
+"Join Avenue - Lv9 All Shops" -i 0x24759 1 8 1 -i 0x2475A 2 9999 1 -i 0x2481D 1 8 1 -i 0x2481E 2 9999 1 -i 0x248E1 1 8 1 -i 0x248E2 2 9999 1 -i 0x249A5 1 8 1 -i 0x249A6 2 9999 1 -i 0x24A69 1 8 1 -i 0x24A6A 2 9999 1 -i 0x24B2D 1 8 1 -i 0x24B2E 2 9999 1 -i 0x24BF1 1 8 1 -i 0x24BF2 2 9999 1 -i 0x24CB5 1 8 1 -i 0x24CB6 2 9999 1
+"Join Avenue - 7 Day Promotion" -i 0x24FDC 1 0 1 -i 0x24FDE 1 1 1
+"Reset N and Shadow Triad" -d "reset" -i 0x20228 1 2 1 -i 0x202D0 1 214 1 -i 0x203E0 1 27 1 -i 0x203E2 2 26748 1 -i 0x20218 1 0 1
+"Reset Geonet" -d "reset" -i 0x1941C 1 0 1 -i 0x1941D 1 0 1 -i 0x1A93A 1 10 1 -i 0x1A93B 1 133 1 -i 0x25F3A 1 10 1 -i 0x25F3B 1 133 1

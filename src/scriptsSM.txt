@@ -10,66 +10,99 @@
 "Save language to CHT" -i 0x1235 1 0xA 1
 "Clear Mystery Gift data" -i 0x65C00 1 0x0 12928
 "Set max money" -i 0x4004 4 9999999 1
-"Mass inject - living dex" -i 0x4E00 186064 "data/inject/Gen7_living.bin" 1 -i 0x2a88 0x870 "data/dex/SM_Complete.bin" 1
-"Mass inject - ITA rBreedingDitto" -i 0x4e00 0x1b30 "data/inject/Gen7_rBreedingDitto_ITA.bin" 1
-"Mass inject - SPA rBreedingDitto" -i 0x4e00 0x1b30 "data/inject/Gen7_rBreedingDitto_SPA.bin" 1
-"Mass inject - 10th Anniversary" -i 0x4e00 0x1b30 "data/inject/Gen6_10th_Anniversary.bin" 1
-"Mass inject - Colosseum" -i 0x4e00 0x3660 "data/inject/Gen6_Colosseum.bin" 1
-"Mass inject - Dream Radar" -i 0x4e00 0x1b30 "data/inject/Gen6_Dream_Radar.bin" 1
-"Mass inject - Entree Forest" -i 0x4e00 0x1b30 "data/inject/Gen6_Entree_Forest.bin" 1
-"Mass inject - KOR events" -i 0x4e00 0x1b30 "data/inject/Gen6_KOR_events.bin" 1
-"Mass inject - N's Pokemon" -i 0x4e00 0x1b30 "data/inject/Gen6_N.bin" 1
-"Mass inject - Oblivia Deoxys" -i 0x4e00 0x1b30 "data/inject/Gen6_Oblivia_Deoxys.bin" 1
-"Mass inject - XD" -i 0x4e00 0x5190 "data/inject/Gen6_XD.bin" 1
+"Living dex" -d "inject" -i 0x4E00 186064 "data/inject/Gen7_living.bin" 1 -i 0x2a88 0x870 "data/dex/SM_Complete.bin" 1
+"ITA rBreedingDitto" -d "inject" -i 0x4e00 0x1b30 "data/inject/Gen7_rBreedingDitto_ITA.bin" 1
+"SPA rBreedingDitto" -d "inject" -i 0x4e00 0x1b30 "data/inject/Gen7_rBreedingDitto_SPA.bin" 1
+"10th Anniversary" -d "inject" -i 0x4e00 0x1b30 "data/inject/Gen6_10th_Anniversary.bin" 1
+"Colosseum" -d "inject" -i 0x4e00 0x3660 "data/inject/Gen6_Colosseum.bin" 1
+"Dream Radar" -d "inject" -i 0x4e00 0x1b30 "data/inject/Gen6_Dream_Radar.bin" 1
+"Entree Forest" -d "inject" -i 0x4e00 0x1b30 "data/inject/Gen6_Entree_Forest.bin" 1
+"KOR events" -d "inject" -i 0x4e00 0x1b30 "data/inject/Gen6_KOR_events.bin" 1
+"N's Pokemon" -d "inject" -i 0x4e00 0x1b30 "data/inject/Gen6_N.bin" 1
+"Oblivia Deoxys" -d "inject" -i 0x4e00 0x1b30 "data/inject/Gen6_Oblivia_Deoxys.bin" 1
+"XD" -d "inject" -i 0x4e00 0x5190 "data/inject/Gen6_XD.bin" 1
 "Set max Battle Points" -i 0x0411C 4 9999 1
 "Set max Festival Coins" -i 0x50D08 4 9999999 1
 "Set max Camera Shots" -i 0x65004 4 9999999 1
 "Set max Thumbs Up" -i 0x6500C 4 9999999 1
 "Set max Camera Version" -i 0x65000 2 4 1
 "Set all Zygarde Cells (cores not included)" -i 0x1D42 1 95 1 -i 0x1D52 1 95 1 -i 0x1D8C 2 512 95
-"All Items 99x" -i 0x0 1168 "data/SM_AllItems.bin" 1
-"All Items 99x (illegal)" -i 0x0 1340 "data/SM_AllItems_illegal.bin" 1
-"All Berries 99x" -i 0xC47 200 "data/SM_AllBerries.bin" 1
-"All Berries 99x (illegal)" -i 0xC47 268 "data/SM_AllBerries_illegal.bin" 1
-"All Medicine 99x" -i 0xB48 204 "data/SM_AllMedicines.bin" 1
-"All Medicine 99x (illegal)" -i 0xB48 216 "data/SM_AllMedicines_illegal.bin" 1
-"All TMs Owned" -i 0x998 400 "data/SM_AllTM.bin" 1
-"All Z-Crystals Owned" -i 0xD68 116 "data/SM_AllZCrystals.bin" 1
-"Items slot 1 - Beast Ball x999" -i 0x0 3 0xf9f53 1
-"Items slot 1 - Bottle Cap x999" -i 0x0 3 0xf9f1b 1
-"Items slot 1 - Gold Bottle Cap x999" -i 0x0 3 0xf9f1c 1
-"Items slot 1 - Heart Scale x999" -i 0x0 3 0xf9c5d 1
-"Items slot 1 - Max Repel x999" -i 0x0 3 0xf9c4d 1
-"Medicine slot 1 - PP Max x999" -i 0xB48 3 0xf9c35 1
-"Medicine slot 1 - Rare Candy x999" -i 0xB48 3 0xf9c32 1
-"Medicine slots 1-6 - stat vitamins x999" -i 0xB48 3 0xf9c2d 1 -i 0xB4C 3 0xf9c2e 1 -i 0xB50 3 0xf9c2f 1 -i 0xB54 3 0xf9c30 1 -i 0xB58 3 0xf9c31 1 -i 0xB5C 3 0xf9c34 1
-"Berries slot 1 x897-960" -i 0xC49 1 0xE 1
-"Items slot 1 x897-960" -i 0x2 1 0xE 1
-"Medicines slot 1 x897-960" -i 0xB4a 1 0xE 1
-"Set Vivillon Icy Snow form" -i 0x4130 1 0 1
-"Set Vivillon Polar form" -i 0x4130 1 1 1
-"Set Vivillon Tundra form" -i 0x4130 1 2 1
-"Set Vivillon Continental form" -i 0x4130 1 3 1
-"Set Vivillon Garden form" -i 0x4130 1 4 1
-"Set Vivillon Elegant form" -i 0x4130 1 5 1
-"Set Vivillon Meadow form" -i 0x4130 1 6 1
-"Set Vivillon Modern form" -i 0x4130 1 7 1
-"Set Vivillon Marine form" -i 0x4130 1 8 1
-"Set Vivillon Archipelago form" -i 0x4130 1 9 1
-"Set Vivillon High-Plains form" -i 0x4130 1 10 1
-"Set Vivillon Sandstorm form" -i 0x4130 1 11 1
-"Set Vivillon River form" -i 0x4130 1 12 1
-"Set Vivillon Monsoon form" -i 0x4130 1 13 1
-"Set Vivillon Savannah form" -i 0x4130 1 14 1
-"Set Vivillon Sun form" -i 0x4130 1 15 1
-"Set Vivillon Ocean form" -i 0x4130 1 16 1
-"Set Vivillon Jungle form" -i 0x4130 1 17 1
-"Set Vivillon Fancy form" -i 0x4130 1 18 1
-"Set Vivillon Pokeball form" -i 0x4130 1 19 1
-"Fill Dex - language entries" -i 0x2f50 1 0xff 0x387 -i 0x32d6 1 0x03 1
-"Fill Dex - Alola seen" -i 0x2af0 0x808 "data/dex/SM_Alola_seen.bin" 1
-"Fill Dex - Alola owned" -i 0x2a88 0x870 "data/dex/SM_Alola_owned.bin" 1
-"Fill Dex - National seen" -i 0x2af0 0x808 "data/dex/SM_National_seen.bin" 1
-"Fill Dex - National owned" -i 0x2a88 0x870 "data/dex/SM_National_owned.bin" 1
-"Fill Dex - Complete" -i 0x2a88 0x870 "data/dex/SM_Complete.bin" 1
-"Fill Dex - Complete (illegal)" -i 0x2a88 0x870 "data/dex/SM_Complete_illegal.bin" 1
+"All Items 99x" -d "items" -i 0x0 1168 "data/SM_AllItems.bin" 1
+"All Items 99x" -d "illegal" -i 0x0 1340 "data/SM_AllItems_illegal.bin" 1
+"All Berries 99x" -d "items" -i 0xC47 200 "data/SM_AllBerries.bin" 1
+"All Berries 99x" -d "illegal" -i 0xC47 268 "data/SM_AllBerries_illegal.bin" 1
+"All Medicine 99x" -d "items" -i 0xB48 204 "data/SM_AllMedicines.bin" 1
+"All Medicine 99x" -d "illegal" -i 0xB48 216 "data/SM_AllMedicines_illegal.bin" 1
+"All TMs Owned" -d "items" -i 0x998 400 "data/SM_AllTM.bin" 1
+"All Z-Crystals Owned" -d "items" -i 0xD68 116 "data/SM_AllZCrystals.bin" 1
+"Items slot 1 - Beast Ball x999" -d "items" -i 0x0 3 0xf9f53 1
+"Items slot 1 - Bottle Cap x999" -d "items" -i 0x0 3 0xf9f1b 1
+"Items slot 1 - Gold Bottle Cap x999" -d "items" -i 0x0 3 0xf9f1c 1
+"Items slot 1 - Heart Scale x999" -d "items" -i 0x0 3 0xf9c5d 1
+"Items slot 1 - Max Repel x999" -d "items" -i 0x0 3 0xf9c4d 1
+"Medicine slot 1 - PP Max x999" -d "items" -i 0xB48 3 0xf9c35 1
+"Medicine slot 1 - Rare Candy x999" -d "items" -i 0xB48 3 0xf9c32 1
+"Medicine slots 1-6 - stat vitamins x999" -d "items" -i 0xB48 3 0xf9c2d 1 -i 0xB4C 3 0xf9c2e 1 -i 0xB50 3 0xf9c2f 1 -i 0xB54 3 0xf9c30 1 -i 0xB58 3 0xf9c31 1 -i 0xB5C 3 0xf9c34 1
+"Berries slot 1 x897-960" -d "items" -i 0xC49 1 0xE 1
+"Items slot 1 x897-960" -d "items" -i 0x2 1 0xE 1
+"Medicines slot 1 x897-960" -d "items" -i 0xB4a 1 0xE 1
+"Icy Snow form" -d "vivillon" -i 0x4130 1 0 1
+"Polar form" -d "vivillon" -i 0x4130 1 1 1
+"Tundra form" -d "vivillon" -i 0x4130 1 2 1
+"Continental form" -d "vivillon" -i 0x4130 1 3 1
+"Garden form" -d "vivillon" -i 0x4130 1 4 1
+"Elegant form" -d "vivillon" -i 0x4130 1 5 1
+"Meadow form" -d "vivillon" -i 0x4130 1 6 1
+"Modern form" -d "vivillon" -i 0x4130 1 7 1
+"Marine form" -d "vivillon" -i 0x4130 1 8 1
+"Archipelago form" -d "vivillon" -i 0x4130 1 9 1
+"High-Plains form" -d "vivillon" -i 0x4130 1 10 1
+"Sandstorm form" -d "vivillon" -i 0x4130 1 11 1
+"River form" -d "vivillon" -i 0x4130 1 12 1
+"Monsoon form" -d "vivillon" -i 0x4130 1 13 1
+"Savannah form" -d "vivillon" -i 0x4130 1 14 1
+"Sun form" -d "vivillon" -i 0x4130 1 15 1
+"Ocean form" -d "vivillon" -i 0x4130 1 16 1
+"Jungle form" -d "vivillon" -i 0x4130 1 17 1
+"Set Vivillon Fancy form" -d "illegal" -i 0x4130 1 18 1
+"Set Vivillon Pokeball form" -d "illegal" -i 0x4130 1 19 1
+"language entries" -d "dex" -i 0x2f50 1 0xff 0x387 -i 0x32d6 1 0x03 1
+"Alola owned" -d "dex" -i 0x2a88 0x870 "data/dex/SM_Alola_owned.bin" 1
+"Alola seen" -d "dex" -i 0x2af0 0x808 "data/dex/SM_Alola_seen.bin" 1
+"National seen" -d "dex" -i 0x2af0 0x808 "data/dex/SM_National_seen.bin" 1
+"National owned" -d "dex" -i 0x2a88 0x870 "data/dex/SM_National_owned.bin" 1
+"Complete" -d "dex" -i 0x2a88 0x870 "data/dex/SM_Complete.bin" 1
+"Fill Dex - Complete" -d "illegal" -i 0x2a88 0x870 "data/dex/SM_Complete_illegal.bin" 1
+"Renew 1st WonderCard" -i 0x65D52 1 1 1
+"Renew 2nd WonderCard" -i 0x65E5A 1 1 1
+"Renew 3rd WonderCard" -i 0x65F62 1 1 1
+"Items slot 1 - Lucky Egg x999" -d "items" -i 0x0 3 0xf9ce7 1
+"Items slot 1 - Festival Ticket x999" -d "items" -i 0x0 3 0xf9f4c 1
+"Items slot 1 - Fast Ball x999" -d "items" -i 0x0 3 0xf9dec 1
+"Items slot 1 - Level Ball x999" -d "items" -i 0x0 3 0xf9ded 1
+"Items slot 1 - Lure Ball x999" -d "items" -i 0x0 3 0xf9dee 1
+"Items slot 1 - Heavy Ball x999" -d "items" -i 0x0 3 0xf9def 1
+"Items slot 1 - Love Ball x999" -d "items" -i 0x0 3 0xf9df0 1
+"Items slot 1 - Friend Ball x999" -d "items" -i 0x0 3 0xf9df1 1
+"Items slot 1 - Moon Ball x999" -d "items" -i 0x0 3 0xf9df2 1
+"Receive all Battle Tree Prizes" -i 0x6B352 1 0xc8 1
+"Can Re-buy Festival Plaza Items & Services" -i 0x50b38 4 0x00000000 1 -i 0x50b80 4 0x00000000 1 -i 0x50bc8 4 0x00000000 1 -i 0x50c10 4 0x00000000 1 -i 0x50c58 4 0x00000000 1 -i 0x50ca0 4 0x00000000 1 -i 0x50ce8 4 0x00000000 1
+"All Pokebeans" -i 0x40A4c 1 0xFF 15
+"Shop 6 Tent Bonus 1 +++GTS" -d "plaza" -i 0x50C9E 2 0x0103 1
+"Shop 6 Tent Bonus 2 +++Wonder Trade" -d "plaza" -i 0x50C9E 2 0x0203 1
+"Shop 6 Tent Bonus 3 +++Battle Spot" -d "plaza" -i 0x50C9E 2 0x0303 1
+"Shop 6 Tent Bonus 4 +++Festival Plaza" -d "plaza" -i 0x50C9E 2 0x0403 1
+"Shop 6 Tent Bonus 5 +++Missions" -d "plaza" -i 0x50C9E 2 0x0503 1
+"Shop 6 Tent Bonus 6 +++Lottery Shops" -d "plaza" -i 0x50C9E 2 0x0603 1
+"Shop 6 Tent Bonus 7 +++Haunted House" -d "plaza" -i 0x50C9E 2 0x0703 1
+"Battle Tree Singles 19" -i 0x6B200 2 19 1
+"Battle Tree Super Singles 49" -i 0x6B202 2 49 1
+"Battle Tree Doubles 19" -i 0x6B208 2 19 1
+"Battle Tree Super Doubles 49" -i 0x6B20A 2 49 1
+"Battle Tree Multi 19" -i 0x6B210 2 19 1
+"Battle Tree Super Multi 49" -i 0x6B212 2 49 1
+"Reset Type Null" -d "reset" -i 0x240e 1 156 1
+"10 Zygarde Cells" -i 0x1D42 2 10 1
+"50 Zygarde Cells" -i 0x1D42 2 50 1
+"100 Zygarde Cells" -i 0x1D42 2 100 1
+"999 Zygarde Cells" -i 0x1D42 2 999 1

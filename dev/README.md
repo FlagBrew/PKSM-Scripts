@@ -35,8 +35,8 @@ To start creating scripts for PKSM you will need to make sure you have the follo
 - [PKSM](https://github.com/FlagBrew/PKSM/releases) -- v5.1.0 or later
 - Save manager app for Homebrew/CFW
     - `CFW` - [Checkpoint](https://github.com/FlagBrew/Checkpoint/releases) - works with both 3DS and DS games
-    - `Homebrew` - [JKSM](http://steelminer.jisagi.net/files/JKSM.zip) - for 3DS games (thanks to the [Steelminer guide](http://steelminer.jisagi.net/) for this download link)
-    - `Homebrew` - [TWLSaveTool](https://github.com/TuxSH/TWLSaveTool/releases) - for DS games
+    - `Homebrew (hax)` - [JKSM](http://steelminer.jisagi.net/files/JKSM.zip) - for 3DS games (thanks to the [Steelminer guide](http://steelminer.jisagi.net/) for this download link)
+    - `Homebrew (hax)` - [TWLSaveTool](https://github.com/TuxSH/TWLSaveTool/releases) - for DS games
 
 --------------------------------------------------
 
@@ -133,11 +133,13 @@ If you want your script to be added to the repo so it can be included in the nex
 --------------------------------------------------
 
 ## PKSMScript Syntax
-`PKSMScript.py [-h] output [-i ofs len pld rpt]`
-> You can use `PKSMScript.py -h` to view PKSMScript's own documentation
+`PKSMScript.py [-h] output [-d subdir] [-i ofs len pld rpt]`<br />
+`PKSMScript.js [-h] output [-d subdir] [-i ofs len pld rpt]`
+> You can use `PKSMScript.py -h` (Python) or `PKSMScript.js -h` (Node.js) to view PKSMScript's own documentation
 
 To create completely new scripts, you will need to find the following values:
 - `output` -- the name of your new script
+- `-d subdir` -- denotes an optional subdirectory to place the compiled script in
 - `-i` -- denotes the beginning of input values (can be repeated, along with extra sets of `ofs`, `len`, `pld`, and `rpt` values, to change more than one offset with a single script)
 - `ofs` -- the offset (location) in the game's save of the value you want to edit
 - `len` -- how many bytes (offsets) need to be written over
