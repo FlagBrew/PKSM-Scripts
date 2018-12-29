@@ -6,6 +6,7 @@
 
 int main(int argc, char** argv)
 {
+    unsigned char version = *argv[2];
     struct directory* pkxFiles = read_directory("/3ds/PKSM/inject");
     int box = 0;
     int slot = 0;
@@ -25,59 +26,65 @@ int main(int argc, char** argv)
         {
             ekx = false;
         }
-        if (pkxFiles->files[i][numChars - 2] == 'b' || pkxFiles->files[i][numChars - 2] == 'B')
+        if (version == 42 || version == 43)
         {
-            if (ekx)
+            if ((pkxFiles->files[i][numChars - 2] == 'b' || pkxFiles->files[i][numChars - 2] == 'B') && (version == 42 || version == 43))
             {
-                sav_inject_ekx(data, GEN_LGPE, box, slot);
-            }
-            else
-            {
-                sav_inject_pkx(data, GEN_LGPE, box, slot);
+                if (ekx)
+                {
+                    sav_inject_ekx(data, GEN_LGPE, box, slot);
+                }
+                else
+                {
+                    sav_inject_pkx(data, GEN_LGPE, box, slot);
+                }
             }
         }
-        else if (pkxFiles->files[i][numChars - 1] == '7')
+        else
         {
-            if (ekx)
+            if (pkxFiles->files[i][numChars - 1] == '7' && pkxFiles->files[i][numChars - 2] != 'b' && pkxFiles->files[i][numChars - 2] != 'B')
             {
-                sav_inject_ekx(data, GEN_SEVEN, box, slot);
+                if (ekx)
+                {
+                    sav_inject_ekx(data, GEN_SEVEN, box, slot);
+                }
+                else
+                {
+                    sav_inject_pkx(data, GEN_SEVEN, box, slot);
+                }
             }
-            else
+            else if (pkxFiles->files[i][numChars - 1] == '6')
             {
-                sav_inject_pkx(data, GEN_SEVEN, box, slot);
+                if (ekx)
+                {
+                    sav_inject_ekx(data, GEN_SIX, box, slot);
+                }
+                else
+                {
+                    sav_inject_pkx(data, GEN_SIX, box, slot);
+                }
             }
-        }
-        else if (pkxFiles->files[i][numChars - 1] == '6')
-        {
-            if (ekx)
+            else if (pkxFiles->files[i][numChars - 1] == '5')
             {
-                sav_inject_ekx(data, GEN_SIX, box, slot);
+                if (ekx)
+                {
+                    sav_inject_ekx(data, GEN_FIVE, box, slot);
+                }
+                else
+                {
+                    sav_inject_pkx(data, GEN_FIVE, box, slot);
+                }
             }
-            else
+            else if (pkxFiles->files[i][numChars - 1] == '4')
             {
-                sav_inject_pkx(data, GEN_SIX, box, slot);
-            }
-        }
-        else if (pkxFiles->files[i][numChars - 1] == '5')
-        {
-            if (ekx)
-            {
-                sav_inject_ekx(data, GEN_FIVE, box, slot);
-            }
-            else
-            {
-                sav_inject_pkx(data, GEN_FIVE, box, slot);
-            }
-        }
-        else if (pkxFiles->files[i][numChars - 1] == '4')
-        {
-            if (ekx)
-            {
-                sav_inject_ekx(data, GEN_FOUR, box, slot);
-            }
-            else
-            {
-                sav_inject_pkx(data, GEN_FOUR, box, slot);
+                if (ekx)
+                {
+                    sav_inject_ekx(data, GEN_FOUR, box, slot);
+                }
+                else
+                {
+                    sav_inject_pkx(data, GEN_FOUR, box, slot);
+                }
             }
         }
 
