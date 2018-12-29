@@ -1,13 +1,4 @@
 # Syntax: "Name of script" -i <offset> <length> <payload (integer or file path)> <repeat>
-"Save language to JPN" -i 0x1235 1 0x1 1
-"Save language to ENG" -i 0x1235 1 0x2 1
-"Save language to FRE" -i 0x1235 1 0x3 1
-"Save language to ITA" -i 0x1235 1 0x4 1
-"Save language to GER" -i 0x1235 1 0x5 1
-"Save language to SPA" -i 0x1235 1 0x7 1
-"Save language to KOR" -i 0x1235 1 0x8 1
-"Save language to CHS" -i 0x1235 1 0x9 1
-"Save language to CHT" -i 0x1235 1 0xA 1
 "Clear Mystery Gift data" -i 0x65C00 1 0x0 12928
 "Set max money" -i 0x4004 4 9999999 1
 "Living dex" -d "inject" -i 0x4E00 186064 "data/inject/Gen7_living.bin" 1 -i 0x2a88 0x870 "data/dex/SM_Complete.bin" 1
@@ -46,26 +37,6 @@
 "Berries slot 1 x897-960" -d "items" -i 0xC49 1 0xE 1
 "Items slot 1 x897-960" -d "items" -i 0x2 1 0xE 1
 "Medicines slot 1 x897-960" -d "items" -i 0xB4a 1 0xE 1
-"Icy Snow form" -d "vivillon" -i 0x4130 1 0 1
-"Polar form" -d "vivillon" -i 0x4130 1 1 1
-"Tundra form" -d "vivillon" -i 0x4130 1 2 1
-"Continental form" -d "vivillon" -i 0x4130 1 3 1
-"Garden form" -d "vivillon" -i 0x4130 1 4 1
-"Elegant form" -d "vivillon" -i 0x4130 1 5 1
-"Meadow form" -d "vivillon" -i 0x4130 1 6 1
-"Modern form" -d "vivillon" -i 0x4130 1 7 1
-"Marine form" -d "vivillon" -i 0x4130 1 8 1
-"Archipelago form" -d "vivillon" -i 0x4130 1 9 1
-"High-Plains form" -d "vivillon" -i 0x4130 1 10 1
-"Sandstorm form" -d "vivillon" -i 0x4130 1 11 1
-"River form" -d "vivillon" -i 0x4130 1 12 1
-"Monsoon form" -d "vivillon" -i 0x4130 1 13 1
-"Savannah form" -d "vivillon" -i 0x4130 1 14 1
-"Sun form" -d "vivillon" -i 0x4130 1 15 1
-"Ocean form" -d "vivillon" -i 0x4130 1 16 1
-"Jungle form" -d "vivillon" -i 0x4130 1 17 1
-"Set Vivillon Fancy form" -d "illegal" -i 0x4130 1 18 1
-"Set Vivillon Pokeball form" -d "illegal" -i 0x4130 1 19 1
 "language entries" -d "dex" -i 0x2f50 1 0xff 0x387 -i 0x32d6 1 0x03 1
 "Alola owned" -d "dex" -i 0x2a88 0x870 "data/dex/SM_Alola_owned.bin" 1
 "Alola seen" -d "dex" -i 0x2af0 0x808 "data/dex/SM_Alola_seen.bin" 1
