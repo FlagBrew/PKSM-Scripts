@@ -171,7 +171,7 @@ These codes fill all the settlement's slots in your game with predefined residen
 ---
 
 ## Making Scripts
-See the [docs README](https://github.com/FlagBrew/PKSM-Scripts/blob/master/docs/README.md)
+See the [docs README](https://github.com/FlagBrew/PKSM-Scripts/blob/master/dev/README.md)
 
 ---
 

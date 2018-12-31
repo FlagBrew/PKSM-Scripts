@@ -22,14 +22,13 @@ To start creating scripts for PKSM you will need to make sure you have the follo
 
 ### PC
 - [Python 3](https://www.python.org/downloads/release/python-370/) or [Node.js](https://nodejs.org)
-    - `Python` If already have Python 3 installed, make sure you have the argparse module as well: `sudo pip3 install argparse`
 - [PKSM-Scripts source code](https://github.com/FlagBrew/PKSM-Scripts)
 - [PKHeX](https://projectpokemon.org/home/files/file/1-pkhex/) - A Pokémon save editor for Windows written in C#
     - For those on Mac/Linux there is a Mono build
 - hex editor
     - Windows: [HxD](https://mh-nexus.de/en/hxd/)
     - Mac: [iHex](https://itunes.apple.com/us/app/ihex-hex-editor/id909566003?mt=12)
-    - Linux: ?
+    - Linux: [Bless](https://github.com/bwrsandman/Bless)
 
 ### 3DS
 - [PKSM](https://github.com/FlagBrew/PKSM/releases) -- v5.1.0 or later
