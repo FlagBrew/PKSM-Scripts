@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint comma-dangle: ["error", "always-multiline"], no-console: "off" */
 const fse = require('fs-extra');
 const { join } = require('path');
 const pksmScript = require('./PKSMScript');

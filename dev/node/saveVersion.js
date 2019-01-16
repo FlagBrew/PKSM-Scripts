@@ -1,5 +1,3 @@
-/* eslint no-unused-vars: "off", indent: ["warn", 4, { "SwitchCase": 1 }], no-fallthrough: "off" */
-
 function ccitt16(save, len) { // u16 Sav::ccitt16(const u8* buf, u32 len)
     let crc = 0xffff;
     for (let i = 0; i < len; i++) {
@@ -15,14 +13,17 @@ function ccitt16(save, len) { // u16 Sav::ccitt16(const u8* buf, u32 len)
     return crc;
 }
 
-function validSequence(data, pattern, shift = 0) {
-    const ofs = pattern.readUInt16LE(0) - 0xC + shift;
-    for (let i = 0; i < 10; i++) {
-        if (data[i + ofs] !== pattern[i]) {
-            return false;
-        }
+function validSequence(data, offset) {
+    const size = data.readUInt32LE(offset - 0xC);
+    if (size !== (offset & 0xFFFF)) {
+        return false;
     }
-    return true;
+    const sdk = data.readUInt32LE(offset - 0x8);
+
+    const dateInt = 0x20060623;
+    const dateKor = 0x20070903;
+
+    return sdk === dateInt || sdk === dateKor;
 }
 
 function getDSVersion(data) {
@@ -38,37 +39,13 @@ function getDSVersion(data) {
         return data[0x1941f];
     }
 
-    // Gen 4 detection
-    if (data.readUInt16LE(0xc0fe) === ccitt16(data, 0xc0ec)) {
+    if (validSequence(data, 0x4C100)) {
         return 10;
     }
-    if (data.readUInt16LE(0xcf2a) === ccitt16(data, 0xcf18)) {
+    if (validSequence(data, 0x4CF2C)) {
         return 12;
     }
-    if (data.readUInt16LE(0xf626) === ccitt16(data, 0xf618)) {
-        return 7;
-    }
-
-    const dpPattern = Buffer.from([0x00, 0xC1, 0x00, 0x00, 0x23, 0x06, 0x06, 0x20, 0x00, 0x00]);
-    const ptPattern = Buffer.from([0x2C, 0xCF, 0x00, 0x00, 0x23, 0x06, 0x06, 0x20, 0x00, 0x00]);
-    const hgssPattern = Buffer.from([0x28, 0xF6, 0x00, 0x00, 0x23, 0x06, 0x06, 0x20, 0x00, 0x00]);
-    if (validSequence(data, dpPattern)) {
-        return 10;
-    }
-    if (validSequence(data, ptPattern)) {
-        return 12;
-    }
-    if (validSequence(data, hgssPattern)) {
-        return 7;
-    }
-
-    if (validSequence(data, dpPattern, 0x40000)) {
-        return 10;
-    }
-    if (validSequence(data, ptPattern, 0x40000)) {
-        return 12;
-    }
-    if (validSequence(data, hgssPattern, 0x40000)) {
+    if (validSequence(data, 0x4F628)) {
         return 7;
     }
 

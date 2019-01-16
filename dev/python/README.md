@@ -2,7 +2,7 @@
 
 ## Setup
 1. Make sure you have [Python 3](https://www.python.org/downloads/release/python-370/) installed
-    - If you already have Python 3 installed, make sure you have the argparse module as well: `sudo pip3 argparse`
+    - If you already have Python 3 installed, make sure you have the argparse module as well: `sudo pip3 install argparse`
 2. Make sure you have the following files from the [PKSM-Scripts repo](https://github.com/FlagBrew/PKSM-Scripts):
     - saveVersion.py
     - PKSMScript.py

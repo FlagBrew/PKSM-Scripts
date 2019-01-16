@@ -15,7 +15,7 @@ parser.addArgument('-o', {
 parser.addArgument(['-r', '--range'], {
     nargs: 2,
     metavar: ['start', 'end'],
-    help: 'Specific range to limit diff to, from start (included) to end (excluded)',
+    help: 'Specific range to limit diff to, from start (inclusive) to end (exclusive)',
 });
 parser.addArgument('-e', {
     action: 'storeTrue',
@@ -158,7 +158,7 @@ function main(params) {
     let saveFiles = params.saves;
     let outFile = '';
     if (params.o) {
-        outFile = params.o[0];
+        outFile = params.o;
         outFile = `${outFile}${outFile.slice(-4) === '.txt' ? '' : '.txt'}`;
     }
 

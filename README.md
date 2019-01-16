@@ -18,7 +18,10 @@
 - [Script file format](#script-file-format)
 
 ## Installing Scripts
-1. Download the [latest release](https://github.com/FlagBrew/PKSM-Scripts/releases/latest) (*not* the ones labeled "Source code")
+If you're using PKSM v6.0.0 or later then you already have most (if not all) scripts already installed
+
+If you're still using PKSM v5.1.x (which is no longer receiving support), do the following:
+1. Download the `scripts.7z` from [this release](https://github.com/FlagBrew/PKSM-Scripts/releases/tag/v1.1)
 2. Extract the contents and copy the `scripts` folder to your SD card so that its path is `/3ds/PKSM/scripts`
 
 ## Legality Warning
@@ -59,6 +62,7 @@ These are notes and details that may be useful to know about scripts that couldn
         - Gen 7: 27 boxes
     - **Colosseum**: 2 boxes
     - **XD**: 3 boxes
+    - **PKX injector**: 1 slot for every `.pk*` or `.pb7` file in `/3ds/PKSM/inject`
     - everything else: 1 box
 - Not all Pokémon in the mass injection scripts may be legal
 - Only the "Living Dex" scripts update your dex. If you want the contents of a mass inject script to be registered but don't want the full Fill Dex, do one of the following:
@@ -91,7 +95,7 @@ These are notes and details that may be useful to know about scripts that couldn
 
 ### Item Scripts
 - `SM, USUM` **slot 1 x897-960**: due to the way items are stored in Gen 7 saves and the current limitations of PKSM's scripts, the quantity of the item in the pouch's first slot is set to something in the range of 897 to 960 (depends on the former quantity) rather than 999 like in past generations
-- `BW, B2W2` **Item slot 1 - Pass Orb x65535**: this was only added because the MAX level Pass Powers require 9999 to use, which is more than existing scripts give
+- `BW, B2W2` **Item slot 1 - Pass Orb x65535**: this was only added because the MAX level Pass Powers require 9999 to use, which is more than existing scripts give. Also note that the game will display the amount weirdly, like `?35`
 - `Gen IV, V, VI` **All TMs and HMs**: fills your TM pouch with *all* TMs and HMs, which may cause problems with story progression
 
 ### Reset Scripts
@@ -166,7 +170,7 @@ These codes fill all the settlement's slots in your game with predefined residen
 - `B2W2` **Join Avenue - Restock All Shops**: This will refill all the shops contents and therefore, you can buy from all the shops again without having to wait for the next day.
 - `B2W2` **Join Avenue - 7 Day Promotion**: This will cause a week long promotional event. When this code is used, for one week from when the game was last saved, all the shop's items are only half price!
 - `B2W2` **Join Avenue - Lv9 All Shops**: this code will set all of your shops to level 9 and as such, only one visitor referral will be necessary to max out each shop
-- `DP, Pt` **Fulfill Spiritomb encounter requirements**: sets everything up so that you will battle Spiritomb the next time you examine the Broken Tower / Hallowed Tower on Route 209
+- `DP, Pt` **Fulfill Spiritomb encounter requirements**: sets everything up so that you will battle Spiritomb the next time you examine the Broken Tower / Hallowed Tower on Route 209 (between Hearthome and Solaceon)
 
 ---
 
@@ -178,10 +182,10 @@ See the [docs README](https://github.com/FlagBrew/PKSM-Scripts/blob/master/dev/R
 ## Credits
 - bernardogiordano - PKSM, PKSMScript.py, dump.py, scripts
 - Lavorther - scripts
-- piepie62 - genScripts.py
+- piepie62 - PKSM's picoC API, genScripts.py, scripts
 - PKMWM1 - scripts
 - PlasticJustice - scripts
-- SpiredMoth - scripts, documentation, Node.js versions of Python scripts
+- SpiredMoth - scripts, documentation, dev scripts (all Node and some Python)
 - trainboy2019 - scripts
 - wrathsoffire - scripts
 

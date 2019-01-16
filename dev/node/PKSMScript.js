@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint no-continue: "off" */
 const fse = require('fs-extra');
 const ArgumentParser = require('argparse').ArgumentParser;
 
@@ -10,7 +9,7 @@ const parser = new ArgumentParser({
 parser.addArgument('output', { help: 'Output file name' });
 parser.addArgument('-d', {
     metavar: ['subdir'],
-    help: 'Subdirectory in which to create the script'
+    help: 'Subdirectory in which to create the script',
 });
 parser.addArgument('-i', {
     action: 'append',

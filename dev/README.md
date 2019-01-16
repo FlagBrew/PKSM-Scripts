@@ -32,6 +32,7 @@ To start creating scripts for PKSM you will need to make sure you have the follo
 
 ### 3DS
 - [PKSM](https://github.com/FlagBrew/PKSM/releases) -- v5.1.0 or later
+    - For C scripts you will need v6.0.0 or later, which requires CFW
 - Save manager app for Homebrew/CFW
     - `CFW` - [Checkpoint](https://github.com/FlagBrew/Checkpoint/releases) - works with both 3DS and DS games
     - `Homebrew (hax)` - [JKSM](http://steelminer.jisagi.net/files/JKSM.zip) - for 3DS games (thanks to the [Steelminer guide](http://steelminer.jisagi.net/) for this download link)
@@ -66,7 +67,7 @@ To create entirely new scripts you will need the following data:
 
 ### Finding Offsets
 There are a few options for finding the offset(s) you want to edit in the save files:
-- This folder contains a consolidation of much of the save offset info from PKHeX's source code and Project Pokémon's Tech Doc pages. While it may not cover everything, it should at least give you an idea of where to look when searching for your offset manually
+- The [`docs`](https://github.com/FlagBrew/PKSM-Scripts/tree/master/dev/docs) folder contains a consolidation of much of the save offset info from PKHeX's source code and Project Pokémon's Tech Doc pages. While it may not cover everything, it should at least give you an idea of where to look when searching for your offset manually
 - [PKHeX's source code](https://github.com/kwsch/PKHeX) - it helps if you can read C# code (another C-like language works too) and understand the hexadecimal system
 - [Project Pokémon's Technical Documentation pages](https://projectpokemon.org/docs/)
 - search for the offset manually
@@ -146,4 +147,4 @@ To create completely new scripts, you will need to find the following values:
 - `rpt` -- how many times you want `pld` to be written to the save in succession
 
 ### Examples
-Examples can be found [here](../src/scriptsUSUM.txt).
+Examples can be found [here](https://github.com/FlagBrew/PKSM-Scripts/blob/master/src/scriptsUSUM.txt).
