@@ -1,257 +1,245 @@
 # X / Y
 
-Meaning                                 Offset        Length        Min Value   Max Value
-- Poké Puff                             0
-  - puffs                               0
-  - count                               0x64
-- Bag                                   0x400
-  - held items                          0x400
-  - Key items                           0xa40
-  - TM/HM                               0xbc0
-  - medicine                            0xd68
-  - berries                             0xe68
-- Item info                             0x1000
-  - select items
-    - up                                0x100a        2
-    - right                             0x100c        2
-    - down                              0x100e        2
-    - left                              0x1011        2
-  - recent items (give, use)            0x1014
-- Adventure info                        0x1200
-  - resume year                         0x1204
-  - resume month                        0x1208
-  - resume day                          0x1209
-  - resume hour                         0x120b
-  - resume minute                       0x120c
-  - resume seconds                      0x120d
-  - seconds to start                    0x1218
-  - seconds to fame                     0x1220
-- Trainer1                              0x1400
-  - M                                   0x1402        2
-  - X                                   0x1410        2
-  - Z                                   0x1414        2
-  - Y                                   0x1418        2
-  - style                               0x154d        1             0           255
-- Play time                             0x1800
-  - played hours                        0x1800        2             0           999
-  - played minutes                      0x1802        1             0           59
-  - played seconds                      0x1803        1             0           59
-  - last saved                          0x1804        4
-- Accessories                           0x1a00
-- Overworld data                        0x2000
-- Trainer2                              0x4200
-  - money                               0x4208        4             0           9999999
-  - badges                              0x420c        1             0           255
-  - BP                                  0x423c        2             0           9999
-  - Vivillon                            0x4250        1             0           19
-- PC Layout                             0x4400
-  - box names
-    - Box 1                             0x4400
-    - Box 2                             0x4422
-    - Box 3                             0x4444
-    - Box 4                             0x4466
-    - Box 5                             0x4488
-    - Box 6                             0x44aa
-    - Box 7                             0x44cc
-    - Box 8                             0x44ee
-    - Box 9                             0x4510
-    - Box 10                            0x4532
-    - Box 11                            0x4554
-    - Box 12                            0x4576
-    - Box 13                            0x4598
-    - Box 14                            0x45ba
-    - Box 15                            0x45dc
-    - Box 16                            0x45fe
-    - Box 17                            0x4620
-    - Box 18                            0x4642
-    - Box 19                            0x4664
-    - Box 20                            0x4686
-    - Box 21                            0x46a8
-    - Box 22                            0x46ca
-    - Box 23                            0x46ec
-    - Box 24                            0x470e
-    - Box 25                            0x4730
-    - Box 26                            0x4752
-    - Box 27                            0x4774
-    - Box 28                            0x4796
-    - Box 29                            0x47b8
-    - Box 30                            0x47da
-    - Box 31                            0x47fc
-  - backgrounds
-    - Box 1                             0x481e        1
-    - Box 2                             0x481f        1
-    - Box 3                             0x4820        1
-    - Box 4                             0x4821        1
-    - Box 5                             0x4822        1
-    - Box 6                             0x4823        1
-    - Box 7                             0x4824        1
-    - Box 8                             0x4825        1
-    - Box 9                             0x4826        1
-    - Box 10                            0x4827        1
-    - Box 11                            0x4828        1
-    - Box 12                            0x4829        1
-    - Box 13                            0x482a        1
-    - Box 14                            0x482b        1
-    - Box 15                            0x482c        1
-    - Box 16                            0x482d        1
-    - Box 17                            0x482e        1
-    - Box 18                            0x482f        1
-    - Box 19                            0x4830        1
-    - Box 20                            0x4831        1
-    - Box 21                            0x4832        1
-    - Box 22                            0x4833        1
-    - Box 23                            0x4834        1
-    - Box 24                            0x4835        1
-    - Box 25                            0x4836        1
-    - Box 26                            0x4837        1
-    - Box 27                            0x4838        1
-    - Box 28                            0x4839        1
-    - Box 29                            0x483a        1
-    - Box 30                            0x483b        1
-    - Box 31                            0x483c        1
-  - PC flags                            0x483d
-    - boxes unlocked                    0x483e        1             0           31
-  - last viewed box                     0x483f        1             0           31
-- Battle Box                            0x4a00
-- PSS                                   0x5000
-  - Friends                             0x5000
-  - Acquaintances                       0xa000
-  - Passerby                            0xf000
-- Trainer card                          0x14000
-  - TID                                 0x14000       2             0           65535
-  - SID                                 0x14002       2             0           65535
-  - game                                0x14004       1
-  - gender                              0x14005       1             0           1
-  - multiplayer sprite ID               0x14007       1
-  - Game Sync ID                        0x14008       16
-  - sub-region                          0x14026       1
-  - country                             0x14027       1
-  - console region                      0x1402c       1
-  - language                            0x1402d       1             1           8
-  - OT (name)                           0x14048
-  - OT nickname                         0x14062
-  - saying 1                            0x1407c
-  - saying 2                            0x1409e
-  - saying 3                            0x140c0
-  - saying 4                            0x140e2
-  - saying 5                            0x14104
-  - Mega evolution unlocked             0x1414a       1
-- Party                                 0x14200
-- Event const                           0x14a00
-  - flag                                0x14cfc
-- Pokédex                               0x15000
-  - owned - Gen 6 native                0x15008
-  - seen
-    - normal male                       0x15068
-    - normal female                     0x150c8
-    - shiny male                        0x15128
-    - shiny female                      0x15188
-  - display
-    - normal male                       0x151e8
-    - normal female                     0x15248
-    - shiny male                        0x152a8
-    - shiny female                      0x15308
-  - forms                               0x15368
+Meaning                                     Offset      Length      Max Value   Increment
+- Poké Puff                                 0           0x2c8
+    - puffs                                 0
+    - count                                 0x64
+- Bag                                       0x400       0xb88
+    - held items                            0x400
+    - Key items                             0xa40
+    - TM/HM                                 0xbc0
+    - medicine                              0xd68
+    - berries                               0xe68
+- Item info                                 0x1000      0x2c
+    - select items
+        - up                                0x100a      2
+        - right                             0x100c      2
+        - down                              0x100e      2
+        - left                              0x1011      2
+    - recent items (give, use)              0x1014
+- Adventure info                            0x1200      0x38
+    - resume year                           0x1204      4
+    - resume month                          0x1208      1
+    - resume day                            0x1209      1
+    - resume hour                           0x120b      1
+    - resume minute                         0x120c      1
+    - resume seconds                        0x120d      1
+    - seconds to start                      0x1218      4
+    - seconds to fame                       0x1220      4
+- Trainer1                                  0x1400      0x150
+    - M                                     0x1402      2
+    - X                                     0x1410      4
+    - Z                                     0x1414      4
+    - Y                                     0x1418      4
+    - M                                     0x14f6      2
+    - X                                     0x1504      4
+    - Z                                     0x1508      4
+    - Y                                     0x150c      4
+    - Lumiose style points                  0x154d      1           255
+- RandomGroup (rand seeds)                  0x1600      0x4
+- Play time                                 0x1800      0x8
+    - played hours                          0x1800      2           999
+    - played minutes                        0x1802      1           59
+    - played seconds                        0x1803      1           59
+    - last saved                            0x1804      4
+- Accessories                               0x1a00      0x1c0
+- Amie minigame records                     0x1c00      0xbe
+- temp variables                            0x1e00      0x24
+- Overworld data                            0x2000      0x2100
+- Trainer2                                  0x4200      0x140
+    - money                                 0x4208      4           9999999
+    - badges                                0x420c      1           255
+    - BP                                    0x423c      2           9999
+    - Vivillon                              0x4250      1           19
+- PC Layout                                 0x4400      0x440
+    - box names                             0x4400      0x22 * 31
+    - backgrounds                           0x481e      0x1f
+    - PC flags                              0x483d
+        - wallpaper unlocks                 0x483d      1
+        - boxes unlocked                    0x483e      1           31
+    - last viewed box                       0x483f      1           31
+- Battle Box                                0x4a00      0x574
+    - locked                                0x4f70      1
+- PSS                                       0x5000
+    - Friends                               0x5000      0x4e28
+    - Acquaintances                         0xa000      0x4e28
+    - Passerby                              0xf000      0x4e28
+- Trainer card                              0x14000     0x170
+    - TID                                   0x14000     2           65535
+    - SID                                   0x14002     2           65535
+    - game                                  0x14004     1
+    - gender                                0x14005     1           1
+    - multiplayer sprite ID                 0x14007     1
+    - Game Sync ID                          0x14008     16
+    - sub-region                            0x14026     1
+    - country                               0x14027     1
+    - console region                        0x1402c     1
+    - language                              0x1402d     1           8
+    - OT (name)                             0x14048
+    - OT nickname                           0x14062
+    - saying 1                              0x1407c
+    - saying 2                              0x1409e
+    - saying 3                              0x140c0
+    - saying 4                              0x140e2
+    - saying 5                              0x14104
+    - Eye color                             0x14148     2
+    - Mega evolution unlocked               0x1414a     1                       1
+- Party                                     0x14200     0x61c
+    - slot 1                                0x14200
+    - slot 2                                0x14304
+    - slot 3                                0x14406
+    - slot 4                                0x14508
+    - slot 5                                0x1460a
+    - slot 6                                0x1480c
+    - count                                 0x1490e     1
+- Event                                     0x14a00     0x504
+    - const                                 0x14a00
+        - legendary birds                   0x14bcc
+    - flag                                  0x14cfc
+        - Mewtwo / Zygarde                  0x14d0a
+        - Mewtwo / Zygarde                  0x14d5e
+        - Mewtwo / Zygarde                  0x14d74
+- Pokédex                                   0x15000     0x6a0
+    - owned - Gen 6 native                  0x15008
     - seen
-      - normal                          0x15368
-      - shiny                           0x15380
+        - normal male                       0x15068
+        - normal female                     0x150c8
+        - shiny male                        0x15128
+        - shiny female                      0x15188
     - display
-      - normal                          0x15398
-      - shiny                           0x153b0
-  - language flags                      0x153c8
-  - Spinda                              0x15648
-  - owned - previous gen                0x1564c
-- Fused                                 0x16000
-- O-Power                               0x16a00
-- User metadata                         0x17000
-  - PSS outfit                          0x17138
-  - Trainer name                        0x17148
-  - favorite Pokémon                    0x17164
-  - Pokémon's gender                    0x17167
-  - encryption constant                 0x1716c
-  - Pokémon's nickname                  0x1717c
-- GTS                                   0x17800
-- Repel, swarm?, etc.                   0x17e00
-- Wi-Fi Tournament data                 0x18200
-- Live Tournament data                  0x18a00
-- Hall of Fame                          0x19400
-- Maison stats                          0x1b000
-  - current Singles streak              0x1b1c0
-  - current Super Singles streak        0x1b1c2
-  - best Singles streak                 0x1b1c4
-  - best Super Singles streak           0x1b1c6
-  - current Doubles streak              0x1b1c8
-  - current Super Doubles streak        0x1b1ca
-  - best Doubles streak                 0x1b1cc
-  - best Super Doubles streak           0x1b1ce
-  - current Triples streak              0x1b1d0
-  - current Super Triples streak        0x1b1d2
-  - best Triples streak                 0x1b1d4
-  - best Super Triples streak           0x1b1d6
-  - current Rotation streak             0x1b1d8
-  - current Super Rotation streak       0x1b1da
-  - best Rotation streak                0x1b1dc
-  - best Super Rotation streak          0x1b1de
-  - current Multi streak                0x1b1e0
-  - current Super Multi streak          0x1b1e2
-  - best Multi streak                   0x1b1e4
-  - best Super Multi streak             0x1b1e6
-- Daycare                               0x1b200
-  - slot 1
-    - occupied                          0x1b200       4?
-    - EXP                               0x1b204       4
-    - offset                            0x1b208
-  - slot 2
-    - occupied                          0x1b2f0       4?
-    - EXP                               0x1b2f4       4
-    - offset                            0x1b2f8
-  - has egg                             0x1b3e0       8?
-  - RNG seed                            0x1b3e8       8
-- Berry Field                           0x1b800
-- Wondercard flags                      0x1bc00
-  - data                                0x1bd00
-- Old Man (Anistar) storage             0x1d800
-- SUBE                                  0x1d890
-- Friend Safari data                    0x1dc00
-- PSS stats                             0x1e400
-  - current PokéMiles                   0x1e4fc       4             0           9999999
-  - friend data                         0x1e800
-- Super Training                        0x1f200
-  - best times                          0x1f210
-  - best time species                   0x1f388
-  - bag inventory                       0x1f508
-- Link info                             0x1fe00
-- PGL Promotion gifts                   0x20e00
-- Box
-  - Box 1                               0x22600
-  - Box 2                               0x24130
-  - Box 3                               0x25c60
-  - Box 4                               0x27790
-  - Box 5                               0x292c0
-  - Box 6                               0x2adf0
-  - Box 7                               0x2c920
-  - Box 8                               0x2e450
-  - Box 9                               0x2ff80
-  - Box 10                              0x31ab0
-  - Box 11                              0x335e0
-  - Box 12                              0x35110
-  - Box 13                              0x36c40
-  - Box 14                              0x38770
-  - Box 15                              0x3a2a0
-  - Box 16                              0x3bdd0
-  - Box 17                              0x3d900
-  - Box 18                              0x3f430
-  - Box 19                              0x40f60
-  - Box 20                              0x42a90
-  - Box 21                              0x445c0
-  - Box 22                              0x460f0
-  - Box 23                              0x47c20
-  - Box 24                              0x49750
-  - Box 25                              0x4b280
-  - Box 26                              0x4cdb0
-  - Box 27                              0x4e8e0
-  - Box 28                              0x50410
-  - Box 29                              0x51f40
-  - Box 30                              0x53a70
-  - Box 31                              0x555a0
-- JPEG                                  0x57200
+        - normal male                       0x151e8
+        - normal female                     0x15248
+        - shiny male                        0x152a8
+        - shiny female                      0x15308
+    - forms                                 0x15368
+        - seen
+      - normal                              0x15368
+      - shiny                               0x15380
+        - display
+      - normal                              0x15398
+      - shiny                               0x153b0
+    - language flags                        0x153c8
+    - Spinda                                0x15648
+    - owned - previous gen                  0x1564c
+- hologram clips                            0x15800     0x644
+- Fused                                     0x16000     0x104
+- ConfigSave                                0x16200     0x4
+- Amie decoration stuff                     0x16400     0x420
+- O-Power                                   0x16a00     0x64
+- Strength Rock position                    0x16c00     0x3f0
+- Trainer PR Video                          0x17000     0x70c
+- User metadata                             0x17000
+    - PSS outfit                            0x17138
+    - Trainer name                          0x17148
+    - favorite Pokémon                      0x17164
+    - Pokémon's gender                      0x17167
+    - encryption constant                   0x1716c
+    - Pokémon's nickname                    0x1717c
+- GTS                                       0x17800     0x180
+- Packed Menu Bits                          0x17a00     0x4
+- PSS Profile Q&A                           0x17c00     0xc
+- Repel, swarm?, etc.                       0x17e00     0x48
+- BOSS data fetch history                   0x18000     0x54
+- StreetPass history                        0x18200     0x644
+- Wi-Fi Tournament data                     0x18200
+- Live Tournament data                      0x18a00
+- LiveMatchData/BattleSpotData              0x18a00     0x5c8
+- MAC Address & Network Connection Logging  0x19000     0x2f8
+- Hall of Fame                              0x19400     0x1b40
+- Maison stats                              0x1b000     0x1f4
+    - current Singles streak                0x1b1c0
+    - current Super Singles streak          0x1b1c2
+    - best Singles streak                   0x1b1c4
+    - best Super Singles streak             0x1b1c6
+    - current Doubles streak                0x1b1c8
+    - current Super Doubles streak          0x1b1ca
+    - best Doubles streak                   0x1b1cc
+    - best Super Doubles streak             0x1b1ce
+    - current Triples streak                0x1b1d0
+    - current Super Triples streak          0x1b1d2
+    - best Triples streak                   0x1b1d4
+    - best Super Triples streak             0x1b1d6
+    - current Rotation streak               0x1b1d8
+    - current Super Rotation streak         0x1b1da
+    - best Rotation streak                  0x1b1dc
+    - best Super Rotation streak            0x1b1de
+    - current Multi streak                  0x1b1e0
+    - current Super Multi streak            0x1b1e2
+    - best Multi streak                     0x1b1e4
+    - best Super Multi streak               0x1b1e6
+- Daycare                                   0x1b200     0x1f0
+    - slot 1
+        - occupied                          0x1b200     1
+        - EXP                               0x1b204     4
+        - Pokémon                           0x1b208     0xe8
+    - slot 2
+        - occupied                          0x1b2f0     1
+        - EXP                               0x1b2f4     4
+        - Pokémon                           0x1b2f8     0xe8
+    - has egg                               0x1b3e0     1
+    - RNG seed                              0x1b3e8
+- BattleInstSave                            0x1b400     0x216
+- Berry Field                               0x1b800     0x390
+- Wondercard                                0x1bc00     0x1a90
+    - flags                                 0x1bc00     0x100
+    - data                                  0x1bd00
+- PokeDiarySave                             0x1d800     0x308
+    - Old Man (Anistar) storage             0x1d800
+    - Gym teams                             0x1d82c     96
+        - Santalune                         0x1d82c
+        - Cyllage                           0x1d838
+        - Shalour                           0x1d844
+        - Coumarine                         0x1d850
+        - Lumiose                           0x1d85c
+        - Laverre                           0x1d868
+        - Anistar                           0x1d874
+        - Snowbelle                         0x1d870
+    - SUBE                                  0x1d890
+- Storyline Records                         0x1dc00     0x618
+- Record                                    0x1e400     0x25c
+    - current PokéMiles                     0x1e4fc     4           9999999
+- Friend Safari data                        0x1e800     0x834
+- Super Training                            0x1f200     0x318
+    - best times                            0x1f210
+    - best time species                     0x1f388
+    - bag inventory                         0x1f508
+- unused                                    0x1f600     0x7d0
+- Link info                                 0x1fe00     0xc48
+- PSS usage info                            0x20c00     0x78
+- GameSyncSave                              0x20e00
+    - PGL Promotion gifts                   0x20e00
+- PSS Icon (unused)                         0x21000     0xc84
+- ValidationSave                            0x21e00     0x628
+- Box                                       0x22600     0x34ad0
+    - Box 1                                 0x22600
+    - Box 2                                 0x24130
+    - Box 3                                 0x25c60
+    - Box 4                                 0x27790
+    - Box 5                                 0x292c0
+    - Box 6                                 0x2adf0
+    - Box 7                                 0x2c920
+    - Box 8                                 0x2e450
+    - Box 9                                 0x2ff80
+    - Box 10                                0x31ab0
+    - Box 11                                0x335e0
+    - Box 12                                0x35110
+    - Box 13                                0x36c40
+    - Box 14                                0x38770
+    - Box 15                                0x3a2a0
+    - Box 16                                0x3bdd0
+    - Box 17                                0x3d900
+    - Box 18                                0x3f430
+    - Box 19                                0x40f60
+    - Box 20                                0x42a90
+    - Box 21                                0x445c0
+    - Box 22                                0x460f0
+    - Box 23                                0x47c20
+    - Box 24                                0x49750
+    - Box 25                                0x4b280
+    - Box 26                                0x4cdb0
+    - Box 27                                0x4e8e0
+    - Box 28                                0x50410
+    - Box 29                                0x51f40
+    - Box 30                                0x53a70
+    - Box 31                                0x555a0
+- JPEG                                      0x57200     0xe058
