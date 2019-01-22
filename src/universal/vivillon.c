@@ -12,29 +12,29 @@ int main(int argc, char **argv)
 
     switch (version)
     {
-    case 24:
-    case 25:
-        offset = 0x4250;
-        gen = GEN_SIX;
-        break;
-    case 26:
-    case 27:
-        offset = 0x4244;
-        gen = GEN_SIX;
-        break;
-    case 30:
-    case 31:
-        offset = 0x4130;
-        gen = GEN_SEVEN;
-        break;
-    case 32:
-    case 33:
-        offset = 0x4530;
-        gen = GEN_SEVEN;
-        break;
-    default:
-        gui_warn("Vivillon didn't exist before Gen 6", "");
-        return 1;
+        case 24:
+        case 25:
+            offset = 0x4250;
+            gen = GEN_SIX;
+            break;
+        case 26:
+        case 27:
+            offset = 0x4244;
+            gen = GEN_SIX;
+            break;
+        case 30:
+        case 31:
+            offset = 0x4130;
+            gen = GEN_SEVEN;
+            break;
+        case 32:
+        case 33:
+            offset = 0x4530;
+            gen = GEN_SEVEN;
+            break;
+        default:
+            gui_warn("Vivillon didn't exist before Gen 6", "");
+            return 1;
     }
 
     struct pkx vivillon[20];

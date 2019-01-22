@@ -21,12 +21,28 @@ Header inclusion
 ```c
 int gui_choice(char* lineOne, char* lineTwo);
 void gui_warn(char* lineOne, char* lineTwo);
-int gui_menu6x5(char* question, int options, char** labels, struct pkx* pokemon, int generation);
-int gui_menu20x2(char* question, int options, char** labels);
-int sav_gbo();
+int gui_menu_6x5(char* question, int options, char** labels, struct pkx* pokemon, enum Generation generation);
+int gui_menu_20x2(char* question, int options, char** labels);
+void gui_keyboard(char* out, char* hint, int maxChars);
+void gui_numpad(int* out, char* hint, int maxDigits);
+int gui_boxes(int* fromStorage, int* box, int* slot);
 int sav_sbo();
-void sav_boxDecrypt();
-void sav_boxEncrypt();
+int sav_gbo();
+void sav_box_decrypt();
+void sav_box_encrypt();
+void sav_inject_pkx(char* data, enum Generation type, int box, int slot);
+void sav_inject_ekx(char* data, enum Generation type, int box, int slot);
+char* current_directory();
+struct directory* read_directory(char* dir);
+char* cfg_default_ot();
+unsigned int cfg_default_tid();
+unsigned int cfg_default_sid();
+int cfg_default_day();
+int cfg_default_month();
+int cfg_default_year();
+int net_udp_server(char* buffer, int size, int* received);
+char* net_ip();
+void bank_inject_pkx(char* data, enum Generation type, int box, int slot);
 ```
 
 ## Differences From C90
@@ -91,6 +107,9 @@ The goto statement is implemented, but only supports forward gotos, not backward
 
 Some discussion on this topic: * http://www.cprogramming.com/tutorial/goto.html * http://kerneltrap.org/node/553/2131
 
+### Arrays of variable size
+
+Avoid allocating arrays which size resides in a variable, for instance `char buffer[size];`, which causes issues during script execution. Use instead `char* buffer = malloc(size);` and free the pointer after use. 
 
 ### Scripting enhancements
 #### Interactive mode
