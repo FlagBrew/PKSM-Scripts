@@ -190,7 +190,7 @@ See the [docs README](https://github.com/FlagBrew/PKSM-Scripts/blob/master/dev/R
 ## Script file format
 
 ```
-# PKSM script structure
+# Legacy PKSM script structure
 # u8 magic[10]        // PKSMSCRIPT
 # u32 offset          // save offset to write the data to
 # u32 length          // payload length
