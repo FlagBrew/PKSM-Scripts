@@ -57,9 +57,9 @@ int main(int argc, char** argv)
         char* pkm = malloc(size);
         int received = 0;
         char message[64];
-        snprintf(message, 64, "UDP server starting at %s", net_ip());
+        snprintf(message, 64, "Server starting at %s", net_ip());
         gui_warn(message, "Send a pkx via servepkx.");
-        if (net_udp_server(pkm, size, &received) == 0)
+        if (net_tcp_recv(pkm, size, &received) == 0)
         {
             if (received == size)
             {
