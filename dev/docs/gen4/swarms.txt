@@ -1,0 +1,43 @@
+# Swarms
+
+Offset
+    - DP: 0x72d4
+    - Pt: 0x7f28
+    - HGSS: 0x68a8
+Swarm count
+    - DP: 28
+    - Pt: 22
+    - HGSS: 20
+
+Value is a 4 byte result of a RNG call that is modulo against the game's swarm count to determine the active swarm
+
+
+Modulo      DP              PT              HG              SS
+0           Doduo           Doduo           Poochyena       Poochyena
+1           Zigzagoon       Zigzagoon       Baltoy          Gulpin
+2           Cubone          Cubone          Sableye         Mawile
+3           Nosepass        Larvitar        Relicanth       Relicanth
+4           Phanpy          Phanpy          Chansey         Chansey
+5           Dunsparce       Dunsparce       Clamperl        Clamperl
+6           Snubbull        Snubbull        Qwilfish        Qwilfish
+7           Absol           Spoink          Buneary         Buneary
+8           Spoink          Drowzee         Luvdisc         Luvdisc
+9           Drowzee         Delibird        Ralts           Ralts
+10          Delibird        Voltorb         Yanma           Yanma
+11          Swinub          Farfetch'd      Snubbull        Snubbull
+12          Voltorb         Skitty          Remoraid        Remoraid
+13          Farfetch'd      Natu            Swablu          Swablu
+14          Skitty          Makuhita        Ditto           Ditto
+15          Natu            Krabby          Marill          Marill
+16          Makuhita        Spinda          Dunsparce       Dunsparce
+17          Krabby          Beldum          Kricketot       Kricketot
+18          Spinda          Pinsir          Wingull         Wingull
+19          Beldum          Corsola         Whiscash        Whiscash
+20          Pidgey          Electrike       -               -
+21          Corsola         Slakoth         -               -
+22          Surskit         -               -               -
+23          Lickitung       -               -               -
+27          Smoochum        -               -               -
+25          Electrike       -               -               -
+26          Slakoth         -               -               -
+27          Magnemite       -               -               -

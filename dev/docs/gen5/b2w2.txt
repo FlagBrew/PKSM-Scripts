@@ -148,7 +148,7 @@ Meaning                                     Offset      Length      Max Value   
         - shiny                             0x2171d
     - language flags                        0x21728
 - Overworld info                            0x21900     0x34
-    - swarm                                 0x2192c?
+    - swarm                                 0x2192c     1           19          1
     - repel steps                           0x2192d?
     - repel type                            0x2192e?
 - Battle Subway
@@ -256,6 +256,6 @@ Meaning                                     Offset      Length      Max Value   
     - Entree Black experience               0x259f9     1
     - Funfest Mission most participants     0x259fa     1
 - ???                                       0x25a00     0x3e4
-- ???                                       0x25e00     0xf0
+- Dream Radar?                              0x25e00     0xf0
 - Checksums                                 0x25f00     0x94
 - C-Gear data                               0x52800

@@ -175,9 +175,9 @@ Meaning                                     Offset      Length      Max Value   
         - ? - 641                           0x21b2d     1
         - roaming - 642                     0x21b2e     1
         - roaming - 641                     0x21b2f     1
-    - swarm                                 0x21b30?
-    - repel type                            ?
-    - repel steps                           ?
+    - swarm                                 0x21b30     1           16          1
+    - repel type                            0x21b31?
+    - repel steps                           0x21b32?
 - ???                                       0x21c00     0x3c
 - Battle Subway                             0x21d00     0x1ac
     - BP                                    0x21d00     2           9999
