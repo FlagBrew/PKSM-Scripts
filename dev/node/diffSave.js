@@ -125,18 +125,24 @@ function generateDiff(files, data, diffRange) {
     // event diffing (function call?) goes here
 
     // range slicing
+    let slicedData;
+    let sliceStart = 0;
     if (diffRange) {
-        // blah
+        sliceStart = +diffRange[0];
+        slicedData = data.map(v => v.slice(diffRange[0], diffRange[1]));
+        diff.push(`\n\nDiff range: ${diffRange[0]}-${diffRange[1]}`);
+    } else {
+        slicedData = data;
     }
 
     // construct diff body
     diff.push(`\n\n${tableHeader.join('')}\n`);
-    data[0].forEach((d, n) => {
+    slicedData[0].forEach((d, n) => {
         const offsetDiff = {
-            offset: toPaddedHexString(n, 5),
+            offset: toPaddedHexString(n + sliceStart, 5),
             values: [],
         };
-        data.forEach((v, i) => {
+        slicedData.forEach((v, i) => {
             offsetDiff.values[i] = toPaddedHexString(v[n], 2);
         });
         const match = offsetDiff.values.every((v, i, a) => v === a[0]);

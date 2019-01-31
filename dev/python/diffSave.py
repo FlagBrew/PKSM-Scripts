@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser(
     description='Generate a list of differences between 2 or more Gen 4-7 Pokémon saves')
 parser.add_argument('-o', metavar='outFile',
                     help='File (.txt) to write diff to -- if not given, diff is written to console')
-parser.add_argument(['-r', '--range'], nargs=2, metavar=('start', 'end'),
+parser.add_argument('-r', '--range', nargs=2, metavar=('start', 'end'),
                     help='Specific range to limit diff to, from start (included) to end (excluded)')
 parser.add_argument('-e', action='store_true', help='Flag to include an event diff')
 parser.add_argument('saves', nargs='+',
@@ -85,23 +85,28 @@ def generateDiff(files, data, diffRange):
     # event diffing (function call?) goes here
 
     # range slicing
+    saveData = data
+    sliceStart = 0
     if diffRange != None:
-        pass
+        sliceStart = int(diffRange[0], 0)
+        for i in range(len(data)):
+            saveData[i] = data[i][int(diffRange[0], 0):int(diffRange[1], 0)]
+        diff.append("\n\nDiff range: %s-%s" % (diffRange[0], diffRange[1]))
 
     # construct diff body
     diff.append("\n\n%s\n" % ''.join(tableHeader))
-    for i in range(len(data[0])):
+    for i in range(len(saveData[0])):
         offsetDiff = {
-            'offset': toPaddedHexString(i, 5),
+            'offset': toPaddedHexString(i + sliceStart, 5),
             'values': []
         }
-        for n in range(len(data)):
-            offsetDiff['values'].append(toPaddedHexString(data[n][i], 2))
+        offsetDiff['values'] = [toPaddedHexString(data[n][i], 2) for n in range(len(data))]
         for n in range(len(offsetDiff['values'])):
             if offsetDiff['values'][n] != offsetDiff['values'][0]:
                 global diffs
                 diffs += 1
                 diff.append("%s      %s\n" % (offsetDiff['offset'], '      '.join(offsetDiff['values'])))
+                break
 
     # join diff pieces
     return ''.join(diff)

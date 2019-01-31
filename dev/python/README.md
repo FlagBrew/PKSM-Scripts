@@ -50,13 +50,13 @@ genScriptsDev.py [gameVersions]
 ### `diffSave`
 Generate a diff of 2+ saves
 - can output to a `.txt` file if the `-o outFile` is used, otherwise diff is printed to the console
+- can diff a particular range from the saves rather than the entire thing using the `-r` flag
 
 ```
-diffSave.py [-h] [-o outFile] saveFiles
+diffSave.py [-h] [-o outFile] [-r start end] saveFiles
 ```
 
 Future functionality:
-- can diff a particular range from the saves rather than the entire thing using the `-r` flag
 - can break down Event Const and Flags (mimicking PKHeX's "FlagDiff Researcher") using the `-e` flag
 
 
@@ -82,7 +82,7 @@ getSaveVersion(saveSize[, saveData]);
 
 ## To Do
 - `diffSave`
-  - implement `-r` and `-e` flags
+  - implement `-e` flag
 - `diffSave`: allow user to supply folder of saves to diff
 - `dump`: Gen 4 active block awareness
 - `smItem.py`: everything
