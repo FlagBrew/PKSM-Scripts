@@ -43,7 +43,8 @@ int main(int argc, char** argv)
             size = 232;
             gen = GEN_SEVEN;
             break;
-        case 34:
+        case 42:
+        case 43:
             size = 260;
             gen = GEN_LGPE;
             break;
