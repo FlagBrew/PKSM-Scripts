@@ -3,14 +3,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int rollover(int num) {
-	num++;
-	if (num == 21) {
-		num = 0;
-	}
-	return num;
-}
-
 int main(int argc, char **argv) {
 	unsigned char *saveData = (unsigned char *)atoi(argv[0]);
     unsigned char version = *argv[2];
@@ -27,9 +19,6 @@ int main(int argc, char **argv) {
 		
 	switch (version) {
 		case 10:
-			TID = *(unsigned short*)(saveData + 0x74);
-			SID = *(unsigned short*)(saveData + 0x76);
-			break;
 		case 11:
 			TID = *(unsigned short*)(saveData + 0x74);
 			SID = *(unsigned short*)(saveData + 0x76);
@@ -49,17 +38,17 @@ int main(int argc, char **argv) {
 	res[3] = (TID / 256) % 21;
 	
 	if (res[0] == res[1]) {
-		res[1] = rollover(res[1]);
+		res[1] = (res[1] + 1) % 21;
 	} if (res[0] == res[2]) {
-		res[2] = rollover(res[2]);
+		res[2] = (res[2] + 1) % 21;
 	} if (res[1] == res[2]) {
-		res[2] = rollover(res[2]);
+		res[2] = (res[2] + 1) % 21;
 	} if (res[0] == res[3]) {
-		res[3] = rollover(res[3]);
+		res[3] = (res[3] + 1) % 21;
 	} if (res[1] == res[3]) {
-		res[3] = rollover(res[3]);
+		res[3] = (res[3] + 1) % 21;
 	} if (res[2] == res[3]) {
-		res[3] = rollover(res[3]);
+		res[3] = (res[3] + 1) % 21;
 	}
 	
 	gui_warn("Your Munchlax trees are,", "as follows...");
