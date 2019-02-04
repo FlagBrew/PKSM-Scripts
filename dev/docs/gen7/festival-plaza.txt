@@ -1,0 +1,57 @@
+Festival Plaza Facility
+https://github.com/kwsch/PKHeX/blob/master/PKHeX.WinForms/Subforms/Save%20Editors/Gen7/SAV_FestivalPlaza.cs
+
+Meaning                 Offset  Length
+Type                    0x00    1
+Color                   0x01    1
+Is introduced           0x02    1
+Gender                  0x03    1
+OT Name                 0x04    0x1a
+Message Meet            0x1e    2
+Message Part            0x20    2
+Message Moved           0x22    2
+Message Disappointed    0x24    2
+Used lucky rank         0x26    1           tent bonus level
+Used lucky place        0x27    1           tent bonus type
+Used flags              0x28    4           services for sale
+Used rand stat          0x2c    4
+NPC                     0x30    4
+TrainerFesID            0x34    12
+Exchange left count     0x40    1
+
+
+-= Shops =-
+Types               Varieties       IDs
+Lottery             3               0x00-0x0e
+Haunted             3               0x0f-0x1d
+Goody               5               0x1e-0x2e
+Food                4               0x2f-0x40
+Bouncy              3               0x41-0x4f
+Fortune             7               0x50-0x64
+Dye                 8               0x65-0x7c
+Exchange (USUM)     1               0x7d-0x7f
+
+
+-= Colors =-
+Red
+Blue
+Gold
+Black
+Purple
+Yellow
+Brown
+Green
+Orange
+NavyBlue
+Pink
+White
+
+
+-= Tent Bonuses =-
+01      GTS
+02      Wonder Trade
+03      Battle Spot
+04      Festival Plaza
+05      mission
+06      lottery shop
+07      haunted house

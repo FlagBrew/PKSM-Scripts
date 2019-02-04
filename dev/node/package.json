@@ -1,0 +1,14 @@
+{
+  "name": "pksm-scripts",
+  "version": "0.1.0",
+  "description": "",
+  "main": "genScriptsDev.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "FlagBrew",
+  "dependencies": {
+    "argparse": "^1.0.10",
+    "fs-extra": "^7.0.1"
+  }
+}

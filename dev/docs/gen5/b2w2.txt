@@ -1,0 +1,261 @@
+# Black 2 / White 2
+
+Meaning                                     Offset      Length      Max Value   Increment
+- PC Layout
+    - Box Names                             0           0x3e0
+        - current box                       0           1           23
+        - box names                         0x4         0x3c0
+        - wallpapers                        0x3c4       24
+    - Box 1                                 0x400       0xff0
+    - Box 2                                 0x1400      0xff0
+    - Box 3                                 0x2400      0xff0
+    - Box 4                                 0x3400      0xff0
+    - Box 5                                 0x4400      0xff0
+    - Box 6                                 0x5400      0xff0
+    - Box 7                                 0x6400      0xff0
+    - Box 8                                 0x7400      0xff0
+    - Box 9                                 0x8400      0xff0
+    - Box 10                                0x9400      0xff0
+    - Box 11                                0xA400      0xff0
+    - Box 12                                0xB400      0xff0
+    - Box 13                                0xC400      0xff0
+    - Box 14                                0xD400      0xff0
+    - Box 15                                0xE400      0xff0
+    - Box 16                                0xF400      0xff0
+    - Box 17                                0x10400     0xff0
+    - Box 18                                0x11400     0xff0
+    - Box 19                                0x12400     0xff0
+    - Box 20                                0x13400     0xff0
+    - Box 21                                0x14400     0xff0
+    - Box 22                                0x15400     0xff0
+    - Box 23                                0x16400     0xff0
+    - Box 24                                0x17400     0xff0
+- Inventory                                 0x18400     0x9ec
+    - held items                            0x18400
+    - key items                             0x188d8
+    - TM/HM                                 0x18a24
+    - medicine                              0x18bd8
+    - berry                                 0x18c98
+- Party                                     0x18e00     0x534
+    - party count                           0x18e04     1
+    - slot 1                                0x18e08
+    - slot 2                                0x18e08
+    - slot 3                                0x18e08
+    - slot 4                                0x18e08
+    - slot 5                                0x18e08
+    - slot 6                                0x18e08
+- Trainer Data                              0x19400     0xb0
+    - OT                                    0x19404     16
+    - TID                                   0x19414     2           65535
+    - SID                                   0x19416     2           65535
+    - Geonet location                       0x1941c     2
+    - language                              0x1941e     1           8
+    - game                                  0x1941f     1
+    - gender                                0x19421     1           1
+    - played hours                          0x19424     2           999
+    - played minutes                        0x19426     1           59
+    - played seconds                        0x19427     1           59
+- Trainer position                          0x19500     0xa8
+    - season                                0x19573     1           3
+    - M                                     0x19580     4
+    - X                                     0x19586     2
+    - Z                                     0x1958a     2
+    - Y                                     0x1958e     2
+- Unity Tower, survey                       0x19600     0x1338
+    - Geonet location                       0x1a93a     2
+- Pal Pad
+    - Player data                           0x1aa00     0x7c4
+    - Friend data                           0x1b200     0xd54
+- Options / C-Gear Info                     0x1c000     0x94
+- Trainer Card                              0x1c100     0x658
+- Wondercard data                           0x1c800     0xa94
+    - WC seed                               0x1d290
+- Dream World (catalog)                     0x1d300     0x1ac
+- Chatter                                   0x1d500     0x3ec
+- Adventure info                            0x1d900     0x5c
+    - seconds to start                      0x1d934     4
+    - seconds to fame                       0x1d93c     4
+- Trainer Card records                      0x1da00     0x1e0
+- ???                                       0x1dc00     0xa8
+- Mail                                      0x1dd00     0x460
+- ???                                       0x1e200     0x1400
+- Musical                                   0x1f700     0x2a4
+- Fused Reshiram/Zekrom storage             0x1fa00     0xe0
+- IR                                        0x1fb00     0x34c
+- Event                                     0x1ff00     0x4e0
+    - Event const                           0x1ff00
+        - legendaries                       0x20119
+        - N / Shadow Triad                  0x20218
+        - N / Shadow Triad                  0x20228
+        - N / Shadow Triad                  0x202d0
+        - shiny Haxorus                     0x202d4
+    - Event flag                            0x2025e
+        - legendaries                       0x20283
+        - legendaries                       0x20287
+        - shiny Haxorus                     0x20292
+        - legendaries                       0x202b1
+        - legendaries                       0x202c2
+        - legendaries                       0x202ce
+        - legendaries                       0x202d0
+        - legendaries                       0x202db
+        - Funfest Missions                  0x2038e     1           ?           0x40
+        - Fly                               0x20392
+        - N / Shadow Triad                  0x203e0
+        - N / Shadow Triad                  0x203e2
+        - shiny Haxorus                     0x203e2
+- ???                                       0x20400     0xf8
+- Tournament                                0x20500     0x2fc
+- Gimmick                                   0x20800     0x94
+- Battle Box                                0x20900     0x35c
+    - locked                                0x20c58
+- Daycare                                   0x20d00     0x1d4
+    - slot 1
+        - occupied?                         0x20d00     4
+        - EXP                               0x20de0
+    - slot 2                                0x20de4
+        - occupied?                         0x20de4     4
+        - EXP                               0x20ec4
+    - RNG seed                              0x20ecc
+- Strength boulder status                   0x20f00     0x1e0
+- Trainer2                                  0x21100     0xf0
+    - money                                 0x21100     4           999999
+    - badge flags                           0x21104     1           255
+    - people passed                         0x21120     4
+    - trainer sayings                       ?
+- Entralink (level & powers etc.)           0x21200     0x1b4
+    - Entree White level                    0x2120c     2
+    - Entree Black level                    0x2120e     2
+    - Pass Power 1                          0x213a0
+    - Pass Power 2                          0x213a1
+    - Pass Power 3                          0x213a2
+- PokeDex                                   0x21400     0x4dc
+    - owned flags                           0x21408
+    - seen flags
+        - normal male                       0x2145c
+        - normal female                     0x214b0
+        - shiny male                        0x21504
+        - shiny female                      0x21558
+    - display
+        - normal male                       0x215ac
+        - normal female                     0x21600
+        - shiny male                        0x21654
+        - shiny female                      0x216a8
+    - form seen
+        - normal                            0x216fc
+        - shiny                             0x21707
+    - form display
+        - normal                            0x21712
+        - shiny                             0x2171d
+    - language flags                        0x21728
+- Overworld info                            0x21900     0x34
+    - swarm                                 0x2192c     1           19          1
+    - repel steps                           0x2192d?
+    - repel type                            0x2192e?
+- Battle Subway
+    - play info                             0x21a00     0x3c
+    - score info                            0x21b00     0x1ac
+        - BP                                0x21b00     2           9999
+    - WiFi info                             0x21d00     0xb90
+- Online records                            0x22900     0xac
+- Entree Forest Pokémon data                0x22a00     0x850
+    - Unlock Area 9                         0x23248     1           1
+    - Unlock Areas 3-8                      0x23249     1           6           1
+    - Encryption seed                       0x2324c     4
+- ???                                       0x23300     0x284
+- ???                                       0x23600     0x10
+- PWT related data                          0x23700     0xa8
+    - records                               0x2375c
+        - Normal                            0x2375c     2
+        - Fighting                          0x2375e     2
+        - Flying                            0x23760     2
+        - Poison                            0x23762     2
+        - Ground                            0x23764     2
+        - Rock                              0x23766     2
+        - Bug                               0x23768     2
+        - Ghost                             0x2376a     2
+        - Steel                             0x2376c     2
+        - Fire                              0x2376e     2
+        - Water                             0x23770     2
+        - Grass                             0x23772     2
+        - Electric                          0x23774     2
+        - Psychic                           0x23776     2
+        - Ice                               0x23778     2
+        - Dragon                            0x2377a     2
+        - Dark                              0x2377c     2
+        - Champion                          0x2377e     2
+        - Driftveil                         0x23780     2
+        - Unova                             0x23782     2
+        - Kanto                             0x23784     2
+        - Johto                             0x23786     2
+        - Hoenn                             0x23788     2
+        - Sinnoh                            0x2378a     2
+        - World                             0x2378c     2
+        - Rental                            0x2378e     2
+        - Rental Master                     0x23790     2
+        - Mix                               0x23792     2
+        - Mix Master                        0x23794     2
+- ???                                       0x23800     0x16c
+- ???                                       0x23a00     0x80
+- Hollow / Rival                            0x23b00     0xfc
+- Join Avenue                               0x23c00     0x16a8
+    - Shop 1
+        - level                             0x24759     1           9
+        - experience                        0x2475a     2
+        - stock                             0x2475c     4
+    - Shop 2
+        - level                             0x2481d     1           9
+        - experience                        0x2481e     2
+        - stock                             0x24820     4
+    - Shop 3
+        - level                             0x248e1     1           9
+        - experience                        0x248e2     2
+        - stock                             0x248e4     4
+    - Shop 4
+        - level                             0x249a5     1           9
+        - experience                        0x249a6     2
+        - stock                             0x249a8     4
+    - Shop 5
+        - level                             0x24a69     1           9
+        - experience                        0x24a6a     2
+        - stock                             0x24a6c     4
+    - Shop 6
+        - level                             0x24b2d     1           9
+        - experience                        0x24b2e     2
+        - stock                             0x24b30     4
+    - Shop 7
+        - level                             0x24bf1     1           9
+        - experience                        0x24bf2     2
+        - stock                             0x24bf4     4
+    - Shop 8
+        - level                             0x24cb5     1           9
+        - experience                        0x24cb6     2
+        - stock                             0x24cb8     4
+    - 7 day promotion                       0x24fdc
+    - 7 day promotion                       0x24fde
+- Medal data                                0x25300     0x498
+    - cleared first Funfest Mission         0x2538e     1           0x20        0x20
+- Key-related data                          0x25800     0x60
+    - Obtained Easy Key                     0x25828     4
+    - Obtained Challenge Key                0x2582c     4
+    - Obtained City Key                     0x25830     4
+    - Obtained Iron Key                     0x25834     4
+    - Obtained Iceberg Key                  0x25838     4
+    - Unlock Easy Key                       0x2583c     4
+    - Unlock Challenge Key                  0x25840     4
+    - Unlock City Key                       0x25844     4
+    - Unlock Iron Key                       0x25848     4
+    - Unlock Iceberg Key                    0x2584c     4
+    - ID                                    0x2585c     4
+- Festa Missions                            0x25900     0xfc
+    - Funfest Mission data?                 0x25900     39*4
+    - Funfest Mission hosted                0x259f0     2
+    - Funfest Mission participated          0x259f2     2
+    - Funfest Mission completed             0x259f4     2
+    - Funfest Mission top scores            0x259f6     2
+    - Entree White experience               0x259f8     1
+    - Entree Black experience               0x259f9     1
+    - Funfest Mission most participants     0x259fa     1
+- ???                                       0x25a00     0x3e4
+- Dream Radar?                              0x25e00     0xf0
+- Checksums                                 0x25f00     0x94
+- C-Gear data                               0x52800

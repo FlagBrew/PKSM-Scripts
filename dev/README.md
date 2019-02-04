@@ -22,21 +22,21 @@ To start creating scripts for PKSM you will need to make sure you have the follo
 
 ### PC
 - [Python 3](https://www.python.org/downloads/release/python-370/) or [Node.js](https://nodejs.org)
-    - `Python` If already have Python 3 installed, make sure you have the argparse module as well: `sudo pip3 install argparse`
 - [PKSM-Scripts source code](https://github.com/FlagBrew/PKSM-Scripts)
 - [PKHeX](https://projectpokemon.org/home/files/file/1-pkhex/) - A Pokémon save editor for Windows written in C#
     - For those on Mac/Linux there is a Mono build
 - hex editor
     - Windows: [HxD](https://mh-nexus.de/en/hxd/)
     - Mac: [iHex](https://itunes.apple.com/us/app/ihex-hex-editor/id909566003?mt=12)
-    - Linux: ?
+    - Linux: [Bless](https://github.com/bwrsandman/Bless)
 
 ### 3DS
 - [PKSM](https://github.com/FlagBrew/PKSM/releases) -- v5.1.0 or later
+    - For C scripts you will need v6.0.0 or later, which requires CFW
 - Save manager app for Homebrew/CFW
     - `CFW` - [Checkpoint](https://github.com/FlagBrew/Checkpoint/releases) - works with both 3DS and DS games
-    - `Homebrew` - [JKSM](http://steelminer.jisagi.net/files/JKSM.zip) - for 3DS games (thanks to the [Steelminer guide](http://steelminer.jisagi.net/) for this download link)
-    - `Homebrew` - [TWLSaveTool](https://github.com/TuxSH/TWLSaveTool/releases) - for DS games
+    - `Homebrew (hax)` - [JKSM](http://steelminer.jisagi.net/files/JKSM.zip) - for 3DS games (thanks to the [Steelminer guide](http://steelminer.jisagi.net/) for this download link)
+    - `Homebrew (hax)` - [TWLSaveTool](https://github.com/TuxSH/TWLSaveTool/releases) - for DS games
 
 --------------------------------------------------
 
@@ -67,7 +67,7 @@ To create entirely new scripts you will need the following data:
 
 ### Finding Offsets
 There are a few options for finding the offset(s) you want to edit in the save files:
-- This folder contains a consolidation of much of the save offset info from PKHeX's source code and Project Pokémon's Tech Doc pages. While it may not cover everything, it should at least give you an idea of where to look when searching for your offset manually
+- The [`docs`](https://github.com/FlagBrew/PKSM-Scripts/tree/master/dev/docs) folder contains a consolidation of much of the save offset info from PKHeX's source code and Project Pokémon's Tech Doc pages. While it may not cover everything, it should at least give you an idea of where to look when searching for your offset manually
 - [PKHeX's source code](https://github.com/kwsch/PKHeX) - it helps if you can read C# code (another C-like language works too) and understand the hexadecimal system
 - [Project Pokémon's Technical Documentation pages](https://projectpokemon.org/docs/)
 - search for the offset manually
@@ -133,11 +133,13 @@ If you want your script to be added to the repo so it can be included in the nex
 --------------------------------------------------
 
 ## PKSMScript Syntax
-`PKSMScript.py [-h] output [-i ofs len pld rpt]`
-> You can use `PKSMScript.py -h` to view PKSMScript's own documentation
+`PKSMScript.py [-h] output [-d subdir] [-i ofs len pld rpt]`<br />
+`PKSMScript.js [-h] output [-d subdir] [-i ofs len pld rpt]`
+> You can use `PKSMScript.py -h` (Python) or `PKSMScript.js -h` (Node.js) to view PKSMScript's own documentation
 
 To create completely new scripts, you will need to find the following values:
 - `output` -- the name of your new script
+- `-d subdir` -- denotes an optional subdirectory to place the compiled script in
 - `-i` -- denotes the beginning of input values (can be repeated, along with extra sets of `ofs`, `len`, `pld`, and `rpt` values, to change more than one offset with a single script)
 - `ofs` -- the offset (location) in the game's save of the value you want to edit
 - `len` -- how many bytes (offsets) need to be written over
@@ -145,4 +147,4 @@ To create completely new scripts, you will need to find the following values:
 - `rpt` -- how many times you want `pld` to be written to the save in succession
 
 ### Examples
-Examples can be found [here](../src/scriptsUSUM.txt).
+Examples can be found [here](https://github.com/FlagBrew/PKSM-Scripts/blob/master/src/scriptsUSUM.txt).

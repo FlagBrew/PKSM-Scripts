@@ -1,70 +1,64 @@
 # Syntax: "Name of script" -i <offset> <length> <payload (integer or file path)> <repeat>
-"Save language to JPN" -i 0x1402D 1 0x1 1
-"Save language to ENG" -i 0x1402D 1 0x2 1
-"Save language to FRE" -i 0x1402D 1 0x3 1
-"Save language to ITA" -i 0x1402D 1 0x4 1
-"Save language to GER" -i 0x1402D 1 0x5 1
-"Save language to SPA" -i 0x1402D 1 0x7 1
-"Save language to KOR" -i 0x1402D 1 0x8 1
 "Clear Mystery Gift data" -i 0x1CC00 1 0x0 5692
 "Set max money" -i 0x4208 4 9999999 1
-"Mass inject - living dex" -i 0x33000 186064 "data/inject/Gen6_living.bin" 1 -i 0x15008 0xc1e "data/dex/ORAS_Complete.bin" 1
-"Mass inject - ITA rBreedingDitto" -i 0x33000 0x1b30 "data/inject/Gen6_rBreedingDitto_ITA.bin" 1
-"Mass inject - SPA rBreedingDitto" -i 0x33000 0x1b30 "data/inject/Gen6_rBreedingDitto_SPA.bin" 1
-"Mass inject - 10th Anniversary" -i 0x33000 0x1b30 "data/inject/Gen6_10th_Anniversary.bin" 1
-"Mass inject - Colosseum" -i 0x33000 0x3660 "data/inject/Gen6_Colosseum.bin" 1
-"Mass inject - Dream Radar" -i 0x33000 0x1b30 "data/inject/Gen6_Dream_Radar.bin" 1
-"Mass inject - Entree Forest" -i 0x33000 0x1b30 "data/inject/Gen6_Entree_Forest.bin" 1
-"Mass inject - KOR events" -i 0x33000 0x1b30 "data/inject/Gen6_KOR_events.bin" 1
-"Mass inject - N's Pokemon" -i 0x33000 0x1b30 "data/inject/Gen6_N.bin" 1
-"Mass inject - Oblivia Deoxys" -i 0x33000 0x1b30 "data/inject/Gen6_Oblivia_Deoxys.bin" 1
-"Mass inject - XD" -i 0x33000 0x5190 "data/inject/Gen6_XD.bin" 1
+"Living dex" -d "inject" -i 0x33000 186064 "data/inject/Gen6_living.bin" 1 -i 0x15008 0xc1e "data/dex/ORAS_Complete.bin" 1
+"ITA rBreedingDitto" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_rBreedingDitto_ITA.bin" 1
+"SPA rBreedingDitto" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_rBreedingDitto_SPA.bin" 1
+"10th Anniversary" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_10th_Anniversary.bin" 1
+"Colosseum" -d "inject" -i 0x33000 0x3660 "data/inject/Gen6_Colosseum.bin" 1
+"Dream Radar" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_Dream_Radar.bin" 1
+"Entree Forest" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_Entree_Forest.bin" 1
+"KOR events" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_KOR_events.bin" 1
+"N's Pokemon" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_N.bin" 1
+"Oblivia Deoxys" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_Oblivia_Deoxys.bin" 1
+"XD" -d "inject" -i 0x33000 0x5190 "data/inject/Gen6_XD.bin" 1
 "Set max Battle Points" -i 0x4230 2 9999 1
 "Set max Current Pokemiles" -i 0x1F4FC 4 9999999 1
 "Unlock all lv1-3 O-Powers" -i 0x17400 66 "data/OPower.bin" 1
-"Unlock all O-Powers (illegal)" -i 0x17400 66 "data/OPower_illegal.bin" 1
+"Unlock all O-Powers" -d "illegal" -i 0x17400 66 "data/OPower_illegal.bin" 1
+"All legendaries" -d "reset" -i 0x14d11 1 0x0F 1 -i 0x14d12 1 0x00 1 -i 0x14d13 1 0x06 1 -i 0x14d16 1 0xDC 1 -i 0x14d1b 1 0xEF 1 -i 0x14d1c 1 0xEB 1 -i 0x14d30 1 0x22 1 -i 0x14d4c 1 0x61 1 -i 0x14d4d 1 0x7E 1 -i 0x14d71 1 0xF7 1 -i 0x14d72 1 0x8C 1 -i 0x14d73 1 0x8F 1 -i 0x14e5b 1 0x00 1 -i 0x14e5c 1 0x00 1 -i 0x14e5d 1 0x00 1 -i 0x14e5e 1 0x00 1 -i 0x14e5f 1 0x00 1 -i 0x14e68 1 0x17 1
+"Delta Episode" -d "reset" -i 0x483f 1 0x12 1 -i 0x14d17 1 0xc0 1 -i 0x14d30 1 0x23 1 -i 0x14d35 1 0x06 1 -i 0x14d3f 1 0xff 1 -i 0x14d47 1 0xef 1 -i 0x14d51 1 0xfd 1 -i 0x14d54 1 0xf8 1 -i 0x14d55 1 0xf0 1 -i 0x14d56 1 0xcb 1 -i 0x14d59 1 0x80 1 -i 0x14d5a 1 0x8d 1 -i 0x14d5b 1 0xff 1 -i 0x14d6a 1 0xf7 1 -i 0x14d6e 1 0xff 1 -i 0x14d6f 1 0xd7 1 -i 0x14d70 1 0x8a 1 -i 0x14d73 1 0x8d 1 -i 0x14e45 1 0xfc 1 -i 0x14e51 1 0x01 1 -i 0x14e59 1 0x7f 1 -i 0x14e5f 1 0x04 1 -i 0x14e65 1 0x3e 1 -i 0x14e69 1 0x99 1
+"Give all berries 99x" -d "items" -i 0xE70 268 "data/ORAS_AllBerries.bin" 1
+"Give all items 99x" -d "items" -i 0x400 1076 "data/ORAS_AllItems.bin" 1
+"Give all items 99x" -d "illegal" -i 0x400 1220 "data/ORAS_AllItems_illegal.bin" 1
+"Give all medicines 99x" -d "items" -i 0xD70 216 "data/ORAS_AllMedicines.bin" 1
+"All TMs and HMs owned" -d "items" -i 0xBC0 428 "data/ORAS_AllTMHM.bin" 1
+"Items slot 1 - Heart Scale x999" -d "items" -i 0x400 2 93 1 -i 0x402 2 999 1
+"Items slot 1 - Max Repel x999" -d "items" -i 0x400 2 77 1 -i 0x402 2 999 1
+"Medicine slot 1 - PP Max x999" -d "items" -i 0xD70 2 53 1 -i 0xD72 2 999 1
+"Medicine slot 1 - Rare Candy x999" -d "items" -i 0xD70 2 50 1 -i 0xD72 2 999 1
+"Medicine slots 1-6 - stat vitamins x999" -d "items" -i 0xD70 2 45 1 -i 0xD72 2 999 1 -i 0xD74 2 46 1 -i 0xD76 2 999 1 -i 0xD78 2 47 1 -i 0xD7A 2 999 1 -i 0xD7C 2 48 1 -i 0xD7E 2 999 1 -i 0xD80 2 49 1 -i 0xD82 2 999 1 -i 0xD84 2 52 1 -i 0xD86 2 999 1
+"Items slot 1 x999" -d "items" -i 0x402 2 999 1
+"Medicine slot 1 x999" -d "items" -i 0xD72 2 999 1
+"Berries slot 1 x999" -d "items" -i 0xE72 2 999 1
+"Language entries" -d "dex" -i 0x15400 1 0xff 0x276 -i 0x15676 1 0x7f 1
+"Hoenn seen" -d "dex" -i 0x15068 0xbbe "data/dex/ORAS_Hoenn_seen.bin" 1
+"Hoenn owned" -d "dex" -i 0x15008 0xc1e "data/dex/ORAS_Hoenn_owned.bin" 1
+"National seen" -d "dex" -i 0x15068 0xbbe "data/dex/ORAS_National_seen.bin" 1
+"National owned" -d "dex" -i 0x15008 0xc1e "data/dex/ORAS_National_owned.bin" 1
+"Complete" -d "dex" -i 0x15008 0xc1e "data/dex/ORAS_Complete.bin" 1
+"Fill Dex - Complete" -d "illegal" -i 0x15008 0xc1e "data/dex/ORAS_Complete_illegal.bin" 1
 "Renew 1st WonderCard" -i 0x1CD52 1 1 1
 "Renew 2nd WonderCard" -i 0x1CE5A 1 1 1
 "Renew 3rd WonderCard" -i 0x1CF62 1 1 1
-"Reset all legendaries" -i 0x14d11 1 0x0F 1 -i 0x14d12 1 0x00 1 -i 0x14d13 1 0x06 1 -i 0x14d16 1 0xDC 1 -i 0x14d1b 1 0xEF 1 -i 0x14d1c 1 0xEB 1 -i 0x14d30 1 0x22 1 -i 0x14d4c 1 0x61 1 -i 0x14d4d 1 0x7E 1 -i 0x14d71 1 0xF7 1 -i 0x14d72 1 0x8C 1 -i 0x14d73 1 0x8F 1 -i 0x14e5b 1 0x00 1 -i 0x14e5c 1 0x00 1 -i 0x14e5d 1 0x00 1 -i 0x14e5e 1 0x00 1 -i 0x14e5f 1 0x00 1 -i 0x14e68 1 0x17 1
-"Reset Delta Episode" -i 0x483f 1 0x12 1 -i 0x14d17 1 0xc0 1 -i 0x14d30 1 0x23 1 -i 0x14d35 1 0x06 1 -i 0x14d3f 1 0xff 1 -i 0x14d47 1 0xef 1 -i 0x14d51 1 0xfd 1 -i 0x14d54 1 0xf8 1 -i 0x14d55 1 0xf0 1 -i 0x14d56 1 0xcb 1 -i 0x14d59 1 0x80 1 -i 0x14d5a 1 0x8d 1 -i 0x14d5b 1 0xff 1 -i 0x14d6a 1 0xf7 1 -i 0x14d6e 1 0xff 1 -i 0x14d6f 1 0xd7 1 -i 0x14d70 1 0x8a 1 -i 0x14d73 1 0x8d 1 -i 0x14e45 1 0xfc 1 -i 0x14e51 1 0x01 1 -i 0x14e59 1 0x7f 1 -i 0x14e5f 1 0x04 1 -i 0x14e65 1 0x3e 1 -i 0x14e69 1 0x99 1
-"Give all berries 99x" -i 0xE70 268 "data/ORAS_AllBerries.bin" 1
-"Give all items 99x" -i 0x400 1076 "data/ORAS_AllItems.bin" 1
-"Give all items 99x (illegal)" -i 0x400 1220 "data/ORAS_AllItems_illegal.bin" 1
-"Give all medicines 99x" -i 0xD70 216 "data/ORAS_AllMedicines.bin" 1
-"All TMs and HMs owned" -i 0xBC0 428 "data/ORAS_AllTMHM.bin" 1
-"Items slot 1 - Heart Scale x999" -i 0x400 2 93 1 -i 0x402 2 999 1
-"Items slot 1 - Max Repel x999" -i 0x400 2 77 1 -i 0x402 2 999 1
-"Medicine slot 1 - PP Max x999" -i 0xD70 2 53 1 -i 0xD72 2 999 1
-"Medicine slot 1 - Rare Candy x999" -i 0xD70 2 50 1 -i 0xD72 2 999 1
-"Medicine slots 1-6 - stat vitamins x999" -i 0xD70 2 45 1 -i 0xD72 2 999 1 -i 0xD74 2 46 1 -i 0xD76 2 999 1 -i 0xD78 2 47 1 -i 0xD7A 2 999 1 -i 0xD7C 2 48 1 -i 0xD7E 2 999 1 -i 0xD80 2 49 1 -i 0xD82 2 999 1 -i 0xD84 2 52 1 -i 0xD86 2 999 1
-"Items slot 1 x999" -i 0x402 2 999 1
-"Medicine slot 1 x999" -i 0xD72 2 999 1
-"Berries slot 1 x999" -i 0xE72 2 999 1
-"Set Vivillon Icy Snow form" -i 0x4244 1 0 1
-"Set Vivillon Polar form" -i 0x4244 1 1 1
-"Set Vivillon Tundra form" -i 0x4244 1 2 1
-"Set Vivillon Continental form" -i 0x4244 1 3 1
-"Set Vivillon Garden form" -i 0x4244 1 4 1
-"Set Vivillon Elegant form" -i 0x4244 1 5 1
-"Set Vivillon Meadow form" -i 0x4244 1 6 1
-"Set Vivillon Modern form" -i 0x4244 1 7 1
-"Set Vivillon Marine form" -i 0x4244 1 8 1
-"Set Vivillon Archipelago form" -i 0x4244 1 9 1
-"Set Vivillon High-Plains form" -i 0x4244 1 10 1
-"Set Vivillon Sandstorm form" -i 0x4244 1 11 1
-"Set Vivillon River form" -i 0x4244 1 12 1
-"Set Vivillon Monsoon form" -i 0x4244 1 13 1
-"Set Vivillon Savannah form" -i 0x4244 1 14 1
-"Set Vivillon Sun form" -i 0x4244 1 15 1
-"Set Vivillon Ocean form" -i 0x4244 1 16 1
-"Set Vivillon Jungle form" -i 0x4244 1 17 1
-"Set Vivillon Fancy form" -i 0x4244 1 18 1
-"Set Vivillon Pokeball form" -i 0x4244 1 19 1
-"Fill Dex - language entries" -i 0x15400 1 0xff 0x276 -i 0x15676 1 0x7f 1
-"Fill Dex - Hoenn seen" -i 0x15068 0xbbe "data/dex/ORAS_Hoenn_seen.bin" 1
-"Fill Dex - Hoenn owned" -i 0x15008 0xc1e "data/dex/ORAS_Hoenn_owned.bin" 1
-"Fill Dex - National seen" -i 0x15068 0xbbe "data/dex/ORAS_National_seen.bin" 1
-"Fill Dex - National owned" -i 0x15008 0xc1e "data/dex/ORAS_National_owned.bin" 1
-"Fill Dex - Complete" -i 0x15008 0xc1e "data/dex/ORAS_Complete.bin" 1
-"Fill Dex - Complete (illegal)" -i 0x15008 0xc1e "data/dex/ORAS_Complete_illegal.bin" 1
+"Battle Maison Singles - 19" -d "maison" -i 0x1BBC0 2 19 1
+"Battle Maison Doubles - 19" -d "maison" -i 0x1BBC8 2 19 1
+"Battle Maison Triples - 19" -d "maison" -i 0x1BBD0 2 19 1
+"Battle Maison Rotation - 19" -d "maison" -i 0x1BBD8 2 19 1
+"Battle Maison Multi - 19" -d "maison" -i 0x1BBE0 2 19 1
+"Battle Maison Super Singles - 49" -d "maison" -i 0x1BBC2 2 49 1
+"Battle Maison Super Doubles - 49" -d "maison" -i 0x1BBCA 2 49 1
+"Battle Maison Super Triples - 49" -d "maison" -i 0x1BBD2 2 49 1
+"Battle Maison Super Rotation - 49" -d "maison" -i 0x1BBDA 2 49 1
+"Battle Maison Super Multi - 49" -d "maison" -i 0x1BBE2 2 49 1
+"All Mirage Forests" -i 0x307D4 1 1 1 -i 0x307D8 1 2 1 -i 0x307DC 1 3 1 -i 0x307E0 1 4 1 -i 0x307E4 1 5 1 -i 0x307E8 1 6 1 -i 0x307EC 1 7 1 -i 0x307F0 1 8 1 -i 0x307F4 1 9 1 -i 0x307F8 1 0 1
+"All Mirage Caves" -i 0x307D4 1 1 1 -i 0x307D8 1 10 1 -i 0x307DC 1 11 1 -i 0x307E0 1 12 1 -i 0x307E4 1 13 1 -i 0x307E8 1 14 1 -i 0x307EC 1 15 1 -i 0x307F0 1 16 1 -i 0x307F4 1 17 1 -i 0x307F8 1 0 1
+"All Mirage Islands" -i 0x307D4 1 1 1 -i 0x307D8 1 18 1 -i 0x307DC 1 19 1 -i 0x307E0 1 20 1 -i 0x307E4 1 21 1 -i 0x307E8 1 22 1 -i 0x307EC 1 23 1 -i 0x307F0 1 24 1 -i 0x307F4 1 25 1 -i 0x307F8 1 0 1
+"All Mirage Mountains" -i 0x307D4 1 1 1 -i 0x307D8 1 26 1 -i 0x307DC 1 27 1 -i 0x307E0 1 28 1 -i 0x307E4 1 29 1 -i 0x307E8 1 30 1 -i 0x307EC 1 31 1 -i 0x307F0 1 32 1 -i 0x307F4 1 33 1 -i 0x307F8 1 0 1
+"Supreme Honor Pokepuffs" -i 0x00000 1 22 100
+"Pokemon Link - Bank Celebi" -i 0x21000 2630 "data/link/LINK_Celebi.bin" 1
+"Pokemon Link - HA Johto Starters" -i 0x21000 2630 "data/link/LINK_Johto_Starters.bin" 1
+"Pokemon Link - HA Regi Trio" -i 0x21000 2630 "data/link/LINK_Regi_Trio.bin" 1
+"Pokemon Link - Demo Glalie" -i 0x21000 2630 "data/link/LINK_Glalie.bin" 1
+"Pokemon Link - Demo Steelix" -i 0x21000 2630 "data/link/LINK_Steelix.bin" 1
+"Pokemon Link - 9999 BP & 9999 Pokemiles" -i 0x21000 2630 "data/link/LINK_BP_Pokemiles.bin" 1

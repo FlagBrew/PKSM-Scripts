@@ -10,14 +10,19 @@
     - [Fill Dex Scripts](#fill-dex-scripts)
     - [Item Scripts](#item-scripts)
     - [Reset Scripts](#reset-scripts)
+    - [Battle Facility Scripts](#battle-facility-scripts)
+    - [Black City / White Forest](#black-city--white-forest)
     - [Other Scripts](#other-scripts)
 - [Making Scripts](#making-scripts)
 - [Credits](#credits)
 - [Script file format](#script-file-format)
 
 ## Installing Scripts
-1. Download the [latest release](https://github.com/FlagBrew/PKSM-Scripts/releases/latest)
-2. Extract the contents and copy the `scripts` folder to your SD card so that its path is `sd:/3ds/PKSM/scripts`
+If you're using PKSM v6.0.0 or later then you already have most (if not all) scripts already installed
+
+If you're still using PKSM v5.1.x (which is no longer receiving support), do the following:
+1. Download the `scripts.7z` from [this release](https://github.com/FlagBrew/PKSM-Scripts/releases/tag/v1.1)
+2. Extract the contents and copy the `scripts` folder to your SD card so that its path is `/3ds/PKSM/scripts`
 
 ## Legality Warning
 >There is risk to using some of these scripts, *particularly on the most recent games* (US/UM and Su/Mo).
@@ -57,6 +62,7 @@ These are notes and details that may be useful to know about scripts that couldn
         - Gen 7: 27 boxes
     - **Colosseum**: 2 boxes
     - **XD**: 3 boxes
+    - **PKX injector**: 1 slot for every `.pk*` or `.pb7` file in `/3ds/PKSM/inject`
     - everything else: 1 box
 - Not all Pokémon in the mass injection scripts may be legal
 - Only the "Living Dex" scripts update your dex. If you want the contents of a mass inject script to be registered but don't want the full Fill Dex, do one of the following:
@@ -89,6 +95,7 @@ These are notes and details that may be useful to know about scripts that couldn
 
 ### Item Scripts
 - `SM, USUM` **slot 1 x897-960**: due to the way items are stored in Gen 7 saves and the current limitations of PKSM's scripts, the quantity of the item in the pouch's first slot is set to something in the range of 897 to 960 (depends on the former quantity) rather than 999 like in past generations
+- `BW, B2W2` **Item slot 1 - Pass Orb x65535**: this was only added because the MAX level Pass Powers require 9999 to use, which is more than existing scripts give. Also note that the game will display the amount weirdly, like `?35`
 - `Gen IV, V, VI` **All TMs and HMs**: fills your TM pouch with *all* TMs and HMs, which may cause problems with story progression
 
 ### Reset Scripts
@@ -100,26 +107,85 @@ These are notes and details that may be useful to know about scripts that couldn
 - `USUM` **Reset Janitor Event**: resets the event that happens when you talk to the janitor in Hau'oli Mall
 - `USUM` **Reset Shiny Exeggcute Battle**: resets the battle against the Poni Island trainer with the shiny Exeggcute
 - `USUM` **Remove Stakataka and Blacephalon**: the reset scripts for these two cause them to respawn indefinitely after capture/defeat so this script was made to allow users to end that if they want
+- `USUM` **Reset Red and Blue**: resets initial Battle Tree event in which you battle Red or Blue
 - `ORAS` **Reset Delta Episode**: resets back to before the battle with Wallace in front of Sky Pillar
+- `BW, B2W2` **Reset Geonet**: allows you to change the location you registered on the Geonet
+- `B2W2` **Reset N and Shadow Triad**: allows you to rematch the trainers without waiting for the season to change
+- `HGSS` **Reset Sinjoh Ruins**: resets the event where you take an Arceus to the Ruins of Alph and eventually receive a lv1 Dialga/Palkia/Giratina holding its respective Orb
+- `HGSS` **Reset Red**: respawns Red at Mt. Silver without having to defeat the Elite Four
 - `DP` **Set all legendaries battlable/disappeared**: same as **Reset [pokemon]** above
 
+### Battle Facility Scripts
+- `DP, PT, HGSS, XY, ORAS, SM, USUM` **Streak**: sets the current streak to just before a battle with the facility's leader
+- `PT, HGSS` **Battle Factory Max Trades**: This will set your trade count to 9999. The more trades you do, the better Pokemon you can choose to rent at the start
+- `PT, HGSS` **Battle Castle Points**: This will set your CP to 9999, allowing you to buy as many upgrades, items, heals, skips etc as you want. Note, you don't unlock the ability to skip a battle until you win 21 battles.
+
+### Black City / White Forest
+These codes fill all the settlement's slots in your game with predefined residents as described below. You can find details about what a particular resident provides on Bulbapedia's pages on [Black City](https://bulbapedia.bulbagarden.net/wiki/Black_City) and [White Forest](https://bulbapedia.bulbagarden.net/wiki/White_Forest).
+
+`Front` means you will see them in your game, `Back` means others will see them when they connect to your game via Entralink
+
+| Resident            | Set 1 | Set 2 | Set 3 |
+| ------------------- | ----- | ----- | ----- |
+| Ace Trainer Vincent | Front | Back  | -     |
+| Battle Girl Karenna | Front | Back  | -     |
+| Black Belt Ryder    | Front | Back  | -     |
+| Clerk Britney       | Front | Back  | -     |
+| Clerk Doug          | Front | Back  | -     |
+| Lass Miki           | Front | Back  | -     |
+| Roughneck Dave      | Front | Back  | -     |
+| School Kid Leo      | Front | Back  | -     |
+| School Kid Silvia   | Front | Back  | -     |
+| Youngster Robbie    | Front | Back  | -     |
+| Backpacker Emi      | Back  | -     | Front |
+| Backpacker Herman   | Back  | -     | Front |
+| Clerk Collin        | Back  | -     | Front |
+| Pkm Ranger Eliza    | Back  | -     | Front |
+| Pkm Ranger Ralph    | Back  | -     | Front |
+| School Kid Shane    | Back  | -     | Front |
+| Scientist Jacques   | Back  | -     | Front |
+| Socialite Grace     | Back  | -     | Front |
+| Veteran Ken         | Back  | -     | Front |
+| Veteran Rosa        | Back  | -     | Front |
+| Ace Trainer Lena    | -     | Front | Back  |
+| Backpacker Carlos   | -     | Front | Back  |
+| Backpacker Molly    | -     | Front | Back  |
+| Clerk Piper         | -     | Front | Back  |
+| Gentleman Frederic  | -     | Front | Back  |
+| Hiker Gene          | -     | Front | Back  |
+| Lady Lynette        | -     | Front | Back  |
+| Nursery Aide Miho   | -     | Front | Back  |
+| Rich Boy Pierce     | -     | Front | Back  |
+| Scientist Marie     | -     | Front | Back  |
+
 ### Other Scripts
+- `SM, USUM` **Shop 6 Tent Bonus**: set which bonus is active from the tent shop located in slot 6 (requires a tent shop to be in that slot)
 - `USUM` **Set 100 hatched eggs**: set the number of hatched eggs to 100 so that you can just talk to the stats judge to unlock IV checking in the PC
 - `USUM` **Set Sun/Moon time**: sets the in-game time of day, to allow access to time limited events (only available during day/night)
-- `DP, Pt` **Set 32 people met Underground**: meeting 32 people in the Underground is one of the requirements to encounter Spiritomb
+- `XY, ORAS` **Supreme Honor Pokepuffs**: fill all 100 Pokepuff slots with Supreme Honor Pokepuffs
+- `XY, ORAS` **Pokemon Link**: These codes will allow you to acquire these event Pokemon from the Pokemon Link on the main menu. Until you claim it in-game, using more than one at a time will overwrite any you've already injected. If you care about legality, Celebi can only come from X & Y and Glalie and Steelix can only be received from ORAS. For some reason, trying to inject the ORAS Demo Pokemon won't work more than once.
+- `ORAS` **Mirage Spots**: Sets the available Mirage Spots to the set selected, all of which also include Crescent Isle where you can find Cresselia. Spots will change when the date changes, and may change if you pass people through the PSS
+- `BW, B2W2` **Pass Power MAX**: changes your currently equipped Pass Power. These MAX versions are as powerful as Lv3 and last for 1 full hour, but cost 9999 Pass Orbs to activate so you will need to use these along with the **Items slot 1 - Pass Orb x65535** script
+- `BW, B2W2` **Season**: changes the current season of the save -- Note that changing area (leaving a building/cave, changing route, etc.) will update the season to match the system's current date
+- `B2W2` **Join Avenue - Restock All Shops**: This will refill all the shops contents and therefore, you can buy from all the shops again without having to wait for the next day.
+- `B2W2` **Join Avenue - 7 Day Promotion**: This will cause a week long promotional event. When this code is used, for one week from when the game was last saved, all the shop's items are only half price!
+- `B2W2` **Join Avenue - Lv9 All Shops**: this code will set all of your shops to level 9 and as such, only one visitor referral will be necessary to max out each shop
+- `DP, Pt` **Fulfill Spiritomb encounter requirements**: sets everything up so that you will battle Spiritomb the next time you examine the Broken Tower / Hallowed Tower on Route 209 (between Hearthome and Solaceon)
 
 ---
 
 ## Making Scripts
-See the [docs README](./docs/README.md)
+See the [docs README](https://github.com/FlagBrew/PKSM-Scripts/blob/master/dev/README.md)
 
 ---
 
 ## Credits
 - bernardogiordano - PKSM, PKSMScript.py, dump.py, scripts
 - Lavorther - scripts
-- piepie62 - genScripts.py
-- SpiredMoth - scripts, documentation, Node.js versions of Python scripts
+- piepie62 - PKSM's picoC API, genScripts.py, scripts
+- PKMWM1 - scripts
+- PlasticJustice - scripts
+- SpiredMoth - scripts, documentation, dev scripts (all Node and some Python)
 - trainboy2019 - scripts
 - wrathsoffire - scripts
 
@@ -128,7 +194,7 @@ See the [docs README](./docs/README.md)
 ## Script file format
 
 ```
-# PKSM script structure
+# Legacy PKSM script structure
 # u8 magic[10]        // PKSMSCRIPT
 # u32 offset          // save offset to write the data to
 # u32 length          // payload length
