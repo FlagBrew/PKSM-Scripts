@@ -1,0 +1,183 @@
+# Diamond / Pearl
+
+Meaning                                     Offset      Length      Max Value
+- Adventure Info                            0
+    - seconds to start                      0x34        4
+    - seconds to fame                       0x3c        4
+- Trainer1                                  0x64
+    - OT (name)                             0x64        0x10
+    - TID                                   0x74        2           65535
+    - SID                                   0x76        2           65535
+    - money                                 0x78        4           999999
+    - gender                                0x7c        1           1
+    - language                              0x7d        1           8
+    - badges                                0x7e        1           255
+    - multiplayer avatar                    0x7f        1
+    - Game Corner coins                     0x84        2           50000
+    - Played hours                          0x86        2           999
+    - Played minutes                        0x88        1           59
+    - Played seconds                        0x89        1           59
+    - party count                           0x94        1           6
+- Party                                     0x98
+    - slot 1                                0x98
+    - slot 2                                0x184
+    - slot 3                                0x270
+    - slot 4                                0x35c
+    - slot 5                                0x448
+    - slot 6                                0x534
+- Item Pouch
+    - held item                             0x624
+    - key items                             0x8b8
+    - TMHM                                  0x980
+    - mail                                  0xb10
+    - medicine                              0xb40
+    - berry                                 0xbe0
+    - ball                                  0xce0
+    - battle                                0xd1c
+- Event const                               0xd9c
+    - Starter                               0xdfc
+    - Lotto number                          0xe14
+    - greets towards Spiritomb              0xe18
+    - Darkrai?                              0xe22
+    - total met Underground                 0xe2e
+    - Odd Keystone inserted                 0xeb0
+    - Palkia?                               0xecc
+- Event flags                               0xfdc
+    - Darkrai?                              0x1027
+    - Fly                                   0x1112
+    - has obtained Lotto prize              0x1131
+- Poketch
+    - enabled                               0x114c      1           1
+    - unlocked apps                         0x114d      1           25
+    - current app                           0x114e      1           24
+    - Apps
+        - Digital Clock                     0x114f      1           1
+        - Calculator                        0x1150      1           1
+        - Memo Pad                          0x1151      1           1
+        - Pedometer                         0x1152      1           1
+        - Pokémon List                      0x1153      1           1
+        - Friendship Checker                0x1154      1           1
+        - Dowsing Machine                   0x1155      1           1
+        - Berry Searcher                    0x1156      1           1
+        - Day Care Checker                  0x1157      1           1
+        - Pokémon History                   0x1158      1           1
+        - Counter                           0x1159      1           1
+        - Analog Watch                      0x115a      1           1
+        - Marking Map                       0x115b      1           1
+        - Link Searcher                     0x115c      1           1
+        - Coin Toss                         0x115d      1           1
+        - Move Tester                       0x115e      1           1
+        - Calendar                          0x115f      1           1
+        - Dot Artist                        0x1160      1           1
+        - Roulette                          0x1161      1           1
+        - Trainer Counter                   0x1162      1           1
+        - Kitchen Timer                     0x1163      1           1
+        - Color Changer                     0x1164      1           1
+        - Match-up Checker                  0x1165      1           1
+        - Stopwatch                         0x1166      1           1
+        - Alarm Clock                       0x1167      1           1
+    - Pedometer steps                       0x116c?     4           99999
+    - ?                                     0x1170?
+    - Dot Artist byte                       0x1175
+- Map ID                                    0x1238      2
+    - X                                     0x1240      2
+    - Y                                     0x1244      2
+- Pokédex                                   0x12dc
+    - owned flags                           0x12e0      62
+    - Deoxys forms 1                        0x131f      1
+    - seen flags                            0x1320      62
+    - Deoxys forms 2                        0x135f      1
+    - first gender                          0x1360      62
+    - second gender                         0x13a0      62
+    - forms                                 0x13e4      32
+    - form detection upgrade flag           0x1404      1           1
+    - language flags                        0x1405      14
+    - language upgrade flag                 0x1413      1           1
+    - Pokédex obtained flag                 0x1414      1           1
+    - National upgrade flag                 0x1415      1           1
+- Daycare                                   0x141c
+    - slot 1                                0x141c
+        - Exp                               0x1504      4
+    - slot 2                                0x1508
+        - Exp                               0x15f0      4
+- Berry trees                               0x1e84
+- Rival's name                              0x25a8
+- X                                         0x25fa      2
+- Y                                         0x25fe      2
+- Z                                         0x2602      2
+- Underground stats                         0x3a2c
+    - people met                            0x3a2c      4           999999
+    - gifts                                 0x3a30      4           999999
+    - spheres                               0x3a38      4           999999
+    - fossils                               0x3a3c      4           999999
+    - traps avoided                         0x3a44      4           999999
+    - traps triggered                       0x3a48      4           999999
+    - flags                                 0x3a60      4           999999
+- Fashion Case                              0x4ba8
+    - Accessories
+        - Amity Square                      0x4ba8
+        - massage                           0x4bb9
+        - Floaroma Flower Shop              0x4bc1
+        - Contest reward                    0x4bc9
+    - Backdrops                             0x4bd0
+- Mail                                      0x4bec
+- Poffin Case                               0x5050
+- Feebas fishing spots                      0x53c8      4
+- Trainer Card signature                    0x5904
+- Score                                     0x5f08      4           999999
+    - Pokémon caught                        0x5f2c      4           999999
+    - Pokémon met fishing                   0x5f30      4           999999
+    - Pokémon eggs                          0x5f34      4           999999
+    - Pokémon defeated                      0x5fac      4           999999
+- BFF                                       0x5fca
+    - Singles win record                    0x5fca      2           9999
+    - Singles win streak                    0x5fcc      2           9999
+    - Doubles win record                    0x5fce      2           9999
+    - Doubles win streak                    0x5fd0      2           9999
+    - Multi win record                      0x5fd2      2           9999
+    - Multi win streak                      0x5fd4      2           9999
+    - Link Multi win record                 0x5fd6      2           9999
+    - Link Multi win streak                 0x5fd8      2           9999
+    - Wi-Fi win record                      0x5fda      2           9999
+    - Wi-Fi win streak                      0x5fdc      2           9999
+- Contests won                              0x5fe2      2           9999
+- Ribbons                                   0x5fe6      2           9999
+- Capsules in PC                            0x6050
+- Seal                                      0x6178      80
+- BP                                        0x65f8      2           9999
+- Safari Zone Pokémon                       0x72d0      4
+- Swarm Pokémon                             0x72d4      4
+- Trophy Garden Pokémon
+    - today                                 0x72dc      1           15
+    - yesterday                             0x72de      1           15
+- Honey Trees                               0x72e4
+- GTS Pokémon                               0x73e8
+- Wondercard flags                          0xa6d0
+- Wondercard Data                           0xa7fc
+- General Block save count                  0xc0f0      2
+- General block checksum                    0xc0fe      2
+- Storage                                   0xc100
+    - current box                           0xc100      1
+    - Box 1                                 0xc104      0xff0
+    - Box 2                                 0xd0f4      0xff0
+    - Box 3                                 0xe0e4      0xff0
+    - Box 4                                 0xf0d4      0xff0
+    - Box 5                                 0x100c4     0xff0
+    - Box 6                                 0x110b4     0xff0
+    - Box 7                                 0x120a4     0xff0
+    - Box 8                                 0x13094     0xff0
+    - Box 9                                 0x14084     0xff0
+    - Box 10                                0x15074     0xff0
+    - Box 11                                0x16064     0xff0
+    - Box 12                                0x17054     0xff0
+    - Box 13                                0x18044     0xff0
+    - Box 14                                0x19034     0xff0
+    - Box 15                                0x1a024     0xff0
+    - Box 16                                0x1b014     0xff0
+    - Box 17                                0x1c004     0xff0
+    - Box 18                                0x1cff4     0xff0
+    - box names                             0x1dfe4     0x2d0
+    - wallpapers                            0x1e2b4     18
+    - save count                            0x1e2d0     2
+    - checksum                              0x1e2de     2
+- Hall of Fame block                        0x20000

@@ -1,0 +1,216 @@
+# HeartGold / SoulSilver
+
+Meaning                                     Offset      Length      Max Value   Increment
+- Adventure Info                            0
+    - seconds to start                      0x34        4
+    - seconds to fame                       0x3c        4
+- Trainer1                                  0x64
+    - OT (name)                             0x64        0x10
+    - TID                                   0x74        2           65535
+    - SID                                   0x76        2           65535
+    - money                                 0x78        4           999999
+    - gender                                0x7c        1           1
+    - language                              0x7d        1           8
+    - Johto badges                          0x7e        1           255
+    - multiplayer avatar                    0x7f        1
+    - Kanto Badges                          0x83        1           255
+    - Game Corner coins                     0x84        2           50000
+    - Played hours                          0x86        2           999
+    - Played minutes                        0x88        1           59
+    - Played seconds                        0x89        1           59
+    - party count                           0x94        1
+- Party                                     0x98
+    - slot 1                                0x98
+    - slot 2                                0x184
+    - slot 3                                0x270
+    - slot 4                                0x35c
+    - slot 5                                0x448
+    - slot 6                                0x534
+- Item Pouch
+    - held item                             0x644
+    - key item                              0x8d8
+    - TMHM                                  0x9a0
+    - mail                                  0xb34
+    - medicine                              0xb64
+    - berry                                 0xc04
+    - ball                                  0xd04
+    - battle                                0xd64
+    - first registered item                 0xde0       2
+    - second registered item                0xde2       2
+- Event const                               0xde4
+    - starter                               0xe44
+    - lotto number                          0xe5c
+    - Prints                                0xe7e
+    - legendary beasts                      0xf26
+    - Sinjoh Ruins ?                        0xfe8
+    - Sinjoh Ruins ?                        0xfea
+- Event flag                                0x10c4
+    - pokedex related                       0x10d1      1           8           8
+    - Sinjoh Ruins ?                        0x10d7
+    - legendary beasts                      0x10fd
+    - Red                                   0x110f
+    - Sinjoh Ruins ?                        0x111f
+    - Articuno                              0x1124
+    - Moltres                               0x1124
+    - Mewtwo                                0x1124
+    - Spiky-Eared Pichu                     0x103a
+    - Fly                                   0x11fa
+- M                                         0x1234      2
+    - X                                     0x123c      2
+    - Y                                     0x1240      2
+- PokeDex                                   0x12b8
+    - owned flags                           0x12bc      62
+    - Deoxys forms 1                        0x12fb      1
+    - seen flags                            0x12fc      62
+    - Deoxys forms 2                        0x133b      1
+    - first gender                          0x133c      62
+    - second gender                         0x137c      62
+    - forms                                 0x13c0      32
+    - language flags                        0x13fd      493
+    - dex upgrade 3                         0x15ed
+    - dex upgrade 1                         0x15ee
+    - dex upgrade 2                         0x15ef
+    - forms 2                               0x15f0      7
+- Daycare                                   0x15fc
+    - slot 1                                0x15fc
+        - Exp                               0x16e4      4
+    - slot 2                                0x16e8
+        - Exp                               0x17d0      4
+- Hall stat                                 0x230c
+- X                                         0x236e      2
+- Y                                         0x2372      2
+- Z                                         0x2376      2
+- Walking Pokémon
+    - X                                     0x23be
+    - Y                                     0x23c2
+    - Z                                     0x23c6
+- Fashion Case                              0x3f64
+    - Accessories                           0x3f64
+    - Backdrops                             0x3f8c
+- Mail                                      0x3fa8
+- Seal                                      0x4e20      80
+- BFF
+    - Battle Tower stats                    0x5264
+        - Singles win record                0x5264      2
+        - Singles win streak                0x5266      2
+        - Doubles win record                0x5268      2
+        - Doubles win streak                0x526a      2
+        - Multi win record                  0x526c      2
+        - Multi win streak                  0x526e      2
+        - Link Multi win record             0x5270      2
+        - Link Multi win streak             0x5272      2
+        - Wi-Fi win record                  0x5274      2
+        - Wi-Fi win streak                  0x5276      2
+    - Battle Factory stats                  0x5278
+        - Singles Lv50 win record           0x5278      2
+        - Singles Lv50 win streak           0x527a      2
+        - Singles Lv50 trade total          0x527c      2
+        - Singles Lv50 trade current        0x527e      2
+        - Singles Open win record           0x5280      2
+        - Singles Open win streak           0x5282      2
+        - Singles Open trade total          0x5284      2
+        - Singles Open trade current        0x5286      2
+        - Doubles Lv50 win record           0x5288      2
+        - Doubles Lv50 win streak           0x528a      2
+        - Doubles Open trade total          0x528c      2
+        - Doubles Open trade current        0x528e      2
+        - Doubles Open win record           0x5290      2
+        - Doubles Open win streak           0x5292      2
+        - Doubles Open trade total          0x5294      2
+        - Doubles Open trade current        0x5296      2
+        - Multi Lv50 win record             0x5298      2
+        - Multi Lv50 win streak             0x529a      2
+        - Multi Lv50 trade total            0x529c      2
+        - Multi Lv50 trade current          0x529e      2
+        - Multi Open win record             0x52a0      2
+        - Multi Open win streak             0x52a2      2
+        - Multi Open trade total            0x52a4      2
+        - Multi Open trade current          0x52a6      2
+    - Battle Hall stats                     0x52a8
+        - Singles
+            - ?                             0x52a8      4
+            - current species               0x52ac      2
+            - ?                             0x52ae
+            - ?                             0x52bc      4
+        - Doubles
+            - ?                             0x52c0      4
+            - current species               0x52c4      2
+            - ?                             0x52c6
+            - ?                             0x52d4      4
+        - Multi
+            - ?                             0x52d8      4
+            - current species               0x52dc      2
+            - ?                             0x52de
+            - ?                             0x52ec      4
+    - Battle Castle stats                   0x52f0
+        - Singles win record                0x52f0      2
+        - Singles win streak                0x52f2      2
+        - Singles points current            0x52f4      4
+        - Singles points used               0x52f8      4
+        - Singles points total              0x52fc      4
+        - Doubles win record                0x5300      2
+        - Doubles win streak                0x5302      2
+        - Doubles points current            0x5304      4
+        - Doubles points used               0x5308      4
+        - Doubles points max                0x530c      4
+        - Multi win record                  0x5310      2
+        - Multi win streak                  0x5312      2
+        - Multi points current              0x5314      4
+        - Multi points used                 0x5318      4
+        - Multi points max                  0x531c      4
+    - Battle Arcade stats                   0x5320
+        - Singles win record                0x5320      2
+        - Singles win streak                0x5322      2
+        - Doubles win record                0x5324      2
+        - Doubles win streak                0x5326      2
+        - Multi win record                  0x5328      2
+        - Multi win streak                  0x532a      2
+    - BP                                    0x5bb8      2           9999
+    - Tower Flags                           0x5bc1
+    - Factory Flags                         0x687c
+    - Hall Flags                            0x6880
+    - Castle Flags                          0x6884
+    - Arcade Flags                          0x6888
+- Swarm Pokémon                             0x68a8      4
+- Wondercard flags                          0x9d3c
+- Wondercard Data                           0x9e3c
+- Map                                       0xbae7
+- money held by mom                         0xc0d8      4           999999
+- Pokéathlon points                         0xe548      4           999999
+- Apricorn                                  0xe558
+    - Red                                   0xe558      1
+    - Yellow                                0xe559      1
+    - Blue                                  0xe55a      1
+    - Green                                 0xe55b      1
+    - Pink                                  0xe55c      1
+    - White                                 0xe55d      1
+    - Black                                 0xe55e      1
+- Pokewalker                                0xe70c
+    - unlocked courses                      0xe70c      4
+- General Block save count                  0xf618      2
+- General block checksum                    0xf626      2
+- Storage Block                             0xf700
+    - Box 1                                 0xf700      0xff0
+    - Box 2                                 0x10700     0xff0
+    - Box 3                                 0x11700     0xff0
+    - Box 4                                 0x12700     0xff0
+    - Box 5                                 0x13700     0xff0
+    - Box 6                                 0x14700     0xff0
+    - Box 7                                 0x15700     0xff0
+    - Box 8                                 0x16700     0xff0
+    - Box 9                                 0x17700     0xff0
+    - Box 10                                0x18700     0xff0
+    - Box 11                                0x19700     0xff0
+    - Box 12                                0x1a700     0xff0
+    - Box 13                                0x1b700     0xff0
+    - Box 14                                0x1c700     0xff0
+    - Box 15                                0x1d700     0xff0
+    - Box 16                                0x1e700     0xff0
+    - Box 17                                0x1f700     0xff0
+    - Box 18                                0x20700     0xff0
+    - current box                           0x21700     1
+    - Box names                             0x21708
+    - Box Wallpapers                        0x219d8
+    - save count                            0x21a00     2
+    - checksum                              0x21a0e     2
+- Hall of Fame Block                        ?
