@@ -12,9 +12,10 @@ int main(int argc, char **argv) {
     unsigned char *saveData = (unsigned char *)atoi(argv[0]);
     unsigned char version = *argv[2];
     union FeebasSeed feebasSeed;
-    unsigned int sday = *(unsigned char*)(saveData + 0x1C), 
-        smon = *(unsigned char*)(saveData + 0x18),
-        syear = (*(unsigned char*)(saveData + 0x14)) + 2000;
+    int gbo = sav_gbo();
+    unsigned int sday = *(unsigned char*)(saveData + gbo + 0x1C),
+        smon = *(unsigned char*)(saveData + gbo + 0x18),
+        syear = (*(unsigned char*)(saveData + gbo + 0x14)) + 2000;
     int xpos[4], ypos[4];
     int spot[] = {
         585, 586, 587, 588, 589, 590, 591, 592, 593, 594,
@@ -60,15 +61,15 @@ int main(int argc, char **argv) {
         1625, 1626, 1641, 1642, 1643, 1644, 1645, 1646, 1647, 1648, 1649, 1650,
         1651, 1652, 1653, 1654, 1655, 1656, 1657, 1658
     };
-		
+
     switch (version)
     {
         case 10:
         case 11:
-            feebasSeed.seed = *(unsigned long*)(saveData + 0x53C8);
+            feebasSeed.seed = *(unsigned long*)(saveData + gbo + 0x53C8);
             break;
         case 12:
-            feebasSeed.seed = *(unsigned long*)(saveData + 0x5664);
+            feebasSeed.seed = *(unsigned long*)(saveData + gbo + 0x5664);
             break;
         default:
             gui_warn("This script is only meant for", "the Sinnoh games (DPPt)");
@@ -80,7 +81,7 @@ int main(int argc, char **argv) {
         xpos[i] = (spot[(feebasSeed.part[3 - i] % 132) + (132 * i)] & 31) - 8;
         ypos[i] = (((spot[(feebasSeed.part[3 - i] % 132) + (132 * i)] & (~31)) - 576) / 32) + 1;
     }
-    
+
     char msg[50] = {'\0'};
     sprintf(&msg, "Your Feebas Tiles for %u/%u/%u (DD/MM/YYYY)", sday, smon, syear);
     gui_warn(msg, "(the day you last saved) are, as follows...");
