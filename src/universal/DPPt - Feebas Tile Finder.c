@@ -3,13 +3,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+union FeebasSeed {
+	unsigned long seed;
+	unsigned char part[4];
+};
 int main(int argc, char **argv) {
 	unsigned char *saveData = (unsigned char *)atoi(argv[0]);
     unsigned char version = *argv[2];
     int gbo = sav_gbo();
-	int seed[4];
-	int tn[4];
-	int tile[4];
+	union FeebasSeed feebasSeed;
+	unsigned int sday = *(unsigned char*)(saveData + 0x1C);
+	unsigned int smon = *(unsigned char*)(saveData + 0x18);
+	unsigned int syear = (*(unsigned char*)(saveData + 0x14)) + 2000;
 	int xpos[4];
 	int ypos[4];
 	int spot[] = {585, 586, 587, 588, 589, 590, 591, 592, 593, 594,
@@ -53,65 +58,33 @@ int main(int argc, char **argv) {
 		1587, 1588, 1589, 1590, 1591, 1592, 1593, 1594, 1609, 1610, 1611, 1612,
 		1613, 1614, 1615, 1616, 1617, 1618, 1619, 1620, 1621, 1622, 1623, 1624,
 		1625, 1626, 1641, 1642, 1643, 1644, 1645, 1646, 1647, 1648, 1649, 1650,
-		1651, 1652, 1653, 1654, 1655, 1656, 1657, 1658};
-		
+		1651, 1652, 1653, 1654, 1655, 1656, 1657, 1658};		
 	switch (version) {
 		case 10:
 		case 11:
-			seed[3] = *(unsigned char*)(saveData + 0x53C8);
-			seed[2] = *(unsigned char*)(saveData + 0x53C9);
-			seed[1] = *(unsigned char*)(saveData + 0x53CA);
-			seed[0] = *(unsigned char*)(saveData + 0x53CB);
+			feebasSeed.seed = *(unsigned long*)(saveData + 0x53C8);
 			break;
 		case 12:
-			seed[3] = *(unsigned char*)(saveData + 0x5664);
-			seed[2] = *(unsigned char*)(saveData + 0x5665);
-			seed[1] = *(unsigned char*)(saveData + 0x5666);
-			seed[0] = *(unsigned char*)(saveData + 0x5667);
+			feebasSeed.seed = *(unsigned long*)(saveData + 0x5664);
 			break;
 		default:
 			gui_warn("This script is only meant for", "the Sinnoh games (DPPt)");
 			return 1;
 	}
-	
-	if (gui_choice("Have you played and saved your game today?", "If not, the results will be incorrect!")) {
-		break;
-	} /*else {
-		return 1;
-	}*/
-	
-	tn[0] = (seed[0] % 132);
-	tn[1] = (seed[1] % 132) + (132 * 1);
-	tn[2] = (seed[2] % 132) + (132 * 2);
-	tn[3] = (seed[3] % 132) + (132 * 3);
-	
-	tile[0] = spot[tn[0]];
-	tile[1] = spot[tn[1]];
-	tile[2] = spot[tn[2]];
-	tile[3] = spot[tn[3]];
-	
-	xpos[0] = (tile[0] & 31) - 8;
-	xpos[1] = (tile[1] & 31) - 8;
-	xpos[2] = (tile[2] & 31) - 8;
-	xpos[3] = (tile[3] & 31) - 8;
-	
-	ypos[0] = (((tile[0] & (~31)) - 576) / 32) + 1;
-	ypos[1] = (((tile[1] & (~31)) - 576) / 32) + 1;
-	ypos[2] = (((tile[2] & (~31)) - 576) / 32) + 1;
-	ypos[3] = (((tile[3] & (~31)) - 576) / 32) + 1;
-	
+	for (int i = 0; i < 4; i++) {
+		xpos[i] = (spot[(feebasSeed.part[3 - i] % 132) + (132 * i)] & 31) - 8;
+		ypos[i] = (((spot[(feebasSeed.part[3 - i] % 132) + (132 * i)] & (~31)) - 576) / 32) + 1;
+	}
+	char msg[50] = {'\0'};
+	sprintf(&msg, "Your Feebas Tiles for %u/%u/%u (DD/MM/YYYY)", sday, smon, syear);
+	gui_warn(msg, "(the day you last saved) are, as follows...");
 	char first[60] = {'\0'};
 	char second[60] = {'\0'};
-	char third[60] = {'\0'};
-	char fourth[60] = {'\0'};
-	
 	sprintf(&first, "Row #%i from the top, Column #%i from the left", ypos[0], xpos[0]);
 	sprintf(&second, "Row #%i from the top, Column #%i from the left", ypos[1], xpos[1]);
-	sprintf(&third, "Row #%i from the top, Column #%i from the left", ypos[2], xpos[2]);
-	sprintf(&fourth, "Row #%i from the top, Column #%i from the left", ypos[3], xpos[3]);
-	
-	gui_warn("Your Feebas Tiles for Today are,", "as follows...");
 	gui_warn(first, second);
-	gui_warn(third, fourth);
+	sprintf(&first, "Row #%i from the top, Column #%i from the left", ypos[2], xpos[2]);
+	sprintf(&second, "Row #%i from the top, Column #%i from the left", ypos[3], xpos[3]);
+	gui_warn(first, second);
 	return 0;
 }
