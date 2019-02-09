@@ -10,13 +10,9 @@ union FeebasSeed {
 int main(int argc, char **argv) {
 	unsigned char *saveData = (unsigned char *)atoi(argv[0]);
     unsigned char version = *argv[2];
-    int gbo = sav_gbo();
 	union FeebasSeed feebasSeed;
-	unsigned int sday = *(unsigned char*)(saveData + 0x1C);
-	unsigned int smon = *(unsigned char*)(saveData + 0x18);
-	unsigned int syear = (*(unsigned char*)(saveData + 0x14)) + 2000;
-	int xpos[4];
-	int ypos[4];
+	unsigned int sday = *(unsigned char*)(saveData + 0x1C), smon = *(unsigned char*)(saveData + 0x18), syear = (*(unsigned char*)(saveData + 0x14)) + 2000;
+	int xpos[4], ypos[4];
 	int spot[] = {585, 586, 587, 588, 589, 590, 591, 592, 593, 594,
 		595, 596, 597, 598, 599, 600, 601, 602, 617, 618, 619, 620, 621, 622,
 		623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 649, 650,

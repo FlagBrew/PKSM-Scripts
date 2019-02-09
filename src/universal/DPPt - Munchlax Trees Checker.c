@@ -6,9 +6,7 @@
 int main(int argc, char **argv) {
 	unsigned char *saveData = (unsigned char *)atoi(argv[0]);
     unsigned char version = *argv[2];
-    int gbo = sav_gbo();
-    int TID;
-    int SID;
+    int TID, SID;
 	int res[4];
 	char* trees[] = {"Route 205 (Near Floaroma Town)", "Route 205 (Near Eterna City)", "Route 206 (Under Bike Path)",
 		"Route 207", "Route 208 (Near Hearthome City)", "Route 209 (Near Hallowed Tower)", "Route 210 South (Near Café Cabin)",
@@ -32,24 +30,14 @@ int main(int argc, char **argv) {
 			return 1;
 	}
 	
-	res[0] = (SID % 256) % 21;
-	res[1] = (SID / 256) % 21;
-	res[2] = (TID % 256) % 21;
-	res[3] = (TID / 256) % 21;
+	res[0] = (SID % 256) % 21; res[1] = (SID / 256) % 21; res[2] = (TID % 256) % 21; res[3] = (TID / 256) % 21;
 	
-	if (res[0] == res[1]) {
-		res[1] = (res[1] + 1) % 21;
-	} if (res[0] == res[2]) {
-		res[2] = (res[2] + 1) % 21;
-	} if (res[1] == res[2]) {
-		res[2] = (res[2] + 1) % 21;
-	} if (res[0] == res[3]) {
-		res[3] = (res[3] + 1) % 21;
-	} if (res[1] == res[3]) {
-		res[3] = (res[3] + 1) % 21;
-	} if (res[2] == res[3]) {
-		res[3] = (res[3] + 1) % 21;
-	}
+	if (res[0] == res[1]) {res[1] = (res[1] + 1) % 21;}
+	if (res[0] == res[2]) {res[2] = (res[2] + 1) % 21;}
+	if (res[1] == res[2]) {res[2] = (res[2] + 1) % 21;}
+	if (res[0] == res[3]) {res[3] = (res[3] + 1) % 21;}
+	if (res[1] == res[3]) {res[3] = (res[3] + 1) % 21;}
+	if (res[2] == res[3]) {res[3] = (res[3] + 1) % 21;}
 	
 	gui_warn("Your Munchlax trees are,", "as follows...");
 	gui_warn(trees[res[0]], trees[res[1]]);
