@@ -4,11 +4,12 @@
 1. Make sure you have [Node](https://nodejs.org) installed
 2. Make sure you have the following files from the [PKSM-Scripts repo](https://github.com/FlagBrew/PKSM-Scripts):
     - package.json
-    - saveVersion.js
+    - Sav.js
     - PKSMScript.js
     - genScriptsDev.js
     - dump.js
     - diffSave.js
+    - diffEvent.js
 3. Run the following command: `npm install`
     - This will install the NPM modules `argparse` and `fs-extra` which are needed by some of the JS files
 
@@ -50,13 +51,52 @@ genScriptsDev.js [gameVersions]
 Generate a diff of 2+ saves
 - can output to a `.txt` file if the `-o outFile` is used, otherwise diff is printed to the console
 - can diff a particular range from the saves rather than the entire thing using the `-r` flag
-
-```
-diffSave.js [-h] [-o outFile] [-r start end] saveFiles
-```
-
-Future functionality:
 - can break down Event Const and Flags (mimicking PKHeX's "FlagDiff Researcher") using the `-e` flag
+- supports passing either folders containing saves (via `-d` flag) or save files (via `-s` flag)
+
+```
+usage: diffSave.js [-h] [-o outFile] [-r start end] [-e]
+                   (-d dir [dir ...] | -s SAVES [SAVES ...])
+
+Generate a list of differences between 2 or more Gen 4-7 Pokémon save files
+
+Optional arguments:
+  -h, --help            Show this help message and exit.
+  -o outFile            File (.txt) to write diff to -- if not given, diff is
+                        written to console
+  -r start end, --range start end
+                        Specific range to limit diff to, from start
+                        (inclusive) to end (exclusive)
+  -e                    Flag to include an event diff
+  -d dir [dir ...], --dir dir [dir ...]
+                        Space separated list of directories (folders)
+                        containing files to diff
+  -s SAVES [SAVES ...], --saves SAVES [SAVES ...]
+                        Space separated list of save files to diff
+```
+
+
+### `diffEvent`
+Generate a diff of the event flags and event constants of 2+ saves (similar to PKHeX's "FlagDiff Researcher")
+- supports passing either folders containing saves (via `-d` flag) or save files (via `-s` flag)
+
+```
+usage: diffEvent.js [-h] [-o outFile]
+                    (-d dir [dir ...] | -s SAVES [SAVES ...])
+
+Generate a list of differences in the event flags and event constants of 2 or
+more Gen 4-7 Pokémon save files
+
+Optional arguments:
+  -h, --help            Show this help message and exit.
+  -o outFile            File (.txt) to write diff to -- if not given, diff is
+                        written to console
+  -d dir [dir ...], --dir dir [dir ...]
+                        Space separated list of directories (folders)
+                        containing files to diff
+  -s SAVES [SAVES ...], --saves SAVES [SAVES ...]
+                        Space separated list of save files to diff
+```
 
 
 ### `smItem`
@@ -69,19 +109,47 @@ smItem.js itemID quantity
 ## Support Scripts
 These script files aren't meant to be called directly from the command line. Instead they provide functions to be called by other scripts
 
-### `saveVersion`
+### `Sav`
 Provides a function for determining the version of a save, or at least guess it based on a save's file size.
 
 ```js
-getSaveVersion(saveSize[, saveData]);
+/**
+ * @param {Number} saveSize
+ * @param {Buffer} saveData [Optional] Buffer containing save data to determine specific save version
+ * @returns {number}
+ */
+Sav.getVersion(saveSize[, saveData]);
+
+/**
+ * @param {Buffer[]} data
+ * @returns {String} Empty string if saves are compatible, otherwise compatibility failure reason
+ */
+Sav.checkCompat(data);
+
+/**
+ * @param {String[]} fileNames
+ * @returns {Buffer[]}
+ */
+Sav.loadSaves(fileNames);
+
+/**
+ * Check if a single save file can be split into two saves
+ * Currently only returns true for Gen 4 (DPPtHGSS)
+ *
+ * @param {Buffer} data Contents of a single save file
+ * @returns {Boolean}
+ */
+Sav.canSplit(data);
+
+/**
+ * @param {String[]} saveFiles
+ * @param {Buffer[]} fileBuffs
+ */
+Sav.splitSave(saveFiles, fileBuffs);
 ```
 
 
 ## To Do
-- `diffSave`
-  - implement `-e` flag
-- `diffSave`: allow user to supply folder of saves to diff
-  - **js**: use `klaw` NPM package?
 - `dump`: Gen 4 active block awareness
 - `smItem.js`: add warning about item quantity being capped at 1023
 - `smItem`: allow item name instead of ID (currently very low priority)

@@ -4,13 +4,13 @@ __pycache__
 
 # dev tools - Node.js
 dev/**/*
-!dev/*.md
 !dev/docs/**
 !dev/python/*.py
 !dev/node/*.js
 !dev/node/package.json
 
 # local script dev stuff
+.vscode/**/*
 test
 saves
 PKSMScript.pyc

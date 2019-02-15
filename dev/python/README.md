@@ -4,11 +4,12 @@
 1. Make sure you have [Python 3](https://www.python.org/downloads/release/python-370/) installed
     - If you already have Python 3 installed, make sure you have the argparse module as well: `sudo pip3 install argparse`
 2. Make sure you have the following files from the [PKSM-Scripts repo](https://github.com/FlagBrew/PKSM-Scripts):
-    - saveVersion.py
+    - Sav.py
     - PKSMScript.py
     - genScriptsDev.py
     - dump.py
     - diffSave.py
+    - diffEvent.py
 
 ## Main Scripts
 When using these scripts, you will need to prefix the below commands with one of the following depending on your OS:
@@ -51,13 +52,50 @@ genScriptsDev.py [gameVersions]
 Generate a diff of 2+ saves
 - can output to a `.txt` file if the `-o outFile` is used, otherwise diff is printed to the console
 - can diff a particular range from the saves rather than the entire thing using the `-r` flag
-
-```
-diffSave.py [-h] [-o outFile] [-r start end] saveFiles
-```
-
-Future functionality:
 - can break down Event Const and Flags (mimicking PKHeX's "FlagDiff Researcher") using the `-e` flag
+- supports passing either folders containing saves (via `-d` flag) or save files (via `-s` flag)
+
+```
+usage: diffSave.py [-h] [-o outFile] [-r start end] [-e]
+                   (-d dir [dir ...] | -s SAVES [SAVES ...])
+
+Generate a list of differences between 2 or more Gen 4-7 Pokémon saves
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -o outFile            File (.txt) to write diff to -- if not given, diff is
+                        written to console
+  -r start end, --range start end
+                        Specific range to limit diff to, from start (included)
+                        to end (excluded)
+  -e                    Flag to include an event diff
+  -d dir [dir ...], --dir dir [dir ...]
+                        Directory (folder) containing files to diff
+  -s SAVES [SAVES ...], --saves SAVES [SAVES ...]
+                        Space separated list of save files to diff
+```
+
+
+### `diffEvent`
+Generate a diff of the event flags and event constants of 2+ saves (similar to PKHeX's "FlagDiff Researcher")
+- supports passing either folders containing saves (via `-d` flag) or save files (via `-s` flag)
+
+```
+usage: diffEvent.py [-h] [-o outFile]
+                    (-d dir [dir ...] | -s SAVES [SAVES ...])
+
+Generate a list of differences in the event flags and event constants of 2 or
+more Gen 4-7 Pokémon save files
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -o outFile            File (.txt) to write diff to -- if not given, diff is
+                        written to console
+  -d dir [dir ...], --dir dir [dir ...]
+                        Directory (folder) containing files to diff
+  -s SAVES [SAVES ...], --saves SAVES [SAVES ...]
+                        Space separated list of save files to diff
+```
 
 
 ### `smItem`
@@ -72,18 +110,19 @@ smItem.py itemID quantity
 ## Support Scripts
 These script files aren't meant to be called directly from the command line. Instead they provide functions to be called by other scripts
 
-### `saveVersion`
+### `Sav`
 Provides a function for determining the version of a save, or at least guess it based on a save's file size.
 
-```js
-getSaveVersion(saveSize[, saveData]);
+```py
+Sav.getVersion(saveSize[, saveData])
+Sav.checkCompat(data)
+Sav.loadSaves(fileNames)
+Sav.canSplit(data)
+Sav.splitSave(saveFiles, fileBuffs)
 ```
 
 
 ## To Do
-- `diffSave`
-  - implement `-e` flag
-- `diffSave`: allow user to supply folder of saves to diff
 - `dump`: Gen 4 active block awareness
 - `smItem.py`: everything
 - `smItem`: allow item name instead of ID (currently very low priority)
