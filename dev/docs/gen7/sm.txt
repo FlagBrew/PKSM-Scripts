@@ -24,7 +24,7 @@ Meaning                                     Offset      Length      Max Value   
 - (random group)                            0x1000      0x14
 - Trainer card                              0x1200      0xc0
     - TID                                   0x1200      4           65535
-    - SID                                   0x1202      4           65535       Increment
+    - SID                                   0x1202      4           65535
     - game                                  0x1204      1
     - gender                                0x1205      1           1
     - Game Sync ID                          0x1210      8

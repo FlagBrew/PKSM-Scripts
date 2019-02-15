@@ -100,9 +100,6 @@ Meaning                                     Offset      Length      Max Value   
         - legendaries                       0x202db
         - Funfest Missions                  0x2038e     1           ?           0x40
         - Fly                               0x20392
-        - N / Shadow Triad                  0x203e0
-        - N / Shadow Triad                  0x203e2
-        - shiny Haxorus                     0x203e2
 - ???                                       0x20400     0xf8
 - Tournament                                0x20500     0x2fc
 - Gimmick                                   0x20800     0x94

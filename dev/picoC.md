@@ -16,8 +16,9 @@ Header inclusion
         - B = 21, W = 20, B2 = 23, W2 = 22
         - X = 24, Y = 25, OR = 27, AS = 26
         - S = 30, M = 31, US = 32, UM = 33
+        - LGP = 42, LGE = 43
 
-### Functions Available to Scripts
+### Available Functions
 ```c
 int gui_choice(char* lineOne, char* lineTwo);
 void gui_warn(char* lineOne, char* lineTwo);
@@ -26,23 +27,50 @@ int gui_menu_20x2(char* question, int options, char** labels);
 void gui_keyboard(char* out, char* hint, int maxChars);
 void gui_numpad(int* out, char* hint, int maxDigits);
 int gui_boxes(int* fromStorage, int* box, int* slot);
+// sav and storage
 int sav_sbo();
 int sav_gbo();
 void sav_box_decrypt();
 void sav_box_encrypt();
+void sav_get_pkx(char* data, int box, int slot);
 void sav_inject_pkx(char* data, enum Generation type, int box, int slot);
 void sav_inject_ekx(char* data, enum Generation type, int box, int slot);
+void party_get_pkx(char* data, int slot);
+void bank_inject_pkx(char* data, enum Generation type, int box, int slot);
+// io
 char* current_directory();
 struct directory* read_directory(char* dir);
+// configurations
 char* cfg_default_ot();
 unsigned int cfg_default_tid();
 unsigned int cfg_default_sid();
 int cfg_default_day();
 int cfg_default_month();
 int cfg_default_year();
-int net_udp_server(char* buffer, int size, int* received);
+// networking
 char* net_ip();
-void bank_inject_pkx(char* data, enum Generation type, int box, int slot);
+int net_tcp_recv(char* buffer, int size, int* received);
+int net_tcp_send(char* ip, int port, char* buffer, int size);
+int net_udp_recv(char* buffer, int size, int* received);
+```
+
+### Other
+```c
+enum Generation {
+    GEN_FOUR,
+    GEN_FIVE,
+    GEN_SIX,
+    GEN_SEVEN,
+    GEN_LGPE
+};
+struct pkx {
+    int species;
+    int form;
+};
+struct directory {
+    int count;
+    char** files;
+};
 ```
 
 ## Differences From C90
@@ -109,7 +137,7 @@ Some discussion on this topic: * http://www.cprogramming.com/tutorial/goto.html 
 
 ### Arrays of variable size
 
-Avoid allocating arrays which size resides in a variable, for instance `char buffer[size];`, which causes issues during script execution. Use instead `char* buffer = malloc(size);` and free the pointer after use. 
+Avoid allocating arrays which size resides in a variable, for instance `char buffer[size];`, which causes issues during script execution. Use instead `char* buffer = malloc(size);` and free the pointer after use.
 
 ### Scripting enhancements
 #### Interactive mode

@@ -60,6 +60,7 @@ Meaning                                     Offset      Length      Max Value   
         - Team Skull Pose                   0x1ea6
         - Po Town Nuggets                   0x1ea6
         - shiny Exeggcute battle            0x1ea6
+        - mega evolution                    0x1f22
         - current Zygarde cells             0x1f42
         - Tapu Fini                         0x2128
         - Tapu Koko                         0x2160
