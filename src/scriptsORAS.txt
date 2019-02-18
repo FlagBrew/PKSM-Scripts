@@ -62,3 +62,4 @@
 "Pokemon Link - Demo Glalie" -i 0x21000 2630 "data/link/LINK_Glalie.bin" 1
 "Pokemon Link - Demo Steelix" -i 0x21000 2630 "data/link/LINK_Steelix.bin" 1
 "Pokemon Link - 9999 BP & 9999 Pokemiles" -i 0x21000 2630 "data/link/LINK_BP_Pokemiles.bin" 1
+"ORAS - Set badges" -i 0x420c 1 255 1
