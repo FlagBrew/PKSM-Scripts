@@ -22,8 +22,8 @@ int main(int argc, char **argv)
     switch (version)
     {
     case 22:
-        keyStrings[2] = "Obtain Tower Key";
-        keyStrings[7] = "Unlock Black City";
+        keyStrings[2] = "Tower Key";
+        keyStrings[7] = "Black City";
         break;
     case 23:
         break;

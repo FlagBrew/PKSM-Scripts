@@ -1,6 +1,6 @@
-#include <pksm.h>       /* virtual header, required */
-#include <unistd.h>     /* ? */
-#include <stdlib.h>     /* General utilities: memory management, program utilities, string conversions, random numbers */
+#include <pksm.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 int main(int argc, char **argv)
 {
@@ -27,27 +27,27 @@ int main(int argc, char **argv)
 
     switch (version)
     {
-        case 7: // HeartGold
-        case 8: // SoulSilver
+        case 7:
+        case 8:
             ofs += 0x14;
             // intentional fallthrough
-        case 12: // Platinum
+        case 12:
             ofs += 0xc;
             // intentional fallthrough
-        case 10: // Diamond
-        case 11: // Pearl
+        case 10:
+        case 11:
             tmCount = 92;
             ofs += sav_gbo() + 0x980;
             gui_numpad(&quant, "How many of each TM?", 2);
             break;
-        case 20: // White
-        case 21: // Black
+        case 20:
+        case 21:
             tmCount = gui_choice("Exclude unreleased TM95 Snarl?", "") ? 94 : 95;
             hmCount = 6;
             ofs = 0x18a24;
             break;
-        case 22: // White 2
-        case 23: // Black 2
+        case 22:
+        case 23:
             tmCount = 95;
             hmCount = 6;
             ofs = 0x18a24;
@@ -57,18 +57,18 @@ int main(int argc, char **argv)
             hmCount = 5;
             ofs = 0xbc0;
             break;
-        case 26: // Alpha Sapphire
-        case 27: // Omega Ruby
+        case 26:
+        case 27:
             hmCount = 7;
             hms[6] = 737;
             ofs = 0xbc0;
             break;
-        case 30: // Sun
-        case 31: // Moon
+        case 30:
+        case 31:
             ofs = 0x998;
             break;
-        case 32: // Ultra Sun
-        case 33: // Ultra Moon
+        case 32:
+        case 33:
             ofs = 0x9c4;
             break;
         /* No LGPE support yet
