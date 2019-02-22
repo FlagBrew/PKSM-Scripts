@@ -13,7 +13,6 @@
 "Give all medicines 99x" -d "items" -i 0xB40 152 "data/DPPt_AllMedicines.bin" 1
 "Give all battle items 99x" -d "items" -i 0xD1C 52 "data/DPPt_AllBattleItems.bin" 1
 "Give all berries 99x" -d "items" -i 0xBE0 256 "data/DPPt_AllBerries.bin" 1
-"Give all TM&HM 99x" -d "items" -i 0x980 400 "data/DPPt_AllTMHM.bin" 1
 "Give all pokeballs 99x" -d "items" -i 0xCE0 56 "data/DPPt_AllPokeballs.bin" 1
 "Give all pokeballs 99x" -d "illegal" -i 0xCE0 60 "data/DPPt_AllPokeballs_illegal.bin" 1
 "Items slot 1 - Heart Scale x999" -d "items" -i 0x624 2 93 1 -i 0x626 2 999 1

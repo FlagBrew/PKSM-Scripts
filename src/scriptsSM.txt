@@ -24,7 +24,6 @@
 "All Berries 99x" -d "illegal" -i 0xC47 268 "data/SM_AllBerries_illegal.bin" 1
 "All Medicine 99x" -d "items" -i 0xB48 204 "data/SM_AllMedicines.bin" 1
 "All Medicine 99x" -d "illegal" -i 0xB48 216 "data/SM_AllMedicines_illegal.bin" 1
-"All TMs Owned" -d "items" -i 0x998 400 "data/SM_AllTM.bin" 1
 "All Z-Crystals Owned" -d "items" -i 0xD68 116 "data/SM_AllZCrystals.bin" 1
 "Items slot 1 - Beast Ball x999" -d "items" -i 0x0 3 0xf9f53 1
 "Items slot 1 - Bottle Cap x999" -d "items" -i 0x0 3 0xf9f1b 1

@@ -178,7 +178,6 @@ if (module === require.main) {
         if (!params.saves) {
             params.saves = [];
         }
-        console.log(params.dir);
         params.dir.forEach(d => {
             const paths = klawSync(d, { nodir: true });
             const fileNames = paths.map(v => path.relative('', v.path));

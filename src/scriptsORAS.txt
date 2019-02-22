@@ -22,7 +22,6 @@
 "Give all items 99x" -d "items" -i 0x400 1076 "data/ORAS_AllItems.bin" 1
 "Give all items 99x" -d "illegal" -i 0x400 1220 "data/ORAS_AllItems_illegal.bin" 1
 "Give all medicines 99x" -d "items" -i 0xD70 216 "data/ORAS_AllMedicines.bin" 1
-"All TMs and HMs owned" -d "items" -i 0xBC0 428 "data/ORAS_AllTMHM.bin" 1
 "Items slot 1 - Heart Scale x999" -d "items" -i 0x400 2 93 1 -i 0x402 2 999 1
 "Items slot 1 - Max Repel x999" -d "items" -i 0x400 2 77 1 -i 0x402 2 999 1
 "Medicine slot 1 - PP Max x999" -d "items" -i 0xD70 2 53 1 -i 0xD72 2 999 1

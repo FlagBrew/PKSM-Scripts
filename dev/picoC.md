@@ -52,6 +52,8 @@ char* net_ip();
 int net_tcp_recv(char* buffer, int size, int* received);
 int net_tcp_send(char* ip, int port, char* buffer, int size);
 int net_udp_recv(char* buffer, int size, int* received);
+// i18n
+char* i18n_species(int species);
 ```
 
 ### Other

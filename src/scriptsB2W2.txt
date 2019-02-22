@@ -5,7 +5,6 @@
 "Set max Battle Points" -i 0x21B00 2 9999 1
 "Give all items 99x" -d "illegal" -i 0x18400 1044 "data/BWB2W2_AllItems_illegal.bin" 1
 "Give all items 99x" -d "items" -i 0x18400 976 "data/BWB2W2_AllItems.bin" 1
-"All TMs and HMs owned" -d "items" -i 0x18a24 404 "data/BWB2W2_AllTMHM.bin" 1
 "Give all medicine 99x" -d "items" -i 0x18bd8 188 "data/BWB2W2_AllMedicine.bin" 1
 "Give all berries 99x" -d "illegal" -i 0x18c98 256 "data/BWB2W2_AllBerries_illegal.bin" 1
 "Give all berries 99x" -d "items" -i 0x18c98 248 "data/BWB2W2_AllBerries.bin" 1

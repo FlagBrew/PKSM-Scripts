@@ -242,6 +242,9 @@ Meaning                                     Offset      Length      Max Value   
     - Unlock City Key                       0x25844     4
     - Unlock Iron Key                       0x25848     4
     - Unlock Iceberg Key                    0x2584c     4
+    - Difficulty config                     0x25850     4
+    - City config                           0x25854     4
+    - Chamber config                        0x25858     4
     - ID                                    0x2585c     4
 - Festa Missions                            0x25900     0xfc
     - Funfest Mission data?                 0x25900     39*4
