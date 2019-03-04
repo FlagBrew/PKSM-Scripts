@@ -68,7 +68,7 @@ function generateDiff(files, data, diffRange, eventDiff) {
     diff.push('Diff of saves from the following file(s):\n\n');
     files.forEach((v, i) => {
         diff.push(`Save ${i + 1}: ${v}\n`);
-        tableHeader.push(`    Save ${i + 1}`);
+        tableHeader.push(`    Save ${i + 1}`.slice((i == 9) ? -11 : -10));
     });
 
     if (data[0].length === 0x40000) {

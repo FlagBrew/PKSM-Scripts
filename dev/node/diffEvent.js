@@ -257,10 +257,12 @@ function generateDiff(files, data) {
     // diff event data
     const flagDiffs = diffEventFlags(flagData);
     if (flagDiffs.length > 0) {
+        diffs += 1;
         diff.push('\n', flagDiffs);
     }
     const constDiffs = diffEventConst(constData);
     if (constDiffs.length > 0) {
+        diffs += 1;
         diff.push('\n', constDiffs);
     }
 

@@ -11,10 +11,10 @@ parser.addArgument('off', { help: 'Start offset' });
 parser.addArgument('len', { help: 'Length to dump' });
 
 const dumpData = (args) => {
-    const input = args.input.slice(1, args.input.length - 1);       // name of file to read data from
-    const output = args.output.slice(1, args.output.length - 1);    // name of file to write data to
-    const offset = +args.offset;                                    // beginning of data to pull
-    const len = +args.len;                                          // total number of bytes of data to pull
+    const input = args.input;       // name of file to read data from
+    const output = args.output;     // name of file to write data to
+    const offset = +args.off;       // beginning of data to pull
+    const len = +args.len;          // total number of bytes of data to pull
 
     let wasError = false;
 
