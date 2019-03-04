@@ -111,8 +111,9 @@ Meaning                                     Offset      Length      Max Value   
 - ???                                       0x1fd00     0x34c
 - Event                                     0x20100     0x3ec
     - Event const                           0x20100
-        - starter                           0x2016e
-        - starter                           0x20202
+        - starter?                          0x20160
+        - starter?                          0x2016e
+        - starter?                          0x20202
         - elemental monkey                  0x20206
         - Victini                           0x20222
     - Event flag                            0x2037c
@@ -139,6 +140,15 @@ Meaning                                     Offset      Length      Max Value   
 - Trainer2                                  0x21200     0xec
     - money                                 0x21200     4           999999
     - badge flags                           0x21204     1           255
+    - badge teams                           0x21258
+        - Striaton                          0x21258     12
+        - Nacrene                           0x21264     12
+        - Castelia                          0x21270     12
+        - Nimbasa                           0x2127c     12
+        - Driftveil                         0x21288     12
+        - Mistralton                        0x21294     12
+        - Icirrus                           0x212a0     12
+        - Opelucid                          0x212ac     12
     - Liberty Pass                          0x212bc     4
     - trainer sayings                       ?
 - Entralink (level & powers etc.)           0x21300     0x1b0

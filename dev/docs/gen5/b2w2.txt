@@ -118,6 +118,15 @@ Meaning                                     Offset      Length      Max Value   
     - money                                 0x21100     4           999999
     - badge flags                           0x21104     1           255
     - people passed                         0x21120     4
+    - badge teams                           0x2115c
+        - Aspertia                          0x2115c     12
+        - Virbank                           0x21168     12
+        - Castelia                          0x21174     12
+        - Nimbasa                           0x21180     12
+        - Driftveil                         0x2118c     12
+        - Mistralton                        0x21198     12
+        - Opelucid                          0x211a4     12
+        - Humilau                           0x211b0     12
     - trainer sayings                       ?
 - Entralink (level & powers etc.)           0x21200     0x1b4
     - Entree White level                    0x2120c     2

@@ -96,20 +96,40 @@ Meaning                                     Offset      Length      Max Value   
     - const                                 0x14a00
         - ash counter                       0x14a78
     - flag                                  0x14cfc
-        - legendaries                       0x14d11
-        - legendaries                       0x14d12
+        - legendaries defeated              0x14d11
+            - Cresselia                     0x14d11     1           0x10        0x10
+            - Raikou                        0x14d11     1           0x20        0x20
+            - Entei                         0x14d11     1           0x40        0x40
+            - Suicune                       0x14d11     1           0x80        0x80
+        - legendaries defeated              0x14d12
+            - Cobalion                      0x14d12     1           0x01        0x01
+            - Terrakion                     0x14d12     1           0x02        0x02
+            - Virizion                      0x14d12     1           0x04        0x04
+            - Uxie                          0x14d12     1           0x08        0x08
+            - Mesprit                       0x14d12     1           0x10        0x10
+            - Azelf                         0x14d12     1           0x20        0x20
+            - Reshiram                      0x14d12     1           0x40        0x40
+            - Zekrom                        0x14d12     1           0x80        0x80
         - legendaries                       0x14d13
-        - legendaries                       0x14d16
+        - legendaries defeated              0x14d16
+            - Ho-oh                         0x14d16     1           0x01        0x01
+            - Lugia                         0x14d16     1           0x02        0x02
         - Delta Episode                     0x14d17
-        - legendaries                       0x14d1b
-        - legendaries                       0x14d1c
-        - legendaries                       0x14d30
+        - legendaries defeated              0x14d1b
+            - Regigigas                     0x14d1b     1           0x10        0x10
+        - legendaries defeated              0x14d1c
+            - Heatran                       0x14d1c     1           0x10        0x10
+        - legendaries defeated              0x14d30
+            - Latias                        0x14d30     1           0x08        0x08
+            - Latios                        0x14d30     1           0x10        0x10
         - Delta Episode                     0x14d30
         - Delta Episode                     0x14d35
         - Delta Episode                     0x14d3f
         - Delta Episode                     0x14d47
-        - legendaries                       0x14d4c
-        - legendaries                       0x14d4d
+        - legendaries defeated              0x14d4c
+            - Kyogre                        0x14d4c     1           0x80        0x80
+        - legendaries defeated              0x14d4d
+            - Groudon                       0x14d4d     1           0x01        0x01
         - Delta Episode                     0x14d51
         - Delta Episode                     0x14d54
         - Delta Episode                     0x14d55
@@ -122,20 +142,56 @@ Meaning                                     Offset      Length      Max Value   
         - Delta Episode                     0x14d6f
         - Delta Episode                     0x14d70
         - legendaries                       0x14d71
-        - legendaries                       0x14d72
-        - legendaries                       0x14d73
+        - legendaries defeated              0x14d72
+            - Deoxys                        0x14d72     1           0x02        0x02
+        - legendaries defeated              0x14d73
+            - Regirock                      0x14d73     1           0x10        0x10
+            - Regice                        0x14d73     1           0x20        0x20
+            - Registeel                     0x14d73     1           0x40        0x40
         - Delta Episode                     0x14d73
         - Delta Episode                     0x14e45
         - Delta Episode                     0x14e51
         - Delta Episode                     0x14e59
-        - legendaries                       0x14e5b
-        - legendaries                       0x14e5c
-        - legendaries                       0x14e5d
-        - legendaries                       0x14e5e
-        - legendaries                       0x14e5f
+        - legendaries captured              0x14e5b
+            - Raikou                        0x14e5b     1           0x08        0x08
+            - Entei                         0x14e5b     1           0x10        0x10
+            - Suicune                       0x14e5b     1           0x20        0x20
+            - Lugia                         0x14e5b     1           0x40        0x40
+            - Ho-oh                         0x14e5b     1           0x80        0x80
+        - legendaries captured              0x14e5c
+            - Uxie                          0x14e5c     1           0x01        0x01
+            - Mesprit                       0x14e5c     1           0x02        0x02
+            - Azelf                         0x14e5c     1           0x04        0x04
+            - Dialga                        0x14e5c     1           0x08        0x08
+            - Palkia                        0x14e5c     1           0x10        0x10
+            - Heatran                       0x14e5c     1           0x20        0x20
+            - Regigigas                     0x14e5c     1           0x40        0x40
+            - Giratina                      0x14e5c     1           0x80        0x80
+        - legendaries captured              0x14e5d
+            - Cresselia                     0x14e5d     1           0x01        0x01
+            - Cobalion                      0x14e5d     1           0x02        0x02
+            - Terrakion                     0x14e5d     1           0x04        0x04
+            - Virizion                      0x14e5d     1           0x08        0x08
+            - Tornadus                      0x14e5d     1           0x10        0x10
+            - Thundurus                     0x14e5d     1           0x20        0x20
+            - Reshiram                      0x14e5d     1           0x40        0x40
+            - Zekrom                        0x14e5d     1           0x80        0x80
+        - legendaries captured              0x14e5e
+            - Landorus                      0x14e5e     1           0x01        0x01
+            - Kyurem                        0x14e5e     1           0x02        0x02
+            - Latias                        0x14e5e     1           0x04        0x04
+            - Latios                        0x14e5e     1           0x08        0x08
+            - Regirock                      0x14e5e     1           0x10        0x10
+            - Regice                        0x14e5e     1           0x20        0x20
+            - Registeel                     0x14e5e     1           0x40        0x40
+            - Groudon                       0x14e5e     1           0x80        0x80
+        - legendaries captured              0x14e5f
+            - Kyogre                        0x14e5f     1           0x01        0x01
+            - Deoxys                        0x14e5f     1           0x08        0x08
         - Delta Episode                     0x14e5f
         - Delta Episode                     0x14e65
         - legendaries                       0x14e68
+            - Eon Ticket complete           0x14e68     1           0x08        0x08
         - Delta Episode                     0x14e69
 - Pokédex                                   0x15000     0x11cc
     - owned                                 0x15008
@@ -227,15 +283,15 @@ Meaning                                     Offset      Length      Max Value   
     - data                                  0x1cd00
 - Storyline records                         0x1e800     0x400
 - PokeDiarySave                             0x1ec00     0x618
-    - Gym teams                             ?           96
-        - Rustboro                          ?
-        - Dewford                           ?
-        - Mauville                          ?
-        - Lavaridge                         ?
-        - Petalburg                         ?
-        - Fortree                           ?
-        - Mossdeep                          ?
-        - Sootopolis                        ?
+    - Gym teams                             0x1e860     96
+        - Rustboro                          0x1e860
+        - Dewford                           0x1e86c
+        - Mauville                          0x1e878
+        - Lavaridge                         0x1e884
+        - Petalburg                         0x1e890
+        - Fortree                           0x1e89c
+        - Mossdeep                          0x1e8a8
+        - Sootopolis                        0x1e8b4
     - SUBE                                  0x1d890?
 - Record                                    0x1f400     0x25c
     - current PokéMiles                     0x1f4fc     4           9999999

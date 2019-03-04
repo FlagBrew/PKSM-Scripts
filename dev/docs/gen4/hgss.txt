@@ -176,6 +176,7 @@ Meaning                                     Offset      Length      Max Value   
 - Wondercard Data                           0x9e3c
 - Map                                       0xbae7
 - money held by mom                         0xc0d8      4           999999
+- Phonebook                                 0xc0ec      0x4a
 - Pokéathlon points                         0xe548      4           999999
 - Apricorn                                  0xe558
     - Red                                   0xe558      1

@@ -63,12 +63,22 @@ Meaning                                     Offset      Length      Max Value   
         - mega evolution                    0x1f22
         - current Zygarde cells             0x1f42
         - Tapu Fini                         0x2128
+            - battle-able                   0x2128
+            - captured                      0x2128
         - Tapu Koko                         0x2160
+            - battle-able                   0x2160
+            - captured                      0x2160
         - Tapu Lele                         0x2162
+            - battle-able                   0x2162
+            - captured                      0x2162
         - Tapu Bulu                         0x2164
+            - battle-able                   0x2164
+            - captured                      0x2164
         - Red / Blue                        0x2168
         - Nanu event                        0x23e4
         - Zygarde                           0x23e6
+            - battle-able                   0x23e6
+            - captured                      0x23e6
         - Team Skull Pose                   0x2410
         - gift totems                       0x24c6
     - event flags                           0x25d0
@@ -87,20 +97,60 @@ Meaning                                     Offset      Length      Max Value   
         - Janitor                           0x2682
         - Magearna                          0x2687
         - Cosmog                            0x2688
-        - Necrozma                          0x2692
+        - Necrozma                          0x2692      1           0x01        0x01
         - legends 1                         0x269b
+            - Solgaleo / Lunala             0x269b      1           0x08        0x08
         - Nanu event                        0x26b4
         - shiny Exeggcute battle            0x277c
         - Po Town Nuggets                   0x2792
         - Team Skull Pose                   0x2792
         - legends 2                         0x27e4
+            - Raikou                        0x27e4      1           0x10        0x10
+            - Entei                         0x27e4      1           0x20        0x20
+            - Suicune                       0x27e4      1           0x40        0x40
+            - Lugia                         0x27e4      1           0x80        0x80
         - legends 3                         0x27e5
+            - Ho-oh                         0x27e5      1           0x01        0x01
+            - Uxie                          0x27e5      1           0x02        0x02
+            - Mesprit                       0x27e5      1           0x04        0x04
+            - Azelf                         0x27e5      1           0x08        0x08
+            - Dialga                        0x27e5      1           0x10        0x10
+            - Palkia                        0x27e5      1           0x20        0x20
+            - Heatran                       0x27e5      1           0x40        0x40
+            - Regigigas                     0x27e5      1           0x80        0x80
         - legends 4                         0x27e6
+            - Giratina                      0x27e6      1           0x01        0x01
+            - Cresselia                     0x27e6      1           0x02?       0x02?
+            - Cobalion                      0x27e6      1           0x04        0x04
+            - Terrakion                     0x27e6      1           0x08        0x08
+            - Virizion                      0x27e6      1           0x10        0x10
+            - Tornadus                      0x27e6      1           0x20        0x20
+            - Thundurus                     0x27e6      1           0x40        0x40
+            - Reshiram                      0x27e6      1           0x80        0x80
         - legends 5                         0x27e7
+            - Zekrom                        0x27e7      1           0x01        0x01
+            - Landorus                      0x27e7      1           0x02        0x02
+            - Kyurem                        0x27e7      1           0x04        0x04
+            - Latias                        0x27e7      1           0x08        0x08
+            - Latios                        0x27e7      1           0x10        0x10
+            - Regirock                      0x27e7      1           0x20        0x20
+            - Regice                        0x27e7      1           0x40        0x40
+            - Registeel                     0x27e7      1           0x80        0x80
         - legends 6                         0x27e8
+            - Groudon                       0x27e8      1           0x01        0x01
+            - Kyogre                        0x27e8      1           0x02        0x02
+            - Rayquaza                      0x27e8      1           0x04        0x04
         - legends 7                         0x27f2
+            - Stakataka                     0x27f2      1           0x04        0x04
+            - Blacephalon                   0x27f2      1           0x08        0x08
         - legends 8                         0x27f8
+            - Articuno                      0x27f8      1           0x10        0x10
+            - Zapdos                        0x27f8      1           0x20        0x20
+            - Moltres                       0x27f8      1           0x40        0x40
+            - Mewtwo                        0x27f8      1           0x80        0x80
         - legends 9                         0x27f9
+            - Xerneas                       0x27f9      1           0x01        0x01
+            - Yveltal?                      0x27f9      1           0x02        0x02
         - Partner Cap Pikachu               0x280a
         - Po Town Nuggets                   0x281d
     - Hall of Fame                          0x2838

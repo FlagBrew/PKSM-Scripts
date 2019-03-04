@@ -36,14 +36,34 @@ Meaning                                     Offset      Length      Max Value
     - battle                                0xd1c
 - Event const                               0xd9c
     - Starter                               0xdfc
+    - Fullmoon Island on map                0xe08
+    - Newmoon Island on map                 0xe0a
+    - Spring Path                           0xe0c
+    - Seabreak Path                         0xe0e
     - Lotto number                          0xe14
     - greets towards Spiritomb              0xe18
-    - Darkrai?                              0xe22
+    - Member Card ?                         0xe22
+    - Oak's Letter ?                        0xe24
+    - Azure Flute ?                         0xe26
     - total met Underground                 0xe2e
     - Odd Keystone inserted                 0xeb0
     - Palkia?                               0xecc
+    - Heatran                               0xed8
 - Event flags                               0xfdc
+    - Arceus map?                           0xfff
+    - Heatran                               0x1000
+    - Oak Route 224?                        0x1001
+    - Fullmoon Ferry?                       0x1002
+    - Newmoon Ferry?                        0x1003
+    - Lake? (trio related)                  0x101b
     - Darkrai?                              0x1027
+    - Regigigas                             0x1028
+    - legends battle-able?                  0x1029
+        - Cresselia                         0x1029
+        - Giratina                          0x1029
+        - Shaymin                           0x1029
+        - Arceus                            0x1029
+    - Shaymin map?                          0x102b
     - Fly                                   0x1112
     - has obtained Lotto prize              0x1131
 - Poketch
