@@ -82,21 +82,21 @@ Meaning                                     Offset      Length      Max Value   
         - Team Skull Pose                   0x2410
         - gift totems                       0x24c6
     - event flags                           0x25d0
-        - Poipole                           0x25f1
+        - Poipole                           0x25f1      1           0x20        0x20
         - Janitor                           0x25f9
         - Janitor                           0x2606
-        - Porygon                           0x260d
+        - Porygon                           0x260d      1           0x20        0x20
         - shiny Exeggcute battle            0x260e
-        - Aerodactyl                        0x260f
-        - Surfing Pikachu                   0x2610
+        - Aerodactyl                        0x260f      1           0x01        0x01
+        - Surfing Pikachu                   0x2610      1           0x40        0x40
         - Po Town Nuggets                   0x2616
         - Nanu event                        0x2616
         - Team Skull Pose                   0x2617
         - Type: Null                        0x2621
         - Type: Null                        0x2659
         - Janitor                           0x2682
-        - Magearna                          0x2687
-        - Cosmog                            0x2688
+        - Magearna                          0x2687      1           0x20        0x20
+        - Cosmog                            0x2688      1           0x10        0x10
         - Necrozma                          0x2692      1           0x01        0x01
         - legends 1                         0x269b
             - Solgaleo / Lunala             0x269b      1           0x08        0x08
@@ -120,7 +120,7 @@ Meaning                                     Offset      Length      Max Value   
             - Regigigas                     0x27e5      1           0x80        0x80
         - legends 4                         0x27e6
             - Giratina                      0x27e6      1           0x01        0x01
-            - Cresselia                     0x27e6      1           0x02?       0x02?
+            - Cresselia                     0x27e6?     1           0x02?       0x02?
             - Cobalion                      0x27e6      1           0x04        0x04
             - Terrakion                     0x27e6      1           0x08        0x08
             - Virizion                      0x27e6      1           0x10        0x10
@@ -151,7 +151,7 @@ Meaning                                     Offset      Length      Max Value   
         - legends 9                         0x27f9
             - Xerneas                       0x27f9      1           0x01        0x01
             - Yveltal?                      0x27f9      1           0x02        0x02
-        - Partner Cap Pikachu               0x280a
+        - Partner Cap Pikachu               0x280a      1           0x08        0x08
         - Po Town Nuggets                   0x281d
     - Hall of Fame                          0x2838
 - Pokédex                                   0x2c00      0xf78
