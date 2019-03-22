@@ -53,7 +53,7 @@ int main(int argc, char** argv)
             return -1;
     }
 
-    if (gui_boxes(&fromStorage, &box, &slot) == 0)
+    if (gui_boxes(&fromStorage, &box, &slot, 1) == 0)
     {
         char* pkm = malloc(size);
         int received = 0;
