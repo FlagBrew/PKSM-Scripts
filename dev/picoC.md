@@ -59,12 +59,15 @@ Brings up the numpad/keyboard to allow user input.
 - `int maxChars`: max length of the string provided by user, including the `NULL` terminator
 
 ```c
-int gui_boxes(int* fromStorage, int* box, int* slot);
+int gui_boxes(int* fromStorage, int* box, int* slot, int doCrypt);
 ```
 ![gui_boxes](https://i.imgur.com/5qwOewI.png)
+On PKSM versions 6.1.1 and below, do **NOT** use this after `sav_box_decrypt`
 - All arguments should be pointers to existing variables
 - `fromStorage`: whether or not the user's selection is in PKSM's storage (`1`) or save's PC (`0`)
 - `box`, `slot`: Box and slot numbers of user's selection
+- `doCrypt`: whether this should (`1`) or should not (`0`) it should decrypt and encrypt the boxes itself
+    - If you use `gui_boxes` after `sav_box_decrypt`, make sure this is `0`
 - Returns `0` if a selection was successfully made
 
 ### Save and Storage Functions
@@ -136,7 +139,8 @@ All these functions return the values exactly as they appear in PKSM's `config.j
 char* cfg_default_ot();
 ```
 - Older generations have smaller OT name limits so depending on the contents of the default OT field and the generation(s) you're editing your script may have to trim the string to fit
-- You will have to use `utf8_to_utf16` (see [Text Functions](#text-functions) below) before the returned OT to a pkm or the save
+- You will have to use `utf8_to_utf16` (see [Text Functions](#text-functions) below) before writing the OT to a pkm or the save
+    - For PKSM versions 6.1.1 and below, conversion will have to be done manually by scripts
 
 ```c
 unsigned int cfg_default_tid();
@@ -161,8 +165,8 @@ Returns the IP address of your 3DS as a string
 int net_udp_recv(char* buffer, int size, int* received);
 int net_tcp_recv(char* buffer, int size, int* received);
 ```
-Receives pkm data sent from a client running on another device
-- `char* buffer`: pointer to an existing `char` Array to hold the pkm data being received
+Receives data (such as pkx, WC, etc.) sent from a client running on another device
+- `char* buffer`: pointer to an existing `char` Array to hold the data being received
 - `int size`: expected number of bytes
 - `int* received`: pointer to an existing `int` variable to hold the number of received bytes
 - returns `0` if data was successfully received (scripts will need to check the validity of the received data themselves)
@@ -170,7 +174,7 @@ Receives pkm data sent from a client running on another device
 ```c
 int net_tcp_send(char* ip, int port, char* buffer, int size);
 ```
-Sends pkm data (stored in `buffer`) to a compatible client on another device
+Sends data (stored in `buffer`) to a compatible client on another device
 - `char* ip`: IP address of device to send data to
 - `int port`: port on device to send data to
 - `char* buffer`: data to send to device
@@ -188,6 +192,7 @@ char* utf16_to_utf8(char* data);
 char* utf8_to_utf16(char* data);
 ```
 Converts strings between UTF8 (like OT is stored in config) and UTF16 (like OT is stored in save files)
+- These functions were created after PKSM v6.1.1 so conversion will have to be done manually by scripts run on earlier versions
 - returned strings must be manually freed
 
 ### Enums and Structs
