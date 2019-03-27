@@ -62,8 +62,7 @@ Brings up the numpad/keyboard to allow user input.
 int gui_boxes(int* fromStorage, int* box, int* slot, int doCrypt);
 ```
 ![gui_boxes](https://i.imgur.com/5qwOewI.png)
-On PKSM versions 6.1.1 and below, do **NOT** use this after `sav_box_decrypt`
-- All arguments should be pointers to existing variables
+- All arguments except `doCrypt` should be pointers to existing variables
 - `fromStorage`: whether or not the user's selection is in PKSM's storage (`1`) or save's PC (`0`)
 - `box`, `slot`: Box and slot numbers of user's selection
 - `doCrypt`: whether this should (`1`) or should not (`0`) it should decrypt and encrypt the boxes itself
@@ -78,7 +77,7 @@ int sav_gbo();
 // example usage
 int ofs = sav_gbo() + 0x0;
 ```
-These are only needed for Gen 4 (DP, PT, HGSS). Gen 4 save files store 2 saves (current and backup) broken up into 3 blocks apiece and the blocks can be mixed up within the file. A Gen 4 save could look like the following:
+These are only needed for Gen 4 (DP, PT, HGSS). Gen 4 save files store 2 saves (current and backup) broken up into 3 blocks apiece and the blocks can be mixed up within the file. A Gen 4 save file could look like the following:
 - Save 1 (starting at `0x0`): current general block, backup storage block, current HoF block
 - Save 2 (starting at `0x40000`): backup general block, current storage block, backup HoF block
 
@@ -86,16 +85,7 @@ The return values of `sav_gbo` and `sav_sbo` point you the proper portion of the
 
 A value of `0` is returned if used on a Gen 5+ save, meaning they'll have no adverse effect on setting offsets on other games.
 
-```c
-void party_get_pkx(char* data, int slot);
-void bank_inject_pkx(char* data, enum Generation type, int box, int slot);
-```
-- `char* data`: pointer to an existing variable to write the Pokémon data to
-- `enum Generation generation`: which generation the data comes from, so that it can be properly encrypted/decrypted
-- `box`: which PKSM Storage box number the Pokémon should be injected into
-- `slot`: slot within the party or PKSM Storage box to inject the Pokémon
-
-#### Save Storage Editing
+#### Encryption and Decryption
 ```c
 void sav_box_decrypt();
 void sav_box_encrypt();
@@ -105,19 +95,33 @@ These should *always* be used as a pair and *always* in this order. Mixing them 
 Any edits you aim to make should be done after calling `sav_box_decrypt` and before calling `sav_box_encrypt`.
 
 ```c
-void sav_get_pkx(char* data, int box, int slot);
-void sav_inject_pkx(char* data, enum Generation type, int box, int slot);
 void pkx_decrypt(char* data, enum Generation type);
 void pkx_encrypt(char* data, enum Generation type);
 ```
-- `char* data`:
-    - **sav_get_pkx**: pointer to an existing variable to write the Pokémon data to
-    - **sav_inject_pkx**: pointer to an existing variable to write the Pokémon data from
-    - **pkx_decrypt**: pointer to an existing variable with Pokémon data to decrypt
-    - **pkx_encrypt**: pointer to an existing variable with Pokémon data to encrypt
-- `enum Generation generation`: which generation the data comes from, so that it can be properly read/written/decrypted/encrypted
-- `box`: which box number the Pokémon should be read from or injected into
-- `slot`: slot within box to read from or inject to
+For encrypting or decrypting PKX data, usually
+- `char* data`: pointer to an existing variable with Pokémon data to encrypt/decrypt
+- `enum Generation type`: which generation the data comes from, so that it can be properly read/written/decrypted/encrypted
+
+#### Pkx Editing
+```c
+void party_get_pkx(char* data, int slot);
+void sav_get_pkx(char* data, int box, int slot);
+```
+Read Pkm data into a variable
+- `char* data`: pointer to an existing variable to write the Pokémon data to
+- `slot`: slot within the party or box to read the Pokémon from
+- `box`: which box number the Pokémon should be read from
+
+```c
+void party_inject_pkx(char* data, enum Generation type, int slot);
+void sav_inject_pkx(char* data, enum Generation type, int box, int slot);
+void bank_inject_pkx(char* data, enum Generation type, int box, int slot);
+```
+Storing pkm data from a variable into the party, PC boxes, or PKSM bank
+- `char* data`: pointer to an existing variable to write the Pokémon data from
+- `enum Generation type`: which generation the data comes from, so that it can be properly written
+- `slot`: slot within the party or box to inject to
+- `box`: which box number the Pokémon should be injected into
 
 ### IO Functions
 ```c
@@ -140,7 +144,6 @@ char* cfg_default_ot();
 ```
 - Older generations have smaller OT name limits so depending on the contents of the default OT field and the generation(s) you're editing your script may have to trim the string to fit
 - You will have to use `utf8_to_utf16` (see [Text Functions](#text-functions) below) before writing the OT to a pkm or the save
-    - For PKSM versions 6.1.1 and below, conversion will have to be done manually by scripts
 
 ```c
 unsigned int cfg_default_tid();
@@ -192,7 +195,6 @@ char* utf16_to_utf8(char* data);
 char* utf8_to_utf16(char* data);
 ```
 Converts strings between UTF8 (like OT is stored in config) and UTF16 (like OT is stored in save files)
-- These functions were created after PKSM v6.1.1 so conversion will have to be done manually by scripts run on earlier versions
 - returned strings must be manually freed
 
 ### Enums and Structs

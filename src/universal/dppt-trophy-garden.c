@@ -28,7 +28,7 @@ int main(int argc, char **argv)
             return 1;
     }
 
-    int gbo = sav_gbo(), i, slot;
+    int gbo = sav_gbo(), i, slot, choice;
     for (i = 0; i < 16; i++)
     {
         options[i].species = species[i];
@@ -52,25 +52,23 @@ int main(int argc, char **argv)
     }
     slotPkx[0].species = 0;
 
-    int choice;
-    do
-    {
-        slot = gui_menu_6x5("Which day's visitor do you\nwant to edit?", 3, slots, slotPkx, GEN_FOUR);
+    slot = gui_menu_6x5("Which day's visitor do you\nwant to edit?", 3, slots, slotPkx, GEN_FOUR);
+    while(slot > 0){
+        choice = gui_menu_6x5("Choose new Trophy Garden visitor", 16, labels, options, GEN_FOUR);
 
-        if (slot > 0) {
-            choice = gui_menu_6x5("Choose new Trophy Garden visitor", 16, labels, options, GEN_FOUR);
-
-            if (current[slot % 2 + 1] == choice) {
-                gui_warn(labels[choice], "is already a visitor");
-                continue;
-            }
-            if (current[slot] != choice) {
-                current[slot] = choice;
-                slotPkx[slot].species = species[choice];
-                saveData[gbo + (slot == 1 ? offsetToday : offsetYesterday)] = (char)choice;
-            }
+        if (current[slot % 2 + 1] == choice)
+        {
+            gui_warn(labels[choice], "is already a visitor");
+            continue;
         }
-    } while (slot > 0);
+        if (current[slot] != choice)
+        {
+            current[slot] = choice;
+            slotPkx[slot].species = species[choice];
+            saveData[gbo + (slot == 1 ? offsetToday : offsetYesterday)] = (char)choice;
+        }
+        slot = gui_menu_6x5("Which day's visitor do you\nwant to edit?", 3, slots, slotPkx, GEN_FOUR);
+    }
 
     return 0;
 }

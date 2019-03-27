@@ -71,12 +71,11 @@ int main(int argc, char **argv)
         case 33:
             ofs = 0x9c4;
             break;
-        /* No LGPE support yet
-        case 42: // Let's Go Pikachu
-        case 43: // Let's Go Eevee
+        case 42:
+        case 43:
             tmCount = 60;
             ofs = 0xf0;
-        */
+            break;
         default:
             gui_warn("This script doesn't work", "on this game.");
             return 1;
@@ -99,6 +98,10 @@ int main(int argc, char **argv)
             }
             *(unsigned short *)(saveData + ofs + i * 4) = (unsigned short)tms[i];
             *(unsigned short *)(saveData + ofs + i * 4 + 2) = (unsigned short)quant;
+        }
+        else if (version == 42 || version == 43)
+        {
+            *(int *)(saveData + ofs + i * 4) = (1 << 15) + tms[i];
         }
         else
         {

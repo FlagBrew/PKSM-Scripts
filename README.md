@@ -40,7 +40,6 @@ Old versions of these scripts included the following elements that could be flag
 - `ORAS, XY` **Give all items 99x** -- Bug Gem, Cherish Ball, Dark Gem, Dragon Gem, Electric Gem, Fairy Gem, Fast Ball, Fighting Gem, Fire Gem, Flying Gem, Friend Ball, Ghost Gem, Grass Gem, Ground Gem, Heavy Ball, Ice Gem, Level Ball, Love Ball, Lure Ball, Moon Ball, Odd Keystone, Park Ball, Poison Gem, Psychic Gem, Relic Band, Relic Copper, Relic Crown, Relic Gold, Relic Silver, Relic Statue, Relic Vase, Rock Gem, Safari Ball, Sport Ball, Steel Gem, Water Gem
 - `B2W2, BW` **Give all items 99x** -- Blue Scarf, Cherish Ball, Dream Ball, Fast Ball, Friend Ball, Green Scarf, Heavy Ball, Level Ball, Love Ball, Lure Ball, Moon Ball, Park Ball, Pink Scarf, Red Scarf, Safari Ball, Sport Ball, Yellow Scarf
 - `B2W2, BW` **Give all berries 99x** -- Rabuta Berry, Pamtre Berry
-- `BW` **All TMs and HMs owned** -- TM95 Snarl (only available from [an unreleased Gen 4 event](https://bulbapedia.bulbagarden.net/wiki/Lock_Capsule))
 - `HGSS` **Give all pokeballs 99x** -- Cherish Ball, Park Ball, Sport Ball
 - `PT, DP` **Give all pokeballs 99x** -- Cherish Ball
 - `DP` **Give all items 99x** -- Shoal Salt, Shoal Shell
@@ -96,7 +95,6 @@ These are notes and details that may be useful to know about scripts that couldn
 ### Item Scripts
 - `USUM, SM` **slot 1 x897-960**: due to the way items are stored in Gen 7 saves and the current limitations of PKSM's scripts, the quantity of the item in the pouch's first slot is set to something in the range of 897 to 960 (depends on the former quantity) rather than 999 like in past generations
 - `B2W2, BW` **Item slot 1 - Pass Orb x65535**: this was only added because the MAX level Pass Powers require 9999 to use, which is more than existing scripts give. Also note that the game will display the amount weirdly, like `?35`
-- `Gen IV, V, VI` **All TMs and HMs**: fills your TM pouch with *all* TMs and HMs, which may cause problems with story progression
 
 ### Reset Scripts
 - `all games` **Reset [pokemon]**: Allows any listed Pokémon to be re-obtained (if gift) or re-battled
@@ -159,6 +157,7 @@ These scripts for `BW` fill all the settlement's slots in your game with predefi
 | Scientist Marie     | -     | Front | Back  |
 
 ### Other Scripts
+- `all games` **Quick hatch**: does **NOT** hatch your eggs for you -- it just makes the eggs hatch in as few steps as possible
 - `USUM, SM` **Shop 6 Tent Bonus**: set which bonus is active from the tent shop located in slot 6 (requires a tent shop to be in that slot)
 - `USUM` **Set 100 hatched eggs**: set the number of hatched eggs to 100 so that you can just talk to the stats judge to unlock IV checking in the PC
 - `USUM` **Set Sun/Moon time**: sets the in-game time of day, to allow access to time limited events (only available during day/night)
@@ -175,6 +174,7 @@ These scripts for `BW` fill all the settlement's slots in your game with predefi
     - `B2W2, BW`: Route 8 is frozen over in Winter so you may be unable to encounter Croagunk (BW) or Quagsire (B2W2) after setting it as the active swarm.
     - `HGSS`: due to the inability to tell HG saves apart from SS saves (by their content alone), both games will see "Baltoy / Gulpin" with Baltoy's sprite and "Sableye / Mawile" with Sableye's sprite on the selection screen despite Baltoy and Sableye only appearing in HG and Gulpin and Mawile only appearing in SS
 - `Pt, DP` **Fulfill Spiritomb encounter requirements**: sets everything up so that you will battle Spiritomb the next time you examine the Broken Tower / Hallowed Tower on Route 209 (between Hearthome and Solaceon)
+- `PT, DP` **Great Marsh**: lets you pick which species fill each area's daily binocular Pokémon
 
 ---
 
