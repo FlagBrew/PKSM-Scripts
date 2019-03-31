@@ -82,32 +82,36 @@ Meaning                                     Offset      Length      Max Value   
 - ???                                       0x1e200     0x1400
 - Musical data (downloaded)                 0x1f700     0x2a4
 - Black City / White Forest                 0x1fa00     0x2dc
-    - Population (front)
-        - slot 1                            0x1fa09
-            - ID                            0x1fa09
-            - points                        0x1fa0a
-        - slot 2                            0x1fa21
-        - slot 3                            0x1fa39
-        - slot 4                            0x1fa51
-        - slot 5                            0x1fa69
-        - slot 6                            0x1fa81
-        - slot 7                            0x1fa99
-        - slot 8                            0x1fab1
-        - slot 9                            0x1fac9
-        - slot 10                           0x1fae1
-    - Population (back)
-        - slot 1                            0x1faf9
-            - ID                            0x1fbf9
-            - points                        0x1fbfa
-        - slot 2                            0x1fb11
-        - slot 3                            0x1fb29
-        - slot 4                            0x1fb41
-        - slot 5                            0x1fb59
-        - slot 6                            0x1fb71
-        - slot 7                            0x1fb89
-        - slot 8                            0x1fba1
-        - slot 9                            0x1fbb9
-        - slot 10                           0x1fbd1
+    - TID                                   0x1fa04     2
+    - SID                                   0x1fa06     2
+    - Population                            0x1fa08     0x1e0
+        - front slot 1                      0x1fa08     0x18
+            - is present                    0x1fa08     1
+            - ID                            0x1fa09     1           29
+            - stay points                   0x1fa0a     1           100?
+            - ???                           0x1fa0b     1
+            - source game OT name           0x1fa0c     16
+            - source game TID               0x1fa1c     2
+            - source game SID               0x1fa1e     2
+        - front slot 2                      0x1fa20
+        - front slot 3                      0x1fa38
+        - front slot 4                      0x1fa50
+        - front slot 5                      0x1fa68
+        - front slot 6                      0x1fa80
+        - front slot 7                      0x1fa98
+        - front slot 8                      0x1fab0
+        - front slot 9                      0x1fac8
+        - front slot 10                     0x1fae0
+        - back slot 1                       0x1faf8
+        - back slot 2                       0x1fb10
+        - back slot 3                       0x1fb28
+        - back slot 4                       0x1fb40
+        - back slot 5                       0x1fb58
+        - back slot 6                       0x1fb70
+        - back slot 7                       0x1fb88
+        - back slot 8                       0x1fba0
+        - back slot 9                       0x1fbb8
+        - back slot 10                      0x1fbd0
 - ???                                       0x1fd00     0x34c
 - Event                                     0x20100     0x3ec
     - Event const                           0x20100
