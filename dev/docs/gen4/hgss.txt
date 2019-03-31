@@ -42,18 +42,19 @@ Meaning                                     Offset      Length      Max Value   
     - lotto number                          0xe5c
     - Prints                                0xe7e
     - legendary beasts                      0xf26
-    - Sinjoh Ruins ?                        0xfe8
-    - Sinjoh Ruins ?                        0xfea
+    - Sinjoh Ruins event - stage            0xfda
+    - Sinjoh Ruins event - Arceus type      0xfe8
+    - Sinjoh Ruins event - 1st choice       0xfea
+    - Spiky-Eared Pichu event stage         0x103a
 - Event flag                                0x10c4
     - pokedex related                       0x10d1      1           8           8
-    - Sinjoh Ruins ?                        0x10d7
+    - Sinjoh Ruins - Hiker                  0x10d7
     - legendary beasts                      0x10fd
     - Red                                   0x110f
     - Sinjoh Ruins ?                        0x111f
     - Articuno                              0x1124
     - Moltres                               0x1124
     - Mewtwo                                0x1124
-    - Spiky-Eared Pichu                     0x103a
     - Fly                                   0x11fa
 - M                                         0x1234      2
     - X                                     0x123c      2

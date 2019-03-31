@@ -51,7 +51,7 @@ void gui_keyboard(char* out, char* hint, int maxChars);
 
 Brings up the numpad/keyboard to allow user input.
 - `int* out`: pointer to an existing `int` variable to hold the user's input
-- `char* out`: pointer to an existing string variable that should be large enough to hold whatever you're prompting the user for
+- `char* out`: pointer to an existing string variable that should be large enough to hold whatever you're prompting the user for, including the `NULL` terminator
 - `char* hint`:
     - **numpad**: string to be shown to the user if they click on the `What?` button in the bottom left
     - **keyboard**: string shown in input box when it's empty
@@ -90,7 +90,7 @@ A value of `0` is returned if used on a Gen 5+ save, meaning they'll have no adv
 void sav_box_decrypt();
 void sav_box_encrypt();
 ```
-These should *always* be used as a pair and *always* in this order. Mixing them or not using them in pairs *will* produce unpredictable results.
+**IMPORTANT**: These should *always* be used as a pair and *always* in this order. Mixing them or not using them in pairs *will* produce unpredictable results.
 
 Any edits you aim to make should be done after calling `sav_box_decrypt` and before calling `sav_box_encrypt`.
 
@@ -98,9 +98,9 @@ Any edits you aim to make should be done after calling `sav_box_decrypt` and bef
 void pkx_decrypt(char* data, enum Generation type);
 void pkx_encrypt(char* data, enum Generation type);
 ```
-For encrypting or decrypting PKX data, usually
+For encrypting or decrypting PKX data, usually for reading from or writing to a `.pk*` file
 - `char* data`: pointer to an existing variable with Pokémon data to encrypt/decrypt
-- `enum Generation type`: which generation the data comes from, so that it can be properly read/written/decrypted/encrypted
+- `enum Generation type`: which generation the data comes from, so that it can be properly decrypted/encrypted
 
 #### Pkx Editing
 ```c
@@ -114,7 +114,7 @@ Read Pkm data into a variable
 
 ```c
 void party_inject_pkx(char* data, enum Generation type, int slot);
-void sav_inject_pkx(char* data, enum Generation type, int box, int slot);
+void sav_inject_pkx(char* data, enum Generation type, int box, int slot, int doTradeEdits);
 void bank_inject_pkx(char* data, enum Generation type, int box, int slot);
 ```
 Storing pkm data from a variable into the party, PC boxes, or PKSM bank
@@ -122,6 +122,7 @@ Storing pkm data from a variable into the party, PC boxes, or PKSM bank
 - `enum Generation type`: which generation the data comes from, so that it can be properly written
 - `slot`: slot within the party or box to inject to
 - `box`: which box number the Pokémon should be injected into
+- `doTradeEdits`: boolean controlling whether PKSM applies appropriate trade logic (non-`0`) or not (`0`)
 
 ### IO Functions
 ```c
@@ -177,11 +178,11 @@ Receives data (such as pkx, WC, etc.) sent from a client running on another devi
 ```c
 int net_tcp_send(char* ip, int port, char* buffer, int size);
 ```
-Sends data (stored in `buffer`) to a compatible client on another device
+Sends data to a compatible client on another device
 - `char* ip`: IP address of device to send data to
 - `int port`: port on device to send data to
-- `char* buffer`: data to send to device
-- `int size`: size of data being sent in bytes
+- `char* buffer`: data to send
+- `int size`: size of data being sent, in bytes
 - returns `0` if successful
 
 ### Text Functions
