@@ -72,7 +72,7 @@ int main(int argc, char** argv)
                 {
                     // TODO: optimize
                     sav_box_decrypt();
-                    sav_inject_pkx(pkm, gen, box, slot);
+                    sav_inject_pkx(pkm, gen, box, slot, 0);
                     sav_box_encrypt();
                 }
             }

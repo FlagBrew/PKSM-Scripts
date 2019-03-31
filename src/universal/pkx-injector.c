@@ -33,11 +33,11 @@ int main(int argc, char** argv)
                 if (ekx)
                 {
                     pkx_decrypt(data, GEN_LGPE);
-                    sav_inject_pkx(data, GEN_LGPE, box, slot);
+                    sav_inject_pkx(data, GEN_LGPE, box, slot, 0);
                 }
                 else
                 {
-                    sav_inject_pkx(data, GEN_LGPE, box, slot);
+                    sav_inject_pkx(data, GEN_LGPE, box, slot, 0);
                 }
             }
         }
@@ -48,11 +48,11 @@ int main(int argc, char** argv)
                 if (ekx)
                 {
                     pkx_decrypt(data, GEN_SEVEN);
-                    sav_inject_pkx(data, GEN_SEVEN, box, slot);
+                    sav_inject_pkx(data, GEN_SEVEN, box, slot, 0);
                 }
                 else
                 {
-                    sav_inject_pkx(data, GEN_SEVEN, box, slot);
+                    sav_inject_pkx(data, GEN_SEVEN, box, slot, 0);
                 }
             }
             else if (pkxFiles->files[i][numChars - 1] == '6')
@@ -60,11 +60,11 @@ int main(int argc, char** argv)
                 if (ekx)
                 {
                     pkx_decrypt(data, GEN_SIX);
-                    sav_inject_pkx(data, GEN_SIX, box, slot);
+                    sav_inject_pkx(data, GEN_SIX, box, slot, 0);
                 }
                 else
                 {
-                    sav_inject_pkx(data, GEN_SIX, box, slot);
+                    sav_inject_pkx(data, GEN_SIX, box, slot, 0);
                 }
             }
             else if (pkxFiles->files[i][numChars - 1] == '5')
@@ -72,11 +72,11 @@ int main(int argc, char** argv)
                 if (ekx)
                 {
                     pkx_decrypt(data, GEN_FIVE);
-                    sav_inject_pkx(data, GEN_FIVE, box, slot);
+                    sav_inject_pkx(data, GEN_FIVE, box, slot, 0);
                 }
                 else
                 {
-                    sav_inject_pkx(data, GEN_FIVE, box, slot);
+                    sav_inject_pkx(data, GEN_FIVE, box, slot, 0);
                 }
             }
             else if (pkxFiles->files[i][numChars - 1] == '4')
@@ -84,11 +84,11 @@ int main(int argc, char** argv)
                 if (ekx)
                 {
                     pkx_decrypt(data, GEN_FOUR);
-                    sav_inject_pkx(data, GEN_FOUR, box, slot);
+                    sav_inject_pkx(data, GEN_FOUR, box, slot, 0);
                 }
                 else
                 {
-                    sav_inject_pkx(data, GEN_FOUR, box, slot);
+                    sav_inject_pkx(data, GEN_FOUR, box, slot, 0);
                 }
             }
         }

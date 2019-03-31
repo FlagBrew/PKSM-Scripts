@@ -72,7 +72,7 @@ int main(int argc, char **argv)
                 {
                     boxEggs++;
                     pkm[friend] = 0;
-                    sav_inject_pkx(pkm, gen, box, slot);
+                    sav_inject_pkx(pkm, gen, box, slot, 0);
                 }
             }
         }
