@@ -4,7 +4,7 @@ const fse = require('fs-extra');
 const ArgumentParser = require('argparse').ArgumentParser;
 const klawSync = require('klaw-sync');
 const Sav = require('./Sav');
-const diffEvent = require('./diffEvent')
+const diffEvent = require('./diffEvent');
 
 /* argparse setup */
 const parser = new ArgumentParser({
@@ -16,10 +16,24 @@ parser.addArgument('-o', {
     help: 'File (.txt) to write diff to -- if not given, diff is written to console',
 });
 parser.addArgument(['-r', '--range'], {
+    // action: 'append', // allow diff of multiple ranges
     nargs: 2,
     metavar: ['start', 'end'],
     help: 'Specific range to limit diff to, from start (inclusive) to end (exclusive)',
 });
+/* length-based range diffing
+parser.addArgument('-l', {
+    action: 'append',
+    nargs: 2,
+    metavar: ['start', 'length'],
+    help: 'Specific range to limit diff to, length number of bytes beginning at start',
+});
+/* limit diff to current save (of split-able save file types)
+parser.addArgument('-f', {
+    action: 'storeTrue',
+    help: 'Use full save file (of saves that can be split) in diff rather than just current save data',
+});
+/**/
 parser.addArgument('-e', {
     action: 'storeTrue',
     help: 'Flag to include an event diff',
@@ -37,7 +51,6 @@ group.addArgument(['-s', '--saves'], {
 
 /* Global variables */
 let params;
-let split = false;
 let diffs = 0;
 
 /**
@@ -45,7 +58,7 @@ let diffs = 0;
  * @param {Number} padTo
  * @returns {String}
  */
-function toPaddedHexString(value, padTo) {
+function toHexStr(value, padTo) {
     let paddedHex = value.toString(16);
     while (paddedHex.length < padTo) {
         paddedHex = `0${paddedHex}`;
@@ -54,56 +67,91 @@ function toPaddedHexString(value, padTo) {
 }
 
 /**
- * @param {String[]} files
- * @param {Buffer[]} data
- * @param {Number[]} diffRange
- * @param {Boolean} eventDiff
+ * @param {Sav[]} saves
+ * @param {Object} config
+ * @param {Boolean} config.event
+ * @param {Number[]} config.range
+ * @param {Boolean} config.isSplit
  * @returns {String}
  */
-function generateDiff(files, data, diffRange, eventDiff) {
+function generateDiff(saves, config) {
     const diff = [];
 
     // construct diff header
     const tableHeader = ['\nOffset   '];
     diff.push('Diff of saves from the following file(s):\n\n');
-    files.forEach((v, i) => {
-        diff.push(`Save ${i + 1}: ${v}\n`);
-        tableHeader.push(`    Save ${i + 1}`.slice((i == 9) ? -11 : -10));
+    let ofs = {};
+    if (saves[0].generation === 4) {
+        ofs.general = Sav.getBlockOffsets(saves[0].verGroupAbbr, 'general');
+        ofs.storage = Sav.getBlockOffsets(saves[0].verGroupAbbr, 'storage');
+        ofs.hof = Sav.getBlockOffsets(saves[0].verGroupAbbr, 'hof');
+    } else if (saves[0].generation === 5) {
+        ofs.save = Sav.getBlockOffsets(saves[0].verGroupAbbr, 'save');
+        ofs.extra = Sav.getBlockOffsets(saves[0].verGroupAbbr, 'extra');
+    }
+    saves.forEach((v, i) => {
+        diff.push(`Save ${i + 1}: ${v.fileName}${config.isSplit ? ' (' + v.contents + ')' : ''}\n`);
+
+        // report block offsets of split saves
+        if (config.isSplit) {
+            if (v.generation === 4) { // split Gen 4 save
+                diff.push(`    General: ${ofs.general.map(n => toHexStr(n + v.active.general * 0x40000, 5)).join(':')}\n`);
+                diff.push(`    Storage: ${ofs.storage.map(n => toHexStr(n + v.active.storage * 0x40000, 5)).join(':')}\n`);
+                diff.push(`    HoF:     ${ofs.hof.map(n => toHexStr(n + v.active.hof * 0x40000, 5)).join(':')}\n`);
+            } else if (v.verGroupAbbr === 'BW') { // split BW save
+                diff.push(`    Save:  ${ofs.save.map(n => toHexStr(n + v.active.save * 0x24000, 5)).join(':')}\n`);
+                diff.push(`    Extra: ${ofs.extra.map(n => toHexStr(n, 5)).join(':')}\n`);
+            } else if (v.verGroupAbbr === 'B2W2') { // split B2W2 save
+                diff.push(`    Save:  ${ofs.save.map(n => toHexStr(n + v.active.save * 0x26000, 5)).join(':')}\n`);
+                diff.push(`    Extra: ${ofs.extra.map(n => toHexStr(n, 5)).join(':')}\n`);
+            } else {
+                console.log('How did you split this input?');
+            }
+        }
+
+        let digits = 10 + (Math.floor(Math.log10(i + 1)) !== Math.floor(Math.log10(i)));
+        tableHeader.push(`    Save ${i + 1}`.slice(-digits));
     });
 
-    if (data[0].length === 0x40000) {
-        diff.push('\nNote: Due to the way Gen 4 saves are stored, data in Save 1 may be more recent than the corresponding data in Save 2');
+    if (saves[0].generation === 4 && config.isSplit) {
+        diff.push('\nNote: HoF block of Save 1 may be more recent than the HoF block of Save 2\n');
     }
 
-    // event diffing (function call?) goes here
-    if (eventDiff) {
-        let eDiff = diffEvent(files, data);
+    // event diffing
+    if (config.event) {
+        let eDiff = diffEvent(saves);
         if (eDiff == '') {
             console.log('Event diff failed.');
         } else {
-            diffs += eDiff[0] === 'E' ? 0 : 1;
+            diffs += eDiff.slice(0, 25) === 'Event flags and constants' ? 0 : 1;
             diff.push("\n", eDiff);
         }
     }
 
     // range slicing
-    let slicedData = data;
+    let slicedData = saves.map(v => v.data);
+    // let slicedData = saves.map(v => config.f ? v.data : v.getCurrent());
     let sliceStart = 0;
-    if (diffRange) {
-        sliceStart = +diffRange[0];
-        slicedData = data.map(v => v.slice(+diffRange[0], +diffRange[1]));
-        diff.push(`\n\nDiff range: ${diffRange[0]}-${diffRange[1]}`);
+    if (config.range) {
+        sliceStart = +config.range[0];
+        slicedData = slicedData.map(v => v.slice(+config.range[0], +config.range[1]));
+        diff.push(`\n\nDiff range: ${config.range[0]}-${config.range[1]}`);
     }
 
     // construct diff body
     diff.push(`\n\n${tableHeader.join('')}\n`);
     slicedData[0].forEach((d, n) => {
         const offsetDiff = {
-            offset: toPaddedHexString(n + sliceStart, 5),
+            offset: toHexStr(n + sliceStart, 5),
             values: [],
         };
+        if (config.isSplit && saves[0].generation === 5) {
+            if (n > ofs.save[1]) {
+                offsetDiff.offset = toHexStr(n + sliceStart + ofs.save[1] + 1);
+            }
+        }
         slicedData.forEach((v, i) => {
-            offsetDiff.values[i] = toPaddedHexString(v[n], 2);
+            offsetDiff.values[i] = toHexStr(v[n], 2);
         });
         const match = offsetDiff.values.every((v, i, a) => v === a[0]);
         if (!match) {
@@ -123,40 +171,34 @@ function generateDiff(files, data, diffRange, eventDiff) {
  * @param {Boolean} params.e (Optional)
  */
 function main(params) {
-    let saveFiles = params.saves;
+    const config = {
+        range: params.range,
+        event: params.e,
+    };
 
     console.log('Loading saves...');
-    const fileBuffs = Sav.loadSaves(saveFiles);
-    let failedSaves = 0;
-    saveFiles = saveFiles.filter((v, i) => {
-        if (!v) {
-            fileBuffs.splice(i - failedSaves, 1);
-            failedSaves += 1;
-            return false;
-        }
-        return true;
-    });
+    const saves = params.saves.map(v => new Sav(v)).filter(v => v.version !== -1);
 
     console.log('Checking compatibility of saves...');
-    let compatFailReason = Sav.checkCompat(fileBuffs);
+    let compatFailReason = Sav.checkCompat(saves);
     if (compatFailReason !== '') {
         console.log(`Save compatibility check failed.\nReason: "${compatFailReason}"\nExiting without diffing.`);
         return;
     }
 
-    // check number of saves
-    if (fileBuffs.length === 1) {
-        split = Sav.canSplit(fileBuffs[0]);
-        if (!split) {
-            console.log('Cannot split a single save file from this game. Exiting without diffing.');
+    // try to split lone save
+    if (saves.length === 1) {
+        if (!saves[0].canSplit()) {
+            console.log(`Cannot split a single ${saves[0].verGroupAbbr} save file. Exiting without diffing.`);
             return;
         }
         // split lone save
-        Sav.splitSave(saveFiles, fileBuffs);
+        Sav.splitSave(saves, 0, true);
+        config.isSplit = true;
     }
 
     console.log('Generating diff...');
-    const diff = generateDiff(saveFiles, fileBuffs, params.range, params.e);
+    const diff = generateDiff(saves, config);
 
     // output diff
     if (diffs === 0) {

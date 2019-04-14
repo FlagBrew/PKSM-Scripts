@@ -26,19 +26,17 @@ group.addArgument(['-s', '--saves'], {
 });
 
 /* Global variables */
-let split = false;
 let diffs = 0;
 const cli = module === require.main;
 
 /**
- * @param {Number} version
+ * @param {String} version
  * @returns {Object}
  */
 function getVersionEventInfo(version) {
     let data;
     switch (version) {
-        case 10:
-        case 11:
+        case 'DP':
             data = {
                 'constStart': 0xd9c,
                 'constCount': 288,
@@ -46,7 +44,7 @@ function getVersionEventInfo(version) {
                 'flagCount': 2912,
             };
             break;
-        case 12:
+        case 'PT':
             data = {
                 'constStart': 0xdac,
                 'constCount': 288,
@@ -54,8 +52,7 @@ function getVersionEventInfo(version) {
                 'flagCount': 2912,
             };
             break;
-        case 7:
-        case 8:
+        case 'HGSS':
             data = {
                 'constStart': 0xde4,
                 'constCount': 368,
@@ -63,8 +60,7 @@ function getVersionEventInfo(version) {
                 'flagCount': 2912,
             };
             break;
-        case 20:
-        case 21:
+        case "BW":
             data = {
                 'constStart': 0x20100,
                 'constCount': 318,
@@ -72,8 +68,7 @@ function getVersionEventInfo(version) {
                 'flagCount': 2912,
             };
             break;
-        case 22:
-        case 23:
+        case 'B2W2':
             data = {
                 'constStart': 0x1ff00,
                 'constCount': 431,
@@ -81,10 +76,8 @@ function getVersionEventInfo(version) {
                 'flagCount': 3064,
             };
             break;
-        case 24:
-        case 25:
-        case 26:
-        case 27:
+        case 'XY':
+        case 'ORAS':
             data = {
                 'constStart': 0x14a00,
                 'constCount': 382,
@@ -92,8 +85,7 @@ function getVersionEventInfo(version) {
                 'flagCount': 3072,
             };
             break;
-        case 30:
-        case 31:
+        case 'SM':
             data = {
                 'constStart': 0x1c00,
                 'constCount': 1000,
@@ -101,8 +93,7 @@ function getVersionEventInfo(version) {
                 'flagCount': 3968,
             };
             break;
-        case 32:
-        case 33:
+        case 'USUM':
             data = {
                 'constStart': 0x1e00,
                 'constCount': 1000,
@@ -207,7 +198,8 @@ function diffEventConst(eConstData) {
     if (constDiffs.length) {
         const eConstHeader = ['\nEvent Const Diff\n\nConst'];
         eConstData.forEach((v, i) => {
-            eConstHeader.push(`    Save ${i + 1}`);
+            let digits = 10 + (Math.floor(Math.log10(i + 1)) !== Math.floor(Math.log10(i)));
+            eConstHeader.push(`    Save ${i + 1}`.slice(-digits));
         });
         eConstHeader.push('\n');
         constDiffs.unshift(eConstHeader.join(''));
@@ -217,42 +209,40 @@ function diffEventConst(eConstData) {
 }
 
 /**
- * @param {String[]} files
- * @param {Buffer[]} data
+ * @param {Sav[]} saves Array of `Sav` objects that have already been checked for compatibility
  * @returns {String}
  */
-function generateDiff(files, data) {
-    const diff = [];
-
-    // detect version of save(s)
-    const version = Sav.getVersion(data[0].length, data[0]);
-    if ([-1, 42, 43].includes(version)) {
-        if (version != -1) {
-            console.log('Event Diff does not work on LGPE yet.');
-        }
+function generateDiff(saves) {
+    // shortcut out if LGPE
+    if (saves[0].verGroupAbbr === 'LGPE') {
+        console.log('Event Diff does not work on LGPE yet.');
         return '';
     }
-    const versionInfo = getVersionEventInfo(version);
+    const versionInfo = getVersionEventInfo(saves[0].verGroupAbbr);
 
     const flagData = [];
     const constData = [];
-    data.forEach((v, i) => {
+    saves.forEach((v, i) => {
+        const raw = v.getCurrent();
+
         // extract Event Flags
-        let raw = v.slice(versionInfo.flagStart, versionInfo.flagStart + (versionInfo.flagCount >> 3));
-        let data = [];
+        let data = raw.slice(versionInfo.flagStart, versionInfo.flagStart + (versionInfo.flagCount >> 3));
+        let extracted = [];
         for (let n = 0; n < versionInfo.flagCount; n++) {
-            data[n] = (raw[n>>3] >> (n & 7) & 1) === 1;
+            extracted[n] = (data[n>>3] >> (n & 7) & 1) === 1;
         }
-        flagData[i] = data;
+        flagData[i] = extracted;
 
         // extract Event Constants
-        raw = v.slice(versionInfo.constStart, versionInfo.flagStart);
-        data = [];
+        data = raw.slice(versionInfo.constStart, versionInfo.flagStart);
+        extracted = [];
         for (let n = 0; n < versionInfo.constCount; n++) {
-            data[n] = raw.readUInt16LE(n * 2);
+            extracted[n] = data.readUInt16LE(n * 2);
         }
-        constData[i] = data;
+        constData[i] = extracted;
     });
+
+    const diff = [];
 
     // diff event data
     const flagDiffs = diffEventFlags(flagData);
@@ -270,12 +260,9 @@ function generateDiff(files, data) {
         // if not called from another script, construct diff header
         if (cli) {
             const header = ['Diff of saves from the following file(s):\n\n'];
-            files.forEach((v, i) => {
-                header.push(`Save ${i + 1}: ${v}\n`);
+            saves.forEach((v, i) => {
+                header.push(`Save ${i + 1}: ${v.fileName}${v.contents !== 'full' ? ' (' +v.contents + ')' : ''}\n`);
             });
-            if (data[0].length === 0x40000) {
-                header.push('\nNote: Due to the way Gen 4 saves are stored, data in Save 1 may be more recent than the corresponding data in Save 2');
-            }
             header.push('\n');
             diff.unshift(header.join(''));
         }
@@ -291,40 +278,28 @@ function generateDiff(files, data) {
  * @param {String} params.o (Optional)
  */
 function main(params) {
-    let saveFiles = params.saves;
-
     console.log('Loading saves...');
-    const fileBuffs = Sav.loadSaves(saveFiles);
-    let failedSaves = 0;
-    saveFiles = saveFiles.filter((v, i) => {
-        if (!v) {
-            fileBuffs.splice(i - failedSaves, 1);
-            failedSaves += 1;
-            return false;
-        }
-        return true;
-    });
+    const saves = params.saves.map(v => new Sav(v)).filter(v => v.version !== -1);
 
     console.log('Checking compatibility of saves...');
-    let compatFailReason = Sav.checkCompat(fileBuffs);
+    const compatFailReason = Sav.checkCompat(saves);
     if (compatFailReason !== '') {
         console.log(`Save compatibility check failed.\nReason: "${compatFailReason}"\nExiting without diffing.`);
         return;
     }
 
     // check number of saves
-    if (fileBuffs.length === 1) {
-        split = Sav.canSplit(fileBuffs[0]);
-        if (!split) {
-            console.log('Cannot split a single save file from this game. Exiting without diffing.');
+    if (saves.length === 1) {
+        if (!saves[0].canSplit()) {
+            console.log(`Cannot split a single ${saves[0].verGroupAbbr} save file. Exiting without diffing.`);
             return;
         }
         // split lone save
-        Sav.splitSave(saveFiles, fileBuffs);
+        Sav.splitSave(saves, 0, true);
     }
 
     console.log('Generating diff...');
-    const diff = generateDiff(saveFiles, fileBuffs);
+    const diff = generateDiff(saves);
 
     // output diff
     if (diffs === 0) {
