@@ -198,7 +198,10 @@ function diffEventConst(eConstData) {
     if (constDiffs.length) {
         const eConstHeader = ['\nEvent Const Diff\n\nConst'];
         eConstData.forEach((v, i) => {
-            let digits = 10 + (Math.floor(Math.log10(i + 1)) !== Math.floor(Math.log10(i)));
+            let digits = 10;
+            if (i % 10 === 9) {
+                digits += (Math.floor(Math.log10(i + 1)) !== Math.floor(Math.log10(i)));
+            }
             eConstHeader.push(`    Save ${i + 1}`.slice(-digits));
         });
         eConstHeader.push('\n');

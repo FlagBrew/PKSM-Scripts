@@ -3,7 +3,7 @@ const fse = require('fs-extra');
 const { join } = require('path');
 const pksmScript = require('./PKSMScript');
 
-const games = ['usum', 'sm', 'oras', 'xy', 'b2w2', 'bw', 'hgss', 'pt', 'dp'];
+const games = ['lgpe', 'usum', 'sm', 'oras', 'xy', 'b2w2', 'bw', 'hgss', 'pt', 'dp'];
 
 function generate(game) {
     let scriptSrc = fse.readFileSync(join('src', `scripts${game.toUpperCase()}.txt`), 'utf8');

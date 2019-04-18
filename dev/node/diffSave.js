@@ -109,7 +109,10 @@ function generateDiff(saves, config) {
             }
         }
 
-        let digits = 10 + (Math.floor(Math.log10(i + 1)) !== Math.floor(Math.log10(i)));
+        let digits = 10;
+        if (i % 10 === 9) {
+            digits += (Math.floor(Math.log10(i + 1)) !== Math.floor(Math.log10(i)));
+        }
         tableHeader.push(`    Save ${i + 1}`.slice(-digits));
     });
 
