@@ -8,50 +8,50 @@ class Sav:
             'general': [0, 0xC0FF],
             'storage': [0xC100, 0x1FFFF],
             'hof': [0x20000, 0x3FFFF],
-            'eventConst': [0xD9C, 0x40D9C],
-            'eventFlag': [0xFDC, 0x40FDC],
+            'eventConst': [0xD9C, 0xFDC],
+            'eventFlag': [0xFDC, 0x1148],
         },
         'PT': {
             'general': [0, 0xCF2B],
             'storage': [0xCF2C, 0x1FFFF],
             'hof': [0x20000, 0x3FFFF],
-            'eventConst': [0xDAC, 0x40DAC],
-            'eventFlag': [0xFEC, 0x40FEC],
+            'eventConst': [0xDAC, 0xFEC],
+            'eventFlag': [0xFEC, 0x1158],
         },
         'HGSS': {
             'general': [0, 0xF6FF],
             'storage': [0xF700, 0x22FFF],
             'hof': [0x23000, 0x3FFFF],
-            'eventConst': [0xDE4, 0x40DE4],
-            'eventFlag': [0x10C4, 0x410C4],
+            'eventConst': [0xDE4, 0x10C4],
+            'eventFlag': [0x10C4, 0x1230],
         },
         'BW': {
             'save': [0, 0x23FFF],
             'extra': [0x48000, 0x7FFFF],
-            'eventConst': [0x20100, 0x2037B],
+            'eventConst': [0x20100, 0x2037C],
             'eventFlag': [0x2037C, 0x204E8],
         },
         'B2W2': {
             'save': [0, 0x25FFF],
             'extra': [0x4C000, 0x7FFFF],
-            'eventConst': [0x1FF00, 0x2025D],
+            'eventConst': [0x1FF00, 0x2025E],
             'eventFlag': [0x2025E, 0x203DD],
         },
         'XY': {
-            'eventConst': [0x14A00, 0x14CFB],
-            'eventFlag': [0x14CFC, 0x14E7C],
+            'eventConst': [0x14A00, 0x14CFC],
+            'eventFlag': [0x14CFC, 0x14E7B],
         },
         'ORAS': {
-            'eventConst': [0x14A00, 0x14CFB],
-            'eventFlag': [0x14CFC, 0x14E7C],
+            'eventConst': [0x14A00, 0x14CFC],
+            'eventFlag': [0x14CFC, 0x14E7B],
         },
         'SM': {
             'eventConst': [0x1C00, 0x23D0],
             'eventFlag': [0x23D0, 0x25C0],
         },
         'USUM': {
-            'eventConst': [0x1E00, 0x25CF],
-            'eventFlag': [0x25D0, 0x27E9],
+            'eventConst': [0x1E00, 0x25D0],
+            'eventFlag': [0x25D0, 0x2838], # end == 0x27e9?
         }
     }
 
@@ -63,7 +63,7 @@ class Sav:
             if self.data[-16:] == Sav._footerDSV:
                 self.data = self.data[:0x80000]
         except OSError:
-            print("There was an error reading save %s." % fileName)
+            print('There was an error reading save "{}"'.format(fileName))
             self.data = []
         self.version = self._getVersion()
         self.verGroupAbbr = self._getVerGroupAbbr()
@@ -218,7 +218,7 @@ class Sav:
             # 0x76000: AS: 26, OR: 27
             # 0x65600: X: 24, Y: 25
             return self.data[0x14004]
-        if len(self.data) in [0x80000, 0x8007A, 0x40000]:
+        if len(self.data) == 0x80000:
             # raw: 0x80000, DeSmuME: 0x8007A, Gen 4 split: 0x40000
             # D: 10, P: 11, Pt: 12, HG: 7, SS: 8
             # W: 20, B: 21, W2: 22, B2: 23
