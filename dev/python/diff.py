@@ -11,13 +11,11 @@ parser = argparse.ArgumentParser(
 parser.add_argument('-o', '--out', metavar='outFile',
                     help='File (.txt) to write diff to -- if not given, diff is written to console')
 parser.add_argument('-e', action='store_true',
-                    help='Flag to include an event diff')
+                    help='Flag to perform an event diff')
 parser.add_argument('-s', action='store_true',
-                    help='Flag to include save diff')
-parser.add_argument('-c', '--full', action='store_true',
-                    help='Use full save file (of saves that can be split) in diff rather than just current save data')
-parser.add_argument('-k', '--keep', action='store_true',
-                    help='Keep the backup save from first file (if split-able)')
+                    help='Flag to perform a save diff')
+parser.add_argument('-k', '--keep', choices=('first', 'all', 'full'),
+                    help='Whether save files should not be split (full) or which backup save data (first or all) should be kept')
 
 group_range = parser.add_argument_group(
     title='Save Diff Range(s)', description='Range(s) to limit save diff to. Optional. Can use one or both, can even use them multiple times.')
@@ -346,7 +344,7 @@ def main(params):
         return
 
     state = {
-        'e': params.e,
+        'e': params.e or not params.s,
         's': params.s or not params.e,
         'ranges': [],
         'isSplit': False,
@@ -355,13 +353,14 @@ def main(params):
 
     # save splitting
     if saves[0].canSplit():
-        if len(saves) == 1 or (params.keep and not params.full):
+        if len(saves) == 1 or params.keep == 'first':
             state['isSplit'] = True
             Sav.splitSave(saves, 0, True)
-        if not params.full:
+        if params.keep != 'full':
             state['isSplit'] = True
+            keepAll = params.keep == 'all'
             for i in range(len(saves)):
-                Sav.splitSave(saves, i, False)
+                Sav.splitSave(saves, i, keepAll)
     elif len(saves) == 1:
         print("\nCannot split a single {} save file. Exiting without diffing.".format(
             saves[0].verGroupAbbr))
@@ -409,8 +408,8 @@ def main(params):
     if params.out:
         params.out += "" if params.out[-4:] == ".txt" else ".txt"
     if state['diffs'] == 0:
-        print("Saves were identical.{}".format("" if params.out ==
-                                               None else ' "%s" not written to.' % params.out))
+        print("\nSaves were identical.{}".format("" if params.out ==
+                                               None else ' "{}" not written to.'.format(params.out)))
 
     if params.out:
         outDir = ''
@@ -421,7 +420,7 @@ def main(params):
             pass
         with open(params.out, 'w') as f:
             f.write(''.join(diff))
-        print('Diff written to "{}" successfully.'.format(params.out))
+        print('\nDiff written to "{}" successfully.'.format(params.out))
     else:
         print("\n\n{}".format(''.join(diff)))
 

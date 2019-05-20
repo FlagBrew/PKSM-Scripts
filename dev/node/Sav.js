@@ -469,6 +469,12 @@ Sav.checkCompat = function (saves) {
 };
 
 /**
+ * Grabs list (Array) of offsets representing certain blocks of save files
+ *
+ * Gen 4: general, storage, hof
+ * Gen 5: save, extra
+ * all games (except LGPE): eventConst, eventFlag
+ *
  * @param {String} verGroupAbbr Save version group abbreviation
  * @param {String} block Which block's offsets are being requested
  * @returns {Number[]} Array of start and end (inclusive) offsets of block

@@ -16,19 +16,15 @@ parser.addArgument(['-o', '--out'], {
 });
 parser.addArgument('-s', {
     action: 'storeTrue',
-    help: 'Flag to include save diff',
+    help: 'Flag to perform a save diff',
 });
 parser.addArgument('-e', {
     action: 'storeTrue',
-    help: 'Flag to include an event diff',
-});
-parser.addArgument(['-c', '--full'], {
-    action: 'storeTrue',
-    help: 'Use full save file (of saves that can be split) in diff rather than just current save data',
+    help: 'Flag to perform an event diff',
 });
 parser.addArgument(['-k', '--keep'], {
-    action: 'storeTrue',
-    help: 'Keep the backup save from first file (if split-able)',
+    choices: ['first', 'all', 'full'],
+    help: 'Whether save files should not be split (full) or which backup save data (first or all) should be kept',
 });
 const groupRange = parser.addArgumentGroup({
     title: 'Save Diff Range(s)',
@@ -391,8 +387,7 @@ function diffSave(saves, state, label = '') {
  * @param {String} [params.out] - (Optional) Output .txt file to write diff to. If none, diff written to console
  * @param {Boolean} [params.s] - (Optional) Include save diff
  * @param {Boolean} [params.e] - (Optional) Include event diff
- * @param {Boolean} [params.full] - (Optional) Keep entire save for diff if split-able
- * @param {Boolean} [params.keep] - (Optional) Use first save file's backup save data (if split-able) as an extra save
+ * @param {String} [params.keep] - (Optional) Keep entire save for diff if split-able
  * @param {String[]} [params.range] - (Optional) List of range start and end offsets to limit save diff to
  * @param {String[]} [params.l] - (Optional) List of range start offsets and lengths to limit save diff to
  * @param {String[]} params.files - List of save files (at least one required of this or params.dir)
@@ -438,7 +433,7 @@ function main(params) {
     }
 
     const state = {
-        e: params.e,
+        e: params.e || !params.s,
         s: params.s || !params.e,
         ranges: [],
         isSplit: false,
@@ -447,13 +442,14 @@ function main(params) {
 
     // save splitting
     if (saves[0].canSplit()) {
-        if (saves.length === 1 || (params.keep && !params.full)) {
+        if (saves.length === 1 || params.keep === 'first') {
             state.isSplit = true;
             Sav.splitSave(saves, 0, true);
         }
-        if (!params.full) {
+        if (params.keep !== 'full') {
             state.isSplit = true;
-            saves.forEach((v, i, a) => Sav.splitSave(a, i, false));
+            const keepAll = params.keep === 'all';
+            saves.forEach((v, i, a) => Sav.splitSave(a, i, keepAll));
         }
     } else if (saves.length === 1) {
         console.log(`\nCannot split a single ${saves[0].verGroupAbbr} save file. Exiting without diffing.`);
@@ -511,13 +507,13 @@ function main(params) {
         params.out += params.out.slice(-4) === '.txt' ? '' : '.txt';
     }
     if (state.diffs === 0) {
-        console.log(`Saves were identical.${params.out ? " " + params.out + " not written to." : ""}`);
+        console.log(`\nSaves were identical.${params.out ? " " + params.out + " not written to." : ""}`);
         return;
     }
 
     if (params.out) {
         fse.outputFileSync(params.out, diff.join(''));
-        console.log(`Diff written to "${params.out}" successfully.`);
+        console.log(`\nDiff written to "${params.out}" successfully.`);
         return;
     }
     console.log(`\n\n${diff.join('')}`);
