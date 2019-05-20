@@ -458,22 +458,30 @@ function main(params) {
 
     // consolidate and sort any supplied ranges
     let rangeLabel = '';
+    const saveLength = saves[0].data.length;
     if (params.l) {
-        params.l.forEach(r => {
-            state.ranges.push([+r[0], +r[0] + (+r[1])]);
+        params.l.forEach(l => {
+            const r = l.map(v => +v);
+            r[1] += r[0];
+            state.ranges.push(r);
         });
     }
     if (params.range) {
         state.s = true; // force save diff
         params.range.forEach(r => {
-            // TODO: check that range doesn't exceed length of save's data
-            state.ranges.push(r.map(v => +v));
+            const range = r.map(v => +v);
+            if (range[0] > saveLength || range[1] > saveLength) {
+                console.log(`Range ${range} is out-of-bounds. Excluding from diff.`);
+            } else {
+                state.ranges.push(range);
+            }
         });
         // CONSIDER: should I handle (prevent/merge) overlapping ranges?
         state.ranges.sort((a, b) => a[0] - b[0]);
         rangeLabel = 'Save Diff range(s):\n';
-    } else if (state.s) {
-        state.ranges.push([0, saves[0].data.length]);
+    }
+    if (state.ranges.length === 0) {
+        state.ranges.push([0, saveLength]);
     }
 
     console.log('Generating diff...');

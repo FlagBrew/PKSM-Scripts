@@ -367,18 +367,24 @@ def main(params):
 
     # consolidate supplied ranges
     range_label = ''
+    save_length = len(saves[0].data)
     if params.l:
-        for r in params.l:
-            state['ranges'].append([int(r[0], 0), int(r[0], 0) + int(r[1], 0)])
+        for l in params.l:
+            r = [int(i, 0) for i in l]
+            r[1] += r[0]
+            state['ranges'].append(r)
     if params.range:
         state['s'] = True # force save diff
         for r in params.range:
-            # TODO: check that range doesn't exceed length of save's data
-            state['ranges'].append([int(i, 0) for i in r])
+            rng = [int(i, 0) for i in r]
+            if rng[0] > save_length or rng[1] > save_length:
+                print("Range {} is out-of-bounds. Excluding from diff.".format(rng))
+            else:
+                state['ranges'].append(rng)
         # CONSIDER: should I handle (prevent/merge) overlapping ranges?
         state['ranges'] = sorted(state['ranges'])
         range_label = 'Save Diff range(s):\n'
-    elif state['s']:
+    if len(state['ranges']) == 0:
         state['ranges'].append([0, len(saves[0].data)])
 
     print("Generating diff...")
