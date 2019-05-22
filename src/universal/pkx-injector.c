@@ -21,6 +21,7 @@ int main(int argc, char** argv)
         fseek(file, 0, SEEK_SET);
         char* data = malloc(size);
         fread(data, size, size, file);
+        fclose(file);
 
         if (pkxFiles->files[i][numChars - 3] == 'P' || pkxFiles->files[i][numChars - 3] == 'p')
         {
