@@ -158,3 +158,20 @@
 "100 Zygarde Cells" -i 0x1F42 2 100 1
 "999 Zygarde Cells" -i 0x1F42 2 999 1
 "Reset Red and Blue" -i 0x1E6E 1 55 1 -i 0x1EA6 1 225 1 -i 0x2168 1 1 1
+# Battle Agency Scripts
+"Battle Agency - Rank 49" -i 0x6C55C 1 64 1
+"Battle Agency - Rank 50" -i 0x6C55C 1 128 1
+"Battle Agency - 0 Battles" -i 0x6C55D 1 12 1
+"Battle Agency - 3 Battles" -i 0x6C55D 1 60 1
+"Battle Agency - 6 Battles" -i 0x6C55D 1 108 1
+"Battle Agency - 9 Battles" -i 0x6C55D 1 156 1
+"Battle Agency - 12 Battles" -i 0x6C55D 1 204 1
+"Battle Agency - 14 Battles" -i 0x6C55D 1 236 1
+# Same as SM
+"Battle Royal - Master" -i 0x6A3DA 1 5 1 -i 0x6A406 1 5 1
+# Reset Scripts, Last time bwahahaha!
+# In the Original script, the Poipole scrite wasn't present between the Ultra Recon Members. this version fixes it.
+"Reset Poipole v2" -i 0x25f1 1 95 1 -i 0x26A7 1 162 1
+# In the Original script, Lillie isn't present despite her supposed to be, this version fixes it.
+"Reset Solgaleo and Lunala v2" -i 0x23F2 1 1 1 -i 0x261E 1 220 1 -i 0x269b 1 211 1
+"Reset Day-care Eevee Egg" -i 0x2607 1 0 1
