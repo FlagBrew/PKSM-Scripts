@@ -49,3 +49,38 @@
 "Poffin 4 - Mild" -i 0x5068 1 28 1 -i 0x5069 1 99 5 -i 0x506E 1 1 1 -i 0x506F 1 0 1
 "Poffin 5 - Mild" -i 0x5070 1 28 1 -i 0x5071 1 99 5 -i 0x5076 1 1 1 -i 0x5077 1 0 1
 "Poffin 6 - Mild" -i 0x5078 1 28 1 -i 0x5079 1 99 5 -i 0x507E 1 1 1 -i 0x507F 1 0 1
+# New  Scripts
+# This scripts changes the ID number at the Jubilife Lottery to the ID of the in-game trade Abra you can receive in oreburg city, allowing you to win the Master Ball if you have that Abra in PC or your Party
+"Lotto ID Number - 25643" -i 0xE14 2 25643 1 -i 0x1131 1 0 1 -i 0x1132 1 0 1
+"Day Care - Add 10,000 Exp" -i 0x1504 4 10000 1 -i 0x15F0 4 10000 1
+"Day Care - Add 50,000 Exp" -i 0x1504 4 50000 1 -i 0x15F0 4 50000 1
+"Day Care - Add 100,000 Exp" -i 0x1504 4 100000 1 -i 0x15F0 4 100000 1
+"Day Care - Add 500,000 Exp" -i 0x1504 4 500000 1 -i 0x15F0 4 500000 1
+"Day Care - Add 1,000,000 Exp" -i 0x1504 4 1000000 1 -i 0x15F0 4 1000000 1
+"Day Care - Add 1,640,000 Exp" -i 0x1504 4 1640000 1 -i 0x15F0 4 1640000 1
+"All Master Rank Contests Won" -i 0x1109 1 0xDF 1
+#These control the man near Pal Park who gives items if you show him a Pokemon of the level he requests.
+"Level Man - lvl 1" -i 0xE1E 1 1 1 -i 0x1131 1 0 1
+"Level Man - Focus Sash" -i 0xFAC 2 2 1 -i 0x1131 1 0 1
+# These are extra scripts for the battle tower, the first one will allow you to skip to the 7th battle if you quicksave after the first battle and exit to PKSM and run the script. The second will will switch the three Pokemon you entered to the first 3 Pokemon in your party, allowing you to smuggle legendaries and other rule breaking Pokemon and Items into the tower
+"Battle Tower - Skip to Last Battle" -i 0x65BE 1 7 1
+"Use 1st 3 Party PKMN" -i 0x65BF 1 0 1 -i 0x65C0 1 1 1 -i 0x65C1 1 2 1
+# Berries: This one will max out the the water value to all berry plots throuhout the reigon. Load the game, save, and then run the script to automatically water all berries in the region
+"All Berries Watered" -i 0x1E8E 1 255 1 -i 0x1E9C 1 255 1 -i 0x1EAA 1 255 1 -i 0x1EB8 1 255 1 -i 0x1EC6 1 255 1 -i 0x1ED4 1 255 1 -i 0x1EE2 1 255 1 -i 0x1EF0 1 255 1 -i 0x1EFE 1 255 1 -i 0x1F0C 1 255 1 -i 0x1F1A 1 255 1 -i 0x1F28 1 255 1 -i 0x1F36 1 255 1 -i 0x1F44 1 255 1 -i 0x1F52 1 255 1 -i 0x1F60 1 255 1 -i 0x1F6E 1 255 1 -i 0x1F7C 1 255 1 -i 0x1F8A 1 255 1 -i 0x1F98 1 255 1 -i 0x1FA6 1 255 1 -i 0x1FB4 1 255 1 -i 0x1FC2 1 255 1 -i 0x1FD0 1 255 1 -i 0x1FDE 1 255 1 -i 0x1FEC 1 255 1 -i 0x1FFA 1 255 1 -i 0x2008 1 255 1 -i 0x2016 1 255 1 -i 0x2024 1 255 1 -i 0x2032 1 255 1 -i 0x2040 1 255 1 -i 0x204E 1 255 1 -i 0x205C 1 255 1 -i 0x206A 1 255 1 -i 0x2078 1 255 1 -i 0x2086 1 255 1 -i 0x2094 1 255 1 -i 0x20A2 1 255 1 -i 0x20B0 1 255 1 -i 0x20BE 1 255 1 -i 0x20CC 1 255 1 -i 0x20DA 1 255 1 -i 0x20E8 1 255 1 -i 0x20F6 1 255 1 -i 0x2104 1 255 1 -i 0x2112 1 255 1 -i 0x2120 1 255 1 -i 0x212E 1 255 1 -i 0x213C 1 255 1 -i 0x214A 1 255 1 -i 0x2158 1 255 1 -i 0x2166 1 255 1 -i 0x2174 1 255 1 -i 0x2182 1 255 1 -i 0x2190 1 255 1 -i 0x219E 1 255 1 -i 0x21AC 1 255 1 -i 0x21BA 1 255 1 -i 0x21C8 1 255 1 -i 0x21D6 1 255 1 -i 0x21E4 1 255 1 -i 0x21F2 1 255 1 -i 0x2200 1 255 1 -i 0x220E 1 255 1 -i 0x221C 1 255 1 -i 0x222A 1 255 1 -i 0x2238 1 255 1 -i 0x2246 1 255 1 -i 0x2254 1 255 1 -i 0x2262 1 255 1 -i 0x2270 1 255 1 -i 0x227E 1 255 1 -i 0x228C 1 255 1 -i 0x229A 1 255 1 -i 0x22A8 1 255 1 -i 0x22B6 1 255 1 -i 0x22C4 1 255 1 -i 0x22D2 1 255 1 -i 0x22E0 1 255 1 -i 0x22EE 1 255 1 -i 0x22FC 1 255 1 -i 0x230A 1 255 1 -i 0x2318 1 255 1 -i 0x2326 1 255 1 -i 0x2334 1 255 1 -i 0x2342 1 255 1 -i 0x2350 1 255 1 -i 0x235E 1 255 1 -i 0x236C 1 255 1 -i 0x237A 1 255 1 -i 0x2388 1 255 1 -i 0x2396 1 255 1 -i 0x23A4 1 255 1 -i 0x23B2 1 255 1 -i 0x23C0 1 255 1 -i 0x23CE 1 255 1 -i 0x23DC 1 255 1 -i 0x23EA 1 255 1 -i 0x23F8 1 255 1 -i 0x2406 1 255 1 -i 0x2414 1 255 1 -i 0x2422 1 255 1 -i 0x2430 1 255 1 -i 0x243E 1 255 1 -i 0x244C 1 255 1 -i 0x245A 1 255 1 -i 0x2468 1 255 1 -i 0x2476 1 255 1 -i 0x2484 1 255 1 -i 0x2492 1 255 1 -i 0x24A0 1 255 1 -i 0x24AE 1 255 1 -i 0x24BC 1 255 1 -i 0x24CA 1 255 1 -i 0x24D8 1 255 1 -i 0x24E6 1 255 1 -i 0x24F4 1 255 1
+# These scripts will allow you to instantly grow any crop in specific berry plots and have an insane yield. The Floraroma berries include the 2 plots in Floraroma town and the two on the way to the Valley Windworks. Eterna includes all the ones from the valley windworks to Eterna Forest. The reason why only these plots are affected is because you'll need to actually have something planted in those spots when you run the scripts. If you run these and a plot is empty, you'll find a running sprite of the male character in the plot. You can harvest them without any knwon problems, although you'll get nothing.
+"Berries - Floraroma Harvestable - 51" -i 0x1E85 1 5 1 -i 0x1E93 1 5 1 -i 0x1EA1 1 5 1 -i 0x1EAF 1 5 1 -i 0x1E8C 1 51 1 -i 0x1E9A 1 51 1 -i 0x1EA8 1 51 1 -i 0x1EB6 1 51 1
+"Berries - Floraroma Harvestable - 101" -i 0x1E85 1 5 1 -i 0x1E93 1 5 1 -i 0x1EA1 1 5 1 -i 0x1EAF 1 5 1 -i 0x1E8C 1 101 1 -i 0x1E9A 1 101 1 -i 0x1EA8 1 101 1 -i 0x1EB6 1 101 1
+"Berries - Eterna  Harvestable - 51" -i 0x1EC6 1 5 1 -i 0x1EBD 1 5 1 -i 0x1ECB 1 5 1 -i 0x1ED9 1 5 1 -i 0x1EE7 1 5 1 -i 0x1EF5 1 5 1 -i 0x1F03 1 5 1 -i 0x1F49 1 5 1 -i 0x1F57 1 5 1 -i 0x1F65 1 5 1 -i 0x1F73 1 5 1 -i 0x1EC4 1 51 1 -i 0x1ED2 1 51 1 -i 0x1EE0 1 51 1 -i 0x1EEE 1 51 1 -i 0x1EFC 1 51 1 -i 0x1F0A 1 51 1 -i 0x1F50 1 51 1 -i 0x1F5E 1 51 1 -i 0x1F6C 1 51 1 -i 0x1F7A 1 51 1
+"Berries - Eterna  Harvestable - 101" -i 0x1EC6 1 5 1 -i 0x1EBD 1 5 1 -i 0x1ECB 1 5 1 -i 0x1ED9 1 5 1 -i 0x1EE7 1 5 1 -i 0x1EF5 1 5 1 -i 0x1F03 1 5 1 -i 0x1F49 1 5 1 -i 0x1F57 1 5 1 -i 0x1F65 1 5 1 -i 0x1F73 1 5 1 -i 0x1EC4 1 101 1 -i 0x1ED2 1 101 1 -i 0x1EE0 1 101 1 -i 0x1EEE 1 101 1 -i 0x1EFC 1 101 1 -i 0x1F0A 1 101 1 -i 0x1F50 1 101 1 -i 0x1F5E 1 101 1 -i 0x1F6C 1 101 1 -i 0x1F7A 1 101 1
+# Rematch Scripts: These scripts will not only reset the flag that toggles its presence but also its captured flag as well, allowing you to rematch them if you flee from the battle after the Elite 4 are defeated. The Dialga and Palkia rematch scripts also reset the Adamant or Lustrous orb that appears behind them at Spear Pillar
+"Reset Bebe's Eevee" -i 0x1002 1 44 1 
+"Reset Happiny Egg" -i 0x0FFB 1 70 1
+"Reset Riolu Egg" -i 0x0FF8 1 159 1 -i 0x101C 1 167 1
+"Reset Dialga or Palkia & Darkrai" -i 0x0ecc 2 0x05 1 -i 0x1007 1 96 1 -i 0x1018 1 248 1 -i 0x105B 1 0 1 -i 0x105C 1 253 1 -i 0x1027 1 60 1
+"Reset Adamant Orb or Lustrous Orb" -i 0x105B 1 0 1 -i 0x105C 1 253 1
+"Reset Arceus & Regigigas & Cresselia" -i 0xFFF 1 146 1 -i 0x1028 1 0 1 -i 0x1029 1 8 1 -i 0x1062 1 251 1
+"Reset Mesprit" -i 0x101B 1 31 1
+"Reset Uxie, Azelf & Heatran" -i 0x1000 1 31 1 -i 0x101B 1 63 1 -i 0xED8 2 1 1 -i 0xFF6 1 104 1 -i 0x110C 1 215 1
+"Reset Shaymin" -i 0x1000 1 31 1 -i 0x1029 1 8 1
+"Reset Mild Poffin" -i 0x1007 1 96 1
+"Reset All Legendaries" -i 0x0ecc 2 0x05 1 -i 0x1007 1 96 1 -i 0x1018 1 248 1 -i 0x105C 1 253 1 -i 0x1027 1 60 1 -i 0xFFF 1 146 1 -i 0x1028 1 0 1 -i 0x1029 1 8 1 -i 0x1062 1 251 1 -i 0x101B 1 31 1 -i 0x1000 1 31 1 -i 0xED8 2 1 1 -i 0xFF6 1 104 1 -i 0x110C 1 215 1
