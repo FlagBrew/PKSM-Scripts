@@ -81,3 +81,65 @@
 "Poffin 4 - Mild" -i 0x5300 1 28 1 -i 0x5301 1 99 5 -i 0x5306 1 1 1
 "Poffin 5 - Mild" -i 0x5308 1 28 1 -i 0x5309 1 99 5 -i 0x530E 1 1 1
 "Poffin 6 - Mild" -i 0x5310 1 28 1 -i 0x5311 1 99 5 -i 0x5316 1 1 1
+# New Scripts
+# This resets the daily maid challenge and even sets the target amount of turns to 10
+"5-Maid Challenge - 10 Turns" -i 0x1105 1 0 1 -i 0xE44 1 10 1
+#Sets total steps to 299,999. Allowing one to buy the chandelier at the Villa after taking only one more step. Note, this is untested
+"300K Steps" -i 0xE40 4 299999 1 -i 0x61B0 4 299999 1
+# This scripts changes the ID number at the Jubilife Lottery to the ID of the in-game trade Abra you can receive in oreburg city, allowing you to win the Master Ball if you have that Abra in the PC or your Party
+"Lotto ID Number - 25643" -i 0xE14 2 25643 1 -i 0x1131 1 0 1 -i 0x1132 1 0 1
+"All Master Rank Contests Won" -i 0x1119 1 31 1
+"Day Care - Add 10,000 Exp" -i 0x173c 4 10000 1 -i 0x1828 4 10000 1
+"Day Care - Add 50,000 Exp" -i 0x173c 4 50000 1 -i 0x1828 4 50000 1
+"Day Care - Add 100,000 Exp" -i 0x173c 4 100000 1 -i 0x1828 4 100000 1
+"Day Care - Add 500,000 Exp" -i 0x173c 4 500000 1 -i 0x1828 4 500000 1
+"Day Care - Add 1,000,000 Exp" -i 0x173c 4 1000000 1 -i 0x1828 4 1000000 1
+"Day Care - Add 1,640,000 Exp" -i 0x173c 4 1640000 1 -i 0x1828 4 1640000 1
+#These control the man near Pal Park who gives items if you show him a Pokemon of the level he requests.
+"Level Man - lvl 1" -i 0xE2E 1 1 1 -i 0x1141 1 0 1
+"Level Man - Focus Sash" -i 0xFBC 2 2 1 -i 0x1141 1 0 1
+# These are extra scripts for the battle tower, the first one will allow you to skip to the last battle if you quicksave after the first battle and exit to PKSM and run the script. The second will will switch the three Pokemon you entered to the first 3 Pokemon in your party, allowing you to smuggle legendaries and other rule breaking Pokemon and Items into the frontier facility. However, for all facilities except the tower, you'll need to combo them with the right sstreak script for that facility in order to actually face the frontier brain. (F-A-C = Factory, Arcade, and Castle)
+"Battle Tower - Skip to Last Battle" -i 0x71C2 1 7 1
+"Battle F-A-C Skip to last battle" -i 0x71C1 1 6 1
+"Battle Hall - Skip to Last Battle" -i 0x71C1 1 9 1
+"Use 1st Party PKMN" -i 0x71C3 1 0 1
+"Use 1st 3 Party PKMN" -i 0x71C3 1 0 1 -i 0x71C4 1 1 1 -i 0x71C5 1 2 1
+"Battle Hall Single - 40 Streak" -i 0x6926 2 40 1 -i 0x7EFC 1 1 1
+"Battle Hall Single - 49 Streak" -i 0x6926 2 49 1 -i 0x7EFC 1 1 1
+"Battle Hall Single - 160 Streak" -i 0x6926 2 160 1 -i 0x7EFC 1 1 1
+"Battle Hall Single - 169 Streak" -i 0x6926 2 169 1 -i 0x7EFC 1 1 1
+"Battle Hall Double - 40 Streak" -i 0x693E 2 40 1 -i 0x7EFC 1 1 1
+"Battle Hall Double - 160 Streak" -i 0x693E 2 160 1 -i 0x7EFC 1 1 1
+"Battle Hall Multi - 40 Streak" -i 0x6956 2 40 1 -i 0x7EFC 1 1 1
+"Battle Hall Multi - 160 Streak" -i 0x6956 2 160 1 -i 0x7EFC 1 1 1
+# Berries: This one will max out the the water value to all berry plots throuhout the reigon. Load the game, save, and then run the script to automatically water all berries in the region
+"All Berries Watered" -i 0x20CE 1 255 1 -i 0x20DC 1 255 1 -i 0x20EA 1 255 1 -i 0x20F8 1 255 1 -i 0x2106 1 255 1 -i 0x2114 1 255 1 -i 0x2122 1 255 1 -i 0x2130 1 255 1 -i 0x213E 1 255 1 -i 0x214C 1 255 1 -i 0x215A 1 255 1 -i 0x2168 1 255 1 -i 0x2176 1 255 1 -i 0x2184 1 255 1 -i 0x2192 1 255 1 -i 0x21A0 1 255 1 -i 0x21AE 1 255 1 -i 0x21BC 1 255 1 -i 0x21CA 1 255 1 -i 0x21D8 1 255 1 -i 0x21E6 1 255 1 -i 0x21F4 1 255 1 -i 0x2202 1 255 1 -i 0x2210 1 255 1 -i 0x221E 1 255 1 -i 0x222C 1 255 1 -i 0x223A 1 255 1 -i 0x2248 1 255 1 -i 0x2256 1 255 1 -i 0x2264 1 255 1 -i 0x2272 1 255 1 -i 0x2280 1 255 1 -i 0x228E 1 255 1 -i 0x229C 1 255 1 -i 0x22AA 1 255 1 -i 0x22B8 1 255 1 -i 0x22C6 1 255 1 -i 0x22D4 1 255 1 -i 0x22E2 1 255 1 -i 0x22F0 1 255 1 -i 0x22FE 1 255 1 -i 0x230C 1 255 1 -i 0x231A 1 255 1 -i 0x2328 1 255 1 -i 0x2336 1 255 1 -i 0x2344 1 255 1 -i 0x2352 1 255 1 -i 0x2360 1 255 1 -i 0x236E 1 255 1 -i 0x237C 1 255 1 -i 0x238A 1 255 1 -i 0x2398 1 255 1 -i 0x23A6 1 255 1 -i 0x23B4 1 255 1 -i 0x23C2 1 255 1 -i 0x23D0 1 255 1 -i 0x23DE 1 255 1 -i 0x23EC 1 255 1 -i 0x23FA 1 255 1 -i 0x2408 1 255 1 -i 0x2416 1 255 1 -i 0x2424 1 255 1 -i 0x2432 1 255 1 -i 0x2440 1 255 1 -i 0x244E 1 255 1 -i 0x245C 1 255 1 -i 0x246A 1 255 1 -i 0x2478 1 255 1 -i 0x2486 1 255 1 -i 0x2494 1 255 1 -i 0x24A2 1 255 1 -i 0x24B0 1 255 1 -i 0x24BE 1 255 1 -i 0x24CC 1 255 1 -i 0x24DA 1 255 1 -i 0x24E8 1 255 1 -i 0x24F6 1 255 1 -i 0x2504 1 255 1 -i 0x2512 1 255 1 -i 0x2520 1 255 1 -i 0x252E 1 255 1 -i 0x253C 1 255 1 -i 0x254A 1 255 1 -i 0x2558 1 255 1 -i 0x2566 1 255 1 -i 0x2574 1 255 1 -i 0x2582 1 255 1 -i 0x2590 1 255 1 -i 0x259E 1 255 1 -i 0x25AC 1 255 1 -i 0x25BA 1 255 1 -i 0x25C8 1 255 1 -i 0x25D6 1 255 1 -i 0x25E4 1 255 1 -i 0x25F2 1 255 1 -i 0x2600 1 255 1 -i 0x260E 1 255 1 -i 0x261C 1 255 1 -i 0x262A 1 255 1 -i 0x2638 1 255 1 -i 0x2646 1 255 1 -i 0x2654 1 255 1 -i 0x2662 1 255 1 -i 0x2670 1 255 1 -i 0x267E 1 255 1 -i 0x268C 1 255 1 -i 0x269A 1 255 1 -i 0x26A8 1 255 1 -i 0x26B6 1 255 1 -i 0x26C4 1 255 1 -i 0x26D2 1 255 1 -i 0x26E0 1 255 1 -i 0x26EE 1 255 1 -i 0x26FC 1 255 1 -i 0x270A 1 255 1 -i 0x2718 1 255 1 -i 0x2726 1 255 1 -i 0x2734 1 255 1
+# These scripts will allow you to instantly grow any crop in specific berry plots and have an insane yield. The Floraroma berries include the 2 plots in Floraroma town and the two on the way to the Valley Windworks. Eterna includes all the ones from the valley windworks to Eterna City. The reason why only these plots are affected is because you'll need to actually have something planted in those spots when you run the scripts. If you run these and a plot is empty, you'll find a running sprite of the male character in the plot. You can harvest them without any knwon problems, although you'll get nothing.
+"Berries - Floraroma Harvestable - 51" -i 0x20C5 1 5 1 -i 0x20D3 1 5 1 -i 0x20E1 1 5 1 -i 0x20EF 1 5 1 -i 0x20CC 1 51 1 -i 0x20DA 1 51 1 -i 0x20E8 1 51 1 -i 0x20F6 1 51 1
+"Berries - Floraroma Harvestable - 101" -i 0x20C5 1 5 1 -i 0x20D3 1 5 1 -i 0x20E1 1 5 1 -i 0x20EF 1 5 1 -i 0x20CC 1 101 1 -i 0x20DA 1 101 1 -i 0x20E8 1 101 1 -i 0x20F6 1 101 1
+"Berries - Eterna  Harvestable - 51" -i 0x20FD 1 5 1 -i 0x210B 1 5 1 -i 0x2119 1 5 1 -i 0x2127 1 5 1 -i 0x2135 1 5 1 -i 0x2143 1 5 1 -i 0x2189 1 5 1 -i 0x2197 1 5 1 -i 0x21A5 1 5 1 -i 0x21B3 1 5 1 -i 0x2104 1 51 1 -i 0x2112 1 51 1 -i 0x2120 1 51 1 -i 0x212E 1 51 1 -i 0x213C 1 51 1 -i 0x214A 1 51 1 -i 0x2190 1 51 1 -i 0x219E 1 51 1 -i 0x21AC 1 51 1 -i 0x21BA 1 51 1
+"Berries - Eterna  Harvestable - 101" -i 0x20FD 1 5 1 -i 0x210B 1 5 1 -i 0x2119 1 5 1 -i 0x2127 1 5 1 -i 0x2135 1 5 1 -i 0x2143 1 5 1 -i 0x2189 1 5 1 -i 0x2197 1 5 1 -i 0x21A5 1 5 1 -i 0x21B3 1 5 1 -i 0x2104 1 101 1 -i 0x2112 1 101 1 -i 0x2120 1 101 1 -i 0x212E 1 101 1 -i 0x213C 1 101 1 -i 0x214A 1 101 1 -i 0x2190 1 101 1 -i 0x219E 1 101 1 -i 0x21AC 1 101 1 -i 0x21BA 1 101 1
+# Rematch Scripts: These scripts will not only reset the flag that toggles its presence but also its captured flag as well, allowing you to rematch them if you flee from the battle after the Elite 4 are defeated. The Dialga and Palkia rematch scripts also reset the Adamant or Lustrous orb that appears behind them at Spear Pillar and the Grisous Orb in the Distortion World
+"Reset Bebe's Eevee" -i 0x1012 1 8 1
+"Reset Riolu Egg" -i 0x1008 1 223 1 -i 0x1028 1 220 1
+"Reset Porygon" -i 0xFFE 1 15 1
+"Reset Giratina" -i 0x1010 1 34 1 -i 0x1036 1 252 1 -i 0x1093 1 14 1
+"Reset Griseous Orb" -i 0x1093 1 14 1
+"Reset Dialga & Palkia" -i 0xE40 1 69 1 -i 0xF34 1 0 1 -i 0xF36 1 0 1 -i 0x1006 1 72 1 -i 0x1036 1 252 1 -i 0x106F 1 0 1
+"Reset Adamant and Lustrous Orb" -i 0x106F 1 0 1
+"Reset Arceus" -i 0x100F 1 147 1 -i 0x1035 1 34 1
+"Reset Mesprit" -i 0x1027 1 221 1 -i 0xE5E 1 3 1
+"Reset Uxie & Azelf" -i 0x1010 1 32 1 -i 0x1028 1 220 1
+"Reset Cresselia" -i 0xE5C 1 3 1 -i 0x1035 1 34 1
+"Reset Heatran" -i 0xEE8 1 1 1 -i 0x1006 1 72 1 -i 0x1010 1 32 1 -i 0x1027 1 32 1 -i 0x111C 1 215 1
+"Reset Regigigas" -i 0x100F 1 147 1 -i 0x1034 1 114 1
+"Reset Rotom" -i 0x1015 1 0 1 -i 0x1142 1 0 1
+"Reset Darkrai" -i 0x1017 1 102 1 -i 0x1034 1 114 1
+"Reset Shaymin" -i 0x1010 1 32 1 -i 0x1036 1 252 1
+"Reset Regice" -i 0xE80 2 0 1
+"Reset Regirock" -i 0xE82 2 0 1
+"Reset Registeel" -i 0xE7E 2 0 1
+"Reset Legendary Birds" -i 0xE68 2 3 1 -i 0xE6A 2 3 1 -i 0xE6C 2 3 1
+"Reset Togepi Egg" -i 0xEA0 2 4 1 -i 0x101C 1 118 1
+"Reset Mild Poffin" -i 0x1017 1 0 1
+"Reset Battle Hall BP" -i 0xE70 2 0 1
