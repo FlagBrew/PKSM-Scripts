@@ -80,3 +80,53 @@
 "Battle Arcade Single - 48 Streak" -d "frontier" -i 0x5322 2 48 1 -i 0x6888 1 7 1
 "Battle Arcade Double - 49 Streak" -d "frontier" -i 0x5326 2 49 1 -i 0x6888 1 7 1
 "Battle Arcade Multi - 49 Streak" -d "frontier" -i 0x532A 2 49 1 -i 0x6888 1 7 1
+# New Scripts
+# Frontier Scripts, same as Platinum
+"Battle Hall Single - 40 Streak" -i 0x52AA 2 40 1 -i 0x6880 1 7 1
+"Battle Hall Single - 49 Streak" -i 0x52AA 2 49 1 -i 0x6880 1 7 1
+"Battle Hall Single - 160 Streak" -i 0x52AA 2 160 1 -i 0x6880 1 7 1
+"Battle Hall Single - 169 Streak" -i 0x52AA 2 169 1 -i 0x6880 1 7 1
+"Battle Hall Double - 40 Streak" -i 0x52C2 2 40 1 -i 0x6880 1 7 1
+"Battle Hall Double - 160 Streak" -i 0x52C2 2 160 1 -i 0x6880 1 7 1
+"Battle Hall Multi - 40 Streak" -i 0x52DA 2 40 1 -i 0x6880 1 7 1
+"Battle Hall Multi - 160 Streak" -i 0x52DA 2 160 1 -i 0x6880 1 7 1
+"Battle Tower - Skip to Last Battle" -i 0x5B46 1 7 1
+"Battle F-A-C Skip to last battle" -i 0x5B45 1 6 1
+"Battle Hall - Skip to Last Battle" -i 0x5B45 1 9 1
+"Use 1st Party PKMN" -i 0x5B47 1 0 1
+"Use 1st 3 Party PKMN" -i 0x5B47 1 0 1 -i 0x5B48 1 1 1 -i 0x5B49 1 2 1
+#Day-care codes, adds Exp to the Pokemon in the Day-care
+"Day Care - Add 10,000 Exp" -i 0x16e4 4 10000 1 -i 0x17d0 4 10000 1
+"Day Care - Add 50,000 Exp" -i 0x16e4 4 50000 1 -i 0x17d0 4 50000 1
+"Day Care - Add 100,000 Exp" -i 0x16e4 4 100000 1 -i 0x17d0 4 100000 1
+"Day Care - Add 500,000 Exp" -i 0x16e4 4 500000 1 -i 0x17d0 4 500000 1
+"Day Care - Add 1,000,000 Exp" -i 0x16e4 4 1000000 1 -i 0x17d0 4 1000000 1
+"Day Care - Add 1,640,000 Exp" -i 0x16e4 4 1640000 1 -i 0x17d0 4 1640000 1
+# Rematch Gym leaders. Places all 16 gym leaders in the fighting dojo in Saffron city waiting to be rebattled
+"Rematch All Gym Leaders" -i 0xBFDC 1 5 1 -i 0xBFE0 1 5 1 -i 0xC000 1 5 1 -i 0xC004 1 5 1 -i 0xC008 1 5 1 -i 0xC00C 1 5 1 -i 0xC010 1 5 1 -i 0xC014 1 5 1 -i 0xC018 1 5 1 -i 0xC01C 1 5 1 -i 0xC020 1 5 1 -i 0xC024 1 5 1 -i 0xC028 1 5 1 -i 0xC02C 1 5 1 -i 0xC030 1 5 1 -i 0xC034 1 5 1
+# Rematch all Phone trainers and gym leaders as well, an extension of the above code
+"Rematch All Phone Trainers" -i 0xBF98 4 5 75
+#Reset all Legendaries and Gift Pokemon
+"Reset Tyrogue" -i 0xE0A 1 1 1 -i 0x10E5 1 101 1
+"Reset Bill's Eevee" -i 0xE7A 1 35 1 -i 0x10D6 1 217 1
+"Reset Ho-oh and Lugia" -i 0x10E6 1 19 1 -i 0x110c 1 177 1
+# This will place the three legendary beasts back in the basement of the burned tower, allowing you to release them again. You will have to chase suicunen all around Kanto and Johto again as well. However, use with caution as I haven't observed any side effects but haven't fully explored them yet
+"Reset Legendary Beasts Full" -i 0x0F26 1 0 1 -i 0x10FC 1 107 1 -i 0x10FD 1 209 1 -i 0x10FF 1 13 1 -i 0x1100 1 118 1 -i 0xE6E 1 1 1 -i 0xE70 1 1 1
+# This will allow you to repeat the Steven event that spwans the Lati-twin to roam around Kanto. Similar to the script above along with the same disclaimers. Also, MAKE SURE YOU RUN THIS SCRIPT WHEN YOU ARE SAVED INSIDE THE FAN CLUB OF VERMILLION CITY
+"Reset Roamer Lati Full" -i 0x1044 1 1 1 -i 0x1123 1 25 1
+# The safe script simply sets the roamer's status from captured to defeated and will start roaming again once the Elite 4 is defeated again
+"Reset Legendary Beasts Safe" -i 0xE6E 1 2 1 -i 0xE70 1 2 1
+"Reset Roamer Lati Safe" -i 0x1044 1 2 1
+"Reset Articuno, Moltres, Mewtwo" -i 0x10F1 1 1 1 -i 0x1124 1 30 1
+"Reset Zapdos" -i 0x10ED 1 81 1 -i 0x1116 1 127 1
+"Reset Enigma Lati" -i 0xEEA 1 3 1 -i 0x1125 1 199 1
+"Reset Kanto Starters, Kyogre or Groudon, Rayquaza" -i 0xFBA 1 0 1 -i 0xFD6 1 0 1 -i 1046 1 2 1 -i 0x10F3 1 224 1 -i 0x1105 1 135 1 -i 0x1113 1 160 1 -i 0x111D 1 127 1 -i 0x111E 1 224 1 -i 0x1123 1 57 1 -i 0x1124 1 30 1
+"Reset Red Gyarados" -i 0x10F1 1 1 1 -i 0x1100 1 119 1
+"Reset Sudowoodo" -i 0x10F1 1 1 1 -i 0x10FC 1 251 1
+"Reset Snorlax" -i 0x10F2 1 96 1 -i 0x1127 1 5 1
+"Reset ExtremeSpeed Dratini" -i 0x10DF 1 4 1
+"Reset Primo Eggs" -i 0x10EF 1 0 1
+"Reset Hoenn Starters" -i 0x1044 1 2 1 -i 0x10F2 1 96 1 -i 0x1123 1 57 1 -i 0x1126 1 223 1
+"Reset Giovanni" -i 0xFE0 1 0 1 -i 0x10C6 1 1 1 -i 0x1124 1 30 1 -i 0x1126 1 223 1
+"Reset Battle Hall BP" -i 0xEA8 2 0 1
+"Reset Burned Tower Suicune" -i 0x10F2 1 68 1 -i 0x1125 1 135 1
