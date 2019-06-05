@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-const { createReadStream, createWriteStream } = require('fs');
+const fse = require('fs-extra');
 const ArgumentParser = require('argparse').ArgumentParser;
+const Sav = require('./Sav');
 
 const parser = new ArgumentParser({
     description: 'Dump portion of file',
@@ -11,37 +12,11 @@ parser.addArgument('off', { help: 'Start offset' });
 parser.addArgument('len', { help: 'Length to dump' });
 
 const dumpData = (args) => {
-    const input = args.input;       // name of file to read data from
-    const output = args.output;     // name of file to write data to
-    const offset = +args.off;       // beginning of data to pull
-    const len = +args.len;          // total number of bytes of data to pull
+    const save = new Sav(args.input);
+    const ofs = +args.off;         // beginning of data to pull
+    const len = +args.len;            // total number of bytes of data to pull
 
-    let wasError = false;
-
-    const readable = createReadStream(input, {
-        start: offset,
-        end: (offset + len) - 1,
-    });
-    const writable = createWriteStream(output);
-    readable.pipe(writable);
-
-    readable.on('error', (err) => {
-        wasError = true;
-        console.log('An error occurred in the read stream.');
-        console.error(err);
-        writable.destroy();
-    });
-    writable.on('error', (err) => {
-        wasError = true;
-        console.log('An error occurred in the write stream.');
-        console.error(err);
-        readable.destroy();
-    });
-    writable.on('finish', () => {
-        if (!wasError) {
-            console.log('Dumping completed successfully!');
-        }
-    });
+    fse.writeFileSync(args.output, save.getCurrent().slice(ofs, ofs + len));
 };
 
 module.exports = dumpData;
