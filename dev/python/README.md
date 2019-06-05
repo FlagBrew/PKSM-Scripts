@@ -88,9 +88,10 @@ Generates a listing of differences between 2 or more Gen IV-VII saves
 - supports passing folders containing saves with the `-d` flag or save files with the `-f` flag
   - can use both `-f` and `-d` at the same time to provide individual saves along with 1 or more folder(s) of saves
 - automatically splits all saves that can be split and uses only the most recent save data
-  - you can prevent this and diff full saves with `-k 'full'`
-  - you can keep backup data of the first save with `-k 'first'`
-  - you can keep backup data from all saves with `-k 'all'`
+  - you can alter this behavior with one of the `-k` options:
+    - `'full'` - don't split saves at all
+    - `'all'` - split saves and keep all backups
+    - `'first'` - split saves and keep only the first save's backup
 
 ```
 usage: diff.py [-h] [-o outFile] [-e] [-s] [-k {first,all,full}]
@@ -172,7 +173,6 @@ Sav(fileName)
   - `active.hof` - Gen 4 Hall of Fame Block
     - logic for determining active HoF block does not exist yet so results may be inaccurate
   - `active.save` - Gen 5 save data
-  - `active.extra` - Gen 5 extra data (Hall of Fame, custom C-Gear and Pokedex skins, PWT, etc.)
 
 
 #### Instance Methods

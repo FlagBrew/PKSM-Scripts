@@ -2,7 +2,7 @@
 
 ## Setup
 1. Make sure you have [Node](https://nodejs.org) installed
-2. Make sure you have the following files from the [PKSM-Scripts repo](https://github.com/FlagBrew/PKSM-Scripts):
+2. Copy of the [PKSM-Scripts repo](https://github.com/FlagBrew/PKSM-Scripts). At the very least you will need these files:
     - package.json
     - Sav.js
     - PKSMScript.js
@@ -85,8 +85,10 @@ Basically just `diffSave` and `diffEvent` combined into a single file
 - supports passing folders containing saves (via `-d` flag), save files (via `-f` flag), or even both at once
   - can use both `-f` and `-d` at the same time
 - automatically splits all saves that can be split and uses only the most recent save data
-  - you can prevent this and diff entire files with `-c`
-  - you can make the script keep the first save file's backup data as a separate set of save data with `-k`
+  - you can alter this behavior with one of the `-k` options:
+    - `'full'` - don't split saves at all
+    - `'all'` - split saves and keep all backups
+    - `'first'` - split saves and keep only the first save's backup
 
 ```
 usage: diff.js [-h] [-o outFile] [-e] [-s] [-k {first,all,full}]
@@ -152,7 +154,7 @@ new Sav(fileName);
 #### Instance Properties
 - `data` - the contents of the file
   - if the save is from a type that can be split, this may only be a portion of the original file -- either the current save data or the backup
-  - if the file could not be read, this will be an empty list
+  - if the file could not be read, this will be an empty Array
 - `version` - Save's version number
   - DP: 10, PT: 12, HGSS: 7
     - Diamond and Pearl share a version number because saves cannot be told apart by their contents alone
@@ -173,13 +175,12 @@ new Sav(fileName);
   - `'full'` - The entire contents of the file's save data
   - `'current'` - Only the data representing the most recent save data from the file. Will only be this value if the save file is from a type that can be split
   - `'backup'` - Only the data representing the older save data from the file. Will only be this value if the save file is from a type that can be split
-- `active` - dict tracking which blocks of save data within a split-able file are the most recent
+- `active` - object tracking which blocks of save data within a split-able file are the most recent
   - `active.general` - Gen 4 General (small) block
   - `active.storage` - Gen 4 Storage (big) block
   - `active.hof` - Gen 4 Hall of Fame Block
     - logic for determining active HoF block does not exist yet so results may be inaccurate
   - `active.save` - Gen 5 save data
-  - `active.extra` - Gen 5 extra data (Hall of Fame, custom C-Gear and Pokedex skins, PWT, etc.)
 
 
 #### Instance Methods
