@@ -120,7 +120,7 @@
 "Reset Articuno, Moltres, Mewtwo" -i 0x10F1 1 1 1 -i 0x1124 1 30 1
 "Reset Zapdos" -i 0x10ED 1 81 1 -i 0x1116 1 127 1
 "Reset Enigma Lati" -i 0xEEA 1 3 1 -i 0x1125 1 199 1
-"Reset Kanto Starters, Kyogre or Groudon, Rayquaza" -i 0xFBA 1 0 1 -i 0xFD6 1 0 1 -i 1046 1 2 1 -i 0x10F3 1 224 1 -i 0x1105 1 135 1 -i 0x1113 1 160 1 -i 0x111D 1 127 1 -i 0x111E 1 224 1 -i 0x1123 1 57 1 -i 0x1124 1 30 1
+"Reset Kanto Starters, Kyogre or Groudon, Rayquaza" -i 0xFBA 1 0 1 -i 0xFD6 1 0 1 -i 0x1046 1 2 1 -i 0x10F3 1 224 1 -i 0x1105 1 135 1 -i 0x1113 1 160 1 -i 0x111D 1 127 1 -i 0x111E 1 224 1 -i 0x1123 1 49 1 -i 0x1124 1 30 1
 "Reset Red Gyarados" -i 0x10F1 1 1 1 -i 0x1100 1 119 1
 "Reset Sudowoodo" -i 0x10F1 1 1 1 -i 0x10FC 1 251 1
 "Reset Snorlax" -i 0x10F2 1 96 1 -i 0x1127 1 5 1
@@ -130,3 +130,7 @@
 "Reset Giovanni" -i 0xFE0 1 0 1 -i 0x10C6 1 1 1 -i 0x1124 1 30 1 -i 0x1126 1 223 1
 "Reset Battle Hall BP" -i 0xEA8 2 0 1
 "Reset Burned Tower Suicune" -i 0x10F2 1 68 1 -i 0x1125 1 135 1
+"Water All Berries" -i 0x226D 1 255 1 -i 0x2279 1 255 1 -i 0x2285 1 255 1 -i 0x2291 1 255 1
+"Berry Pots Harvestable - 51" -i 0x226A 1 51 1 -i 0x2276 1 51 1 -i 0x2282 1 51 1 -i 0x228E 1 51 1 -i 0x2265 1 5 1 -i 0x2271 1 5 1 -i 0x227D 1 5 1 -i 0x2289 1 5 1
+"Berry Pots Harvestable - 101" -i 0x226A 1 101 1 -i 0x2276 1 101 1 -i 0x2282 1 101 1 -i 0x228E 1 101 1 -i 0x2265 1 5 1 -i 0x2271 1 5 1 -i 0x227D 1 5 1 -i 0x2289 1 5 1
+"Berry Pots Harvestable - 255" -i 0x226A 1 255 1 -i 0x2276 1 255 1 -i 0x2282 1 255 1 -i 0x228E 1 255 1 -i 0x2265 1 5 1 -i 0x2271 1 5 1 -i 0x227D 1 5 1 -i 0x2289 1 5 1
