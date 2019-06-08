@@ -357,10 +357,17 @@ def main(params):
             state['isSplit'] = True
             Sav.splitSave(saves, 0, True)
         if params.keep != 'full':
+            split_saves = []
             state['isSplit'] = True
             keepAll = params.keep == 'all'
-            for i in range(len(saves)):
-                Sav.splitSave(saves, i, keepAll)
+            for i in saves:
+                save = [i]
+                Sav.splitSave(save, 0, keepAll)
+                split_saves.append(save[0])
+                if len(save) == 2:
+                    split_saves.append(save[1])
+            saves.clear()
+            saves.extend(split_saves)
     elif len(saves) == 1:
         print("\nCannot split a single {} save file. Exiting without diffing.".format(
             saves[0].verGroupAbbr))

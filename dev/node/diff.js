@@ -447,9 +447,18 @@ function main(params) {
             Sav.splitSave(saves, 0, true);
         }
         if (params.keep !== 'full') {
+            const splitSaves = [];
             state.isSplit = true;
             const keepAll = params.keep === 'all';
-            saves.forEach((v, i, a) => Sav.splitSave(a, i, keepAll));
+            saves.forEach(v => {
+                let save = [v];
+                Sav.splitSave(save, 0, keepAll);
+                splitSaves.push(save[0]);
+                if (save.length == 2) {
+                    splitSaves.push(save[1]);
+                }
+            });
+            splitSaves.forEach((v, i) => saves[i] = v);
         }
     } else if (saves.length === 1) {
         console.log(`\nCannot split a single ${saves[0].verGroupAbbr} save file. Exiting without diffing.`);
