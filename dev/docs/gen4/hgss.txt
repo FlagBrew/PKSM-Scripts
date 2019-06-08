@@ -178,6 +178,33 @@ Meaning                                     Offset      Length      Max Value   
 - Map                                       0xbae7
 - money held by mom                         0xc0d8      4           999999
 - Phonebook                                 0xc0ec      0x4a
+- Safari Zone
+    - slot 1 (top-left)                     0xc13c      0x7a
+        - area type                         0xc13c      1           0x0b
+        - placed objects count              0xc13d      1           30
+        - placed objects                    0xc13e      30*4
+            - object 1 ID                   0xc13e      1           0x17
+            - object 1 map X coordinate     0xc13f      1
+            - object 1 map Y coordinate     0xc140      1
+            - object 1 map Z coordinate     0xc141      1
+    - slot 2 (top-middle)                   0xc1b6      0x7a
+    - slot 3 (top-right)                    0xc230      0x7a
+    - slot 4 (bottom-left)                  0xc2aa      0x7a
+    - slot 5 (bottom-middle)                0xc324      0x7a
+    - slot 6 (bottom-right)                 0xc39e      0x7a
+    - Active days counters
+        - Plains                            0xc418      1
+        - Meadow                            0xc419      1
+        - Savannah                          0xc41a      1
+        - Peak                              0xc41b      1
+        - Rocky Peak                        0xc41c      1
+        - Wetland                           0xc41d      1
+        - Forest                            0xc41e      1
+        - Swamp                             0xc41f      1
+        - Marshland                         0xc420      1
+        - Wasteland                         0xc421      1
+        - Mountain                          0xc422      1
+        - Desert                            0xc423      1
 - Pokéathlon points                         0xe548      4           999999
 - Apricorn                                  0xe558
     - Red                                   0xe558      1
@@ -215,4 +242,4 @@ Meaning                                     Offset      Length      Max Value   
     - Box Wallpapers                        0x219d8
     - save count                            0x21a00     2
     - checksum                              0x21a0e     2
-- Hall of Fame Block                        ?
+- Hall of Fame Block                        0x23000

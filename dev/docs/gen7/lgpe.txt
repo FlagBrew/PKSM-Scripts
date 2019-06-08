@@ -1,0 +1,65 @@
+# Let's Go: Pikachu / Let's Go Eevee
+
+Meaning                                     Offset      Length      Max Value   Increment
+- MyItem                                    0x0         0xD90
+    - Medicine                              0x0         0xF0
+    - TM                                    0xF0        0x1B0
+    - Candy                                 0x2A0       0x320
+    - PowerUp                               0x5C0       0x258
+    - Catching                              0x818       0xC8
+    - Battle                                0x8E0       0x258
+    - Items                                 0xB38       0x258
+- (_01)                                     0xE00       0x200
+- MyStatus                                  0x1000      0x168
+    - TID                                   0x1000      2
+    - SID                                   0x1002      2
+    - game version                          0x1004      1
+    - gender                                0x1005      1           1
+    - language                              0x1006      1
+    - OT name                               0x1038      0x1A?
+    - starter gender                        0x10B9      1           1
+    - OverworldGender                       0x1108      1           1
+- EventWork                                 0x1200      0x1800
+- Pokedex (Zukan)                           0x2A00      0x20E8
+- Misc (rival stuff)                        0x4C00      0x930
+    - money                                 0x4C04      4
+    - rival (name?)                         0x4E00      0x1A?
+- ConfigSave                                0x5600      0x4
+    - talk speed                            0x5600      1           3
+    - battle animation (off / on)           0x5600      1           4           4
+    - battle style (switch / set)           0x5600      1           8           8
+    - language                              0x5600      1           0xF0        0x10
+- PlayerGeoLocation                         0x5800      0x130
+- Storage Header (PokeListHeader)           0x5A00      0x12
+    - storage index - party slot 1          0x5A00      2
+    - storage index - party slot 2          0x5A02      2
+    - storage index - party slot 3          0x5A04      2
+    - storage index - party slot 4          0x5A06      2
+    - storage index - party slot 5          0x5A08      2
+    - storage index - party slot 6          0x5A0A      2
+    - storage index - starter               0x5A0C      2
+    - storage count                         0x5A0E      2
+- Storage (PokeListPokemon)                 0x5C00      0x3F7A0
+- PlayTime                                  0x45400     0x8
+    - played hours                          0x45400     2
+    - played minutes                        0x45402     1
+    - played seconds                        0x45403     1
+    - last saved                            0x45404     4
+        - year                              0x45404     2           0xFFF
+        - month                             0x45405     1           0xF         0x10
+        - day                               0x45406     1           0x1F
+        - hour                              0x45406     2           0x1F        0x20
+        - minute                            0x45407     1           0x3F        0x04
+- WB7Record                                 0x45600     0xE90
+- (_12)                                     0x46600     0x10A4
+- (_13)                                     0x47800     0xF0
+- (_14)                                     0x47A00     0x6010
+- (_15) (recent captures?)                  0x4DC00     0x200
+- (_16)                                     0x4DE00     0x98
+- (_17)                                     0x4E000     0x68
+- GoParkEntities                            0x4E200     0x69780
+- GoGoParkNames                             0xB7A00     0xB0
+- (_20)                                     0xB7C00     0x940
+- (BlockInfo)                               0xB8600
+    - timestamp previous                    0xB860C     8
+    - timestamp current                     0xB8614     8

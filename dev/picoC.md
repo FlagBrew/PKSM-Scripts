@@ -65,7 +65,7 @@ int gui_boxes(int* fromStorage, int* box, int* slot, int doCrypt);
 - All arguments except `doCrypt` should be pointers to existing variables
 - `fromStorage`: whether or not the user's selection is in PKSM's storage (`1`) or save's PC (`0`)
 - `box`, `slot`: Box and slot numbers of user's selection
-- `doCrypt`: whether this should (`1`) or should not (`0`) it should decrypt and encrypt the boxes itself
+- `doCrypt`: whether this should (`1`) or should not (`0`) decrypt and encrypt the boxes itself
     - If you use `gui_boxes` after `sav_box_decrypt`, make sure this is `0`
 - Returns `0` if a selection was successfully made
 
@@ -122,7 +122,7 @@ Storing pkm data from a variable into the party, PC boxes, or PKSM bank
 - `enum Generation type`: which generation the data comes from, so that it can be properly written
 - `slot`: slot within the party or box to inject to
 - `box`: which box number the Pokémon should be injected into
-- `doTradeEdits`: boolean controlling whether PKSM applies appropriate trade logic (non-`0`) or not (`0`)
+- `doTradeEdits`: boolean controlling whether PKSM should (`1`) or should not (`0`) apply appropriate trade logic
 
 ### IO Functions
 ```c

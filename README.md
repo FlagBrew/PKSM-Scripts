@@ -21,6 +21,7 @@
 If you're using PKSM v6.0.0 or later then you already have most (if not all) scripts already installed
 
 If you're still using PKSM v5.1.x (which is no longer receiving support), do the following:
+
 1. Download the `scripts.7z` from [this release](https://github.com/FlagBrew/PKSM-Scripts/releases/tag/v1.1)
 2. Extract the contents and copy the `scripts` folder to your SD card so that its path is `/3ds/PKSM/scripts`
 
@@ -28,11 +29,13 @@ If you're still using PKSM v5.1.x (which is no longer receiving support), do the
 >There is risk to using some of these scripts, *particularly on the most recent games* (US/UM and Su/Mo).
 
 The following is a list of unlabeled scripts (with no legal counterpart) known to edit parts of your save to illegal values:
+
 - `all versions` **Set Vivillon Fancy Form** -- any Scatterbug/Spewpa/Vivillon caught or bred after using this will be illegal
 - `all versions` **Set Vivillon Pokeball form** -- any Scatterbug/Spewpa/Vivillon caught or bred after using this will be illegal
 
 ### Replaced Scripts
 Old versions of these scripts included the following elements that could be flagged as illegal if a save is put through strict hack checks
+
 - `USUM, SM` **All items 99x** -- Black Flute, Blue Scarf, Bug Gem, Cherish Ball, Dark Gem, Discount Coupon, Dragon Gem, Dream Ball, Electric Gem, Fairy Gem, Fighting Gem, Fire Gem, Fluffy Tail, Flying Gem, Ghost Gem, Grass Gem, Green Scarf, Greet Mail, Ground Gem, Ice Gem, Macho Brace, Odd Keystone, Old Amber, Pink Scarf, Poison Gem, Psychic Gem, Red Scarf, Relic Band, Relic Copper, Relic Crown, Relic Gold, Relic Silver, Relic Statue, Relic Vase, Rock Gem, Safari Ball, Shoal Salt, Shoal Shell, Sport Ball, Steel Gem, Water Gem, White Flute, Yellow Scarf
 - `USUM, SM` **All Medicine 99x** -- Blue Flute, Red Flute, Yellow Flute
 - `USUM, SM` **All berries 99x** -- Razz Berry, Nanab Berry, Wepear Berry, Cornn Berry, Magost Berry, Rabuta Berry, Nomel Berry, Spelon Berry, Pamtre Berry, Watmel Berry, Durin Berry, Belue Berry
@@ -46,6 +49,7 @@ Old versions of these scripts included the following elements that could be flag
 
 ### Past Gen
 These scripts may cause problems in the unlikely event you should ever have to go through thorough hack checks
+
 - `HGSS` **Unlock all Pokewalker Courses** -- Rally, Sightseeing, and Amity Meadow were not released for all regions
 - `HGSS, PT` **Give all items 99x** -- Griseous Orb (untradeable and only one can be obtained per file)
 - `PT, DP` **Get all Pokewatch apps** -- Alarm Clock and Stopwatch were never released
@@ -118,44 +122,6 @@ These are notes and details that may be useful to know about scripts that couldn
 - `HGSS, PT` **Battle Factory Max Trades**: This will set your trade count to 9999. The more trades you do, the better Pokemon you can choose to rent at the start
 - `HGSS, PT` **Battle Castle Points**: This will set your CP to 9999, allowing you to buy as many upgrades, items, heals, skips etc as you want. Note, you don't unlock the ability to skip a battle until you win 21 battles.
 
-### Black City / White Forest
-These scripts for `BW` fill all the settlement's slots in your game with predefined residents as described below. You can find details about what a particular resident provides on Bulbapedia's pages on [Black City](https://bulbapedia.bulbagarden.net/wiki/Black_City) and [White Forest](https://bulbapedia.bulbagarden.net/wiki/White_Forest).
-
-`Front` means you will see them in your game, `Back` means others will see them when they connect to your game via Entralink
-
-| Resident            | Set 1 | Set 2 | Set 3 |
-| ------------------- | ----- | ----- | ----- |
-| Ace Trainer Vincent | Front | Back  | -     |
-| Battle Girl Karenna | Front | Back  | -     |
-| Black Belt Ryder    | Front | Back  | -     |
-| Clerk Britney       | Front | Back  | -     |
-| Clerk Doug          | Front | Back  | -     |
-| Lass Miki           | Front | Back  | -     |
-| Roughneck Dave      | Front | Back  | -     |
-| School Kid Leo      | Front | Back  | -     |
-| School Kid Silvia   | Front | Back  | -     |
-| Youngster Robbie    | Front | Back  | -     |
-| Backpacker Emi      | Back  | -     | Front |
-| Backpacker Herman   | Back  | -     | Front |
-| Clerk Collin        | Back  | -     | Front |
-| Pkm Ranger Eliza    | Back  | -     | Front |
-| Pkm Ranger Ralph    | Back  | -     | Front |
-| School Kid Shane    | Back  | -     | Front |
-| Scientist Jacques   | Back  | -     | Front |
-| Socialite Grace     | Back  | -     | Front |
-| Veteran Ken         | Back  | -     | Front |
-| Veteran Rosa        | Back  | -     | Front |
-| Ace Trainer Lena    | -     | Front | Back  |
-| Backpacker Carlos   | -     | Front | Back  |
-| Backpacker Molly    | -     | Front | Back  |
-| Clerk Piper         | -     | Front | Back  |
-| Gentleman Frederic  | -     | Front | Back  |
-| Hiker Gene          | -     | Front | Back  |
-| Lady Lynette        | -     | Front | Back  |
-| Nursery Aide Miho   | -     | Front | Back  |
-| Rich Boy Pierce     | -     | Front | Back  |
-| Scientist Marie     | -     | Front | Back  |
-
 ### Other Scripts
 - `all games` **Quick hatch**: does **NOT** hatch your eggs for you -- it just makes the eggs hatch in as few steps as possible
 - `USUM, SM` **Shop 6 Tent Bonus**: set which bonus is active from the tent shop located in slot 6 (requires a tent shop to be in that slot)
@@ -173,6 +139,7 @@ These scripts for `BW` fill all the settlement's slots in your game with predefi
     - `B2W2, BW`: The swarm you choose may not stick if the "last saved" date on your save does is before the current date according to the system you next play on.
     - `B2W2, BW`: Route 8 is frozen over in Winter so you may be unable to encounter Croagunk (BW) or Quagsire (B2W2) after setting it as the active swarm.
     - `HGSS`: due to the inability to tell HG saves apart from SS saves (by their content alone), both games will see "Baltoy / Gulpin" with Baltoy's sprite and "Sableye / Mawile" with Sableye's sprite on the selection screen despite Baltoy and Sableye only appearing in HG and Gulpin and Mawile only appearing in SS
+- `BW` **Black City White Forest**: lets you manipulate which residents are in your Black City (Black) or White Forest (White). `Front` means you will see the resident in your game, `Back` means that others will see the resident when they connect to your game via Entralink. For more details on what particular residents provide, see Bulbapedia's pages on [Black City](https://bulbapedia.bulbagarden.net/wiki/Black_City) and [White Forest](https://bulbapedia.bulbagarden.net/wiki/White_Forest).
 - `Pt, DP` **Fulfill Spiritomb encounter requirements**: sets everything up so that you will battle Spiritomb the next time you examine the Broken Tower / Hallowed Tower on Route 209 (between Hearthome and Solaceon)
 - `PT, DP` **Great Marsh**: lets you pick which species fill each area's daily binocular Pokémon
 

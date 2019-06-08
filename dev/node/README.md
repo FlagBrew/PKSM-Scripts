@@ -72,7 +72,7 @@ genScriptsDev.js [gameVersions]
 
 
 ### `diff`
-Basically just `diffSave` and `diffEvent` combined into a single file
+Generate a diff of 2+ saves
 
 - can output to a `.txt` file if the `-o outFile` is used, otherwise diff is printed to the console
 - can output save diff with `-s`, event diff with `-e`, and both with `-se`

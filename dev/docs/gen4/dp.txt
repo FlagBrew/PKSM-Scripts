@@ -1,9 +1,48 @@
 # Diamond / Pearl
 
-Meaning                                     Offset      Length      Max Value
+Meaning                                     Offset      Length      Max Value   Increment
 - Adventure Info                            0
     - seconds to start                      0x34        4
     - seconds to fame                       0x3c        4
+- Options
+    - text speed                            0x60        1           0x02
+        - slow                                                      0
+        - mid                                                       0x01
+        - fast                                                      0x02
+    - sound                                 0x60        1           0x10        0x10
+        - stereo                                                    0
+        - mono                                                      0x10
+    - battle style                          0x60        1           0x40        0x40
+        - shift                                                     0
+        - set                                                       0x40
+    - battle scene                          0x60        1           0x80        0x80
+        - on                                                        0
+        - off                                                       0x80
+    - button                                0x61        1           0x02
+        - normal                                                    0
+        - Start = X                                                 0x01
+        - L = A                                                     0x02
+    - frame                                 0x61        1           0x4C        0x04
+        - Type 1                                                    0
+        - Type 2                                                    0x04
+        - Type 3                                                    0x08
+        - Type 4                                                    0x0C
+        - Type 5                                                    0x10
+        - Type 6                                                    0x14
+        - Type 7                                                    0x18
+        - Type 8                                                    0x1C
+        - Type 9                                                    0x20
+        - Type 10                                                   0x24
+        - Type 11                                                   0x28
+        - Type 12                                                   0x2C
+        - Type 13                                                   0x30
+        - Type 14                                                   0x34
+        - Type 15                                                   0x38
+        - Type 16                                                   0x3C
+        - Type 17                                                   0x40
+        - Type 18                                                   0x44
+        - Type 19                                                   0x48
+        - Type 20                                                   0x4C
 - Trainer1                                  0x64
     - OT (name)                             0x64        0x10
     - TID                                   0x74        2           65535
