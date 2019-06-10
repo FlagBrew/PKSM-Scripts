@@ -100,32 +100,31 @@ def summarize_saves(saves, state):
         ofs['save'] = Sav.getBlockOffsets(saves[0].verGroupAbbr, 'save')
         ofs['extra'] = Sav.getBlockOffsets(saves[0].verGroupAbbr, 'extra')
 
-    for i in range(len(saves)):
-        contents = '' if saves[i].contents == 'full' else " ({})".format(
-            saves[i].contents)
-        header.append('Save {}: "{}"{}\n'.format(i + 1, saves[i].fileName, contents))
+    for i, v in enumerate(saves):
+        contents = '' if v.contents == 'full' else " ({})".format(v.contents)
+        header.append('Save {}: "{}"{}\n'.format(i + 1, v.fileName, contents))
 
         # report block offsets of split saves
         if state['isSplit']:
-            if saves[i].generation == 4:
+            if v.generation == 4:
                 compOfs = [
-                    _toHexStr(n + saves[i].active['general'] * 0x40000, 5) for n in ofs['general']]
+                    _toHexStr(n + v.active['general'] * 0x40000, 5) for n in ofs['general']]
                 header.append("    General: {}\n".format(':'.join(compOfs)))
                 compOfs = [
-                    _toHexStr(n + saves[i].active['storage'] * 0x40000, 5) for n in ofs['storage']]
+                    _toHexStr(n + v.active['storage'] * 0x40000, 5) for n in ofs['storage']]
                 header.append("    Storage: {}\n".format(':'.join(compOfs)))
                 compOfs = [
-                    _toHexStr(n + saves[i].active['hof'] * 0x40000, 5) for n in ofs['hof']]
+                    _toHexStr(n + v.active['hof'] * 0x40000, 5) for n in ofs['hof']]
                 header.append("    HoF:     {}\n".format(':'.join(compOfs)))
-            elif saves[i].verGroupAbbr == 'BW':
+            elif v.verGroupAbbr == 'BW':
                 compOfs = [
-                    _toHexStr(n + saves[i].active['save'] * 0x24000, 5) for n in ofs['save']]
+                    _toHexStr(n + v.active['save'] * 0x24000, 5) for n in ofs['save']]
                 header.append("    Save:  {}\n".format(':'.join(compOfs)))
                 compOfs = [_toHexStr(n, 5) for n in ofs['extra']]
                 header.append("    Extra: {}\n".format(':'.join(compOfs)))
-            elif saves[i].verGroupAbbr == 'B2W2':
+            elif v.verGroupAbbr == 'B2W2':
                 compOfs = [
-                    _toHexStr(n + saves[i].active['save'] * 0x26000, 5) for n in ofs['save']]
+                    _toHexStr(n + v.active['save'] * 0x26000, 5) for n in ofs['save']]
                 header.append("    Save:  {}\n".format(':'.join(compOfs)))
                 compOfs = [_toHexStr(n, 5) for n in ofs['extra']]
                 header.append("    Extra: {}\n".format(':'.join(compOfs)))
@@ -180,21 +179,20 @@ def diff_consts(saves, state):
         const_data.append(extracted[:])
 
     const_diffs = []
-    for n in range(len(const_data[0])):
+    for i in range(len(const_data[0])):
         const_diff = {
-            'num': "{}        ".format(n),
+            'num': "{}        ".format(i),
             'values': []
         }
-        for i in range(len(const_data)):
-            const_diff['values'].append("{}     ".format(const_data[i][n])[:6])
-        for i in range(len(const_diff['values'])):
-            if const_diff['values'][i] != const_diff['values'][0]:
-                state['diffs'] += 1
-                line = [const_diff['num'][:9]]
-                line.extend(const_diff['values'])
-                line = '    '.join(line).strip()
-                const_diffs.append("{}\n".format(line))
-                break
+        for c in const_data:
+            const_diff['values'].append("{}     ".format(c[i])[:6])
+        match = False in [v == const_diff['values'][0] for v in const_diff['values']]
+        if match:
+            state['diffs'] += 1
+            line = [const_diff['num'][:9]]
+            line.extend(const_diff['values'])
+            line = '    '.join(line).strip()
+            const_diffs.append("{}\n".format(line))
     if len(const_diffs) > 0:
         e_const_header = ['\nEvent Const Diff\n\n']
         e_const_header.append(build_table_header(len(saves), 'Const'))
@@ -214,9 +212,8 @@ def diff_flags(saves, state):
     }
 
     flag_data = []
-    for i in range(len(saves)):
-        data = saves[i].getCurrent()[version_info['ofs'][0]
-                                   :version_info['ofs'][1]]
+    for i in saves:
+        data = i.getCurrent()[version_info['ofs'][0]:version_info['ofs'][1]]
         extracted = []
         for n in range(version_info['count']):
             extracted.append(((data[n >> 3] >> (n & 7)) & 1) == 1)
@@ -235,8 +232,8 @@ def diff_flags(saves, state):
             'num': "000{}".format(n)[-4:],
             'values': []
         }
-        for i in range(len(flag_data)):
-            flag_diff['values'].append(flag_data[i][n])
+        for i in flag_data:
+            flag_diff['values'].append(i[n])
         changes = 0
         for i in range(1, len(flag_diff['values'])):
             if flag_diff['values'][i] != flag_diff['values'][i - 1]:
@@ -291,14 +288,12 @@ def diffSave(saves, state, label = ''):
             }
             if ofs_update and n > save_end:
                 ofs_diff['offset'] = _toHexStr(n + save_end + 1, 5)
-            ofs_diff['values'] = [
-                _toHexStr(saves[i].data[n], 2) for i in range(len(saves))]
-            for i in range(len(ofs_diff['values'])):
-                if ofs_diff['values'][i] != ofs_diff['values'][0]:
-                    state['diffs'] += 1
-                    diff.append("{}      {}\n".format(
-                        ofs_diff['offset'], '      '.join(ofs_diff['values'])))
-                    break
+            ofs_diff['values'] = [_toHexStr(i.data[n], 2) for i in saves]
+            match = False in [v == ofs_diff['values'][0] for v in ofs_diff['values']]
+            if match:
+                state['diffs'] += 1
+                diff.append("{}      {}\n".format(
+                    ofs_diff['offset'], '      '.join(ofs_diff['values'])))
 
     if len(diff) > 0:
         if state['ranges'][0] == [0, len(saves[0].data)]:
@@ -384,7 +379,7 @@ def main(params):
         state['s'] = True # force save diff
         for r in params.range:
             rng = [int(i, 0) for i in r]
-            if rng[0] > save_length or rng[1] > save_length:
+            if min(rng + [0]) < 0 or max(rng + [save_length]) > save_length:
                 print("Range {} is out-of-bounds. Excluding from diff.".format(rng))
             else:
                 state['ranges'].append(rng)

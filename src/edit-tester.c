@@ -5,14 +5,14 @@ int main(int argc, char **argv)
 {
     unsigned char *saveData = (unsigned char *)atoi(argv[0]);
 
-    char *editTypes = {
+    char *editTypes[] = {
         "Toggle bit",
         "Write 1 byte (unsigned char)",
         "Write 2 bytes (unsigned short)",
         "Write 4 bytes (unsigned int)",
         "Exit script"};
-    char *value[11] = {0};
-    char *offsetStr[8] = {0};
+    char value[11] = {'\0'};
+    char offsetStr[8] = {'\0'};
     int offset, bit;
 
     int type = gui_menu_20x2("Choose an edit type to perform", 7, editTypes);
@@ -28,15 +28,15 @@ int main(int argc, char **argv)
                 saveData[offset] ^= (1 << bit);
                 break;
             case 1:
-                gui_keyboard(&value, "Value to assign (if hex prefix with 0x)", 5);
+                gui_keyboard(value, "Value to assign (if hex prefix with 0x)", 5);
                 saveData[offset] = (unsigned char)strtol(value, NULL, 0);
                 break;
             case 2:
-                gui_keyboard(&value, "Value to assign (if hex prefix with 0x)", 7);
+                gui_keyboard(value, "Value to assign (if hex prefix with 0x)", 7);
                 *(unsigned short *)(saveData + offset) = (unsigned short)strtol(value, NULL, 0);
                 break;
             case 3:
-                gui_keyboard(&value, "Value to assign (if hex prefix with 0x)", 11);
+                gui_keyboard(value, "Value to assign (if hex prefix with 0x)", 11);
                 *(unsigned int *)(saveData + offset) = (unsigned int)strtol(value, NULL, 0);
                 break;
             default:
