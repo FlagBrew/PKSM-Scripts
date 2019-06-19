@@ -90,3 +90,4 @@
 "Reset Genesect Drives" -i 0x20294 1 0 1 -i 0x203D7 1 114 1
 # This one also reset the NPC in castellia that allows you to choose and evolution stone for the monkey as well
 "Reset Elemental Monkey v2" -i 0x20206 1 0x00 1 -i 0x204ee 1 0x14 1 -i 0x204ef 1 0x96 1 -i 0x2039D 1 202 1
+"Max Entree Level" -i 0x2130C 1 100 1 -i 0x2130E 1 100 1 -i 0x214A4 1 200 1
