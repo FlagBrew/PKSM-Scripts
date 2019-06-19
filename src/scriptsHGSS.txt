@@ -134,3 +134,8 @@
 "Berry Pots Harvestable - 51" -i 0x226A 1 51 1 -i 0x2276 1 51 1 -i 0x2282 1 51 1 -i 0x228E 1 51 1 -i 0x2265 1 5 1 -i 0x2271 1 5 1 -i 0x227D 1 5 1 -i 0x2289 1 5 1
 "Berry Pots Harvestable - 101" -i 0x226A 1 101 1 -i 0x2276 1 101 1 -i 0x2282 1 101 1 -i 0x228E 1 101 1 -i 0x2265 1 5 1 -i 0x2271 1 5 1 -i 0x227D 1 5 1 -i 0x2289 1 5 1
 "Berry Pots Harvestable - 255" -i 0x226A 1 255 1 -i 0x2276 1 255 1 -i 0x2282 1 255 1 -i 0x228E 1 255 1 -i 0x2265 1 5 1 -i 0x2271 1 5 1 -i 0x227D 1 5 1 -i 0x2289 1 5 1
+"Unlock Pokeathelon Hall of Fame" -i 0x10E2 1 255 1 -i 0x10DC 4 0xFFFFFFFF 1 -i 0x10E0 4 0xFFFFFFFF 1 -i 0x10E4 4 0xFFFFFFFF 1 -i 0x10E8 4 0xFFFFFFFF 1 -i 0x10EC 4 0xFFFFFFFF 1
+#Resets the ability to draw a lottery ticket and sets the ID to that of the in-game trade Machop in the Goldenrod Department store, allowing one to win the master ball just by having that machop in the PC or Party
+"Lotto ID Number - 37460" -i 0xE5C 2 37460 1 -i 0x1218 1 0 1
+# Note: Resets the gift shuckkle recieved in Cianwood City. After you beat the game, you cannot recieve Shuckle anymore
+"Reset Shuckle" -i 0x10DB 1 46 1 -i 0x121B 1 0 1
