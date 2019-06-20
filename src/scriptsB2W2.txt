@@ -113,7 +113,7 @@
 "Multi streak - 14" -d "subway" -i 0x21b0c 2 14 1 -i 0x21b30 2 3 1
 "Multi Link streak - 14" -d "subway" -i 0x21b0e 2 14 1 -i 0x21b32 2 3 1
 "Super Singles streak - 42" -d "subway" -i 0x21b12 2 42 1 -i 0x21b36 1 7 1
-"Super Doubles streak - 42" - -d "subway"i 0x21b14 2 42 1 -i 0x21b38 1 7 1
+"Super Doubles streak - 42" -d "subway" -i 0x21b14 2 42 1 -i 0x21b38 1 7 1
 "Super Multi streak - 42" -d "subway" -i 0x21b16 2 42 1 -i 0x21b3a 1 7 1
 "Super Multi L streak - 42" -d "subway" -i 0x21b18 2 42 1 -i 0x21b3c 1 7 1
 "Super Singles streak - 98" -d "subway" -i 0x21b12 2 98 1 -i 0x21b36 1 15 1
