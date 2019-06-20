@@ -42,3 +42,52 @@
 "Season - Summer" -i 0x19573 1 1 1
 "Season - Autumn" -i 0x19573 1 2 1
 "Reset Geonet" -d "reset" -i 0x1941C 1 0 1 -i 0x1941D 1 0 1 -i 0x1A93A 1 10 1 -i 0x1A93B 1 133 1 -i 0x23F3A 1 10 1 -i 0x23F3B 1 133 1
+# Day-care codes, adds Exp to the Pokemon in the Day-care
+"Day Care - Add 10,000 Exp" -i 0x20EE0 4 10000 1 -i 0x20FC4 4 10000 1
+"Day Care - Add 50,000 Exp" -i 0x20EE0 4 50000 1 -i 0x20FC4 4 50000 1
+"Day Care - Add 100,000 Exp" -i 0x20EE0 4 100000 1 -i 0x20FC4 4 100000 1
+"Day Care - Add 500,000 Exp" -i 0x20EE0 4 500000 1 -i 0x20FC4 4 500000 1
+"Day Care - Add 1,000,000 Exp" -i 0x20EE0 4 1000000 1 -i 0x20FC4 4 1000000 1
+"Day Care - Add 1,640,000 Exp" -i 0x20EE0 4 1640000 1 -i 0x20FC4 4 1640000 1
+# Resets initial Cynthia battle, allowing you to battle Cynthia at any time
+"Reset Initial Cynthia" -i 0x202c8 1 0 1 -i 0x21837 1 0 1
+# Battle Subway scripts, similar to the tower and froniter codes of Gen 4, and added a code for the battle box as well
+"Battle Subway Singles - 14" -i 0x21d08 2 14 1 -i 0x21d2c 2 3 1
+"Battle Subway Doubles - 14" -i 0x21d0a 2 14 1 -i 0x21d2e 2 3 1
+"Battle Subway Multi - 14" -i 0x21d0c 2 14 1 -i 0x21d30 2 3 1
+"Battle Subway Multi Link - 14" -i 0x21d0e 2 14 1 -i 0x21d32 2 3 1
+"Battle Subway Super Singles - 42" -i 0x21d12 2 42 1 -i 0x21d36 1 7 1
+"Battle Subway Super Doubles - 42" -i 0x21d14 2 42 1 -i 0x21d38 1 7 1
+"Battle Subway Super Multi - 42" -i 0x21d16 2 42 1 -i 0x21d3a 1 7 1
+"Battle Subway Super Multi L - 42" -i 0x21d18 2 42 1 -i 0x21d3c 1 7 1
+"Battle Subway Super Singles - 98" -i 0x21d12 2 98 1 -i 0x21d36 1 15 1
+"Battle Subway Super Doubles - 98" -i 0x21d14 2 98 1 -i 0x21d38 1 15 1
+"Battle Subway Super Multi - 98" -i 0x21d16 2 98 1 -i 0x21d3a 1 15 1
+"Battle Subway Super Multi L - 98" -i 0x21d18 2 98 1 -i 0x21d3c 1 15 1
+"Battle Subway Super Singles - 196" -i 0x21d12 2 196 1 -i 0x21d36 1 29 1
+"Battle Subway Super Doubles - 196" -i 0x21d14 2 196 1 -i 0x21d38 1 29 1
+"Battle Subway Super Multi - 196" -i 0x21d16 2 196 1 -i 0x21d3a 1 29 1
+"Battle Subway Super Multi L - 196" -i 0x21d18 2 196 1 -i 0x21d3c 1 29 1
+"Battle Subway Skip to Last Battle" -i 0x21C02 1 6 1
+"Battle Subway - 1st 3 Party PKMN" -i 0x21c08 1 0 1  -i 0x21c09 1 1 1 -i 0x21c0a 1 2 1
+"Battle Subway - Battle Box PKMN" -i 0x21c01 1 2 1 -i 0x21c08 1 0 1  -i 0x21c09 1 1 1 -i 0x21c0a 1 2 1 -i 0x21c0b 1 3 1 -i 0x21c0c 1 4 1 -i 0x21c0d 1 5 1
+"Give All Musical Props" -i 0x1F958 1 0xFF 12 -i 0x1F964 1 0x0F 1
+"Reset Final Riches Battle" -i 0x2029A 1 6 1 -i 0x204D3 1 0 1
+"Empty Black City White Forest" -i 0x1FA09 1 0 457
+# Reset codes, similar to Gen 4, allows a complete reset of the legendaries and gifts
+"Reset Dragonspiral Legend" -i 0x203A2 1 80 1 -i 0x203DB 1 29 1
+# This one isn't necessary at all, I just love the cutscene and don't like that you can only hear it once per playthoguh
+"Reset Relic Song Cutscene" -i 0x2039F 1 60 1
+"Reset Zorua" -i 0x2028E 1 1 1
+"Reset Zoroark" -i 0x20292 1 0 1 -i 0x203A7 1 36 1
+"Reset Tornadus or Thundurus" -i 0x20140 1 154 1 -i 0x20280 1 1 1 -i 0x204A9 1 190 1
+"Reset Kyurem" -i 0x202B0 1 0 1 -i 0x203E0 1 121 1
+"Reset Larvesta Egg" -i 0x203A3 1 229 1
+"Reset Magikarp" -i 0x203A6 1 18 1
+"Reset Cobalion Virizion Terrakion" -i 0x20390 1 48 1 -i 0x20391 1 194 1 -i 0x203CD 1 241 1
+"Reset Volcarona" -i 0x203A7 1 36 1 -i 0x203E1 1 251 1
+"Reset Landorus" -i 0x2029C 1 3 1 -i 0x203A3 1 229 1 -i 0x203D9 1 176 1
+"Reset Genesect Drives" -i 0x20294 1 0 1 -i 0x203D7 1 114 1
+# This one also reset the NPC in castellia that allows you to choose and evolution stone for the monkey as well
+"Reset Elemental Monkey v2" -i 0x20206 1 0x00 1 -i 0x204ee 1 0x14 1 -i 0x204ef 1 0x96 1 -i 0x2039D 1 202 1
+"Max Entree Level" -i 0x2130C 1 100 1 -i 0x2130E 1 100 1 -i 0x214A4 1 200 1

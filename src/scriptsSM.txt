@@ -76,3 +76,17 @@
 "50 Zygarde Cells" -i 0x1D42 2 50 1
 "100 Zygarde Cells" -i 0x1D42 2 100 1
 "999 Zygarde Cells" -i 0x1D42 2 999 1
+# Reset Scripts, sick of seeing these yet?
+"Reset Red and Blue" -i 0x1F68 1 1 1
+"Reset Gamefreak Battle" -i 0x25A3 1 0 1
+"Reset Cosmog" -i 0x2468 1 250 1
+"Reset Magearna" -i 0x2583 1 19 1
+"Reset Aerodactyl" -i 0x240f 1 0 1
+"Reset Porygon" -i 0x240d 1 0 1
+"Reset Tapu Koko" -i 0x1F60 1 0x03 1
+"Reset Tapu Bulu" -i 0x1F62 1 0x01 1
+"Reset Tapu Fini" -i 0x1F64 1 0x03 1
+"Reset Tapu Lele" -i 0x1F28 1 0x01 1
+"Reset Daycare Eevee Egg" -i 0x23E1 1 123 1 -i 0x2407 1 240 1
+"Battle Royal - Master" -i 0x69DDA 1 5 1 -i 0x6B220 1 3 1
+"Set All Zygarde Core Moves" -i 0x255C 1 255 1
