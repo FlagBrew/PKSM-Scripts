@@ -1,21 +1,20 @@
 # PKSMScript
 
 ## Table of Contents
-- [Installing Scripts](#installing-scripts)
-- [Legality Warning](#legality-warning)
-    - [Replaced Scripts](#replaced-scripts)
-    - [Past Gen](#past-gen)
-- [Script Notes](#script-notes)
-    - [Mass Inject Scripts](#mass-inject-scripts)
-    - [Fill Dex Scripts](#fill-dex-scripts)
-    - [Item Scripts](#item-scripts)
-    - [Reset Scripts](#reset-scripts)
-    - [Battle Facility Scripts](#battle-facility-scripts)
-    - [Black City / White Forest](#black-city--white-forest)
-    - [Other Scripts](#other-scripts)
-- [Making Scripts](#making-scripts)
-- [Credits](#credits)
-- [Script file format](#script-file-format)
+- [Installing Scripts](#Installing-Scripts)
+- [Legality Warning](#Legality-Warning)
+    - [Replaced Scripts](#Replaced-Scripts)
+    - [Past Gen](#Past-Gen)
+- [Script Notes](#Script-Notes)
+    - [Mass Inject Scripts](#Mass-Inject-Scripts)
+    - [Fill Dex Scripts](#Fill-Dex-Scripts)
+    - [Item Scripts](#Item-Scripts)
+    - [Reset Scripts](#Reset-Scripts)
+    - [Battle Facility Scripts](#Battle-Facility-Scripts)
+    - [Other Scripts](#Other-Scripts)
+- [Making Scripts](#Making-Scripts)
+- [Credits](#Credits)
+- [Script file format](#Script-file-format)
 
 ## Installing Scripts
 If you're using PKSM v6.0.0 or later then you already have most (if not all) scripts already installed
@@ -112,26 +111,40 @@ These are notes and details that may be useful to know about scripts that couldn
 - `USUM` **Reset Red and Blue**: resets initial Battle Tree event in which you battle Red or Blue
 - `ORAS` **Reset Delta Episode**: resets back to before the battle with Wallace in front of Sky Pillar
 - `B2W2, BW` **Reset Geonet**: allows you to change the location you registered on the Geonet
-- `B2W2` **Reset N and Shadow Triad**: allows you to rematch the trainers without waiting for the season to change
+- `B2W2` **Reset N and Shadow Triad battles**: allows you to rematch the trainers without waiting for the season to change
+- `B2W2` **Reset Bianca/Cheren Battle**: You will need to have used Memory Link at least once
+- `B2W2` **Reset most Memory Link cutscenes**: You will need to have used Memory Link at least once. The only the Pokémon Musical scene is not reset.
 - `HGSS` **Reset Sinjoh Ruins**: resets the event where you take an Arceus to the Ruins of Alph and eventually receive a lv1 Dialga/Palkia/Giratina holding its respective Orb
 - `HGSS` **Reset Red**: respawns Red at Mt. Silver without having to defeat the Elite Four
+- `HGSS` **Legendary Beasts Full**: Will place all 3 in the basement of Burned Tower, allowing you to release them again. You won't have to chase Suicune around Johto and Kanto again. *__Use with caution__ -- all side effects haven't been fully explored yet*
+- `HGSS` **Roamer Lati Full**: This will allow you to repeat the Steven event that spawns the Lati-twin to roam around Kanto. Similar to the script above along with the same disclaimers. Also, **MAKE SURE YOU RUN THIS SCRIPT WHEN YOU ARE SAVED INSIDE THE FAN CLUB OF VERMILION CITY**
+- `HGSS` **Legendary Beasts Safe**: The safe script simply sets the roamer's status from captured to defeated and will start roaming again once the Elite 4 is defeated again
+- `HGSS` **Roamer Lati Safe**: The safe script simply sets the roamer's status from captured to defeated and will start roaming again once the Elite 4 is defeated again
+- `HGSS` **Shuckle**: Resets gift Shuckle received in Cianwood City. After you beat the game, you cannot receive Shuckle anymore
 - `DP` **Set all legendaries battlable/disappeared**: same as **Reset [pokemon]** above
 
 ### Battle Facility Scripts
-- `USUM, SM, ORAS, XY, HGSS, PT, DP` **Streak**: sets the current streak to just before a battle with the facility's leader
+- `all games` **Streak**: sets the current streak to just before a meaningful battle (facility leader, item reward, etc.)
 - `HGSS, PT` **Battle Factory Max Trades**: This will set your trade count to 9999. The more trades you do, the better Pokemon you can choose to rent at the start
 - `HGSS, PT` **Battle Castle Points**: This will set your CP to 9999, allowing you to buy as many upgrades, items, heals, skips etc as you want. Note, you don't unlock the ability to skip a battle until you win 21 battles.
+- `B2W2, BW, HGSS, PT, DP` **Skip to Last Battle**: Only effective if you quicksave. Lets you can skip straight to the 7th battle in the set
+    - `HGSS, PT` **Battle F-A-C**: F = Factory, A = Arcade, C = Castle
+- `all games` **Use party**: Allows you to use the members of your party, starting from the first.
+    - ***Legality Warning***: This can let you smuggle in otherwise banned species (such as mascot legends)
 
 ### Other Scripts
 - `all games` **Quick hatch**: does **NOT** hatch your eggs for you -- it just makes the eggs hatch in as few steps as possible
+- `all games` **Day Care Set Exp**: sets the experience gained from the Day Care for both (all 4 in ORAS) slots
 - `USUM, SM` **Shop 6 Tent Bonus**: set which bonus is active from the tent shop located in slot 6 (requires a tent shop to be in that slot)
 - `USUM` **Set 100 hatched eggs**: set the number of hatched eggs to 100 so that you can just talk to the stats judge to unlock IV checking in the PC
 - `USUM` **Set Sun/Moon time**: sets the in-game time of day, to allow access to time limited events (only available during day/night)
 - `ORAS, XY` **Supreme Honor Pokepuffs**: fill all 100 Pokepuff slots with Supreme Honor Pokepuffs
-- `ORAS, XY` **Pokemon Link**: These codes will allow you to acquire these event Pokemon from the Pokemon Link on the main menu. Until you claim it in-game, using more than one at a time will overwrite any you've already injected. If you care about legality, Celebi can only come from X & Y and Glalie and Steelix can only be received from ORAS. For some reason, trying to inject the ORAS Demo Pokemon won't work more than once.
+- `ORAS, XY` **Pokemon Link**: These codes will allow you to acquire these event Pokemon from the Pokemon Link on the main menu. Until you claim it in-game, using more than one at a time will overwrite any you've already injected. If you care about legality, Celebi can only come from X & Y and Glalie and Steelix can only be received from ORAS.
 - `ORAS` **Mirage Spots**: Sets the available Mirage Spots to the set selected, all of which also include Crescent Isle where you can find Cresselia. Spots will change when the date changes, and may change if you pass people through the PSS
+- `XY` **Set Kanto Bird - 10 encounters**: Beat the Elite Four, encounter the roaming Kanto bird (Articuno, Zapdos, Moltres) once, and it will go to Sea Spirit's Den
 - `B2W2, BW` **Pass Power MAX**: changes your currently equipped Pass Power. These MAX versions are as powerful as Lv3 and last for 1 full hour, but cost 9999 Pass Orbs to activate so you will need to use these along with the **Items slot 1 - Pass Orb x65535** script
 - `B2W2, BW` **Season**: changes the current season of the save -- Note that changing area (leaving a building/cave, changing route, etc.) will update the season to match the system's current date
+- `B2W2` **Hidden Grotto**: Some species may be version exclusive and not in the game you use the script on. Will always have their Hidden Ability
 - `B2W2` **Join Avenue - Restock All Shops**: This will refill all the shops contents and therefore, you can buy from all the shops again without having to wait for the next day.
 - `B2W2` **Join Avenue - 7 Day Promotion**: This will cause a week long promotional event. When this code is used, for one week from when the game was last saved, all the shop's items are only half price!
 - `B2W2` **Join Avenue - Lv9 All Shops**: this code will set all of your shops to level 9 and as such, only one visitor referral will be necessary to max out each shop
@@ -140,8 +153,18 @@ These are notes and details that may be useful to know about scripts that couldn
     - `B2W2, BW`: Route 8 is frozen over in Winter so you may be unable to encounter Croagunk (BW) or Quagsire (B2W2) after setting it as the active swarm.
     - `HGSS`: due to the inability to tell HG saves apart from SS saves (by their content alone), both games will see "Baltoy / Gulpin" with Baltoy's sprite and "Sableye / Mawile" with Sableye's sprite on the selection screen despite Baltoy and Sableye only appearing in HG and Gulpin and Mawile only appearing in SS
 - `BW` **Black City White Forest**: lets you manipulate which residents are in your Black City (Black) or White Forest (White). `Front` means you will see the resident in your game, `Back` means that others will see the resident when they connect to your game via Entralink. For more details on what particular residents provide, see Bulbapedia's pages on [Black City](https://bulbapedia.bulbagarden.net/wiki/Black_City) and [White Forest](https://bulbapedia.bulbagarden.net/wiki/White_Forest).
+- `HGSS, PT, DP` **Lotto ID Number**: number matches one of the in-game trades
+    - `PT, DP` - Abra (Oreburgh)
+    - `HGSS` - Machop (Goldenrod Department Store)
+- `HGSS` **Rematch All Gym Leaders**: sets up rematch with Gym Leader in Saffron Dojo
 - `Pt, DP` **Fulfill Spiritomb encounter requirements**: sets everything up so that you will battle Spiritomb the next time you examine the Broken Tower / Hallowed Tower on Route 209 (between Hearthome and Solaceon)
 - `PT, DP` **Great Marsh**: lets you pick which species fill each area's daily binocular Pokémon
+- `PT, DP` **Level Man**: controls the man in the house west of the Pal Park, who gives an item if you show him a Pokémon of a certain level
+- `PT, DP` **All Berries Watered**: waters all berry plots in region
+- `PT, DP` **Berries - Floaroma/Eterna Harvestable**: If nothing planted in plots, a running sprite of the male character will appear in the plot. You can harvest from them with no known problems, although you'll get nothing.
+    - **Floaroma**: includes plots within Floaroma Town as well as plots on the way to Valley Windworks
+    - **Eterna**: includes all plots from Valley Windworks to Eterna City
+- `PT` **Sets total steps to 299,999**: allows easy unlocking of Chandelier in the Resort Area Villa
 
 ---
 

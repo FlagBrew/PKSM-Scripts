@@ -1,6 +1,28 @@
 # Syntax: "Name of script" -i <offset> <length> <payload (integer or file path)> <repeat>
 "Clear Mystery Gift data" -i 0x1BC00 1 0x0 5692
 "Set max money" -i 0x4208 4 9999999 1
+"Set max Style Points" -i 0x154D 1 255 1
+"Set max Battle Points" -i 0x423C 2 9999 1
+"Set max current Pokemiles" -i 0x1E4FC 4 9999999 1
+"Unlock all lv1-3 O-Powers" -i 0x16a00 66 "data/OPower.bin" 1
+"Unlock all O-Powers" -d "illegal" -i 0x16a00 66 "data/OPower_illegal.bin" 1
+"Renew 1st WonderCard" -i 0x1BD52 1 1 1
+"Renew 2nd WonderCard" -i 0x1BE5A 1 1 1
+"Renew 3rd WonderCard" -i 0x1BF62 1 1 1
+"Supreme Honor Pokepuffs" -i 0x00000 1 22 100
+"Battle Chateau - become Grand Duke or Dutchess" -i 0x1D800 38 "data/XY_Chateau.bin" 1
+"Pokemon Link - Bank Celebi" -i 0x20000 2630 "data/link/LINK_Celebi.bin" 1
+"Pokemon Link - HA Johto Starters" -i 0x20000 2630 "data/link/LINK_Johto_Starters.bin" 1
+"Pokemon Link - HA Regi Trio" -i 0x20000 2630 "data/link/LINK_Regi_Trio.bin" 1
+"Pokemon Link - Demo Glalie" -i 0x20000 2630 "data/link/LINK_Glalie.bin" 1
+"Pokemon Link - Demo Steelix" -i 0x20000 2630 "data/link/LINK_Steelix.bin" 1
+"Pokemon Link - BP & Pokemiles" -i 0x20000 2630 "data/link/LINK_BP_Pokemiles.bin" 1
+# Changes the flag that controls your starter and which bird is obtainable
+"Set Kanto bird - Articuno" -i 0x14A60 2 0 1 -i 0x17E1C 1 144 1
+"Set Kanto bird - Zapdos" -i 0x14A60 2 1 1 -i 0x17E1C 1 145 1
+"Set Kanto bird - Moltres" -i 0x14A60 2 2 1 -i 0x17E1C 1 146 1
+"Set Kanto bird - 10 Encounters" -i 0x17E40 1 10 1
+# Mass injection
 "Living dex" -d "inject" -i 0x22600 186064 "data/inject/Gen6_living.bin" 1 -i 0x15008 0x696 "data/dex/XY_Complete.bin" 1
 "ITA rBreedingDitto" -d "inject" -i 0x22600 0x1b30 "data/inject/Gen6_rBreedingDitto_ITA.bin" 1
 "SPA rBreedingDitto" -d "inject" -i 0x22600 0x1b30 "data/inject/Gen6_rBreedingDitto_SPA.bin" 1
@@ -12,13 +34,7 @@
 "N's Pokemon" -d "inject" -i 0x22600 0x1b30 "data/inject/Gen6_N.bin" 1
 "Oblivia Deoxys" -d "inject" -i 0x22600 0x1b30 "data/inject/Gen6_Oblivia_Deoxys.bin" 1
 "XD" -d "inject" -i 0x22600 0x5190 "data/inject/Gen6_XD.bin" 1
-"Set max Style Points" -i 0x154D 1 255 1
-"Set max Battle Points" -i 0x423C 2 9999 1
-"Set max Current Pokemiles" -i 0x1E4FC 4 9999999 1
-"Unlock all lv1-3 O-Powers" -i 0x16a00 66 "data/OPower.bin" 1
-"Unlock all O-Powers" -d "illegal" -i 0x16a00 66 "data/OPower_illegal.bin" 1
-"Mewtwo and Zygarde" -d "reset" -i 0x14d74 1 0x01 1 -i 0x14d5e 1 0x1f 1 -i 0x14d0a 1 0x80 1
-"Legendary Birds" -d "reset" -i 0x483f 1 0x1b 1 -i 0x14bcc 1 0x01 1
+# Items
 "Give all berries 99x" -d "items" -i 0xE68 268 "data/XY_AllBerries.bin" 1
 "Give all items 99x" -d "items" -i 0x400 1012 "data/XY_AllItems.bin" 1
 "Give all items 99x" -d "illegal" -i 0x400 1156 "data/XY_AllItems_illegal.bin" 1
@@ -31,6 +47,7 @@
 "Item Pouch slot 1 x999" -d "items" -i 0x402 2 999 1
 "Medicine Pouch slot 1 x999" -d "items" -i 0xD6A 2 999 1
 "Berry Pouch slot 1 x999" -d "items" -i 0xE6A 2 999 1
+# Dex
 "Language entries" -d "dex" -i 0x153c8 1 0xff 0x276 -i 0x1563e 1 0x7f 1
 "Kalos seen" -d "dex" -i 0x15068 0x636 "data/dex/XY_Kalos_seen.bin" 1
 "Kalos owned" -d "dex" -i 0x15008 0x696 "data/dex/XY_Kalos_owned.bin" 1
@@ -39,57 +56,38 @@
 "National owned - native" -d "dex" -i 0x15008 0x696 "data/dex/XY_National_owned_native.bin" 1
 "Complete" -d "dex" -i 0x15008 0x696 "data/dex/XY_Complete.bin" 1
 "Fill Dex - Complete" -d "illegal" -i 0x15008 0x696 "data/dex/XY_Complete_illegal.bin" 1
-"Renew 1st WonderCard" -i 0x1BD52 1 1 1
-"Renew 2nd WonderCard" -i 0x1BE5A 1 1 1
-"Renew 3rd WonderCard" -i 0x1BF62 1 1 1
-"Battle Maison Singles - 19" -i 0x1B1C0 2 19 1
-"Battle Maison Doubles - 19" -i 0x1B1C8 2 19 1
-"Battle Maison Triples - 19" -i 0x1B1D0 2 19 1
-"Battle Maison Rotation - 19" -i 0x1B1D8 2 19 1
-"Battle Maison Multi - 19" -i 0x1B1E0 2 19 1
-"Battle Maison Super Singles - 49" -i 0x1B1C2 2 49 1
-"Battle Maison Super Doubles - 49" -i 0x1B1CA 2 49 1
-"Battle Maison Super Triples - 49" -i 0x1B1D2 2 49 1
-"Battle Maison Super Rotation - 49" -i 0x1B1DA 2 49 1
-"Battle Maison Super Multi - 49" -i 0x1B1E2 2 49 1
-"Supreme Honor Pokepuffs" -i 0x00000 1 22 100
-"Pokemon Link - Bank Celebi" -i 0x20000 2630 "data/link/LINK_Celebi.bin" 1
-"Pokemon Link - HA Johto Starters" -i 0x20000 2630 "data/link/LINK_Johto_Starters.bin" 1
-"Pokemon Link - HA Regi Trio" -i 0x20000 2630 "data/link/LINK_Regi_Trio.bin" 1
-"Pokemon Link - Demo Glalie" -i 0x20000 2630 "data/link/LINK_Glalie.bin" 1
-"Pokemon Link - Demo Steelix" -i 0x20000 2630 "data/link/LINK_Steelix.bin" 1
-"Pokemon Link - BP & Pokemiles" -i 0x20000 2630 "data/link/LINK_BP_Pokemiles.bin" 1
-# Maison scripts, allows you to achieve 100 and 200 streaks, allowing you to receive Lansat and Starf Berry
-"Battle Maison Super Singles - 99" -i 0x1B1C2 2 99 1
-"Battle Maison Super Doubles - 99" -i 0x1B1CA 2 99 1
-"Battle Maison Super Triples - 99" -i 0x1B1D2 2 99 1
-"Battle Maison Super Rotation - 99" -i 0x1B1DA 2 99 1
-"Battle Maison Super Multi - 99" -i 0x1B1E2 2 99 1
-"Battle Maison Super Singles - 199" -i 0x1B1C2 2 199 1
-"Battle Maison Super Doubles - 199" -i 0x1B1CA 2 199 1
-"Battle Maison Super Triples - 199" -i 0x1B1D2 2 199 1
-"Battle Maison Super Rotation - 199" -i 0x1B1DA 2 199 1
-"Battle Maison Super Multi - 199" -i 0x1B1E2 2 199 1
-# Chateu Script: This script will upgrade your status and will result in you becoming Grand Duke or Dutchuss once you re-enter the Battle Chateu
-"Grand Duke or Dutchess" -i 0x1D800 38 "data/XY_Chateau.bin" 1
-# Day-care codes, do you really need to ask?
-"Day Care - Add 10,000 Exp" -i 0x1B204 4 10000 1 -i 0x1B2F4 4 10000 1
-"Day Care - Add 50,000 Exp" -i 0x1B204 4 50000 1 -i 0x1B2F4 4 50000 1
-"Day Care - Add 100,000 Exp" -i 0x1B204 4 100000 1 -i 0x1B2F4 4 100000 1
-"Day Care - Add 500,000 Exp" -i 0x1B204 4 500000 1 -i 0x1B2F4 4 500000 1
-"Day Care - Add 1,000,000 Exp" -i 0x1B204 4 1000000 1 -i 0x1B2F4 4 1000000 1
-"Day Care - Add 1,640,000 Exp" -i 0x1B204 4 1640000 1 -i 0x1B2F4 4 1640000 1
-# Reset codes, again, really need to ask?
-"Reset Berry Shop" -i 0x120F 1 1 1 -i 0x14E64 1 0 1 -i 0x14E68 1 0 1
-"Reset Snorlax" -i 0x14D18 1 64 1 -i 0x14D3E 1 127 1
-"Reset Lucario" -i 0x14D15 1 96 1 -i 0x14D66 1 158 1
-"Reset Lapras" -i 0x14B98 2 1 1
-# Legendary Bird Scripts, first, can I just say f*** these stupid things? You only get one based on what starter you chose, its in the post-game, so you need to play through the whole game just to get a chance, then you need to encounter them as roamers 11 times before you can finally get a static encounter at Sea Spirits Den and if you faint or run from it and defeat the Elite 4 to respawn it, you have to chase it another 11 times to get a rematch. Also, none of the necessary offsets are tracked by PKHeX's Event Flag researcher and the reset legendary birds script provided didn't do anything as well so I had to play through the game several times and compare offsets across all of the save files to narrow down which values correspond to what. Hopefully, these scripts will make it so that nobody (who uses PKSM at least) has to go through this again as well as grant the ability to catch all 3 birds in one playthrough
-# Changes the flag that controls your starter and which bird is obtainable
-"Bird - Articuno" -i 0x14A60 2 0 1 -i 0x17E1C 1 144 1
-"Bird - Zapdos" -i 0x14A60 2 1 1 -i 0x17E1C 1 145 1
-"Bird - Moltres" -i 0x14A60 2 2 1 -i 0x17E1C 1 146 1
-# Sets the times encountered to 10. Once you defeat the Elite 4, the first wild Pokemon encounter in the grass will result in your first encounter with the bird, it will then immedietly flee. Run the script to set it to 10, and then find it one last time to send it to Sea Spirits Den
-"Bird - 10 Encounters" -i 0x17E40 1 10 1
-# This script builds upon the original, respawns the bird in Sea Sprits Den as well as all the feautres of the other reset scripts
-"Reset Legendary Birds v2" -i 0x483f 1 0x1b 1 -i 0x14bcc 1 0x01 1 -i 0x17E23 1 32 1 -i 0x14D62 1 63 1 -i 0x546 1 1 1 -i 0x57D 1 2 1 -i 0x586 1 1 1
+# Battle Maison
+"Singles - 19" -d "maison" -i 0x1B1C0 2 19 1
+"Doubles - 19" -d "maison" -i 0x1B1C8 2 19 1
+"Triples - 19" -d "maison" -i 0x1B1D0 2 19 1
+"Rotation - 19" -d "maison" -i 0x1B1D8 2 19 1
+"Multi - 19" -d "maison" -i 0x1B1E0 2 19 1
+"Super Singles - 49" -d "maison" -i 0x1B1C2 2 49 1
+"Super Doubles - 49" -d "maison" -i 0x1B1CA 2 49 1
+"Super Triples - 49" -d "maison" -i 0x1B1D2 2 49 1
+"Super Rotation - 49" -d "maison" -i 0x1B1DA 2 49 1
+"Super Multi - 49" -d "maison" -i 0x1B1E2 2 49 1
+"Super Singles - 99" -d "maison" -i 0x1B1C2 2 99 1
+"Super Doubles - 99" -d "maison" -i 0x1B1CA 2 99 1
+"Super Triples - 99" -d "maison" -i 0x1B1D2 2 99 1
+"Super Rotation - 99" -d "maison" -i 0x1B1DA 2 99 1
+"Super Multi - 99" -d "maison" -i 0x1B1E2 2 99 1
+"Super Singles - 199" -d "maison" -i 0x1B1C2 2 199 1
+"Super Doubles - 199" -d "maison" -i 0x1B1CA 2 199 1
+"Super Triples - 199" -d "maison" -i 0x1B1D2 2 199 1
+"Super Rotation - 199" -d "maison" -i 0x1B1DA 2 199 1
+"Super Multi - 199" -d "maison" -i 0x1B1E2 2 199 1
+# Day Care EXP
+"Set 10,000 Exp gained" -d "daycare" -i 0x1B204 4 10000 1 -i 0x1B2F4 4 10000 1
+"Set 50,000 Exp gained" -d "daycare" -i 0x1B204 4 50000 1 -i 0x1B2F4 4 50000 1
+"Set 100,000 Exp gained" -d "daycare" -i 0x1B204 4 100000 1 -i 0x1B2F4 4 100000 1
+"Set 500,000 Exp gained" -d "daycare" -i 0x1B204 4 500000 1 -i 0x1B2F4 4 500000 1
+"Set 1,000,000 Exp gained" -d "daycare" -i 0x1B204 4 1000000 1 -i 0x1B2F4 4 1000000 1
+"Set 1,640,000 Exp gained" -d "daycare" -i 0x1B204 4 1640000 1 -i 0x1B2F4 4 1640000 1
+# Reset
+"Mewtwo and Zygarde" -d "reset" -i 0x14d74 1 0x01 1 -i 0x14d5e 1 0x1f 1 -i 0x14d0a 1 0x80 1
+"Legendary birds" -d "reset" -i 0x483f 1 0x1b 1 -i 0x14bcc 1 0x01 1 -i 0x17E23 1 32 1 -i 0x14D62 1 63 1 -i 0x546 1 1 1 -i 0x57D 1 2 1 -i 0x586 1 1 1
+"Berry Shop" -d "reset" -i 0x120F 1 1 1 -i 0x14E64 1 0 1 -i 0x14E68 1 0 1
+"Snorlax" -d "reset" -i 0x14D18 1 64 1 -i 0x14D3E 1 127 1
+"Lucario" -d "reset" -i 0x14D15 1 96 1 -i 0x14D66 1 158 1
+"Lapras" -d "reset" -i 0x14B98 2 1 1

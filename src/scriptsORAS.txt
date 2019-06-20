@@ -1,6 +1,27 @@
 # Syntax: "Name of script" -i <offset> <length> <payload (integer or file path)> <repeat>
 "Clear Mystery Gift data" -i 0x1CC00 1 0x0 5692
 "Set max money" -i 0x4208 4 9999999 1
+"Set max Battle Points" -i 0x4230 2 9999 1
+"Set max Current Pokemiles" -i 0x1F4FC 4 9999999 1
+"Unlock all lv1-3 O-Powers" -i 0x17400 66 "data/OPower.bin" 1
+"Unlock all O-Powers" -d "illegal" -i 0x17400 66 "data/OPower_illegal.bin" 1
+"Renew 1st WonderCard" -i 0x1CD52 1 1 1
+"Renew 2nd WonderCard" -i 0x1CE5A 1 1 1
+"Renew 3rd WonderCard" -i 0x1CF62 1 1 1
+"All Mirage Forests" -i 0x307D4 1 1 1 -i 0x307D8 1 2 1 -i 0x307DC 1 3 1 -i 0x307E0 1 4 1 -i 0x307E4 1 5 1 -i 0x307E8 1 6 1 -i 0x307EC 1 7 1 -i 0x307F0 1 8 1 -i 0x307F4 1 9 1 -i 0x307F8 1 0 1
+"All Mirage Caves" -i 0x307D4 1 1 1 -i 0x307D8 1 10 1 -i 0x307DC 1 11 1 -i 0x307E0 1 12 1 -i 0x307E4 1 13 1 -i 0x307E8 1 14 1 -i 0x307EC 1 15 1 -i 0x307F0 1 16 1 -i 0x307F4 1 17 1 -i 0x307F8 1 0 1
+"All Mirage Islands" -i 0x307D4 1 1 1 -i 0x307D8 1 18 1 -i 0x307DC 1 19 1 -i 0x307E0 1 20 1 -i 0x307E4 1 21 1 -i 0x307E8 1 22 1 -i 0x307EC 1 23 1 -i 0x307F0 1 24 1 -i 0x307F4 1 25 1 -i 0x307F8 1 0 1
+"All Mirage Mountains" -i 0x307D4 1 1 1 -i 0x307D8 1 26 1 -i 0x307DC 1 27 1 -i 0x307E0 1 28 1 -i 0x307E4 1 29 1 -i 0x307E8 1 30 1 -i 0x307EC 1 31 1 -i 0x307F0 1 32 1 -i 0x307F4 1 33 1 -i 0x307F8 1 0 1
+"Supreme Honor Pokepuffs" -i 0x00000 1 22 100
+"Pokemon Link - Bank Celebi" -i 0x21000 2630 "data/link/LINK_Celebi.bin" 1
+"Pokemon Link - HA Johto Starters" -i 0x21000 2630 "data/link/LINK_Johto_Starters.bin" 1
+"Pokemon Link - HA Regi Trio" -i 0x21000 2630 "data/link/LINK_Regi_Trio.bin" 1
+"Pokemon Link - Demo Glalie" -i 0x21000 2630 "data/link/LINK_Glalie.bin" 1 -i 0x20e00 1 0 1
+"Pokemon Link - Demo Steelix" -i 0x21000 2630 "data/link/LINK_Steelix.bin" 1 -i 0x20e00 1 0 1
+"Pokemon Link - 9999 BP & 9999 Pokemiles" -i 0x21000 2630 "data/link/LINK_BP_Pokemiles.bin" 1
+"Unlock Battle Resort Fly Location" -i 0x14E69 1 168 1
+"Max Volcanic Ash" -i 0x14A78 2 65535 1
+# Mass injection
 "Living dex" -d "inject" -i 0x33000 186064 "data/inject/Gen6_living.bin" 1 -i 0x15008 0xc1e "data/dex/ORAS_Complete.bin" 1
 "ITA rBreedingDitto" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_rBreedingDitto_ITA.bin" 1
 "SPA rBreedingDitto" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_rBreedingDitto_SPA.bin" 1
@@ -12,24 +33,22 @@
 "N's Pokemon" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_N.bin" 1
 "Oblivia Deoxys" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_Oblivia_Deoxys.bin" 1
 "XD" -d "inject" -i 0x33000 0x5190 "data/inject/Gen6_XD.bin" 1
-"Set max Battle Points" -i 0x4230 2 9999 1
-"Set max Current Pokemiles" -i 0x1F4FC 4 9999999 1
-"Unlock all lv1-3 O-Powers" -i 0x17400 66 "data/OPower.bin" 1
-"Unlock all O-Powers" -d "illegal" -i 0x17400 66 "data/OPower_illegal.bin" 1
 "All legendaries" -d "reset" -i 0x14d11 1 0x0F 1 -i 0x14d12 1 0x00 1 -i 0x14d13 1 0x06 1 -i 0x14d16 1 0xDC 1 -i 0x14d1b 1 0xEF 1 -i 0x14d1c 1 0xEB 1 -i 0x14d30 1 0x22 1 -i 0x14d4c 1 0x61 1 -i 0x14d4d 1 0x7E 1 -i 0x14d71 1 0xF7 1 -i 0x14d72 1 0x8C 1 -i 0x14d73 1 0x8F 1 -i 0x14e5b 1 0x00 1 -i 0x14e5c 1 0x00 1 -i 0x14e5d 1 0x00 1 -i 0x14e5e 1 0x00 1 -i 0x14e5f 1 0x00 1 -i 0x14e68 1 0x17 1
 "Delta Episode" -d "reset" -i 0x483f 1 0x12 1 -i 0x14d17 1 0xc0 1 -i 0x14d30 1 0x23 1 -i 0x14d35 1 0x06 1 -i 0x14d3f 1 0xff 1 -i 0x14d47 1 0xef 1 -i 0x14d51 1 0xfd 1 -i 0x14d54 1 0xf8 1 -i 0x14d55 1 0xf0 1 -i 0x14d56 1 0xcb 1 -i 0x14d59 1 0x80 1 -i 0x14d5a 1 0x8d 1 -i 0x14d5b 1 0xff 1 -i 0x14d6a 1 0xf7 1 -i 0x14d6e 1 0xff 1 -i 0x14d6f 1 0xd7 1 -i 0x14d70 1 0x8a 1 -i 0x14d73 1 0x8d 1 -i 0x14e45 1 0xfc 1 -i 0x14e51 1 0x01 1 -i 0x14e59 1 0x7f 1 -i 0x14e5f 1 0x04 1 -i 0x14e65 1 0x3e 1 -i 0x14e69 1 0x99 1
+# Items
 "Give all berries 99x" -d "items" -i 0xE70 268 "data/ORAS_AllBerries.bin" 1
 "Give all items 99x" -d "items" -i 0x400 1076 "data/ORAS_AllItems.bin" 1
 "Give all items 99x" -d "illegal" -i 0x400 1220 "data/ORAS_AllItems_illegal.bin" 1
 "Give all medicines 99x" -d "items" -i 0xD70 216 "data/ORAS_AllMedicines.bin" 1
 "Items slot 1 - Heart Scale x999" -d "items" -i 0x400 2 93 1 -i 0x402 2 999 1
 "Items slot 1 - Max Repel x999" -d "items" -i 0x400 2 77 1 -i 0x402 2 999 1
+"Items slot 1 x999" -d "items" -i 0x402 2 999 1
 "Medicine slot 1 - PP Max x999" -d "items" -i 0xD70 2 53 1 -i 0xD72 2 999 1
 "Medicine slot 1 - Rare Candy x999" -d "items" -i 0xD70 2 50 1 -i 0xD72 2 999 1
 "Medicine slots 1-6 - stat vitamins x999" -d "items" -i 0xD70 2 45 1 -i 0xD72 2 999 1 -i 0xD74 2 46 1 -i 0xD76 2 999 1 -i 0xD78 2 47 1 -i 0xD7A 2 999 1 -i 0xD7C 2 48 1 -i 0xD7E 2 999 1 -i 0xD80 2 49 1 -i 0xD82 2 999 1 -i 0xD84 2 52 1 -i 0xD86 2 999 1
-"Items slot 1 x999" -d "items" -i 0x402 2 999 1
 "Medicine slot 1 x999" -d "items" -i 0xD72 2 999 1
 "Berries slot 1 x999" -d "items" -i 0xE72 2 999 1
+# Dex
 "Language entries" -d "dex" -i 0x15400 1 0xff 0x276 -i 0x15676 1 0x7f 1
 "Hoenn seen" -d "dex" -i 0x15068 0xbbe "data/dex/ORAS_Hoenn_seen.bin" 1
 "Hoenn owned" -d "dex" -i 0x15008 0xc1e "data/dex/ORAS_Hoenn_owned.bin" 1
@@ -37,60 +56,40 @@
 "National owned" -d "dex" -i 0x15008 0xc1e "data/dex/ORAS_National_owned.bin" 1
 "Complete" -d "dex" -i 0x15008 0xc1e "data/dex/ORAS_Complete.bin" 1
 "Fill Dex - Complete" -d "illegal" -i 0x15008 0xc1e "data/dex/ORAS_Complete_illegal.bin" 1
-"Renew 1st WonderCard" -i 0x1CD52 1 1 1
-"Renew 2nd WonderCard" -i 0x1CE5A 1 1 1
-"Renew 3rd WonderCard" -i 0x1CF62 1 1 1
-"Battle Maison Singles - 19" -d "maison" -i 0x1BBC0 2 19 1
-"Battle Maison Doubles - 19" -d "maison" -i 0x1BBC8 2 19 1
-"Battle Maison Triples - 19" -d "maison" -i 0x1BBD0 2 19 1
-"Battle Maison Rotation - 19" -d "maison" -i 0x1BBD8 2 19 1
-"Battle Maison Multi - 19" -d "maison" -i 0x1BBE0 2 19 1
-"Battle Maison Super Singles - 49" -d "maison" -i 0x1BBC2 2 49 1
-"Battle Maison Super Doubles - 49" -d "maison" -i 0x1BBCA 2 49 1
-"Battle Maison Super Triples - 49" -d "maison" -i 0x1BBD2 2 49 1
-"Battle Maison Super Rotation - 49" -d "maison" -i 0x1BBDA 2 49 1
-"Battle Maison Super Multi - 49" -d "maison" -i 0x1BBE2 2 49 1
-"All Mirage Forests" -i 0x307D4 1 1 1 -i 0x307D8 1 2 1 -i 0x307DC 1 3 1 -i 0x307E0 1 4 1 -i 0x307E4 1 5 1 -i 0x307E8 1 6 1 -i 0x307EC 1 7 1 -i 0x307F0 1 8 1 -i 0x307F4 1 9 1 -i 0x307F8 1 0 1
-"All Mirage Caves" -i 0x307D4 1 1 1 -i 0x307D8 1 10 1 -i 0x307DC 1 11 1 -i 0x307E0 1 12 1 -i 0x307E4 1 13 1 -i 0x307E8 1 14 1 -i 0x307EC 1 15 1 -i 0x307F0 1 16 1 -i 0x307F4 1 17 1 -i 0x307F8 1 0 1
-"All Mirage Islands" -i 0x307D4 1 1 1 -i 0x307D8 1 18 1 -i 0x307DC 1 19 1 -i 0x307E0 1 20 1 -i 0x307E4 1 21 1 -i 0x307E8 1 22 1 -i 0x307EC 1 23 1 -i 0x307F0 1 24 1 -i 0x307F4 1 25 1 -i 0x307F8 1 0 1
-"All Mirage Mountains" -i 0x307D4 1 1 1 -i 0x307D8 1 26 1 -i 0x307DC 1 27 1 -i 0x307E0 1 28 1 -i 0x307E4 1 29 1 -i 0x307E8 1 30 1 -i 0x307EC 1 31 1 -i 0x307F0 1 32 1 -i 0x307F4 1 33 1 -i 0x307F8 1 0 1
-"Supreme Honor Pokepuffs" -i 0x00000 1 22 100
-"Pokemon Link - Bank Celebi" -i 0x21000 2630 "data/link/LINK_Celebi.bin" 1
-"Pokemon Link - HA Johto Starters" -i 0x21000 2630 "data/link/LINK_Johto_Starters.bin" 1
-"Pokemon Link - HA Regi Trio" -i 0x21000 2630 "data/link/LINK_Regi_Trio.bin" 1
-"Pokemon Link - Demo Glalie" -i 0x21000 2630 "data/link/LINK_Glalie.bin" 1
-"Pokemon Link - Demo Steelix" -i 0x21000 2630 "data/link/LINK_Steelix.bin" 1
-"Pokemon Link - 9999 BP & 9999 Pokemiles" -i 0x21000 2630 "data/link/LINK_BP_Pokemiles.bin" 1
-# Maison Codes, same as XY
-"Battle Maison Super Singles - 99" -i 0x1BBC2 2 99 1
-"Battle Maison Super Doubles - 99" -i 0x1BBCA 2 99 1
-"Battle Maison Super Triples - 99" -i 0x1BBD2 2 99 1
-"Battle Maison Super Rotation - 99" -i 0x1BBDA 2 99 1
-"Battle Maison Super Multi - 99" -i 0x1BBE2 2 99 1
-"Battle Maison Super Singles - 199" -i 0x1BBC2 2 199 1
-"Battle Maison Super Doubles - 199" -i 0x1BBCA 2 199 1
-"Battle Maison Super Triples - 199" -i 0x1BBD2 2 199 1
-"Battle Maison Super Rotation - 199" -i 0x1BBDA 2 199 1
-"Battle Maison Super Multi - 199" -i 0x1BBE2 2 199 1
-# Day-care codes, its the last time, I swear. Although these will affect both day-cares
-"Day Care - Add 10,000 Exp" -i 0x1BC04 4 10000 1 -i 0x1BCF4 4 10000 1 -i 0x1BDF4 4 10000 1 -i 0x1BEE4 4 10000 1
-"Day Care - Add 50,000 Exp" -i 0x1BC04 4 50000 1 -i 0x1BCF4 4 50000 1 -i 0x1BDF4 4 50000 1 -i 0x1BEE4 4 50000 1
-"Day Care - Add 100,000 Exp" -i 0x1BC04 4 100000 1 -i 0x1BCF4 4 100000 1 -i 0x1BDF4 4 100000 1 -i 0x1BEE4 4 100000 1
-"Day Care - Add 500,000 Exp" -i 0x1BC04 4 500000 1 -i 0x1BCF4 4 500000 1 -i 0x1BDF4 4 500000 1 -i 0x1BEE4 4 500000 1
-"Day Care - Add 1,000,000 Exp" -i 0x1BC04 4 1000000 1 -i 0x1BCF4 4 1000000 1 -i 0x1BDF4 4 1000000 1 -i 0x1BEE4 4 1000000 1
-"Day Care - Add 1,640,000 Exp" -i 0x1BC04 4 1640000 1 -i 0x1BCF4 4 1640000 1 -i 0x1BDF4 4 1640000 1 -i 0x1BEE4 4 1640000 1
-# This script will unlock the Battle Resort on the map, allowing you to fly there. I made this for myself as I wanted access to many of the things that are there such as the Level Release, better day-care, move tutors etc ealier in the game.
-"Unlock Battle Resort Fly Location" -i 0x14E69 1 168 1
-"Max Volcanic Ash" -i 0x14A78 2 65535 1
-# Reset Scripts, you know what they do
-"Reset Spiritomb" -i 0x14E69 1 168 1
-"Reset Beldum" -i 0x14D0F 1 144 1
-"Reset Castform" -i 0x14CFE 1 81 1
-"Reset Cosplay Pikachu" -i 0x14D09 1 96 1
-"Reset Fossil Choice" -i 0x14D52 1 149 1
-"Reset Berry Master's Wife's Berries" -i 0x14BD2 2 0 1
-"Reset Lavaridge Eggs" -i 0x14D02 1 65 1 -i 0x14D07 1 49 1
-# This script will reset the value that determines whether or not you have received the Demo Pokemon, at last, you can receive more than one per playthrough. I have also updated the Link scripts to reset the value as well
-"Pokemon Link - Reset Glalie & Steelix" -i 0x20e00 1 0 1
-"Pokemon Link - Demo Glalie v2" -i 0x21000 2630 "data/link/LINK_Glalie.bin" 1 -i 0x20e00 1 0 1
-"Pokemon Link - Demo Steelix v2" -i 0x21000 2630 "data/link/LINK_Steelix.bin" 1 -i 0x20e00 1 0 1
+# Battle Maison
+"Singles streak - 19" -d "maison" -i 0x1BBC0 2 19 1
+"Doubles streak - 19" -d "maison" -i 0x1BBC8 2 19 1
+"Triples streak - 19" -d "maison" -i 0x1BBD0 2 19 1
+"Rotation streak - 19" -d "maison" -i 0x1BBD8 2 19 1
+"Multi streak - 19" -d "maison" -i 0x1BBE0 2 19 1
+"Super Singles streak - 49" -d "maison" -i 0x1BBC2 2 49 1
+"Super Singles streak - 99" -d "maison" -i 0x1BBC2 2 99 1
+"Super Singles streak - 199" -d "maison" -i 0x1BBC2 2 199 1
+"Super Doubles streak - 49" -d "maison" -i 0x1BBCA 2 49 1
+"Super Doubles streak - 99" -d "maison" -i 0x1BBCA 2 99 1
+"Super Doubles streak - 199" -d "maison" -i 0x1BBCA 2 199 1
+"Super Triples streak - 49" -d "maison" -i 0x1BBD2 2 49 1
+"Super Triples streak - 99" -d "maison" -i 0x1BBD2 2 99 1
+"Super Triples streak - 199" -d "maison" -i 0x1BBD2 2 199 1
+"Super Rotation streak - 49" -d "maison" -i 0x1BBDA 2 49 1
+"Super Rotation streak - 99" -d "maison" -i 0x1BBDA 2 99 1
+"Super Rotation streak - 199" -d "maison" -i 0x1BBDA 2 199 1
+"Super Multi streak - 99" -d "maison" -i 0x1BBE2 2 99 1
+"Super Multi streak - 49" -d "maison" -i 0x1BBE2 2 49 1
+"Super Multi streak - 199" -d "maison" -i 0x1BBE2 2 199 1
+# Day Care EXP
+"Set 10,000 Exp gained" -d "daycare" -i 0x1BC04 4 10000 1 -i 0x1BCF4 4 10000 1 -i 0x1BDF4 4 10000 1 -i 0x1BEE4 4 10000 1
+"Set 50,000 Exp gained" -d "daycare" -i 0x1BC04 4 50000 1 -i 0x1BCF4 4 50000 1 -i 0x1BDF4 4 50000 1 -i 0x1BEE4 4 50000 1
+"Set 100,000 Exp gained" -d "daycare" -i 0x1BC04 4 100000 1 -i 0x1BCF4 4 100000 1 -i 0x1BDF4 4 100000 1 -i 0x1BEE4 4 100000 1
+"Set 500,000 Exp gained" -d "daycare" -i 0x1BC04 4 500000 1 -i 0x1BCF4 4 500000 1 -i 0x1BDF4 4 500000 1 -i 0x1BEE4 4 500000 1
+"Set 1,000,000 Exp gained" -d "daycare" -i 0x1BC04 4 1000000 1 -i 0x1BCF4 4 1000000 1 -i 0x1BDF4 4 1000000 1 -i 0x1BEE4 4 1000000 1
+"Set 1,640,000 Exp gained" -d "daycare" -i 0x1BC04 4 1640000 1 -i 0x1BCF4 4 1640000 1 -i 0x1BDF4 4 1640000 1 -i 0x1BEE4 4 1640000 1
+# Reset
+"Spiritomb" -d "reset" -i 0x14E69 1 168 1
+"Beldum" -d "reset" -i 0x14D0F 1 144 1
+"Castform" -d "reset" -i 0x14CFE 1 81 1
+"Cosplay Pikachu" -d "reset" -i 0x14D09 1 96 1
+"Fossil Choice" -d "reset" -i 0x14D52 1 149 1
+"Berry Master's Wife's Berries" -d "reset" -i 0x14BD2 2 0 1
+"Lavaridge Eggs" -d "reset" -i 0x14D02 1 65 1 -i 0x14D07 1 49 1
+"Demo Glalie & Steelix" -d "reset" -i 0x20e00 1 0 1
