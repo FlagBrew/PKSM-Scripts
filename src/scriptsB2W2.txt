@@ -12,7 +12,7 @@
 "Join Avenue - 7 Day Promotion" -i 0x24FDC 1 0 1 -i 0x24FDE 1 1 1
 "Max Entree Level" -i 0x2120C 2 100 2 -i 0x259F4 2 200 1 -i 0x259F0 2 200 1 -i 0x259F2 2 200 1
 # This one unlocks and completes the happy and strange endings for all Pokestar films except the last one, which upon completeion allows you to see the final cutscene and access the dressing room. It also grants a trainer star to your trainer card
-"Complete Pokestar Films" -i 0x25A00 0x400 "data\other\B2W2_Pokestar.bin" 1
+"Complete Pokestar Films" -i 0x25A00 0x400 "data/other/B2W2_Pokestar.bin" 1
 "Unlock Champion Tournament" -i 0x2378C 1 10 1
 "Unlock All PWT Tournaments" -i 0x2375C 58 "data/B2W2_PWT.bin" 1
 # Items
