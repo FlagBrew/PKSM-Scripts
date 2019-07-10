@@ -1,46 +1,95 @@
 #!/usr/bin/env python3
-import shlex, PKSMScript, sys, glob, shutil, os
+import argparse
+import glob
+import os
+import shlex
+import shutil
+import sys
 
-games = ["lgpe", "usum", "sm", "oras", "xy", "b2w2", "bw", "hgss", "pt", "dp"]
+import PKSMScript
+
+
+class PatchedParser(argparse.ArgumentParser):
+    def error(self, message):
+        # raise error rather than exit
+        raise argparse.ArgumentError(None, message)
+
+
+games = [
+    "LGPE",
+    "USUM", "SM",
+    "ORAS", "XY",
+    "B2W2", "BW",
+    "HGSS", "PT", "DP"]
+
+# patch PKSMScript's argument parser to prevent exiting on error
+# and allow logging of all errors
+parser = PatchedParser(parents=[PKSMScript.parser], add_help=False)
+
 
 def main(args):
     print("Generating scripts...")
     shutil.rmtree("build", True)
     if not os.path.exists("scripts"):
         os.mkdir("scripts")
+    failed_scripts = dict()
+    fail_count = 0
     if len(args) > 1:
-        for i in range(1, len(args)):
-            if os.path.exists("src/scripts%s.txt" % args[i].upper()):
-                generate(args[i].upper())
-                moveScripts(args[i])
-            else:
-                print("File does not exist: %s" % ("src/scripts%s.txt" % args[i].upper()))
+        to_compile = [g.upper() for g in args[1:] if g.upper() in games]
+        if not len(to_compile):
+            print('No valid games requested. Exiting without compiling.')
+            sys.exit()
     else:
-        for game in games:
-            if os.path.exists("src/scripts%s.txt" % game.upper()):
-                generate(game.upper())
-                moveScripts(game)
+        to_compile = games
+    for game in to_compile:
+        if os.path.exists("src/scripts{}.txt".format(game)):
+            failed_scripts[game] = generate(game)
+            fail_count += len(failed_scripts[game])
+            if not len(failed_scripts[game]):
+                del failed_scripts[game]
+            move_scripts(game.lower())
+        else:
+            print("File does not exist: src/scripts{}.txt\n".format(game))
+
+    print('Finished generating scripts')
+    if fail_count:
+        print('\n\nScripts that failed to compile:\n')
+        for game, scripts in failed_scripts.items():
+            for script in scripts:
+                print('{}: {}'.format(game, script))
+
 
 def generate(game):
-    with open(os.path.join("src", "scripts%s.txt" % game)) as pksmArgFile:
-        for line in pksmArgFile:
+    failures = []
+    with open(os.path.join("src", "scripts{}.txt".format(game))) as arg_file:
+        for line in arg_file:
             if (not line.startswith('#')):
                 line.replace('\\', '/')
-                pksmArgs = PKSMScript.parser.parse_args(shlex.split(line))
-                PKSMScript.main(pksmArgs)
+                try:
+                    pksm_args = parser.parse_args(shlex.split(line))
+                    PKSMScript.main(pksm_args)
+                except:
+                    # catch errors from both arg parsing and compiling
+                    bad_script = '{}    Reason: {}'.format(
+                        line, sys.exc_info()[1])
+                    failures.append(bad_script)
+    return failures
 
-def moveScripts(game):
+
+def move_scripts(game):
     if not os.path.exists("scripts/" + game):
         os.mkdir("scripts/" + game)
 
     if os.path.exists("build"):
         for f in os.listdir("build"):
             shutil.move("build/" + f, "scripts/" + game)
-    scriptFiles = glob.glob("*.pksm")
-    for pksmFile in scriptFiles:
-        if os.path.exists("scripts/%s/%s" % (game, pksmFile)):
-            os.remove("scripts/%s/%s" % (game, pksmFile))
-        shutil.move(pksmFile,"scripts/" + game)
+        shutil.rmtree('build', True)
+    script_files = glob.glob("*.pksm")
+    for pksm_file in script_files:
+        if os.path.exists("scripts/{}/{}".format(game, pksm_file)):
+            os.remove("scripts/{}/{}".format(game, pksm_file))
+        shutil.move(pksm_file, "scripts/" + game)
+
 
 if __name__ == '__main__':
     main(sys.argv)
