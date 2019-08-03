@@ -9,6 +9,8 @@ int main(int argc, char **argv)
 
     int maxSpecies = 0;
 
+    int shiny = gui_choice("Would you like your Pok\u00e1mon to be shiny?", NULL);
+
     switch (version)
     {
         case 10:
@@ -56,6 +58,7 @@ int main(int argc, char **argv)
         for (int i = 0; i < maxSpecies; i++)
         {
             pkx_generate(data, i + 1);
+            pkx_set_shiny(data, gen, shiny);
             sav_inject_pkx(data, gen, i / 30, i % 30, 0);
         }
         free(data);
@@ -66,11 +69,14 @@ int main(int argc, char **argv)
         for (int i = 0; i < 151; i++)
         {
             pkx_generate(data, i + 1);
+            pkx_set_shiny(data, gen, shiny);
             sav_inject_pkx(data, gen, i / 30, i % 30, 0);
         }
         pkx_generate(data, 808);
+        pkx_set_shiny(data, gen, shiny);
         sav_inject_pkx(data, gen, 151 / 30, 151 % 30, 0);
         pkx_generate(data, 809);
+        pkx_set_shiny(data, gen, shiny);
         sav_inject_pkx(data, gen, 152 / 30, 152 % 30, 0);
         free(data);
     }
