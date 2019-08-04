@@ -53,7 +53,6 @@ int main(int argc, char **argv)
     }
 
     sav_box_decrypt();
-    printf("Decrypted: %i %i", 0, 1);
     if (gen != GEN_LGPE)
     {
         char* data = malloc(pkx_box_size(gen));
