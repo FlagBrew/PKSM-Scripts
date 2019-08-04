@@ -1,6 +1,7 @@
 #include <pksm.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int main(int argc, char **argv)
 {
@@ -52,13 +53,14 @@ int main(int argc, char **argv)
     }
 
     sav_box_decrypt();
+    printf("Decrypted: %i %i", 0, 1);
     if (gen != GEN_LGPE)
     {
         char* data = malloc(pkx_box_size(gen));
         for (int i = 0; i < maxSpecies; i++)
         {
             pkx_generate(data, i + 1);
-            pkx_set_shiny(data, gen, shiny);
+            pkx_set_value(data, gen, SHINY, shiny);
             sav_inject_pkx(data, gen, i / 30, i % 30, 0);
         }
         free(data);
@@ -69,14 +71,14 @@ int main(int argc, char **argv)
         for (int i = 0; i < 151; i++)
         {
             pkx_generate(data, i + 1);
-            pkx_set_shiny(data, gen, shiny);
+            pkx_set_value(data, gen, SHINY, shiny);
             sav_inject_pkx(data, gen, i / 30, i % 30, 0);
         }
         pkx_generate(data, 808);
-        pkx_set_shiny(data, gen, shiny);
+        pkx_set_value(data, gen, SHINY, shiny);
         sav_inject_pkx(data, gen, 151 / 30, 151 % 30, 0);
         pkx_generate(data, 809);
-        pkx_set_shiny(data, gen, shiny);
+        pkx_set_value(data, gen, SHINY, shiny);
         sav_inject_pkx(data, gen, 152 / 30, 152 % 30, 0);
         free(data);
     }
