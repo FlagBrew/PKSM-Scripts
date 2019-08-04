@@ -23,7 +23,6 @@
 "Set Kanto bird - Moltres" -i 0x14A60 2 2 1 -i 0x17E1C 1 146 1
 "Set Kanto bird - 10 Encounters" -i 0x17E40 1 10 1
 # Mass injection
-"Living dex" -d "inject" -i 0x22600 186064 "data/inject/Gen6_living.bin" 1 -i 0x15008 0x696 "data/dex/XY_Complete.bin" 1
 "ITA rBreedingDitto" -d "inject" -i 0x22600 0x1b30 "data/inject/Gen6_rBreedingDitto_ITA.bin" 1
 "SPA rBreedingDitto" -d "inject" -i 0x22600 0x1b30 "data/inject/Gen6_rBreedingDitto_SPA.bin" 1
 "10th Anniversary" -d "inject" -i 0x22600 0x1b30 "data/inject/Gen6_10th_Anniversary.bin" 1

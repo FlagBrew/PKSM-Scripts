@@ -30,7 +30,6 @@
 "Set Battle Style Idol" -i 0x147A 1 7 1
 "Set Battle Style Nihilist" -i 0x147A 1 8 1
 # Mass injection
-"Living dex" -d "inject" -i 0x5200 187920 "data/inject/Gen7_living.bin" 1 -i 0x2c88 0x870 "data/dex/USUM_Complete.bin" 1
 "ITA rBreedingDitto" -d "inject" -i 0x5200 0x1b30 "data/inject/Gen7_rBreedingDitto_ITA.bin" 1
 "SPA rBreedingDitto" -d "inject" -i 0x5200 0x1b30 "data/inject/Gen7_rBreedingDitto_SPA.bin" 1
 "10th Anniversary" -d "inject" -i 0x5200 0x1b30 "data/inject/Gen6_10th_Anniversary.bin" 1

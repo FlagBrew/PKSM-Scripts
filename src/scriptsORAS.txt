@@ -22,7 +22,6 @@
 "Unlock Battle Resort Fly Location" -i 0x14E69 1 168 1
 "Max Volcanic Ash" -i 0x14A78 2 65535 1
 # Mass injection
-"Living dex" -d "inject" -i 0x33000 186064 "data/inject/Gen6_living.bin" 1 -i 0x15008 0xc1e "data/dex/ORAS_Complete.bin" 1
 "ITA rBreedingDitto" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_rBreedingDitto_ITA.bin" 1
 "SPA rBreedingDitto" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_rBreedingDitto_SPA.bin" 1
 "10th Anniversary" -d "inject" -i 0x33000 0x1b30 "data/inject/Gen6_10th_Anniversary.bin" 1

@@ -18,7 +18,6 @@
 "All Pokebeans" -i 0x40A4c 1 0xFF 15
 "Battle Royal - Master" -i 0x69DDA 1 5 1 -i 0x6B220 1 3 1
 # Mass injection
-"Living dex" -d "inject" -i 0x4E00 186064 "data/inject/Gen7_living.bin" 1 -i 0x2a88 0x870 "data/dex/SM_Complete.bin" 1
 "ITA rBreedingDitto" -d "inject" -i 0x4e00 0x1b30 "data/inject/Gen7_rBreedingDitto_ITA.bin" 1
 "SPA rBreedingDitto" -d "inject" -i 0x4e00 0x1b30 "data/inject/Gen7_rBreedingDitto_SPA.bin" 1
 "10th Anniversary" -d "inject" -i 0x4e00 0x1b30 "data/inject/Gen6_10th_Anniversary.bin" 1
