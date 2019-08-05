@@ -102,7 +102,7 @@ int main(int argc, char **argv)
     }
 
     if (randomizedCount > maxSpecies) {
-        char part2 = {0};
+        char part2[38] = {0};
         sprintf(part2, "The game can only handle %d pokemon!", maxSpecies);
         gui_warn("You've put a number more than the game can handle!", part2);
     } else {
