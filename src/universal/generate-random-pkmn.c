@@ -19,7 +19,7 @@ int main(int argc, char **argv)
     gui_warn("Please enter how many pokemon", "you would like to generate!");
 
     int randomizedCount = 0;
-    gui_numpad(&randomizedCount, "You are entering how many randomized\npokemon you would like to generate", 3);
+    gui_numpad(&randomizedCount, "Number of PKMN to generate.", 3);
 
     switch (version)
     {
@@ -32,6 +32,7 @@ int main(int argc, char **argv)
             maxSpecies = 493;
             maxBalls = 18;
             maxMoves = 467;
+            maxAbility = 123;
             if(version == 11 || version == 10){
                 maxItems = 464;
             } else if (version == 12) {
@@ -39,7 +40,7 @@ int main(int argc, char **argv)
             } else if (version == 7 || version == 8){
                 maxItems = 536;
             }
-            maxAbility = 123;
+            
             break;
         case 20:
         case 21:
@@ -49,12 +50,12 @@ int main(int argc, char **argv)
             maxSpecies = 649;
             maxBalls = 19;
             maxMoves = 559;
+             maxAbility = 164;
             if (version == 20 || version == 21){
                 maxItems = 632;
             } else {
                 maxItems = 638;
             }
-            maxAbility = 164;
             break;
         case 24:
         case 25:
@@ -101,7 +102,7 @@ int main(int argc, char **argv)
     }
 
     if (randomizedCount > maxSpecies) {
-        char part2[256];
+        char part2 = {0};
         sprintf(part2, "The game can only handle %d pokemon!", maxSpecies);
         gui_warn("You've put a number more than the game can handle!", part2);
     } else {
@@ -123,7 +124,7 @@ int main(int argc, char **argv)
             pkx_generate(data, pokemonID);
             // Shiny or not
             pkx_set_value(data, gen, SHINY, shiny);
-             pkx_set_value(data, gen, LEVEL, randLevel);
+            pkx_set_value(data, gen, LEVEL, randLevel);
             // IVs
             pkx_set_value(data, gen, IV_HP, (rand() % 32));
             pkx_set_value(data, gen, IV_ATK, (rand() % 32));
@@ -149,7 +150,7 @@ int main(int argc, char **argv)
             sav_inject_pkx(data, gen, i / 30, i % 30, 0);
         }
         free(data);
-    sav_box_encrypt();   
+        sav_box_encrypt();   
     }
     return 0;
 }
