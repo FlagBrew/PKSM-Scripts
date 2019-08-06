@@ -10,7 +10,7 @@ int main(int argc, char **argv)
     unsigned char version = *argv[2];
     enum Generation gen;
 
-    int maxSpecies, maxMoves, maxBalls, maxItems, maxAbility, randomizedCount;
+    int maxSpecies, maxMoves, maxBalls, maxItems, maxAbility, randomizedCount, maxBoxes;
     gui_warn("Please enter how many pokemon", "you would like to generate!");
     gui_numpad(&randomizedCount, "Number of PKMN to generate.", 3);
 
@@ -24,6 +24,7 @@ int main(int argc, char **argv)
             gen = GEN_FOUR;
             maxSpecies = 493;
             maxBalls = 18;
+            maxBoxes = 18;
             maxMoves = 467;
             maxAbility = 123;
             maxItems = (version == 11 || version == 10) ? 464 : (version == 12 ? 467 : 536);
@@ -34,6 +35,7 @@ int main(int argc, char **argv)
         case 23:
             gen = GEN_FIVE;
             maxSpecies = 649;
+            maxBoxes = 24;
             maxBalls = 19;
             maxMoves = 559;
             maxAbility = 164;
@@ -47,6 +49,7 @@ int main(int argc, char **argv)
             maxSpecies = 721;
             maxBalls = 19;
             maxItems = (version == 26 || version == 27) ? 775 : 717;
+            maxBoxes = 31;
             maxMoves = (version == 26 || version == 27) ? 621 : 617;
             maxAbility = (version == 26 || version == 27) ? 191 : 188;
             break;
@@ -57,6 +60,7 @@ int main(int argc, char **argv)
             gen = GEN_SEVEN;
             maxBalls = 26;
             maxMoves = 720;
+            maxBoxes = 32;
             maxSpecies = (version == 32 || version == 33) ? 807 : 802;
             maxMoves = (version == 32 || version == 33) ? 728 : 720;
             maxItems = (version == 32 || version == 33) ? 959 : 920;
@@ -69,11 +73,13 @@ int main(int argc, char **argv)
             break;
     }
 
-    if (randomizedCount > maxSpecies || randomizedCount == 0){
+    if (randomizedCount > 30*maxBoxes || randomizedCount == 0){
         char part2[41] = {0};
-        sprintf(part2, "You must generate between 1-%d pokemon!", maxSpecies);
+        sprintf(part2, "You must generate between 1-%d pokemon!", 30*maxBoxes);
         gui_warn("You've inputted an invalid number", part2);
     } else {
+        int randNick = gui_choice("Do you want to randomize nicknames?", "This could produce weirdness.");
+        gui_warn("Depending on how many to generate", "this might take awhile!");
         sav_box_decrypt();
         srand(time(0) + version);
         char* data = malloc(pkx_box_size(gen));
@@ -117,9 +123,25 @@ int main(int argc, char **argv)
                 pkx_set_value(data, gen, ABILITY, rand() % maxAbility+1);
             }
             // Pokerus
-            pkx_set_value(data, gen, POKERUS, rand() % 255+1, rand() % 255+1);
+            pkx_set_value(data, gen, POKERUS, rand() % 16, rand() % 5);
+            if (randNick == 1){
+                // Nickname
+                char* species1 = i18n_species(pokemonID);
+                char* species2 = i18n_species(rand() % maxSpecies+1);
+
+                int l1 = strlen(species1)/2;
+                int l2 = strlen(species2)/2;
+                char* name = malloc(l1 + l2 + 1);
+                memcpy(name, species1, l1);
+                memcpy(name + l1, species2 + l2, strlen(species2) - l2);
+                name[l1+l2] = '\0';
+                pkx_set_value(data, gen, NICKNAME, name);
+                free(name);
+            }
             sav_inject_pkx(data, gen, i / 30, i % 30, 0);
+
         }
+
         free(data);
         sav_box_encrypt();   
     }
