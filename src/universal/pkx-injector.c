@@ -104,11 +104,10 @@ int main(int argc, char** argv)
             box++;
         }
 
-        free(pkxFiles->files[i]);
         free(data);
     }
     
-    free(pkxFiles->files);
+    delete_directory(pkxFiles);
     free(pkxFiles);
     sav_box_encrypt();
     return 0;
