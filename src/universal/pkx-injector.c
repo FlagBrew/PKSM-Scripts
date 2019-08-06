@@ -108,7 +108,6 @@ int main(int argc, char** argv)
     }
     
     delete_directory(pkxFiles);
-    free(pkxFiles);
     sav_box_encrypt();
     return 0;
 }
