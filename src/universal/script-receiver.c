@@ -4,6 +4,11 @@
 
 int main(int argc, char **argv)
 {
+    char scriptName[64] = {0};
+    gui_keyboard(scriptName, "Script name", 63);
+    char path[92] = {0};
+    sprintf(path, "/3ds/PKSM/scripts/universal/%s", scriptName);
+    path[91] = '\0';
     if (gui_choice("This will lock your console!", net_ip()))
     {
         char data[4];
@@ -30,7 +35,7 @@ int main(int argc, char **argv)
                     {
                         gui_warn("Receiving data failed!", "");
                     }
-                    FILE* script = fopen("/3ds/PKSM/scripts/universal/recvScript.c", "w");
+                    FILE* script = fopen(path, "w");
                     if (script != NULL)
                     {
                         fwrite(recvData, 1, size, script);
