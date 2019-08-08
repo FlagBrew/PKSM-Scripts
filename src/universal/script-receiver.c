@@ -7,7 +7,51 @@ int main(int argc, char **argv)
     char scriptName[64] = {0};
     gui_keyboard(scriptName, "Script name", 63);
     char path[92] = {0};
-    sprintf(path, "/3ds/PKSM/scripts/universal/%s", scriptName);
+    if(gui_choice("Is this a universal script?", "This means will it run on any game."))
+    {
+        sprintf(path, "/3ds/PKSM/scripts/universal/%s", scriptName);
+    } else 
+    {
+        switch (*argv[2]) {
+            case 10:
+                sprintf(path, "/3ds/PKSM/scripts/dp/%s", scriptName);
+                break;
+            case 12:
+                sprintf(path, "/3ds/PKSM/scripts/pt/%s", scriptName);
+                break;
+            case 7:
+                sprintf(path, "/3ds/PKSM/scripts/hgss/%s", scriptName);
+                break;
+            case 21:
+            case 20:
+                sprintf(path, "/3ds/PKSM/scripts/bw/%s", scriptName);
+                break;
+            case 23:
+            case 22:
+                sprintf(path, "/3ds/PKSM/scripts/b2w2/%s", scriptName);
+                break;
+            case 24:
+            case 25:
+                sprintf(path, "/3ds/PKSM/scripts/xy/%s", scriptName);
+                break;
+            case 27:
+            case 26:
+                sprintf(path, "/3ds/PKSM/scripts/oras/%s", scriptName);
+                break;
+            case 30:
+            case 31:
+                sprintf(path, "/3ds/PKSM/scripts/sm/%s", scriptName);
+                break;
+            case 32:
+            case 33:
+                sprintf(path, "/3ds/PKSM/scripts/usum/%s", scriptName);
+                break;
+            case 42:
+            case 43:
+                sprintf(path, "/3ds/PKSM/scripts/lgpe/%s", scriptName);
+                break;
+        }
+    }
     path[91] = '\0';
     if (gui_choice("This will lock your console!", net_ip()))
     {
