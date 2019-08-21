@@ -1,9 +1,14 @@
 struct pkx { int species; int form; };
 enum Generation { GEN_FOUR, GEN_FIVE, GEN_SIX, GEN_SEVEN, GEN_LGPE };
 struct directory { int count; char** files; };
-enum PKX_Field {OT_NAME, TID, SID, SHINY, LANGUAGE, MET_LOCATION, MOVE, BALL, LEVEL, GENDER,
+enum PKX_Field { OT_NAME, TID, SID, SHINY, LANGUAGE, MET_LOCATION, MOVE, BALL, LEVEL, GENDER,
                     ABILITY, IV_HP, IV_ATK, IV_DEF, IV_SPATK, IV_SPDEF, IV_SPEED, NICKNAME, ITEM,
-                    POKERUS, EGG_DAY, EGG_MONTH, EGG_YEAR, MET_DAY, MET_MONTH, MET_YEAR, FORM};
+                    POKERUS, EGG_DAY, EGG_MONTH, EGG_YEAR, MET_DAY, MET_MONTH, MET_YEAR, FORM };
+enum SAV_Field { SAV_OT_NAME, SAV_TID, SAV_SID, SAV_GENDER, SAV_COUNTRY, SAV_SUBREGION, SAV_REGION,
+                    SAV_LANGUAGE, SAV_MONEY, SAV_BP, SAV_HOURS, SAV_MINUTES, SAV_SECONDS, SAV_ITEM };
+enum SAV_MaxField { MAX_SLOTS, MAX_BOXES, MAX_WONDER_CARDS, MAX_SPECIES, MAX_MOVE, MAX_ITEM,
+                    MAX_ABILITY, MAX_BALL, MAX_FORM };
+enum Pouch { NormalItem, KeyItem, TM, Mail, Medicine, Berry, Ball, Battle, Candy, ZCrystals };
 
 int gui_choice(char* lineOne, char* lineTwo);
 void gui_warn(char* lineOne, char* lineTwo);
@@ -18,9 +23,8 @@ void sav_box_decrypt();
 void sav_box_encrypt();
 void sav_get_pkx(char* data, int box, int slot);
 void sav_inject_pkx(char* data, enum Generation type, int box, int slot, int doTradeEdits);
-int sav_get_sid();
-int sav_get_tid();
-char* sav_get_ot_name();
+int sav_get_value(enum SAV_Field field, ...);
+int sav_get_max(enum SAV_MaxField field, ...);
 void party_get_pkx(char* data, int slot);
 void party_inject_pkx(char* data, enum Generation type, int slot);
 void bank_inject_pkx(char* data, enum Generation type, int box, int slot);
@@ -47,3 +51,5 @@ int net_udp_recv(char* buffer, int size, int* received);
 char* i18n_species(int species);
 char* utf16_to_utf8(char* data);
 char* utf8_to_utf16(char* data);
+unsigned short* string_to_gen_4(char* string);
+int g4_strlen(unsigned short* string);
