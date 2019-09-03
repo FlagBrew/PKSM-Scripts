@@ -114,6 +114,8 @@ int main(int argc, char **argv)
             pkx_set_value(data, gen, IV_SPEED, rand() % 32);
             pkx_set_value(data, gen, IV_SPATK, rand() % 32);
             pkx_set_value(data, gen, IV_SPDEF, rand() % 32);
+            // Nature
+            pkx_set_value(data, gen, NATURE, rand() % 25);
             // Gender
             pkx_set_value(data, gen, GENDER, rand() % 3);
             // Since LGPE is weird, we can't really do extra stuff for it.
