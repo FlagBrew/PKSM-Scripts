@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <pksm.h>
 
-
-
 void deleteFile(char *dir)
 {
     struct directory *folder = read_directory(dir);
