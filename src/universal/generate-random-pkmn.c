@@ -10,9 +10,17 @@ int main(int argc, char **argv)
     unsigned char version = *argv[2];
     enum Generation gen;
 
-    int maxSpecies, maxMoves, maxBalls, maxItems, maxAbility, randomizedCount, maxBoxes;
+    int maxSpecies, maxMoves, maxBalls, maxItems, maxAbility, randomizedCount, maxBoxes, maxLevel;
     gui_warn("Please enter how many pokemon", "you would like to generate!");
     gui_numpad(&randomizedCount, "Number of PKMN to generate.", 3);
+    gui_warn("Please enter how the max level", "you would like to have your pokemon be!");
+    gui_numpad(&maxLevel, "Max level 1-100", 3);
+
+    if(maxLevel <= 0 || maxLevel > 100) {
+         gui_warn("You must choose a level", "between 1-100!");
+         return 1;
+    } 
+
 
     switch (version)
     {
@@ -98,7 +106,7 @@ int main(int argc, char **argv)
             // Shiny Status
             pkx_set_value(data, gen, SHINY, rand() % 2);
             // Level
-            pkx_set_value(data, gen, LEVEL, rand() % 100+1);
+            pkx_set_value(data, gen, LEVEL, rand() % maxLevel+1);
             // IVs
             pkx_set_value(data, gen, IV_HP, rand() % 32);
             pkx_set_value(data, gen, IV_ATK, rand() % 32);
