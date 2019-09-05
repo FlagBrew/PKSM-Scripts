@@ -107,7 +107,7 @@ int main(int argc, char **argv)
                 sprintf(&currentData, "Current TID: %i", oldID);
                 gui_warn("Enter a new TID (0-999999)", currentData);
                 gui_numpad(&newID, "TID within range 0-999999", 6);
-                gui_warn("TID set to", "");
+                gui_warn("TID set to", ""); // TODO: replace second arg with new TID
                 id += newID;
                 break;
             case 2: // SID
@@ -117,12 +117,12 @@ int main(int argc, char **argv)
                 gui_warn("Enter a new SID (0-65535)", currentData);
                 gui_numpad(&newID, "SID within range 0-65535", 5);
                 newID &= 0xFFFF;
-                gui_warn("SID set to", "");
-                id += (newID << 16);
+                gui_warn("SID set to", ""); // TODO: replace second arg with new SID
+                id += newID << 16;
                 break;
             case 3: // TSV
                 oldID = ((id >> 16) ^ (id & 0xFFFF)) >> tsvShift;
-                id &= ((tsvLimit << 16) + 0xFFFF);
+                id &= (tsvLimit << 16) + 0xFFFF;
                 sprintf(&currentData, "Current TSV: %i", oldID);
                 if (version < 24)
                 {
@@ -135,8 +135,8 @@ int main(int argc, char **argv)
                     gui_numpad(&newID, "TSV within range 0-4095", 4);
                 }
                 newID &= tsvLimit;
-                gui_warn("TSV set to", "");
-                id += (newID << (16 + tsvShift));
+                gui_warn("TSV set to", ""); // TODO: replace second arg with new TSV
+                id += ((newID << tsvShift) ^ (id & 0xFFFF)) << 16;
                 break;
             case 4: // OT name
                 gui_warn("Editing trainer name", "is not supported yet.");
@@ -149,7 +149,7 @@ int main(int argc, char **argv)
                 gui_warn("Enter a new TID (0-65535)", currentData);
                 gui_numpad(&newID, "TID within range 0-65535", 5);
                 newID &= 0xFFFF;
-                gui_warn("TID set to", "");
+                gui_warn("TID set to", ""); // TODO: replace second arg with new TID
                 id += newID;
                 break;
             default:
