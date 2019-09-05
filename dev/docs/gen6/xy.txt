@@ -69,8 +69,9 @@ Meaning                                     Offset      Length      Max Value   
     - SID                                   0x14002     2           65535
     - game                                  0x14004     1
     - gender                                0x14005     1           1
-    - multiplayer sprite ID                 0x14007     1
-    - Game Sync ID                          0x14008     16
+    - multiplayer sprite ID 1               0x14006     1
+    - multiplayer sprite ID 2               0x14007     1
+    - Game Sync ID                          0x14008     8
     - sub-region                            0x14026     1
     - country                               0x14027     1
     - console region                        0x1402c     1
