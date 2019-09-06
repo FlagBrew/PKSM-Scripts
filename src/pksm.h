@@ -25,6 +25,7 @@ void sav_get_pkx(char* data, int box, int slot);
 void sav_inject_pkx(char* data, enum Generation type, int box, int slot, int doTradeEdits);
 int sav_get_value(enum SAV_Field field, ...);
 int sav_get_max(enum SAV_MaxField field, ...);
+void sav_set_string(char* string, unsigned int offset, unsigned int codepoints);
 void party_get_pkx(char* data, int slot);
 void party_inject_pkx(char* data, enum Generation type, int slot);
 void bank_inject_pkx(char* data, enum Generation type, int box, int slot);
