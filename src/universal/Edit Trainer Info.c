@@ -4,6 +4,106 @@
 #include <stdlib.h>
 #include <string.h>
 
+/** checkOnlineID(version, saveData)
+ * Online IDs
+ *
+ * XY/ORAS
+ *  GameSync
+ *      offset: 0x14008
+ *      bytes: 8
+ *
+ * SM
+ *  GameSync
+ *      offset: 0x1210
+ *      bytes: 8
+ *  NexUniqueID
+ *      offset: 0x1218
+ *      bytes: 16
+ *  FestaID
+ *      offset: 0x1228
+ *      bytes: 4
+ *
+ * USUM
+ *  GameSync
+ *      offset: 0x1410
+ *      bytes: 8
+ *  NexUniqueID
+ *      offset: 0x1418
+ *      bytes: 16
+ *  FestaID
+ *      id[0:4]
+ *          offset: 0x1428
+ *          bytes: 4
+ *      id[5:11]
+ *          offset: 0x1418
+ *          bytes: 8
+ */
+int checkOnlineID(int version, char* saveData)
+{
+    int ofsSyncID = 0, sizeSyncID = 0, i;
+    switch (version)
+    {
+        case 24:
+        case 25:
+        case 26:
+        case 27:
+            ofsSyncID = 0x14008;
+            sizeSyncID = 8;
+            break;
+        case 30:
+        case 31:
+            ofsSyncID = 0x1210;
+            sizeSyncID = 8;
+            break;
+        case 32:
+        case 33:
+            ofsSyncID = 0x1410;
+            sizeSyncID = 8;
+            break;
+        default:
+            return 0;
+    }
+
+    // ???: (Gen 7) check NexUniqueID and/or FestaID?
+    for (i = 0; i < sizeSyncID; i++)
+    {
+        if (saveData[ofsSyncID + i] != 0)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+void clearSyncID(int version, char* saveData)
+{
+    int ofsSyncID = 0, i;
+    switch (version)
+    {
+        case 24:
+        case 25:
+        case 26:
+        case 27:
+            ofsSyncID = 0x14008;
+            break;
+        case 30:
+        case 31:
+            ofsSyncID = 0x1210;
+            break;
+        case 32:
+        case 33:
+            ofsSyncID = 0x1410;
+            break;
+        default:
+            return;
+    }
+
+    for (i = 0; i < 8; i++)
+    {
+        saveData[ofsSyncID + i] = 0;
+    }
+}
+
 int main(int argc, char **argv)
 {
     unsigned char *saveData = (unsigned char *)atoi(argv[0]);
@@ -172,104 +272,4 @@ int main(int argc, char **argv)
 
     free(otName);
     return 0;
-}
-
-/** checkOnlineID(version, saveData)
- * Online IDs
- *
- * XY/ORAS
- *  GameSync
- *      offset: 0x14008
- *      bytes: 8
- *
- * SM
- *  GameSync
- *      offset: 0x1210
- *      bytes: 8
- *  NexUniqueID
- *      offset: 0x1218
- *      bytes: 16
- *  FestaID
- *      offset: 0x1228
- *      bytes: 4
- *
- * USUM
- *  GameSync
- *      offset: 0x1410
- *      bytes: 8
- *  NexUniqueID
- *      offset: 0x1418
- *      bytes: 16
- *  FestaID
- *      id[0:4]
- *          offset: 0x1428
- *          bytes: 4
- *      id[5:11]
- *          offset: 0x1418
- *          bytes: 8
- */
-int checkOnlineID(int version, char* saveData)
-{
-    int ofsSyncID = 0, sizeSyncID = 0, i;
-    switch (version)
-    {
-        case 24:
-        case 25:
-        case 26:
-        case 27:
-            ofsSyncID = 0x14008;
-            sizeSyncID = 8;
-            break;
-        case 30:
-        case 31:
-            ofsSyncID = 0x1210;
-            sizeSyncID = 8;
-            break;
-        case 32:
-        case 33:
-            ofsSyncID = 0x1410;
-            sizeSyncID = 8;
-            break;
-        default:
-            return 0;
-    }
-
-    // ???: (Gen 7) check NexUniqueID and/or FestaID?
-    for (i = 0; i < sizeSyncID; i++)
-    {
-        if (saveData[ofsSyncID + i] != 0)
-        {
-            return 1;
-        }
-    }
-    return 0;
-}
-
-void clearSyncID(int version, char* saveData)
-{
-    int ofsSyncID = 0, i;
-    switch (version)
-    {
-        case 24:
-        case 25:
-        case 26:
-        case 27:
-            ofsSyncID = 0x14008;
-            break;
-        case 30:
-        case 31:
-            ofsSyncID = 0x1210;
-            break;
-        case 32:
-        case 33:
-            ofsSyncID = 0x1410;
-            break;
-        default:
-            return;
-    }
-
-    for (i = 0; i < 8; i++)
-    {
-        saveData[ofsSyncID + i] = 0;
-    }
 }
