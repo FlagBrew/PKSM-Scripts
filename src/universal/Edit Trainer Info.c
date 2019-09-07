@@ -121,7 +121,7 @@ int main(int argc, char **argv)
         "Secret ID",
         "Shiny Value (TSV)",
         "Trainer Name",
-        "Trainer ID (internal)"
+        "Trainer ID (internal)",
         "Secret ID (internal)"
     };
 
@@ -225,28 +225,28 @@ int main(int argc, char **argv)
             case 1: // Gen 7 TID
                 oldID = id.u32 % 1000000;
                 id.u32 -= oldID;
-                sprintf(&currentData, "Current TID: %i", oldID);
+                sprintf(currentData, "Current TID: %i", oldID);
                 gui_warn("Enter a new TID (0-999999)", currentData);
                 gui_numpad(&newID, "TID within range 0-999999", 6);
-                sprintf(&currentData, "%i", newID);
+                sprintf(currentData, "%i", newID);
                 gui_warn("TID set to", currentData);
                 id.u32 += newID;
                 break;
             case 2: // Gen 7 SID
                 oldID = id.u32 / 1000000;
-                id.u32 -= oldID;
-                sprintf(&currentData, "Current SID: %i", oldID);
+                id.u32 %= 1000000;
+                sprintf(currentData, "Current SID: %i", oldID);
                 gui_warn("Enter a new SID (0-4294)", currentData);
                 gui_numpad(&newID, "SID within range 0-4294", 4);
                 newID %= 4295;
-                sprintf(&currentData, "%i", newID);
+                sprintf(currentData, "%i", newID);
                 gui_warn("TID set to", currentData);
-                id.u32 += newID;
+                id.u32 += newID * 1000000;
                 break;
             case 3: // TSV
                 oldID = (id.u16[0] ^ id.u16[1]) >> tsvShift;
                 id.u16[1] &= (1 << tsvShift) - 1;
-                sprintf(&currentData, "Current TSV: %i", oldID);
+                sprintf(currentData, "Current TSV: %i", oldID);
                 if (version < 24)
                 {
                     gui_warn("Enter a new TSV (0-8191)", currentData);
@@ -258,7 +258,7 @@ int main(int argc, char **argv)
                     gui_numpad(&newID, "TSV within range 0-4095", 4);
                 }
                 newID &= tsvLimit;
-                sprintf(&currentData, "%i", newID);
+                sprintf(currentData, "%i", newID);
                 gui_warn("TSV set to", currentData);
                 id.u16[1] |= (newID << tsvShift) ^ id.u16[0];
                 break;
@@ -284,22 +284,22 @@ int main(int argc, char **argv)
             case 5: // u16 TID
                 oldID = id.u16[0];
                 id.u16[0] = 0;
-                sprintf(&currentData, "Current TID: %i", oldID);
+                sprintf(currentData, "Current TID: %i", oldID);
                 gui_warn("Enter a new TID (0-65535)", currentData);
                 gui_numpad(&newID, "TID within range 0-65535", 5);
                 newID &= 0xFFFF;
-                sprintf(&currentData, "%i", newID);
+                sprintf(currentData, "%i", newID);
                 gui_warn("TID set to", currentData);
                 id.u16[0] = newID;
                 break;
             case 6: // u16 SID
                 oldID = id.u16[1];
                 id.u16[1] = 0;
-                sprintf(&currentData, "Current SID: %i", oldID);
+                sprintf(currentData, "Current SID: %i", oldID);
                 gui_warn("Enter a new SID (0-65535)", currentData);
                 gui_numpad(&newID, "SID within range 0-65535", 5);
                 newID &= 0xFFFF;
-                sprintf(&currentData, "%i", newID);
+                sprintf(currentData, "%i", newID);
                 gui_warn("SID set to", currentData);
                 id.u16[1] = newID;
                 break;
