@@ -38,7 +38,7 @@
  *          offset: 0x1418
  *          bytes: 8
  */
-int checkOnlineID(int version, char* saveData)
+int checkOnlineID(int version, unsigned char* saveData)
 {
     int ofsSyncID = 0, sizeSyncID = 0, i;
     switch (version)
@@ -75,7 +75,7 @@ int checkOnlineID(int version, char* saveData)
     return 0;
 }
 
-void clearSyncID(int version, char* saveData)
+void clearSyncID(int version, unsigned char* saveData)
 {
     int ofsSyncID = 0, i;
     switch (version)
@@ -172,16 +172,19 @@ int main(int argc, char **argv)
         clearSyncID(version, saveData);
     }
 
-    unsigned int oldID = 0, newID = 0,
+    int oldID = 0, newID = 0,
         id = *(unsigned int *)(saveData + ofsTID),
         tsvShift = 3 + (version > 23),
         tsvLimit = 0xFFFF >> tsvShift,
-        nameLen = 0x10 + (version > 23) * 0xA;
+        nameLen = (0x10 + (version > 23) * 0xA) * 1.5;
 
     // TODO: properly declare string variables
-    char* otName = malloc(nameLen),
+    char *oldName = malloc(nameLen), *newName = malloc(nameLen),
+        *otName = malloc(nameLen),
         currentData[100] = {'\0'}; // FIXME: use a more appropriate size
-    otName = (char *)sav_get_value(SAV_OT_NAME); // FIXME: properly fill otName with save's current OT name
+    strcpy(otName, (char *)sav_get_value(SAV_OT_NAME));
+    memset(oldName, 0, nameLen);
+    memset(newName, 0, nameLen);
 
     //TODO: make sure strings allocated successfully
 
@@ -190,6 +193,7 @@ int main(int argc, char **argv)
         choice = gui_menu_20x2("Edit which piece of trainer info?", opts, fields);
     while (choice != 0)
     {
+        memset(currentData, 0, 100);
         if (choice == 1 && version < 30)
         {
             choice += 4;
@@ -207,7 +211,8 @@ int main(int argc, char **argv)
                 sprintf(&currentData, "Current TID: %i", oldID);
                 gui_warn("Enter a new TID (0-999999)", currentData);
                 gui_numpad(&newID, "TID within range 0-999999", 6);
-                gui_warn("TID set to", ""); // TODO: replace second arg with new TID
+                sprintf(&currentData, "%i", newID);
+                gui_warn("TID set to", currentData);
                 id += newID;
                 break;
             case 2: // SID
@@ -217,12 +222,13 @@ int main(int argc, char **argv)
                 gui_warn("Enter a new SID (0-65535)", currentData);
                 gui_numpad(&newID, "SID within range 0-65535", 5);
                 newID &= 0xFFFF;
-                gui_warn("SID set to", ""); // TODO: replace second arg with new SID
+                sprintf(&currentData, "%i", newID);
+                gui_warn("SID set to", currentData);
                 id += newID << 16;
                 break;
             case 3: // TSV
                 oldID = ((id >> 16) ^ (id & 0xFFFF)) >> tsvShift;
-                id &= (tsvLimit << 16) + 0xFFFF;
+                id &= 0x7FFFFFFF >> (15 - tsvShift);
                 sprintf(&currentData, "Current TSV: %i", oldID);
                 if (version < 24)
                 {
@@ -235,12 +241,23 @@ int main(int argc, char **argv)
                     gui_numpad(&newID, "TSV within range 0-4095", 4);
                 }
                 newID &= tsvLimit;
-                gui_warn("TSV set to", ""); // TODO: replace second arg with new TSV
+                sprintf(&currentData, "%i", newID);
+                gui_warn("TSV set to", currentData);
                 id += ((newID << tsvShift) ^ (id & 0xFFFF)) << 16;
                 break;
             case 4: // OT name
                 gui_warn("Editing trainer name", "is not supported yet.");
-                // TODO: OT name changing text-y stuff
+                memset(oldName, 0, nameLen);
+                strcpy(oldName, otName);
+                sprintf(&currentData, "Current OT name: %c", oldName);
+                gui_warn("Enter a new OT name", currentData);
+                memset(newName, 0, nameLen);
+                gui_keyboard(newName, "", nameLen);
+                memset(currentData, 0, 100);
+                sprintf(&currentData, "%c", newName);
+                gui_warn("OT name set to", currentData);
+                memset(otName, 0, 100);
+                strcpy(otName, newName);
                 break;
             case 5: // u16 TID
                 oldID = id & 0xFFFF;
@@ -249,7 +266,8 @@ int main(int argc, char **argv)
                 gui_warn("Enter a new TID (0-65535)", currentData);
                 gui_numpad(&newID, "TID within range 0-65535", 5);
                 newID &= 0xFFFF;
-                gui_warn("TID set to", ""); // TODO: replace second arg with new TID
+                sprintf(&currentData, "%i", newID);
+                gui_warn("TID set to", currentData);
                 id += newID;
                 break;
             default:
@@ -257,7 +275,7 @@ int main(int argc, char **argv)
                 break;
         }
 
-        if (oldID != newID)
+        if (oldID != newID || strcmp(oldName, newName) != 0)
         {
             changes += 1;
         }
@@ -267,9 +285,11 @@ int main(int argc, char **argv)
     if (changes)
     {
         *(unsigned int *)(saveData + ofsTID) = id;
-        // TODO: write OT name back to saveData
+        sav_set_string(otName, ofsName, nameLen);
     }
 
+    free(oldName);
+    free(newName);
     free(otName);
     return 0;
 }
