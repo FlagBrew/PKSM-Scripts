@@ -6,7 +6,7 @@
 
 union trainerID
 {
-    int u32;
+    unsigned int u32;
     unsigned short u16[2];
 };
 
@@ -122,6 +122,7 @@ int main(int argc, char **argv)
         "Shiny Value (TSV)",
         "Trainer Name",
         "Trainer ID (internal)"
+        "Secret ID (internal)"
     };
 
     switch (version)
@@ -181,27 +182,36 @@ int main(int argc, char **argv)
     int oldID = 0, newID = 0,
         tsvShift = 3 + (version > 23),
         tsvLimit = 0xFFFF >> tsvShift,
-        nameLen = (0x10 + (version > 23) * 0xA) * 1.5;
+        nameLen = (0x10 + (version > 23) * 0xA) * 1.5,
+        failedAlloc = 0;
     union trainerID id;
-    id.u32 = *(int *)(saveData + ofsTID);
+    id.u32 = *(unsigned int *)(saveData + ofsTID);
 
     // TODO: properly declare string variables
     char *oldName = malloc(nameLen), *newName = malloc(nameLen),
-    //     *otName = malloc(nameLen),
-        currentData[100] = {'\0'}; // FIXME: use a more appropriate size
-    // strcpy(otName, (char *)sav_get_value(SAV_OT_NAME));
-    // memset(oldName, '\0', nameLen);
-    // memset(newName, '\0', nameLen);
+        *otName = malloc(nameLen),
+        *currentData = (char *)sav_get_value(SAV_OT_NAME);
+    strcpy(otName, currentData);
+    free(currentData);
+    currentData = malloc(100); // TODO: make sure allocation succeeded
 
-    //TODO: make sure strings allocated successfully
+    if (oldName == NULL || newName == NULL || otName == NULL)
+    {
+        failedAlloc = 1;
+    }
+    else
+    {
+        memset(oldName, '\0', nameLen);
+        memset(newName, '\0', nameLen);
+    }
 
-    int opts = 5 + (version > 27),
+    int opts = 5 + 2 * (version > 27),
         changes = 0,
         choice = gui_menu_20x2("Edit which piece of trainer info?", opts, fields);
     while (choice != 0)
     {
-        // memset(currentData, '\0', 100);
-        if (choice == 1 && version < 30)
+        memset(currentData, '\0', 100);
+        if (choice < 3 && version < 30)
         {
             choice += 4;
         }
@@ -212,7 +222,7 @@ int main(int argc, char **argv)
 
         switch (choice)
         {
-            case 1: // 6 digit TID
+            case 1: // Gen 7 TID
                 oldID = id.u32 % 1000000;
                 id.u32 -= oldID;
                 sprintf(&currentData, "Current TID: %i", oldID);
@@ -222,16 +232,16 @@ int main(int argc, char **argv)
                 gui_warn("TID set to", currentData);
                 id.u32 += newID;
                 break;
-            case 2: // SID
-                oldID = id.u16[1];
-                id.u16[1] = 0;
+            case 2: // Gen 7 SID
+                oldID = id.u32 / 1000000;
+                id.u32 -= oldID;
                 sprintf(&currentData, "Current SID: %i", oldID);
-                gui_warn("Enter a new SID (0-65535)", currentData);
-                gui_numpad(&newID, "SID within range 0-65535", 5);
-                newID &= 0xFFFF;
+                gui_warn("Enter a new SID (0-4294)", currentData);
+                gui_numpad(&newID, "SID within range 0-4294", 4);
+                newID %= 4295;
                 sprintf(&currentData, "%i", newID);
-                gui_warn("SID set to", currentData);
-                id.u16[1] = newID;
+                gui_warn("TID set to", currentData);
+                id.u32 += newID;
                 break;
             case 3: // TSV
                 oldID = (id.u16[0] ^ id.u16[1]) >> tsvShift;
@@ -253,16 +263,23 @@ int main(int argc, char **argv)
                 id.u16[1] |= (newID << tsvShift) ^ id.u16[0];
                 break;
             case 4: // OT name
-                gui_warn("Editing trainer name", "is not supported yet.");
-                // memset(oldName, '\0', nameLen);
-                // strcpy(oldName, otName);
-                // sprintf(&currentData, "Current OT name: %c", oldName);
-                // gui_warn("Enter a new OT name", currentData);
-                // memset(newName, '\0', nameLen);
-                // gui_keyboard(newName, "", nameLen);
-                // gui_warn("OT name set to", newName);
-                // memset(otName, '\0', nameLen);
-                // strcpy(otName, newName);
+                if (failedAlloc)
+                {
+                    gui_warn("Cannot change OT name due to error", "Try running script again");
+                }
+                else
+                {
+                    gui_warn("WARNING: still a WIP", "Errors may happen");
+                    memset(oldName, '\0', nameLen);
+                    strcpy(oldName, otName);
+                    sprintf(currentData, "Current OT name: %s", oldName);
+                    gui_warn("Enter a new OT name", currentData);
+                    memset(newName, '\0', nameLen);
+                    gui_keyboard(newName, "", nameLen);
+                    gui_warn("OT name set to", newName);
+                    memset(otName, '\0', nameLen);
+                    strcpy(otName, newName);
+                }
                 break;
             case 5: // u16 TID
                 oldID = id.u16[0];
@@ -275,12 +292,23 @@ int main(int argc, char **argv)
                 gui_warn("TID set to", currentData);
                 id.u16[0] = newID;
                 break;
+            case 6: // u16 SID
+                oldID = id.u16[1];
+                id.u16[1] = 0;
+                sprintf(&currentData, "Current SID: %i", oldID);
+                gui_warn("Enter a new SID (0-65535)", currentData);
+                gui_numpad(&newID, "SID within range 0-65535", 5);
+                newID &= 0xFFFF;
+                sprintf(&currentData, "%i", newID);
+                gui_warn("SID set to", currentData);
+                id.u16[1] = newID;
+                break;
             default:
                 gui_warn("Impossible choice!", "Please report this");
                 break;
         }
 
-        if (oldID != newID /*|| strcmp(oldName, newName) != 0*/ )
+        if (oldID != newID || strcmp(oldName, newName) != 0)
         {
             changes += 1;
         }
@@ -290,11 +318,15 @@ int main(int argc, char **argv)
     if (changes)
     {
         *(unsigned int *)(saveData + ofsTID) = id.u32;
-        // sav_set_string(otName, ofsName, nameLen);
+        sav_set_string(otName, ofsName, nameLen);
     }
 
-    free(oldName);
-    free(newName);
-    // free(otName);
+    if (!failedAlloc)
+    {
+        free(oldName);
+        free(newName);
+        free(otName);
+        free(currentData);
+    }
     return 0;
 }
