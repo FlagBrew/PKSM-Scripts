@@ -56,21 +56,8 @@ def cleanCScripts(folder):
 					data[data[commentIndex+2:].find("\n")+1 + commentIndex+2:]
 				commentIndex = data.find("//")
 
-			lines = data.split("\n")
-			out = ""
-			for line in lines:
-				line = line.strip()
-				# preprocessor directives
-				if "#" in line:
-					out += line + "\n"
-				# just in case there are multiline strings/macros
-				elif line[len(line) - 1:] == "\\":
-					out += line + "\n"
-				# all other cases
-				else:
-					out += line
 			with open(os.path.join(path.replace("src/", "scripts/"), fullname), 'w') as f:
-				f.write(out)
+				f.write(data)
 
 if __name__ == '__main__':
 	main(sys.argv)
