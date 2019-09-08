@@ -177,6 +177,7 @@ int main(int argc, char **argv)
         }
         /* remove GameSync ID */
         clearSyncID(version, saveData);
+        gui_warn("Beware: GameSync ID may not be the", "only thing looked at by online checks");
     }
 
     unsigned int oldID = 0, newID = 0,
@@ -274,13 +275,12 @@ int main(int argc, char **argv)
                 }
                 else
                 {
-                    gui_warn("WARNING: still a WIP", "Errors may happen");
                     memset(oldName, '\0', nameLen8);
                     strcpy(oldName, otName);
                     sprintf(currentData, "Current OT name: %s", oldName);
                     gui_warn("Enter a new OT name", currentData);
                     memset(newName, '\0', nameLen8);
-                    gui_keyboard(newName, "", nameLen16 / 2);
+                    gui_keyboard(newName, "Enter new OT name", nameLen16 / 2);
                     gui_warn("OT name set to", newName);
                     memset(otName, '\0', nameLen8);
                     strcpy(otName, newName);
