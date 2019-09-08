@@ -207,7 +207,7 @@ int main(int argc, char **argv)
     if (currentData == NULL)
     {
         gui_warn("An error occurred.", "Please try running the script again");
-        return 0;
+        return -1;
     }
 
     int opts = 5 + 2 * (version > 27),
@@ -280,7 +280,7 @@ int main(int argc, char **argv)
                     sprintf(currentData, "Current OT name: %s", oldName);
                     gui_warn("Enter a new OT name", currentData);
                     memset(newName, '\0', nameLen8);
-                    gui_keyboard(newName, "", nameLen8);
+                    gui_keyboard(newName, "", nameLen16 / 2);
                     gui_warn("OT name set to", newName);
                     memset(otName, '\0', nameLen8);
                     strcpy(otName, newName);
@@ -325,7 +325,7 @@ int main(int argc, char **argv)
         *(unsigned int *)(saveData + ofsTID) = id.u32;
         if (!failedAlloc)
         {
-            sav_set_string(otName, ofsName, nameLen16);
+            sav_set_string(otName, ofsName, nameLen16 / 2);
         }
     }
 
