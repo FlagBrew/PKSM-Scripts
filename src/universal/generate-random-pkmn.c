@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <time.h> 
+#include <time.h>
 #include <string.h>
 
 int main(int argc, char **argv)
@@ -10,7 +10,8 @@ int main(int argc, char **argv)
     unsigned char version = *argv[2];
     enum Generation gen;
 
-    int maxSpecies, maxMoves, maxBalls, maxItems, maxAbility, randomizedCount, maxBoxes, maxLevel;
+    int maxSpecies, maxMoves, maxBalls, maxItems, maxAbility, maxBoxes;
+    unsigned int randomizedCount, maxLevel;
     gui_warn("Please enter how many pokemon", "you would like to generate!");
     gui_numpad(&randomizedCount, "Number of PKMN to generate.", 3);
     gui_warn("Please enter how the max level", "you would like to have your pokemon be!");
@@ -19,7 +20,7 @@ int main(int argc, char **argv)
     if(maxLevel <= 0 || maxLevel > 100) {
          gui_warn("You must choose a level", "between 1-100!");
          return 1;
-    } 
+    }
 
 
     switch (version)
@@ -153,7 +154,7 @@ int main(int argc, char **argv)
         }
 
         free(data);
-        sav_box_encrypt();   
+        sav_box_encrypt();
     }
     return 0;
 }

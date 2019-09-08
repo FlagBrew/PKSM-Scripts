@@ -34,7 +34,7 @@ int main(int argc, char **argv)
     gui_menu_20x2("And this displays text!", 13, &labels[0]);
 
     /* keyboard and numpad demos */
-    int quant = 21;
+    unsigned int quant = 21;
     char str[21];
     gui_numpad(&quant, "Enter a 2 digit number", 2);
     gui_keyboard(&str, "This lets you enter text", quant);

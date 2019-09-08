@@ -22,7 +22,7 @@ int main(int argc, char **argv)
     };
     int tmCount = 100;
     int hmCount = 8;
-    int quant = 1;
+    unsigned int quant = 1;
     unsigned short foundHMs[8] = {0};
 
     switch (version)

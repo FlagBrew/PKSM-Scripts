@@ -15,7 +15,7 @@ void gui_warn(char* lineOne, char* lineTwo);
 int gui_menu_6x5(char* question, int options, char** labels, struct pkx* pokemon, enum Generation generation);
 int gui_menu_20x2(char* question, int options, char** labels);
 void gui_keyboard(char* out, char* hint, int maxChars);
-void gui_numpad(int* out, char* hint, int maxDigits);
+void gui_numpad(unsigned int* out, char* hint, int maxDigits);
 int gui_boxes(int* fromStorage, int* box, int* slot, int doCrypt);
 int sav_sbo();
 int sav_gbo();

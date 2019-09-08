@@ -11,7 +11,8 @@ int main(int argc, char **argv)
         "Write 4 bytes (int)",
         "Exit script"};
     char inputStr[11] = {'\0'};
-    int offset, bit, lastOfs[4] = { atoi(argv[1]), atoi(argv[1]), atoi(argv[1]) - 2, atoi(argv[1]) - 4 };
+    int offset, lastOfs[4] = { atoi(argv[1]), atoi(argv[1]), atoi(argv[1]) - 2, atoi(argv[1]) - 4 };
+    unsigned int bit;
 
     int type = gui_menu_20x2("Choose an edit type to perform", 5, editTypes);
     while (type < 4)
