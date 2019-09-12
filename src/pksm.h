@@ -10,8 +10,8 @@ enum SAV_MaxField { MAX_SLOTS, MAX_BOXES, MAX_WONDER_CARDS, MAX_SPECIES, MAX_MOV
                     MAX_ABILITY, MAX_BALL, MAX_FORM };
 enum Pouch { NormalItem, KeyItem, TM, Mail, Medicine, Berry, Ball, Battle, Candy, ZCrystals };
 
-int gui_choice(char* lineOne, char* lineTwo);
-void gui_warn(char* lineOne, char* lineTwo);
+int gui_choice(char* message);
+void gui_warn(char* warning);
 int gui_menu_6x5(char* question, int options, char** labels, struct pkx* pokemon, enum Generation generation);
 int gui_menu_20x2(char* question, int options, char** labels);
 void gui_keyboard(char* out, char* hint, int maxChars);
