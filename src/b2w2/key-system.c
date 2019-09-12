@@ -1,6 +1,7 @@
 #include <pksm.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int main(int argc, char **argv)
 {
@@ -22,6 +23,7 @@ int main(int argc, char **argv)
     int ID = *(int *)(saveData + 0x25800 + 0x5c);
     int keyOffset = 0x25800 + 0x28;
     int choice;
+    char *message[25] = {'\0'};
 
     do
     {
@@ -29,11 +31,13 @@ int main(int argc, char **argv)
         if (choice != 10) {
             *(int *)(saveData + keyOffset + choice * 4) = ID ^ keyVals[choice];
             if (choice < 5) {
-                gui_warn(keyStrings[choice], "obtained");
+                sprintf(message, "%s obtained", keyStrings[choice]);
+                gui_warn(message);
             }
             else
             {
-                gui_warn(keyStrings[choice], "unlocked");
+                sprintf(message, "%s unlocked", keyStrings[choice]);
+                gui_warn(message);
             }
         }
     } while (choice != 10);

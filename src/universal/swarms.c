@@ -135,14 +135,14 @@ int main(int argc, char **argv)
             gen = GEN_FIVE;
             break;
         default:
-            gui_warn("This script doesn't work", "on this game.");
+            gui_warn("This script doesn't work\non this game.");
             return 1;
     }
 
     int choice = gui_menu_6x5("Choose swarming species", total, labels, options, gen);
     if (gen == GEN_FIVE && options[choice].species == winter)
     {
-        gui_warn("Unova Route 8 is frozen over", "during winter preventing encounters");
+        gui_warn("Unova Route 8 is frozen over\nduring winter preventing encounters");
     }
     if (gen == GEN_FOUR)
     {

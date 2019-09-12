@@ -46,7 +46,7 @@ int main(int argc, char **argv)
         game = 1;
         break;
     default:
-        gui_warn("This script is only meant for", "the Sinnoh games (DPPt)");
+        gui_warn("This script is only meant for\nthe Sinnoh games (DPPt)");
         break;
     }
 
@@ -120,7 +120,7 @@ int main(int argc, char **argv)
     }
     if (edit > 0)
     {
-        gui_warn("All edits made will last for", "18 hours from time of last save");
+        gui_warn("All edits made will last for\n18 hours from time of last save");
     }
 
     return 0;

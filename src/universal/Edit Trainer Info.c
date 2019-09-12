@@ -170,14 +170,14 @@ int main(int argc, char **argv)
     // check for (and possibly remove) GameSync ID
     if (checkOnlineID(version, saveData))
     {
-        gui_warn("GameSync ID found.", "Editing trainer info may get you banned.");
-        if (gui_choice("Exit script without editing (A)", "or remove GameSync ID and continue (B)"))
+        gui_warn("GameSync ID found.\nEditing trainer info may get you banned.");
+        if (gui_choice("Exit script without editing (A)\nor remove GameSync ID and continue (B)"))
         {
             return 1;
         }
         /* remove GameSync ID */
         clearSyncID(version, saveData);
-        gui_warn("Beware: GameSync ID may not be the", "only thing looked at by online checks");
+        gui_warn("Beware: GameSync ID may not be the\nonly thing looked at by online checks");
     }
 
     unsigned int oldID = 0, newID = 0,
@@ -204,10 +204,10 @@ int main(int argc, char **argv)
         memset(newName, '\0', nameLen8);
     }
     free(currentData);
-    currentData = malloc(60);
+    currentData = malloc(100);
     if (currentData == NULL)
     {
-        gui_warn("An error occurred.", "Please try running the script again");
+        gui_warn("An error occurred.\nPlease try running the script again");
         return -1;
     }
 
@@ -223,7 +223,7 @@ int main(int argc, char **argv)
         }
         else if (version > 27 && choice != 4)
         {
-            gui_warn("Editing this number may change more than", "one of TID, SID, and TSV");
+            gui_warn("Editing this number may change more than\none of TID, SID, and TSV");
         }
 
         switch (choice)
@@ -231,57 +231,59 @@ int main(int argc, char **argv)
             case 1: // Gen 7 TID
                 oldID = id.u32 % 1000000;
                 id.u32 -= oldID;
-                sprintf(currentData, "Current G7 TID: %u", oldID);
-                gui_warn("Enter a new TID (0-999999)", currentData);
+                sprintf(currentData, "Enter a new TID (0-999999)\nCurrent G7 TID: %u", oldID);
+                gui_warn(currentData);
                 gui_numpad(&newID, "TID within range 0-999999", 6);
-                sprintf(currentData, "%i", newID);
-                gui_warn("TID set to", currentData);
+                sprintf(currentData, "TID set to %i", newID);
+                gui_warn(currentData);
                 id.u32 += newID;
                 break;
             case 2: // Gen 7 SID
                 oldID = id.u32 / 1000000;
                 id.u32 %= 1000000;
-                sprintf(currentData, "Current G7 SID: %u", oldID);
-                gui_warn("Enter a new SID (0-4294)", currentData);
+                sprintf(currentData, "Enter a new SID (0-4294)\nCurrent G7 SID: %u", oldID);
+                gui_warn(currentData);
                 gui_numpad(&newID, "SID within range 0-4294", 4);
                 newID %= 4295;
-                sprintf(currentData, "%i", newID);
-                gui_warn("TID set to", currentData);
+                sprintf(currentData, "TID set to %i", newID);
+                gui_warn(currentData);
                 id.u32 += newID * 1000000;
                 break;
             case 3: // TSV
                 oldID = (id.u16[0] ^ id.u16[1]) >> tsvShift;
                 id.u16[1] &= (1 << tsvShift) - 1;
-                sprintf(currentData, "Current TSV: %i", oldID);
                 if (version < 24)
                 {
-                    gui_warn("Enter a new TSV (0-8191)", currentData);
+                    sprintf(currentData, "Enter a new TSV (0-8191)\nCurrent TSV: %i", oldID);
+                    gui_warn(currentData);
                     gui_numpad(&newID, "TSV within range 0-8191", 4);
                 }
                 else
                 {
-                    gui_warn("Enter a new TSV (0-4095)", currentData);
+                    sprintf(currentData, "Enter a new TSV (0-4095)\nCurrent TSV: %i", oldID);
+                    gui_warn(currentData);
                     gui_numpad(&newID, "TSV within range 0-4095", 4);
                 }
                 newID &= tsvLimit;
-                sprintf(currentData, "%i", newID);
-                gui_warn("TSV set to", currentData);
+                sprintf(currentData, "TSV set to %i", newID);
+                gui_warn(currentData);
                 id.u16[1] |= (newID << tsvShift) ^ id.u16[0];
                 break;
             case 4: // OT name
                 if (failedAlloc)
                 {
-                    gui_warn("Cannot change OT name due to script", "loading error. Try running script again");
+                    gui_warn("Cannot change OT name due to script\nloading error. Try running script again");
                 }
                 else
                 {
                     memset(oldName, '\0', nameLen8);
                     strcpy(oldName, otName);
-                    sprintf(currentData, "Current OT name: %s", oldName);
-                    gui_warn("Enter a new OT name", currentData);
+                    sprintf(currentData, "Enter a new OT name\nCurrent OT name: %s", oldName);
+                    gui_warn(currentData);
                     memset(newName, '\0', nameLen8);
                     gui_keyboard(newName, "Enter new OT name", nameLen16 / 2);
-                    gui_warn("OT name set to", newName);
+                    sprintf(currentData, "OT name set to %s", oldName);
+                    gui_warn(currentData);
                     memset(otName, '\0', nameLen8);
                     strcpy(otName, newName);
                 }
@@ -289,27 +291,27 @@ int main(int argc, char **argv)
             case 5: // u16 TID
                 oldID = id.u16[0];
                 id.u16[0] = 0;
-                sprintf(currentData, "Current TID: %i", oldID);
-                gui_warn("Enter a new TID (0-65535)", currentData);
+                sprintf(currentData, "Enter a new TID (0-65535)\nCurrent TID: %i", oldID);
+                gui_warn(currentData);
                 gui_numpad(&newID, "TID within range 0-65535", 5);
                 newID &= 0xFFFF;
-                sprintf(currentData, "%i", newID);
-                gui_warn("TID set to", currentData);
+                sprintf(currentData, "TID set to %i", newID);
+                gui_warn(currentData);
                 id.u16[0] = newID;
                 break;
             case 6: // u16 SID
                 oldID = id.u16[1];
                 id.u16[1] = 0;
-                sprintf(currentData, "Current SID: %i", oldID);
-                gui_warn("Enter a new SID (0-65535)", currentData);
+                sprintf(currentData, "Enter a new SID (0-65535)\nCurrent SID: %i", oldID);
+                gui_warn(currentData);
                 gui_numpad(&newID, "SID within range 0-65535", 5);
                 newID &= 0xFFFF;
-                sprintf(currentData, "%i", newID);
-                gui_warn("SID set to", currentData);
+                sprintf(currentData, "SID set to %i", newID);
+                gui_warn(currentData);
                 id.u16[1] = newID;
                 break;
             default:
-                gui_warn("Impossible choice!", "Please report this");
+                gui_warn("Impossible choice!\nPlease report this");
                 break;
         }
 

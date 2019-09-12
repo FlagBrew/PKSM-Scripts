@@ -49,7 +49,7 @@ int main(int argc, char **argv)
             friend = 0xca; // OT Friendship controls egg cycles
             break;
         default:
-            gui_warn("This script doesn't work", "on this game.");
+            gui_warn("This script doesn't work\non this game.");
             return 1;
     }
 
@@ -80,7 +80,7 @@ int main(int argc, char **argv)
     sav_box_encrypt();
     if (boxEggs > 0)
     {
-        gui_warn("All eggs in PC set to hatch", "as soon as possible.");
+        gui_warn("All eggs in PC set to hatch\nas soon as possible.");
     }
 
     for (slot = 0; slot < 6; slot++)
@@ -100,12 +100,12 @@ int main(int argc, char **argv)
     }
     if (partyEggs > 0)
     {
-        gui_warn("All eggs in party set to", "hatch as soon as possible.");
+        gui_warn("All eggs in party set to\nhatch as soon as possible.");
     }
 
     if (boxEggs + partyEggs == 0)
     {
-        gui_warn("No eggs found in save.", "");
+        gui_warn("No eggs found in save.");
     }
     free(pkm);
     return 0;

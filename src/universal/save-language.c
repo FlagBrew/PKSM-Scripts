@@ -1,6 +1,7 @@
 #include <pksm.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int main(int argc, char** argv)
 {
@@ -25,7 +26,7 @@ int main(int argc, char** argv)
             offset = 0x1435;
             break;
         default:
-            gui_warn("Changing language not supported", "for this game");
+            gui_warn("Changing language not supported\nfor this game");
             return 1;
     }
 
@@ -33,7 +34,9 @@ int main(int argc, char** argv)
     char choice = (char)gui_menu_20x2("Choose the language you want\nfor your save", version < 30 ? 7 : 9, &languages[0]);
 
     saveData[offset] = choice + (choice >= 6 ? 2 : 1);
-    gui_warn("Save\'s language set to", languages[choice]);
+    char *message[40] = {'\0'};
+    sprintf(message, "Save\'s language set to %s", languages[choice]);
+    gui_warn(message);
 
     return 0;
 }

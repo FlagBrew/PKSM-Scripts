@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 
     int maxSpecies = 0;
 
-    int shiny = gui_choice("Would you like your Pok\u00e1mon to be shiny?", NULL);
+    int shiny = gui_choice("Would you like your Pok\u00e1mon to be shiny?");
 
     switch (version)
     {

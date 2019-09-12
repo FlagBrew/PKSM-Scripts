@@ -42,7 +42,7 @@ int main(int argc, char **argv)
         }
         break;
     default:
-        gui_warn("This script doesn't work", "on this game.");
+        gui_warn("This script doesn't work\non this game.");
         return 1;
     }
 
@@ -84,7 +84,7 @@ int main(int argc, char **argv)
     pkmAreas[6].species = 0;
     pkmAreas[6].form = 0;
 
-    gui_warn("Some displayed options require", "National Dex to appear");
+    gui_warn("Some displayed options require\nNational Dex to appear");
 
     do
     {

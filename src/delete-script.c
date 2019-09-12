@@ -10,7 +10,7 @@ void deleteFile(char *dir)
     if(confirmDelete)
     {
         remove((*folder).files[file]);
-        gui_warn("The file has been deleted!", "");
+        gui_warn("The file has been deleted!");
     }
     delete_directory(folder);
     return;
@@ -28,12 +28,12 @@ int main(int argc, char **argv)
         if(sameDir)
         {
             deleteFile((*folder).files[f]);
-        } else 
+        } else
         {
             if(firstRun)
             {
                 firstRun = 0;
-            } else 
+            } else
             {
                 delete_directory(folder);
             }
@@ -41,9 +41,9 @@ int main(int argc, char **argv)
             f = gui_menu_20x2("Please select the folder\nyou wish to delete from!", (*folder).count, (*folder).files);
             deleteFile((*folder).files[f]);
         }
-        loop = gui_choice("Do you want to delete another file/folder?", "");
+        loop = gui_choice("Do you want to delete another file/folder?");
         if(!loop) break;
-        sameDir = gui_choice("Do you want to use the same directory?", "");
+        sameDir = gui_choice("Do you want to use the same directory?");
     }
     return 0;
 }

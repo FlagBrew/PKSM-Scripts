@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 
         if (offset >= lastOfs[type] || offset < 0)
         {
-            gui_warn("Offset out of range", "to make this type of edit");
+            gui_warn("Offset out of range\nto make this type of edit");
         }
         else
         {
@@ -45,7 +45,7 @@ int main(int argc, char **argv)
                     *(int *)(saveData + offset) = (int)strtol(inputStr, NULL, 0);
                     break;
                 default:
-                    gui_warn("How did you get here?!", "");
+                    gui_warn("How did you get here?!");
                     break;
             }
         }

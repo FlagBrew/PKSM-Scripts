@@ -12,13 +12,13 @@ int main(int argc, char **argv)
 
     int maxSpecies, maxMoves, maxBalls, maxItems, maxAbility, maxBoxes;
     unsigned int randomizedCount, maxLevel;
-    gui_warn("Please enter how many pokemon", "you would like to generate!");
+    gui_warn("Please enter how many pokemon\nyou would like to generate!");
     gui_numpad(&randomizedCount, "Number of PKMN to generate.", 3);
-    gui_warn("Please enter how the max level", "you would like to have your pokemon be!");
+    gui_warn("Please enter how the max level\nyou would like to have your pokemon be!");
     gui_numpad(&maxLevel, "Max level 1-100", 3);
 
     if(maxLevel <= 0 || maxLevel > 100) {
-         gui_warn("You must choose a level", "between 1-100!");
+         gui_warn("You must choose a level\nbetween 1-100!");
          return 1;
     }
 
@@ -83,12 +83,12 @@ int main(int argc, char **argv)
     }
 
     if (randomizedCount > 30*maxBoxes || randomizedCount == 0){
-        char part2[41] = {0};
-        sprintf(part2, "You must generate between 1-%d pokemon!", 30*maxBoxes);
-        gui_warn("You've inputted an invalid number", part2);
+        char part2[80] = {0};
+        sprintf(part2, "You've inputted an invalid number\nYou must generate between 1-%d pokemon!", 30*maxBoxes);
+        gui_warn(part2);
     } else {
-        int randNick = gui_choice("Do you want to randomize nicknames?", "This could produce weirdness.");
-        gui_warn("Depending on how many to generate", "this might take awhile!");
+        int randNick = gui_choice("Do you want to randomize nicknames?\nThis could produce weirdness.");
+        gui_warn("Depending on how many to generate\nthis might take awhile!");
         sav_box_decrypt();
         srand(time(0) + version);
         char* data = malloc(pkx_box_size(gen));

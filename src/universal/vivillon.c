@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 int main(int argc, char **argv)
 {
@@ -33,7 +34,7 @@ int main(int argc, char **argv)
             gen = GEN_SEVEN;
             break;
         default:
-            gui_warn("Vivillon didn't exist before Gen 6", "");
+            gui_warn("Vivillon didn't exist before Gen 6");
             return 1;
     }
 
@@ -55,7 +56,7 @@ int main(int argc, char **argv)
         pattern = (char)gui_menu_6x5("Choose a Vivillon pattern", 20, &labels[0], &vivillon[0], gen);
         if (pattern > 17)
         {
-            if (gui_choice("Fancy and Poke Ball", "are event-exclusive patterns"))
+            if (gui_choice("Fancy and Poke Ball\nare event-exclusive patterns"))
             {
                 break;
             }
@@ -67,7 +68,9 @@ int main(int argc, char **argv)
     }
 
     saveData[offset] = pattern;
-    gui_warn("Save\'s native Vivillon pattern set to", labels[pattern]);
+    char *message[50] = {'\0'};
+    sprintf(message, "Save\'s native Vivillon pattern set to %s", labels[pattern]);
+    gui_warn(message);
 
     return 0;
 }

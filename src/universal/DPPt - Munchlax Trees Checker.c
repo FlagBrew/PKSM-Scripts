@@ -42,7 +42,10 @@ int main(int argc, char **argv) {
     if (res[2] == res[3]) {res[3] = (res[3] + 1) % 21;}
 
     gui_warn("Your Munchlax trees are,", "as follows...");
-    gui_warn(trees[res[0]], trees[res[1]]);
-    gui_warn(trees[res[2]], trees[res[3]]);
+    char *message[80] = {'\0'};
+    sprintf(message, "%s\n%s", trees[res[0]], trees[res[1]]);
+    gui_warn(message);
+    sprintf(message, "%s\n%s", trees[res[2]], trees[res[3]]);
+    gui_warn(message);
     return 0;
 }

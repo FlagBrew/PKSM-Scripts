@@ -72,7 +72,7 @@ int main(int argc, char **argv) {
             feebasSeed.seed = *(unsigned long*)(saveData + gbo + 0x5664);
             break;
         default:
-            gui_warn("This script is only meant for", "the Sinnoh games (DPPt)");
+            gui_warn("This script is only meant for\nthe Sinnoh games (DPPt)");
             return 1;
     }
 
@@ -82,16 +82,12 @@ int main(int argc, char **argv) {
         ypos[i] = (((spot[(feebasSeed.part[3 - i] % 132) + (132 * i)] & (~31)) - 576) / 32) + 1;
     }
 
-    char msg[50] = {'\0'};
-    sprintf(&msg, "Your Feebas Tiles for %u/%u/%u (DD/MM/YYYY)", sday, smon, syear);
-    gui_warn(msg, "(the day you last saved) are, as follows...");
-    char first[60] = {'\0'};
-    char second[60] = {'\0'};
-    sprintf(&first, "Row #%i from the top, Column #%i from the left", ypos[0], xpos[0]);
-    sprintf(&second, "Row #%i from the top, Column #%i from the left", ypos[1], xpos[1]);
-    gui_warn(first, second);
-    sprintf(&first, "Row #%i from the top, Column #%i from the left", ypos[2], xpos[2]);
-    sprintf(&second, "Row #%i from the top, Column #%i from the left", ypos[3], xpos[3]);
-    gui_warn(first, second);
+    char msg[120] = {'\0'};
+    sprintf(&msg, "Your Feebas Tiles for %u/%u/%u (DD/MM/YYYY)\n(the day you last saved) are, as follows...", sday, smon, syear);
+    gui_warn(msg);
+    sprintf(msg, "Row #%i from the top, Column #%i from the left\nRow #%i from the top, Column #%i from the left", ypos[0], xpos[0], ypos[1], xpos[1]);
+    gui_warn(msg);
+    sprintf(msg, "Row #%i from the top, Column #%i from the left\nRow #%i from the top, Column #%i from the left", ypos[2], xpos[2], ypos[3], xpos[3]);
+    gui_warn(msg);
     return 0;
 }

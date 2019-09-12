@@ -24,7 +24,7 @@ int main(int argc, char **argv)
             species[9] = 132;
             break;
         default:
-            gui_warn("This script is only meant for", "the Sinnoh games (DPPt)");
+            gui_warn("This script is only meant for\nthe Sinnoh games (DPPt)");
             return 1;
     }
 
@@ -36,6 +36,7 @@ int main(int argc, char **argv)
         labels[i] = i18n_species(species[i]);
     }
 
+    char *visiting[55] = {'\0'};
     struct pkx slotPkx[3];
     char *slots[] = {
         "Exit script", "Today", "Yesterday"
@@ -58,7 +59,8 @@ int main(int argc, char **argv)
 
         if (current[slot % 2 + 1] == choice)
         {
-            gui_warn(labels[choice], "is already a visitor");
+            sprintf(visiting, "%s is already a visitor", labels[choice]);
+            gui_warn(visiting);
             continue;
         }
         if (current[slot] != choice)

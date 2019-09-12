@@ -20,16 +20,16 @@ int main(int argc, char** argv)
             offset = 0x1478;
             break;
         default:
-            gui_warn("Mega evolution unlock not", "supported for this game");
+            gui_warn("Mega evolution unlock not\nsupported for this game");
             return 1;
     }
 
     if ((saveData[offset] & 0x01) == 0)
     {
-        if (gui_choice("Mega evolution is locked.", "Unlock it?"))
+        if (gui_choice("Mega evolution is locked.\nUnlock it?"))
         {
             saveData[offset] = (saveData[offset] ^ 0x01);
-            gui_warn("Mega evolution successfully unlocked!", "");
+            gui_warn("Mega evolution successfully unlocked!");
         }
         else
         {
@@ -38,16 +38,15 @@ int main(int argc, char** argv)
     }
     else
     {
-        if (gui_choice("Mega evolution is unlocked.", "Lock it?"))
+        if (gui_choice("Mega evolution is unlocked.\nLock it?"))
         {
             saveData[offset] = (saveData[offset] ^ 0x01);
-            gui_warn("Mega evolution successfully locked!", "");
+            gui_warn("Mega evolution successfully locked!");
         }
-        else 
+        else
         {
             return 1;
         }
     }
     return 0;
 }
-

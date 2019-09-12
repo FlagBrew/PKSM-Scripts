@@ -7,10 +7,10 @@ int main(int argc, char **argv)
     char scriptName[64] = {0};
     gui_keyboard(scriptName, "Script name", 63);
     char path[92] = {0};
-    if(gui_choice("Is this a universal script?", "This means will it run on any game."))
+    if(gui_choice("Is this a universal script?\nThis means will it run on any game."))
     {
         sprintf(path, "/3ds/PKSM/scripts/universal/%s", scriptName);
-    } else 
+    } else
     {
         switch (*argv[2]) {
             case 10:
@@ -53,14 +53,16 @@ int main(int argc, char **argv)
         }
     }
     path[91] = '\0';
-    if (gui_choice("This will lock your console!", net_ip()))
+    char *message[50] = {'\0'};
+    sprintf(message, "This will lock your console!\n%s", net_ip());
+    if (gui_choice(message))
     {
         char data[4];
         int received;
         net_tcp_recv(data, 4, &received);
         if (received != 4)
         {
-            gui_warn("Receiving size failed!", "");
+            gui_warn("Receiving size failed!");
         }
         else
         {
@@ -69,7 +71,7 @@ int main(int argc, char **argv)
             char buf[28] = {0};
             sprintf(buf, "Receive %i bytes?", size);
             buf[27] = '\0';
-            if (gui_choice(buf, ""))
+            if (gui_choice(buf))
             {
                 char* recvData = malloc(size);
                 if (recvData != NULL)
@@ -77,7 +79,7 @@ int main(int argc, char **argv)
                     net_tcp_recv(recvData, size, &received);
                     if (received != size)
                     {
-                        gui_warn("Receiving data failed!", "");
+                        gui_warn("Receiving data failed!");
                     }
                     FILE* script = fopen(path, "w");
                     if (script != NULL)
@@ -87,12 +89,12 @@ int main(int argc, char **argv)
                     }
                     else
                     {
-                        gui_warn("Opening file failed", "");
+                        gui_warn("Opening file failed");
                     }
                 }
                 else
                 {
-                    gui_warn("Allocation failed", "Nothing was written");
+                    gui_warn("Allocation failed\nNothing was written");
                 }
             }
         }

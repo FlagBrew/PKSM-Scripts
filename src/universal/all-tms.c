@@ -42,7 +42,7 @@ int main(int argc, char **argv)
             break;
         case 20:
         case 21:
-            tmCount = gui_choice("Exclude unreleased TM95 Snarl?", "") ? 94 : 95;
+            tmCount = gui_choice("Exclude unreleased TM95 Snarl?") ? 94 : 95;
             hmCount = 6;
             ofs = 0x18a24;
             break;
@@ -77,7 +77,7 @@ int main(int argc, char **argv)
             ofs = 0xf0;
             break;
         default:
-            gui_warn("This script doesn't work", "on this game.");
+            gui_warn("This script doesn't work\non this game.");
             return 1;
     }
 
@@ -116,7 +116,7 @@ int main(int argc, char **argv)
             *(unsigned short *)(saveData + ofs + i * 4 + 2) = 1;
         }
     }
-    gui_warn("All TMs placed in pouch.", "");
+    gui_warn("All TMs placed in pouch.");
 
     return 0;
 }

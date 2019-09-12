@@ -23,8 +23,8 @@ int main(int argc, char **argv)
     labels[0] = i18n_species(0);
 
     /* gui_warn and gui_choice demos */
-    gui_warn("Tests incoming!", "");
-    if (!gui_choice("Would you like to continue testing?", ""))
+    gui_warn("Tests incoming!");
+    if (!gui_choice("Would you like to continue testing?"))
     {
         return 1;
     }
@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 
     /* box selection GUI */
     int stor, box, slot;
-    gui_boxes(&stor, &box, &slot);
+    gui_boxes(&stor, &box, &slot, 0);
 
     /* PC pkm editing */
     char pkm[260];
