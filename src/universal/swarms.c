@@ -5,7 +5,7 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)atoi(argv[0]);
+    unsigned char *saveData = (unsigned char *)argv[0];
     unsigned char version = *argv[2];
     struct pkx options[28];
     char *labels[28] = {0};

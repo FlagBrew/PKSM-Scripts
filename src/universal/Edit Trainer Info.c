@@ -112,7 +112,7 @@ void clearSyncID(int version, unsigned char* saveData)
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)atoi(argv[0]);
+    unsigned char *saveData = (unsigned char *)argv[0];
     unsigned char version = *argv[2];
     unsigned int gbo = sav_gbo(), ofsTID = 0, ofsName = 0;
     char *fields[] = {
@@ -163,7 +163,7 @@ int main(int argc, char **argv)
             ofsTID = 0x1400;
             break;
         default:
-            gui_warn("This script doesn't work", "on this game.");
+            gui_warn("This script doesn't work\non this game.");
             return 1;
     }
 

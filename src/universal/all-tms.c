@@ -4,7 +4,7 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)atoi(argv[0]);
+    unsigned char *saveData = (unsigned char *)argv[0];
     unsigned char version = *argv[2];
     int ofs = 0;
     unsigned short hms[8] = {420, 421, 422, 423, 424, 425, 426, 427};

@@ -4,7 +4,7 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)atoi(argv[0]);
+    unsigned char *saveData = (unsigned char *)argv[0];
 
     int start = 0x1e7ff;
     int size = 0x15;
@@ -15,7 +15,7 @@ int main(int argc, char **argv)
             saveData[ofs] = 0x3d;
         }
     }
-    gui_warn("All Friend Safari slots", "unlocked and revealed");
+    gui_warn("All Friend Safari slots\nunlocked and revealed");
 
     return 0;
 }

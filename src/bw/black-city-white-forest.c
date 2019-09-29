@@ -1,10 +1,11 @@
 #include <pksm.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)atoi(argv[0]);
+    unsigned char *saveData = (unsigned char *)argv[0];
     unsigned char version = *argv[2];
     int ofs = 0x1fa08,
         ofsRes, i, slot, choice, opts,
@@ -93,7 +94,9 @@ int main(int argc, char **argv)
             {
                 if (i != slot && current[i] == choice) {
                     present = 1;
-                    gui_warn(trainers[choice], "is already present");
+                    char message[29] = {0};
+                    snprintf(message, "%s\nis already present", trainers[choice]);
+                    gui_warn(message);
                     break;
                 }
             }

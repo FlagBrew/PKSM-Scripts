@@ -3,7 +3,7 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)atoi(argv[0]);
+    unsigned char *saveData = (unsigned char *)argv[0];
     char *editTypes[5] = {
         "Toggle bit",
         "Write 1 byte (char)",

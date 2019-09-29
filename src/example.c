@@ -4,7 +4,7 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)atoi(argv[0]);
+    unsigned char *saveData = (unsigned char *)argv[0];
     int saveLength = atoi(argv[1]);
     unsigned char version = *argv[2];
     sav_gbo();
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     sav_box_decrypt();
     sav_get_pkx(pkm, box, slot);
     /* edits to boxed Pokemon go here */
-    sav_inject_pkx(pkm, GEN_SEVEN, box, slot);
+    sav_inject_pkx(pkm, GEN_SEVEN, box, slot, 0);
     sav_box_encrypt();
 
     // party editing
