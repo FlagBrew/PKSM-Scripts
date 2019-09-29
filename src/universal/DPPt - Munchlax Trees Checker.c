@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
             SID = *(unsigned short*)(saveData + sav_gbo() + 0x7A);
             break;
         default:
-            gui_warn("This script is only meant for", "the Sinnoh games (DPPt)");
+            gui_warn("This script is only meant for\nthe Sinnoh games (DPPt)");
             return 1;
     }
 
@@ -41,7 +41,7 @@ int main(int argc, char **argv) {
     if (res[1] == res[3]) {res[3] = (res[3] + 1) % 21;}
     if (res[2] == res[3]) {res[3] = (res[3] + 1) % 21;}
 
-    gui_warn("Your Munchlax trees are,", "as follows...");
+    gui_warn("Your Munchlax trees are,\nas follows...");
     char *message[80] = {'\0'};
     sprintf(message, "%s\n%s", trees[res[0]], trees[res[1]]);
     gui_warn(message);

@@ -47,7 +47,7 @@ int main(int argc, char **argv)
         break;
     default:
         gui_warn("This script is only meant for\nthe Sinnoh games (DPPt)");
-        break;
+        return 1;
     }
 
     struct pkx treePkm[22];
