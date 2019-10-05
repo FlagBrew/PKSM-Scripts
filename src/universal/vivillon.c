@@ -68,7 +68,7 @@ int main(int argc, char **argv)
     }
 
     saveData[offset] = pattern;
-    char *message[50] = {'\0'};
+    char message[50] = {'\0'};
     sprintf(message, "Save\'s native Vivillon pattern set to %s", labels[pattern]);
     gui_warn(message);
 
