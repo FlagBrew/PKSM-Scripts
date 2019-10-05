@@ -36,7 +36,7 @@ int main(int argc, char **argv)
         labels[i] = i18n_species(species[i]);
     }
 
-    char *visiting[55] = {'\0'};
+    char visiting[55] = {'\0'};
     struct pkx slotPkx[3];
     char *slots[] = {
         "Exit script", "Today", "Yesterday"

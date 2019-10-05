@@ -34,7 +34,7 @@ int main(int argc, char** argv)
     char choice = (char)gui_menu_20x2("Choose the language you want\nfor your save", version < 30 ? 7 : 9, &languages[0]);
 
     saveData[offset] = choice + (choice >= 6 ? 2 : 1);
-    char *message[40] = {'\0'};
+    char message[40] = {'\0'};
     sprintf(message, "Save\'s language set to %s", languages[choice]);
     gui_warn(message);
 

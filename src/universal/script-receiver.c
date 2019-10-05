@@ -53,7 +53,7 @@ int main(int argc, char **argv)
         }
     }
     path[91] = '\0';
-    char *message[50] = {'\0'};
+    char message[50] = {'\0'};
     sprintf(message, "This will lock your console!\n%s", net_ip());
     if (gui_choice(message))
     {
