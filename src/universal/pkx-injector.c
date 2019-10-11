@@ -33,7 +33,7 @@ int main(int argc, char** argv)
             {
                 if (ekx)
                 {
-                    pkx_decrypt(data, GEN_LGPE);
+                    pkx_decrypt(data, GEN_LGPE, 0);
                     sav_inject_pkx(data, GEN_LGPE, box, slot, 0);
                 }
                 else
@@ -48,7 +48,7 @@ int main(int argc, char** argv)
             {
                 if (ekx)
                 {
-                    pkx_decrypt(data, GEN_SEVEN);
+                    pkx_decrypt(data, GEN_SEVEN, 0);
                     sav_inject_pkx(data, GEN_SEVEN, box, slot, 0);
                 }
                 else
@@ -60,7 +60,7 @@ int main(int argc, char** argv)
             {
                 if (ekx)
                 {
-                    pkx_decrypt(data, GEN_SIX);
+                    pkx_decrypt(data, GEN_SIX, 0);
                     sav_inject_pkx(data, GEN_SIX, box, slot, 0);
                 }
                 else
@@ -72,7 +72,7 @@ int main(int argc, char** argv)
             {
                 if (ekx)
                 {
-                    pkx_decrypt(data, GEN_FIVE);
+                    pkx_decrypt(data, GEN_FIVE, 0);
                     sav_inject_pkx(data, GEN_FIVE, box, slot, 0);
                 }
                 else
@@ -84,7 +84,7 @@ int main(int argc, char** argv)
             {
                 if (ekx)
                 {
-                    pkx_decrypt(data, GEN_FOUR);
+                    pkx_decrypt(data, GEN_FOUR, 0);
                     sav_inject_pkx(data, GEN_FOUR, box, slot, 0);
                 }
                 else
