@@ -43,6 +43,7 @@ int pkx_party_size(enum Generation gen);
 void pkx_generate(char* data, int species);
 int pkx_is_valid(char* data, enum Generation gen);
 void pkx_set_value(char* data, enum Generation gen, enum PKX_Field field, ...);
+unsigned int pkx_get_value(char* data, enum Generation gen, enum PKX_Field field, ...);
 char* current_directory();
 struct directory* read_directory(char* dir);
 void delete_directory(struct directory* dir);
