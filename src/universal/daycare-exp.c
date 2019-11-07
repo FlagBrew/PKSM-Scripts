@@ -103,7 +103,7 @@ int main(int argc, char **argv)
             continue;
         }
         memcpy(pkm, saveData + gbo + ofsSlots[i] + ofsPkm, pkmSize);
-        pkx_decrypt(pkm, gen, 1);
+        pkx_decrypt(pkm, gen, gen != GEN_SIX);
 
         // verify occupied slot
         if ((gen == GEN_FOUR && pkx_is_valid(pkm, gen)) ||
@@ -118,7 +118,7 @@ int main(int argc, char **argv)
     free(pkm);
 
     // query user new Daycare EXP values
-    char *expString[41] = {'\0'};
+    char expString[41] = {'\0'};
     char *labels[5] = {
         "Exit script",
         "Slot 1",
@@ -142,7 +142,8 @@ int main(int argc, char **argv)
 
         sprintf(expString, "Input new experience\nCurrent: %i", steps[i]);
         gui_warn(expString);
-        gui_numpad(steps[i], expString, 7);
+        gui_numpad(newExp, expString, 7);
+        steps[i] = newExp;
         steps[0] += 1; // track changes
     }
 
