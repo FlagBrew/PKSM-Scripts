@@ -103,7 +103,7 @@ int main(int argc, char **argv)
             continue;
         }
         memcpy(pkm, saveData + gbo + ofsSlots[i] + ofsPkm, pkmSize);
-        pkx_decrypt(pkm, gen);
+        pkx_decrypt(pkm, gen, 1);
 
         // verify occupied slot
         if ((gen == GEN_FOUR && pkx_is_valid(pkm, gen)) ||
