@@ -272,9 +272,9 @@ Meaning                                     Offset      Length      Max Value   
         - EXP                               0x1bdf4     4
         - Pokémon                           0x1bdf8     0xe8
     - slot 2
-        - occupied                          0x1bef0     1
-        - EXP                               0x1bef4     4
-        - Pokémon                           0x1bef8     0xe8
+        - occupied                          0x1bee0     1
+        - EXP                               0x1bee4     4
+        - Pokémon                           0x1bee8     0xe8
     - has egg                               0x1bfd0     1
     - RNG seed                              0x1bfd8
 - BattleInstSave                            0x1c000     0x216
