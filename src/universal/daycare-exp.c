@@ -107,7 +107,7 @@ int main(int argc, char **argv)
 
         // verify occupied slot
         if ((gen == GEN_FOUR && pkx_is_valid(pkm, gen)) ||
-            (gen != GEN_FOUR && *(int *)(saveData + ofsSlots[i]) == 1))
+            (gen != GEN_FOUR && saveData[ofsSlots[i]] == 1))
         {
             // fill pkx and EXP
             slots[i].species = pkx_get_value(pkm, gen, SPECIES);
@@ -142,7 +142,7 @@ int main(int argc, char **argv)
 
         sprintf(expString, "Input new experience\nCurrent: %i", steps[i]);
         gui_warn(expString);
-        gui_numpad(newExp, expString, 7);
+        gui_numpad(&newExp, expString, 7);
         steps[i] = newExp;
         steps[0] += 1; // track changes
     }
