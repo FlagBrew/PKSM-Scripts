@@ -1,16 +1,115 @@
-struct pkx { int species; int form; };
-enum Generation { GEN_FOUR, GEN_FIVE, GEN_SIX, GEN_SEVEN, GEN_LGPE };
-struct directory { int count; char** files; };
-enum PKX_Field {OT_NAME, TID, SID, SHINY, LANGUAGE, MET_LOCATION, MOVE, BALL, LEVEL, GENDER,
-                ABILITY, IV_HP, IV_ATK, IV_DEF, IV_SPATK, IV_SPDEF, IV_SPEED, NICKNAME, ITEM,
-                POKERUS, EGG_DAY, EGG_MONTH, EGG_YEAR, MET_DAY, MET_MONTH, MET_YEAR, FORM,
-                EV_HP, EV_ATK, EV_DEF, EV_SPATK, EV_SPDEF, EV_SPEED, SPECIES, PID, NATURE, FATEFUL,
-                PP, PP_UPS, EGG, NICKNAMED, EGG_LOCATION, MET_LEVEL, OT_GENDER, ORIGINAL_GAME};
-enum SAV_Field { SAV_OT_NAME, SAV_TID, SAV_SID, SAV_GENDER, SAV_COUNTRY, SAV_SUBREGION, SAV_REGION,
-                SAV_LANGUAGE, SAV_MONEY, SAV_BP, SAV_HOURS, SAV_MINUTES, SAV_SECONDS, SAV_ITEM };
-enum SAV_MaxField { MAX_SLOTS, MAX_BOXES, MAX_WONDER_CARDS, MAX_FORM, MAX_IN_POUCH };
-enum SAV_CheckValue { SAV_VALUE_SPECIES, SAV_VALUE_MOVE, SAV_VALUE_ITEM, SAV_VALUE_ABILITY, SAV_VALUE_BALL };
-enum Pouch { NormalItem, KeyItem, TM, Mail, Medicine, Berry, Ball, Battle, Candy, ZCrystals };
+struct pkx
+{
+    int species;
+    int form;
+};
+enum Generation
+{
+    GEN_FOUR,
+    GEN_FIVE,
+    GEN_SIX,
+    GEN_SEVEN,
+    GEN_LGPE
+};
+struct directory
+{
+    int count;
+    char** files;
+};
+enum PKX_Field
+{
+    OT_NAME,
+    TID,
+    SID,
+    SHINY,
+    LANGUAGE,
+    MET_LOCATION,
+    MOVE,
+    BALL,
+    LEVEL,
+    GENDER,
+    ABILITY,
+    IV_HP,
+    IV_ATK,
+    IV_DEF,
+    IV_SPATK,
+    IV_SPDEF,
+    IV_SPEED,
+    NICKNAME,
+    ITEM,
+    POKERUS,
+    EGG_DAY,
+    EGG_MONTH,
+    EGG_YEAR,
+    MET_DAY,
+    MET_MONTH,
+    MET_YEAR,
+    FORM,
+    EV_HP,
+    EV_ATK,
+    EV_DEF,
+    EV_SPATK,
+    EV_SPDEF,
+    EV_SPEED,
+    SPECIES,
+    PID,
+    NATURE,
+    FATEFUL,
+    PP,
+    PP_UPS,
+    EGG,
+    NICKNAMED,
+    EGG_LOCATION,
+    MET_LEVEL,
+    OT_GENDER,
+    ORIGINAL_GAME
+};
+enum SAV_Field
+{
+    SAV_OT_NAME,
+    SAV_TID,
+    SAV_SID,
+    SAV_GENDER,
+    SAV_COUNTRY,
+    SAV_SUBREGION,
+    SAV_REGION,
+    SAV_LANGUAGE,
+    SAV_MONEY,
+    SAV_BP,
+    SAV_HOURS,
+    SAV_MINUTES,
+    SAV_SECONDS,
+    SAV_ITEM
+};
+enum SAV_MaxField
+{
+    MAX_SLOTS,
+    MAX_BOXES,
+    MAX_WONDER_CARDS,
+    MAX_FORM,
+    MAX_IN_POUCH
+};
+enum SAV_CheckValue
+{
+    SAV_VALUE_SPECIES,
+    SAV_VALUE_MOVE,
+    SAV_VALUE_ITEM,
+    SAV_VALUE_ABILITY,
+    SAV_VALUE_BALL
+};
+enum Pouch
+{
+    NormalItem,
+    KeyItem,
+    TM,
+    Mail,
+    Medicine,
+    Berry,
+    Ball,
+    Battle,
+    Candy,
+    ZCrystals
+};
 
 int gui_choice(char* message);
 void gui_warn(char* warning);
@@ -33,6 +132,8 @@ int sav_check_value(enum SAV_CheckValue field, int value);
 void party_get_pkx(char* data, int slot);
 void party_inject_pkx(char* data, enum Generation type, int slot);
 void bank_inject_pkx(char* data, enum Generation type, int box, int slot);
+void sav_inject_wcx(char* data, enum Generation type, int slot, int alternateFormat);
+int sav_wcx_free_slot();
 char* bank_get_pkx(enum Generation* type, int box, int slot);
 int bank_get_size();
 void bank_select();
