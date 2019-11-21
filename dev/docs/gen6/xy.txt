@@ -178,7 +178,7 @@ Meaning                                     Offset      Length      Max Value   
         - EXP                               0x1b2f4     4
         - Pokémon                           0x1b2f8     0xe8
     - has egg                               0x1b3e0     1
-    - RNG seed                              0x1b3e8
+    - RNG seed                              0x1b3e8     8
 - BattleInstSave                            0x1b400     0x216
 - Berry Field                               0x1b800     0x390
 - Wondercard                                0x1bc00     0x1a90

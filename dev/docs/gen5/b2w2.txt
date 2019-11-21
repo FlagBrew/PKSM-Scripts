@@ -108,11 +108,11 @@ Meaning                                     Offset      Length      Max Value   
 - Daycare                                   0x20d00     0x1d4
     - slot 1
         - occupied?                         0x20d00     4
-        - EXP                               0x20de0
+        - EXP                               0x20de0     4
     - slot 2                                0x20de4
         - occupied?                         0x20de4     4
-        - EXP                               0x20ec4
-    - RNG seed                              0x20ecc
+        - EXP                               0x20ec4     4
+    - RNG seed                              0x20ecc     8
 - Strength boulder status                   0x20f00     0x1e0
 - Trainer2                                  0x21100     0xf0
     - money                                 0x21100     4           999999
