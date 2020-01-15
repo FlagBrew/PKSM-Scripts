@@ -35,25 +35,27 @@ int main(int argc, char** argv)
         fread(data, size, size, file);
         fclose(file);
 
+        int slot = sav_wcx_free_slot();
+
         if (!strncasecmp(extension, "pgt", 3) || !strncasecmp(extension, "wc4", 3))
         {
-            sav_inject_wcx(data, GEN_FOUR, 0, extension[0] == 'w' || extension[0] == 'W');
+            sav_inject_wcx(data, GEN_FOUR, slot, extension[0] == 'w' || extension[0] == 'W');
         }
         else if (!strncasecmp(extension, "pgf", 3))
         {
-            sav_inject_wcx(data, GEN_FIVE, 0, 0);
+            sav_inject_wcx(data, GEN_FIVE, slot, 0);
         }
         else if (!strncasecmp(extension, "wc6", 3))
         {
-            sav_inject_wcx(data, GEN_SIX, 0, strlen(extension) > 3);
+            sav_inject_wcx(data, GEN_SIX, slot, strlen(extension) > 3);
         }
         else if (!strncasecmp(extension, "wc7", 3))
         {
-            sav_inject_wcx(data, GEN_SEVEN, 0, strlen(extension) > 3);
+            sav_inject_wcx(data, GEN_SEVEN, slot, strlen(extension) > 3);
         }
         else if (!strncasecmp(extension, "wb7", 3))
         {
-            sav_inject_wcx(data, GEN_LGPE, 0, strlen(extension) > 3);
+            sav_inject_wcx(data, GEN_LGPE, slot, strlen(extension) > 3);
         }
 
         free(data);
