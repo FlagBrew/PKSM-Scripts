@@ -9,6 +9,12 @@ int main(int argc, char** argv)
     unsigned char version         = *argv[2];
     struct directory* injectables = read_directory("/3ds/PKSM/inject");
 
+    if (injectables->count == 0)
+    {
+        gui_warn("There are no files in \'/3ds/PKSM/inject\'!\nPlace Wonder Card or Pokemon files there");
+        return 0;
+    }
+
     int chosen      = gui_menu_20x2("Choose a file to inject", injectables->count, injectables->files);
     char* extension = NULL;
     if (strlen(injectables->files[chosen]) > 3)
