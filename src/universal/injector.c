@@ -11,6 +11,7 @@ int main(int argc, char** argv)
 
     if (injectables->count == 0)
     {
+        delete_directory(injectables);
         gui_warn("There are no files in \'/3ds/PKSM/inject\'!\nPlace Wonder Card or Pokemon files there");
         return 0;
     }
