@@ -39,7 +39,7 @@ def cleanCScripts(folder):
 	for path, _, files in os.walk(folder):
 		for fullname in files:
 			data = ""
-			with open(os.path.join(path, fullname), 'r') as f:
+			with open(os.path.join(path, fullname), 'r', encoding="UTF-8") as f:
 				data = f.read()
 
 			data = data.replace("\r\n", "\n")
@@ -56,7 +56,7 @@ def cleanCScripts(folder):
 					data[data[commentIndex+2:].find("\n")+1 + commentIndex+2:]
 				commentIndex = data.find("//")
 
-			with open(os.path.join(path.replace("src/", "scripts/"), fullname), 'w') as f:
+			with open(os.path.join(path.replace("src/", "scripts/"), fullname), 'w', encoding="UTF-8") as f:
 				f.write(data)
 
 if __name__ == '__main__':
