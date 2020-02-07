@@ -23,7 +23,7 @@ int main(int argc, char **argv)
     int ID = *(int *)(saveData + 0x25800 + 0x5c);
     int keyOffset = 0x25800 + 0x28;
     int choice;
-    char *message[25] = {'\0'};
+    char message[25] = {'\0'};
 
     do
     {

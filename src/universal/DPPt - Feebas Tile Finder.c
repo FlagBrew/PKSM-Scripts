@@ -83,7 +83,7 @@ int main(int argc, char **argv) {
     }
 
     char msg[120] = {'\0'};
-    sprintf(&msg, "Your Feebas Tiles for %u/%u/%u (DD/MM/YYYY)\n(the day you last saved) are, as follows...", sday, smon, syear);
+    sprintf(msg, "Your Feebas Tiles for %u/%u/%u (DD/MM/YYYY)\n(the day you last saved) are, as follows...", sday, smon, syear);
     gui_warn(msg);
     sprintf(msg, "Row #%i from the top, Column #%i from the left\nRow #%i from the top, Column #%i from the left", ypos[0], xpos[0], ypos[1], xpos[1]);
     gui_warn(msg);

@@ -95,7 +95,7 @@ int main(int argc, char **argv)
                 if (i != slot && current[i] == choice) {
                     present = 1;
                     char message[29] = {0};
-                    snprintf(message, "%s\nis already present", trainers[choice]);
+                    sprintf(message, "%s\nis already present", trainers[choice]);
                     gui_warn(message);
                     break;
                 }
