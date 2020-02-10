@@ -304,6 +304,7 @@ Meaning                                     Offset      Length      Max Value   
 - unused                                    0x20600     0x7d0
 - LinkInfo                                  0x20e00     0xc48
     - Pokémon Link gifts                    0x20e00
+    - enabled                               0x20fff     1
 - PSS usage info                            0x21c00     0x78
 - GameSyncSave                              0x21e00     0x200
     - PGL Promotion gifts                   0x21e00

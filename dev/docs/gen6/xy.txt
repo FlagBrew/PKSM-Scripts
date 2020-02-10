@@ -206,6 +206,7 @@ Meaning                                     Offset      Length      Max Value   
     - bag inventory                         0x1f508
 - unused                                    0x1f600     0x7d0
 - Link info                                 0x1fe00     0xc48
+    - enabled                               0x1ffff     1
 - PSS usage info                            0x20c00     0x78
 - GameSyncSave                              0x20e00
     - PGL Promotion gifts                   0x20e00

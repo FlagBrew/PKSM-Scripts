@@ -13,12 +13,14 @@
 "All Mirage Islands" -i 0x307D4 1 1 1 -i 0x307D8 1 18 1 -i 0x307DC 1 19 1 -i 0x307E0 1 20 1 -i 0x307E4 1 21 1 -i 0x307E8 1 22 1 -i 0x307EC 1 23 1 -i 0x307F0 1 24 1 -i 0x307F4 1 25 1 -i 0x307F8 1 0 1
 "All Mirage Mountains" -i 0x307D4 1 1 1 -i 0x307D8 1 26 1 -i 0x307DC 1 27 1 -i 0x307E0 1 28 1 -i 0x307E4 1 29 1 -i 0x307E8 1 30 1 -i 0x307EC 1 31 1 -i 0x307F0 1 32 1 -i 0x307F4 1 33 1 -i 0x307F8 1 0 1
 "Supreme Honor Pokepuffs" -i 0x00000 1 22 100
-"Pokemon Link - Bank Celebi" -i 0x21000 2630 "data/link/LINK_Celebi.bin" 1
-"Pokemon Link - HA Johto Starters" -i 0x21000 2630 "data/link/LINK_Johto_Starters.bin" 1
-"Pokemon Link - HA Regi Trio" -i 0x21000 2630 "data/link/LINK_Regi_Trio.bin" 1
-"Pokemon Link - Demo Glalie" -i 0x21000 2630 "data/link/LINK_Glalie.bin" 1 -i 0x20e00 1 0 1
-"Pokemon Link - Demo Steelix" -i 0x21000 2630 "data/link/LINK_Steelix.bin" 1 -i 0x20e00 1 0 1
-"Pokemon Link - 9999 BP & 9999 Pokemiles" -i 0x21000 2630 "data/link/LINK_BP_Pokemiles.bin" 1
+# Pokémon Link
+"Pokemon Link enabled" -i 0x20FFF 1 0x80 1
+"Pokemon Link - Bank Celebi" -i 0x21000 2630 "data/link/LINK_Celebi.bin" 1 -i 0x20FFF 1 0x80 1
+"Pokemon Link - HA Johto Starters" -i 0x21000 2630 "data/link/LINK_Johto_Starters.bin" 1 -i 0x20FFF 1 0x80 1
+"Pokemon Link - HA Regi Trio" -i 0x21000 2630 "data/link/LINK_Regi_Trio.bin" 1 -i 0x20FFF 1 0x80 1
+"Pokemon Link - Demo Glalie" -i 0x21000 2630 "data/link/LINK_Glalie.bin" 1 -i 0x20e00 1 0 1 -i 0x20FFF 1 0x80 1
+"Pokemon Link - Demo Steelix" -i 0x21000 2630 "data/link/LINK_Steelix.bin" 1 -i 0x20e00 1 0 1 -i 0x20FFF 1 0x80 1
+"Pokemon Link - 9999 BP & 9999 Pokemiles" -i 0x21000 2630 "data/link/LINK_BP_Pokemiles.bin" 1 -i 0x20FFF 1 0x80 1
 "Unlock Battle Resort Fly Location" -i 0x14E69 1 168 1
 "Max Volcanic Ash" -i 0x14A78 2 65535 1
 # Mass injection
