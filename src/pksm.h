@@ -9,7 +9,9 @@ enum Generation
     GEN_FIVE,
     GEN_SIX,
     GEN_SEVEN,
-    GEN_LGPE
+    GEN_LGPE,
+    GEN_EIGHT,
+    GEN_THREE
 };
 struct directory
 {
@@ -161,3 +163,6 @@ int net_udp_recv(char* buffer, int size, int* received);
 char* i18n_species(int species);
 char* utf16_to_utf8(char* data);
 char* utf8_to_utf16(char* data);
+int fetch_web_content(char** out, int* outSize, char* url);
+void base64_decode(unsigned char** out, int* outSize, char* data, int size);
+void base64_encode(char** out, int* outSize, unsigned char* data, int size);
