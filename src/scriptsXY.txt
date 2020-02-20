@@ -6,9 +6,6 @@
 "Set max current Pokemiles" -i 0x1E4FC 4 9999999 1
 "Unlock all lv1-3 O-Powers" -i 0x16a00 66 "data/OPower.bin" 1
 "Unlock all O-Powers" -d "illegal" -i 0x16a00 66 "data/OPower_illegal.bin" 1
-"Renew 1st WonderCard" -i 0x1BD52 1 1 1
-"Renew 2nd WonderCard" -i 0x1BE5A 1 1 1
-"Renew 3rd WonderCard" -i 0x1BF62 1 1 1
 "Supreme Honor Pokepuffs" -i 0x00000 1 22 100
 "Battle Chateau - become Grand Duke or Dutchess" -i 0x1D800 38 "data/XY_Chateau.bin" 1
 # Pokémon Link

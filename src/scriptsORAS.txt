@@ -5,9 +5,6 @@
 "Set max Current Pokemiles" -i 0x1F4FC 4 9999999 1
 "Unlock all lv1-3 O-Powers" -i 0x17400 66 "data/OPower.bin" 1
 "Unlock all O-Powers" -d "illegal" -i 0x17400 66 "data/OPower_illegal.bin" 1
-"Renew 1st WonderCard" -i 0x1CD52 1 1 1
-"Renew 2nd WonderCard" -i 0x1CE5A 1 1 1
-"Renew 3rd WonderCard" -i 0x1CF62 1 1 1
 "All Mirage Forests" -i 0x307D4 1 1 1 -i 0x307D8 1 2 1 -i 0x307DC 1 3 1 -i 0x307E0 1 4 1 -i 0x307E4 1 5 1 -i 0x307E8 1 6 1 -i 0x307EC 1 7 1 -i 0x307F0 1 8 1 -i 0x307F4 1 9 1 -i 0x307F8 1 0 1
 "All Mirage Caves" -i 0x307D4 1 1 1 -i 0x307D8 1 10 1 -i 0x307DC 1 11 1 -i 0x307E0 1 12 1 -i 0x307E4 1 13 1 -i 0x307E8 1 14 1 -i 0x307EC 1 15 1 -i 0x307F0 1 16 1 -i 0x307F4 1 17 1 -i 0x307F8 1 0 1
 "All Mirage Islands" -i 0x307D4 1 1 1 -i 0x307D8 1 18 1 -i 0x307DC 1 19 1 -i 0x307E0 1 20 1 -i 0x307E4 1 21 1 -i 0x307E8 1 22 1 -i 0x307EC 1 23 1 -i 0x307F0 1 24 1 -i 0x307F4 1 25 1 -i 0x307F8 1 0 1

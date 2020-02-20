@@ -10,9 +10,6 @@
 "Set max Camera Version" -i 0x65600 2 4 1
 "Set Moon time" -i 0x4a48 8 43200 1
 "Set Sun time" -i 0x4a48 8 86400 1
-"Renew 1st WonderCard" -i 0x66352 1 1 1
-"Renew 2nd WonderCard" -i 0x6645A 1 1 1
-"Renew 3rd WonderCard" -i 0x66562 1 1 1
 "All Pokebeans" -i 0x40e4c 1 0xFF 15
 "10 Zygarde Cells" -i 0x1F42 2 10 1
 "50 Zygarde Cells" -i 0x1F42 2 50 1
