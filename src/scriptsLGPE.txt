@@ -1,0 +1,2 @@
+# Syntax: "Name of script" -i <offset> <length> <payload (integer or file path)> <repeat>
+"Set max money" -i 0x4C04 4 9999999 1

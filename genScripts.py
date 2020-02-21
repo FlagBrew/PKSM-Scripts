@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import shlex, PKSMScript, sys, glob, shutil, os
 
-games = ["USUM", "SM", "ORAS", "XY", "B2W2", "BW", "HGSS", "PT", "DP"]
+games = ["LGPE", "USUM", "SM", "ORAS", "XY", "B2W2", "BW", "HGSS", "PT", "DP"]
 
 def main(args):
 	print("Generating scripts...")
