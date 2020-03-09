@@ -255,6 +255,12 @@ int main(int argc, char **argv)
                         pkm = bank_get_pkx(gen_pkm, box, slot);
                     }
 
+                    if (!pkx_is_valid(pkm, gen_pkm))
+                    {
+                        free(pkm);
+                        continue;
+                    }
+
                     if (prop == 15 && gen_pkm != GEN_FOUR && gen_pkm != GEN_THREE)
                     {
                         val_1 = (rand() & 0xFFFF) << 16;
