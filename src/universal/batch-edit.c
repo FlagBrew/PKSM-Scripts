@@ -144,7 +144,7 @@ int main(int argc, char **argv)
         target = -1, prop = -1,
         choice, val_1, val_2;
     enum Generation gen_pkm;
-    char *name[0x27] {'\0'};
+    char name[0x27] = {'\0'};
 
     srand(time(0) + version);
 
