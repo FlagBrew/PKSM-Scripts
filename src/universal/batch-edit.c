@@ -7,7 +7,7 @@
 int limit_num(int min, int max, int max_digits)
 {
     unsigned int num;
-    char *hint[35] = {'\0'};
+    char hint[35] = {'\0'};
     sprintf(hint, "Enter a number from %d to %d", min, max);
     while (1)
     {
@@ -67,7 +67,7 @@ int main(int argc, char **argv)
             return 1;
     }
 
-    char *targets = {
+    char *targets[4] = {
         "Exit script",
         "Use save boxes",
         "Use current bank",
@@ -139,8 +139,7 @@ int main(int argc, char **argv)
         "Fast Ball", "Level Ball", "Lure Ball", "Heavy Ball",
         "Love Ball", "Friend Ball", "Moon Ball", "Sport Ball",
         "Dream Ball", "Beast Ball"};
-    int boxes, box, slot,
-        pkm_size = pkx_box_size(gen_sav),
+    int boxes, pkm_size = pkx_box_size(gen_sav),
         target = -1, prop = -1,
         choice, val_1, val_2;
     enum Generation gen_pkm;
