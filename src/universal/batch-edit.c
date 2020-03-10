@@ -147,10 +147,10 @@ int main(int argc, char **argv)
 
     srand(time(0) + version);
 
-    gui_warn("Edits made by this script may result in illegal Pokémon");
+    gui_warn("Edits made by this script may result\nin illegal Pokémon");
     while (target && prop)
     {
-        target = gui_menu_20x2("Pick a group of Pokémon to edit", 4, targets);
+        target = gui_menu_20x2("Pick a group of Pokémon to edit\n\nWarning: these edits will affect\nEVERYTHING in save/bank", 4, targets);
         if (target == 0)
         {
             break;
@@ -171,10 +171,9 @@ int main(int argc, char **argv)
             boxes = bank_get_size();
         }
 
-
         while (prop)
         {
-            prop = gui_menu_20x2("Pick a property to edit", 15, props);
+            prop = gui_menu_20x2("Pick a property to edit", 17, props);
             if (prop < 2)
             {
                 break;
@@ -183,7 +182,7 @@ int main(int argc, char **argv)
             switch (prop)
             {
                 case 2: // OT Name
-                    gui_keyboard(&name, "Enter an OT name", 0xD);
+                    gui_keyboard(name, "Enter an OT name", 0xD);
                     break;
                 case 3: // OT TID
                 case 4: // OT SID
@@ -230,7 +229,10 @@ int main(int argc, char **argv)
                 //     // int (0-?)
                 //     break;
                 default:
-                    gui_warn("This edit type is not available.\nPlease choose another.");
+                    if (prop > 1)
+                    {
+                        gui_warn("This edit type is not available.\nPlease choose another.");
+                    }
                     continue;
             }
 
@@ -266,7 +268,7 @@ int main(int argc, char **argv)
                         val_1 |= (rand() & 0xFFFF);
                     }
 
-                    if (prop == 1) // OT name
+                    if (prop == 2) // OT name
                     {
                         pkx_set_value(pkm, gen_pkm, fields[prop], name);
                     }
