@@ -210,7 +210,7 @@ int main(int argc, char **argv)
                     val_1 = gui_menu_20x2("Pick a nature", 25, natures);
                     break;
                 case 12: // Ball
-                    val_1 = gui_menu_20x2("Pick a ball", 18, balls) + 1;
+                    val_1 = gui_menu_20x2("Pick a ball", 26, balls) + 1;
                     break;
                 case 13: // PP Ups
                     val_1 = limit_num(0, 3, 1);
