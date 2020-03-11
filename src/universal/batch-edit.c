@@ -256,7 +256,7 @@ int main(int argc, char **argv)
                         }
                         else
                         {
-                            pkm = bank_get_pkx(gen_pkm, box, slot);
+                            pkm = bank_get_pkx(&gen_pkm, box, slot);
                         }
 
                         if (!pkx_is_valid(pkm, gen_pkm))
