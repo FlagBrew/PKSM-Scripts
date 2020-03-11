@@ -1,5 +1,4 @@
 #include <pksm.h>
-#include <unistd.h>
 #include <stdlib.h> /* rand */
 #include <stdio.h> /* sprintf */
 #include <time.h> /* time */
@@ -84,7 +83,7 @@ int main(int argc, char **argv)
         "Set Shiny",
         "Set all IVs",
         "Set Language",
-        "Set Pokerus",
+        "Set Pokérus",
         "Set Nature",
         "Set Ball",
         "Set PP Ups",
@@ -141,7 +140,7 @@ int main(int argc, char **argv)
         "Dream Ball", "Beast Ball"};
     int boxes, skip, pkm_size = pkx_box_size(gen_sav),
         target = -1, prop = -1,
-        choice, val_1, val_2;
+        choice = 0, val_1 = 0, val_2 = 0;
     enum Generation gen_pkm;
     char name[0x27] = {'\0'};
 
@@ -150,7 +149,7 @@ int main(int argc, char **argv)
     gui_warn("Edits made by this script may result\nin illegal Pokémon");
     while (target && prop)
     {
-        target = gui_menu_20x2("Pick a group of Pokémon to edit\n\nWarning: these edits will affect\nEVERYTHING in save/bank", 4, targets);
+        target = gui_menu_20x2("Pick a group of Pokémon to edit", 4, targets);
         if (target == 0)
         {
             break;
@@ -174,7 +173,7 @@ int main(int argc, char **argv)
         while (prop)
         {
             skip = 0;
-            prop = gui_menu_20x2("Pick a property to edit", 17, props);
+            prop = gui_menu_20x2("Pick a property to edit\n\nWarning: these edits will affect\nEVERYTHING in your save/bank,\nand may result in illegal Pokémon", 17, props);
             switch (prop)
             {
                 case 2: // OT Name
@@ -237,86 +236,92 @@ int main(int argc, char **argv)
             {
                 break;
             }
-            else if (!skip)
+            if (skip)
             {
-                for (int box = 0; box < boxes; box++)
+                continue;
+            }
+
+            for (int box = 0; box < boxes; box++)
+            {
+                for (int slot = 0; slot < 30; slot++)
                 {
-                    for (int slot = 0; slot < 30; slot++)
+                    if (target == 1 && gen_sav == GEN_LGPE && box * 30 + slot == 1000)
                     {
-                        if (target == 1 && gen_sav == GEN_LGPE && box * 30 + slot == 1000)
-                        {
-                            break;
-                        }
+                        break;
+                    }
 
-                        char *pkm;
-                        if (target == 1)
-                        {
-                            pkm = malloc(pkm_size);
-                            sav_get_pkx(pkm, box, slot);
-                        }
-                        else
-                        {
-                            pkm = bank_get_pkx(&gen_pkm, box, slot);
-                        }
+                    char *pkm;
+                    if (target == 1)
+                    {
+                        pkm = malloc(pkm_size);
+                        sav_get_pkx(pkm, box, slot);
+                    }
+                    else
+                    {
+                        pkm = bank_get_pkx(&gen_pkm, box, slot);
+                    }
 
-                        if (!pkx_is_valid(pkm, gen_pkm))
-                        {
-                            free(pkm);
-                            continue;
-                        }
+                    if (!pkx_is_valid(pkm, gen_pkm))
+                    {
+                        free(pkm);
+                        continue;
+                    }
 
-                        if (prop == 15 && gen_pkm != GEN_FOUR && gen_pkm != GEN_THREE)
-                        {
-                            val_1 = (rand() & 0xFFFF) << 16;
-                            val_1 |= (rand() & 0xFFFF);
-                        }
+                    if (prop == 15 && gen_pkm != GEN_FOUR && gen_pkm != GEN_THREE)
+                    {
+                        val_1 = (rand() & 0xFFFF) << 16;
+                        val_1 |= (rand() & 0xFFFF);
+                    }
 
-                        if (prop == 2) // OT name
+                    if (prop == 2) // OT name
+                    {
+                        pkx_set_value(pkm, gen_pkm, fields[prop], &name[0]);
+                    }
+                    else if (prop == 8) // IVs
+                    {
+                        for (int i = 0; i < 6; i++)
                         {
-                            pkx_set_value(pkm, gen_pkm, fields[prop], &name[0]);
+                            pkx_set_value(pkm, gen_pkm, fields[prop] + i, val_1);
                         }
-                        else if (prop == 8) // IVs
+                    }
+                    else if (prop == 10) // Pokerus
+                    {
+                        pkx_set_value(pkm, gen_pkm, fields[prop], val_1, val_2);
+                    }
+                    else if (prop == 13 || prop == 14) // PP Ups, Clear moves
+                    {
+                        for (int i = 0; i < 4; i++)
                         {
-                            for (int i = 0; i < 6; i++)
-                            {
-                                pkx_set_value(pkm, gen_pkm, fields[prop] + i, val_1);
-                            }
-                        }
-                        else if (prop == 10) // Pokerus
-                        {
-                            pkx_set_value(pkm, gen_pkm, fields[prop], val_1, val_2);
-                        }
-                        else if (prop == 13 || prop == 14) // PP Ups, Clear moves
-                        {
-                            for (int i = 0; i < 4; i++)
+                            int move = pkx_get_value(pkm, gen_pkm, MOVE, i);
+                            if (move)
                             {
                                 pkx_set_value(pkm, gen_pkm, fields[prop], i, val_1);
                             }
-                            if (prop == 14)
-                            {
-                                pkx_set_value(pkm, gen_pkm, fields[prop], 0, 1);
-                            }
                         }
-                        else if (prop == 15 && (gen_pkm == GEN_FOUR || gen_pkm == GEN_THREE))
+                        if (prop == 14)
                         {
-                            // Gen 3/4 PID is rerolled when setting PID-dependent value
-                            pkx_set_value(pkm, gen_pkm, fields[1], pkx_get_value(pkm, gen_pkm, fields[1]));
+                            pkx_set_value(pkm, gen_pkm, fields[prop], 0, 1);
                         }
-                        else
-                        {
-                            pkx_set_value(pkm, gen_pkm, fields[prop], val_1);
-                        }
-
-                        if (target == 1)
-                        {
-                            sav_inject_pkx(pkm, gen_pkm, box, slot, 1);
-                        }
-                        else
-                        {
-                            bank_inject_pkx(pkm, gen_pkm, box, slot);
-                        }
-                        free(pkm);
                     }
+                    else if (prop == 15 && (gen_pkm == GEN_FOUR || gen_pkm == GEN_THREE))
+                    {
+                        // Gen 3/4 PID is rerolled when setting PID-dependent value
+                        pkx_set_value(pkm, gen_pkm, fields[1], pkx_get_value(pkm, gen_pkm, fields[1]));
+                    }
+                    else
+                    {
+                        pkx_set_value(pkm, gen_pkm, fields[prop], val_1);
+                    }
+
+                    if (target == 1)
+                    {
+                        sav_inject_pkx(pkm, gen_pkm, box, slot, 1);
+                    }
+                    else
+                    {
+                        bank_inject_pkx(pkm, gen_pkm, box, slot);
+                    }
+                    free(pkm);
                 }
             }
         }
