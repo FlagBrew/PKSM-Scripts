@@ -21,10 +21,44 @@ int limit_num(int min, int max, int max_digits)
     return (int)num;
 }
 
+int pick_ball(enum Generation sav_gen, int isBank)
+{
+    char *balls[26] = {
+        "Master Ball", "Ultra Ball", "Great Ball", "Poke Ball",
+        "Safari Ball", "Net Ball", "Dive Ball", "Nest Ball",
+        "Repeat Ball", "Timer Ball", "Luxury Ball", "Premier Ball",
+        "Dusk Ball", "Heal Ball", "Quick Ball", "Cherish Ball",
+        "Fast Ball", "Level Ball", "Lure Ball", "Heavy Ball",
+        "Love Ball", "Friend Ball", "Moon Ball", "Sport Ball",
+        "Dream Ball", "Beast Ball"};
+    int ball = 0;
+    int limit = 26;
+    if (!isBank)
+    {
+        limit -= ((sav_gen == GEN_FOUR) + (sav_gen == GEN_FIVE || sav_gen == GEN_SIX));
+        if (sav_gen == GEN_LGPE)
+        {
+            limit = 15;
+        }
+    }
+    while (1)
+    {
+        ball = gui_menu_20x2("Pick a ball", limit, balls);
+        if (isBank || sav_gen != GEN_LGPE || (ball < 4 || ball != 11 || ball != 15))
+        {
+            break;
+        }
+        gui_warn("Not a legal ball for LGPE\nPlease pick another");
+    }
+    ball += 1;
+    return ball;
+}
+
 int main(int argc, char **argv)
 {
     unsigned char version = *argv[2];
     enum Generation gen_sav;
+    int limit_lang = 9, limit_name = 0xD;
 
     switch (version)
     {
@@ -34,18 +68,23 @@ int main(int argc, char **argv)
         case 7:  // HG
         case 8:  // SS
             gen_sav = GEN_FOUR;
+            limit_lang = 7;
+            limit_name = 8;
             break;
         case 20: // W
         case 21: // B
         case 22: // W2
         case 23: // B2
             gen_sav = GEN_FIVE;
+            limit_lang = 7;
+            limit_name = 8;
             break;
         case 24: // X
         case 25: // Y
         case 26: // AS
         case 27: // OR
             gen_sav = GEN_SIX;
+            limit_lang = 7;
             break;
         case 30: // Su
         case 31: // Mo
@@ -130,14 +169,6 @@ int main(int argc, char **argv)
         "Timid", "Hasty", "Serious", "Jolly", "Naive",
         "Modest", "Mild", "Quiet", "Bashful", "Rash",
         "Calm", "Gentle", "Sassy", "Careful", "Quirky"};
-    char *balls[26] = {
-        "Master Ball", "Ultra Ball", "Great Ball", "Poke Ball",
-        "Safari Ball", "Net Ball", "Dive Ball", "Nest Ball",
-        "Repeat Ball", "Timer Ball", "Luxury Ball", "Premier Ball",
-        "Dusk Ball", "Heal Ball", "Quick Ball", "Cherish Ball",
-        "Fast Ball", "Level Ball", "Lure Ball", "Heavy Ball",
-        "Love Ball", "Friend Ball", "Moon Ball", "Sport Ball",
-        "Dream Ball", "Beast Ball"};
     int boxes, skip, pkm_size = pkx_box_size(gen_sav),
         target = -1, prop = -1,
         choice = 0, val_1 = 0, val_2 = 0;
@@ -177,7 +208,7 @@ int main(int argc, char **argv)
             switch (prop)
             {
                 case 2: // OT Name
-                    gui_keyboard(name, "Enter an OT name", 0xD);
+                    gui_keyboard(name, "Enter an OT name", target == 1 ? limit_name : 0xD);
                     break;
                 case 3: // OT TID
                 case 4: // OT SID
@@ -198,7 +229,7 @@ int main(int argc, char **argv)
                     val_1 = limit_num(0, 31, 2);
                     break;
                 case 9: // Language
-                    choice = gui_menu_20x2("Choose a language", version < 30 ? 7 : 9, languages);
+                    choice = gui_menu_20x2("Choose a language", target == 1 ? limit_lang : 9, languages);
                     val_1 = choice + (choice >= 6 ? 2 : 1);
                     break;
                 case 10: // Pokerus
@@ -210,7 +241,7 @@ int main(int argc, char **argv)
                     val_1 = gui_menu_20x2("Pick a nature", 25, natures);
                     break;
                 case 12: // Ball
-                    val_1 = gui_menu_20x2("Pick a ball", 26, balls) + 1;
+                    val_1 = pick_ball(gen_sav, target != 1);
                     break;
                 case 13: // PP Ups
                     val_1 = limit_num(0, 3, 1);
