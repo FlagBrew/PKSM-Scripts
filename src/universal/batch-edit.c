@@ -44,7 +44,7 @@ int pick_ball(enum Generation sav_gen, int isBank)
     while (1)
     {
         ball = gui_menu_20x2("Pick a ball", limit, balls);
-        if (isBank || sav_gen != GEN_LGPE || (ball < 4 || ball != 11 || ball != 15))
+        if (isBank || sav_gen != GEN_LGPE || (ball < 4 || ball == 11 || ball == 15))
         {
             break;
         }
