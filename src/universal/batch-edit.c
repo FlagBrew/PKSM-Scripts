@@ -38,7 +38,7 @@ int pick_ball(enum Generation sav_gen, int isBank)
         limit -= ((sav_gen == GEN_FOUR) + (sav_gen == GEN_FIVE || sav_gen == GEN_SIX));
         if (sav_gen == GEN_LGPE)
         {
-            limit = 15;
+            limit = 16;
         }
     }
     while (1)
