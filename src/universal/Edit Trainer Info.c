@@ -282,7 +282,7 @@ int main(int argc, char **argv)
                     gui_warn(currentData);
                     memset(newName, '\0', nameLen8);
                     gui_keyboard(newName, "Enter new OT name", nameLen16 / 2);
-                    sprintf(currentData, "OT name set to %s", oldName);
+                    sprintf(currentData, "OT name set to %s", newName);
                     gui_warn(currentData);
                     memset(otName, '\0', nameLen8);
                     strcpy(otName, newName);
