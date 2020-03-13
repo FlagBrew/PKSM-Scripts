@@ -35,8 +35,15 @@ int pick_ball(enum Generation sav_gen, int isBank)
     int limit = 26;
     if (!isBank)
     {
-        limit -= ((sav_gen == GEN_FOUR) + (sav_gen == GEN_FIVE || sav_gen == GEN_SIX));
-        if (sav_gen == GEN_LGPE)
+        if (sav_gen == GEN_FOUR)
+        {
+            limit = 24;
+        }
+        else if (sav_gen == GEN_FIVE || sav_gen == GEN_SIX)
+        {
+            limit = 25;
+        }
+        else if (sav_gen == GEN_LGPE)
         {
             limit = 16;
         }
@@ -58,7 +65,7 @@ int main(int argc, char **argv)
 {
     unsigned char version = *argv[2];
     enum Generation gen_sav;
-    int limit_lang = 9, limit_name = 0xD;
+    int limit_lang = 9, limit_name = 13;
 
     switch (version)
     {
@@ -111,6 +118,9 @@ int main(int argc, char **argv)
         "Use current bank",
         "Choose bank"
     };
+    int props_count = 17, target = -1, prop = -1,
+        boxes, skip, pkm_size = pkx_box_size(gen_sav),
+        choice = 0, val_1 = 0, val_2 = 0;
     char *props[17] = {
         "Exit Script",
         "Previous menu",
@@ -169,9 +179,6 @@ int main(int argc, char **argv)
         "Timid", "Hasty", "Serious", "Jolly", "Naive",
         "Modest", "Mild", "Quiet", "Bashful", "Rash",
         "Calm", "Gentle", "Sassy", "Careful", "Quirky"};
-    int boxes, skip, pkm_size = pkx_box_size(gen_sav),
-        target = -1, prop = -1,
-        choice = 0, val_1 = 0, val_2 = 0;
     enum Generation gen_pkm;
     char name[0x27] = {'\0'};
 
@@ -204,7 +211,7 @@ int main(int argc, char **argv)
         while (prop)
         {
             skip = 0;
-            prop = gui_menu_20x2("Pick a property to edit\n\nWarning: these edits will affect\nEVERYTHING in your save/bank,\nand may result in illegal Pokémon", 17, props);
+            prop = gui_menu_20x2("Pick a property to edit\n\nWarning: these edits will affect\nEVERYTHING in your save/bank,\nand may result in illegal Pokémon", props_count, props);
             switch (prop)
             {
                 case 2: // OT Name
@@ -222,8 +229,7 @@ int main(int argc, char **argv)
                     val_1 = limit_num(1, 100, 3);
                     break;
                 case 7: // Shiny
-                    choice = gui_menu_20x2("Shiny or not?", 2, shininess);
-                    val_1 = choice - 2;
+                    val_1 = gui_menu_20x2("Shiny or not?", 2, shininess);
                     break;
                 case 8: // all IVs
                     val_1 = limit_num(0, 31, 2);
@@ -250,6 +256,7 @@ int main(int argc, char **argv)
                     val_1 = 0;
                     break;
                 case 15: // Random PID
+                    choice = gui_choice("Should shiny Pokémon remain shiny?");
                     break;
                 // case 16: // Item
                 //     // int (0-?)
@@ -334,10 +341,22 @@ int main(int argc, char **argv)
                             pkx_set_value(pkm, gen_pkm, fields[prop], 0, 1);
                         }
                     }
-                    else if (prop == 15 && (gen_pkm == GEN_FOUR || gen_pkm == GEN_THREE))
+                    else if (prop == 15) // Randomize PID
                     {
-                        // Gen 3/4 PID is rerolled when setting PID-dependent value
-                        pkx_set_value(pkm, gen_pkm, fields[1], pkx_get_value(pkm, gen_pkm, fields[1]));
+                        val_2 = pkx_get_value(pkm, gen_pkm, SHINY);
+                        if (gen_pkm == GEN_FOUR || gen_pkm == GEN_THREE)
+                        {
+                            // Gen 3/4 PID is rerolled when setting PID-dependent value
+                            pkx_set_value(pkm, gen_pkm, fields[1], pkx_get_value(pkm, gen_pkm, fields[1]));
+                        }
+                        else
+                        {
+                            pkx_set_value(pkm, gen_pkm, PID, val_1);
+                        }
+                        if (choice && val_2)
+                        {
+                            pkx_set_value(pkm, gen_pkm, SHINY, 1);
+                        }
                     }
                     else
                     {
