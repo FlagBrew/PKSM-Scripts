@@ -21,51 +21,11 @@ int limit_num(int min, int max, int max_digits)
     return (int)num;
 }
 
-int pick_ball(enum Generation sav_gen, int isBank)
-{
-    char *balls[26] = {
-        "Master Ball", "Ultra Ball", "Great Ball", "Poke Ball",
-        "Safari Ball", "Net Ball", "Dive Ball", "Nest Ball",
-        "Repeat Ball", "Timer Ball", "Luxury Ball", "Premier Ball",
-        "Dusk Ball", "Heal Ball", "Quick Ball", "Cherish Ball",
-        "Fast Ball", "Level Ball", "Lure Ball", "Heavy Ball",
-        "Love Ball", "Friend Ball", "Moon Ball", "Sport Ball",
-        "Dream Ball", "Beast Ball"};
-    int ball = 0;
-    int limit = 26;
-    if (!isBank)
-    {
-        if (sav_gen == GEN_FOUR)
-        {
-            limit = 24;
-        }
-        else if (sav_gen == GEN_FIVE || sav_gen == GEN_SIX)
-        {
-            limit = 25;
-        }
-        else if (sav_gen == GEN_LGPE)
-        {
-            limit = 16;
-        }
-    }
-    while (1)
-    {
-        ball = gui_menu_20x2("Pick a ball", limit, balls);
-        if (isBank || sav_gen != GEN_LGPE || (ball < 4 || ball == 11 || ball == 15))
-        {
-            break;
-        }
-        gui_warn("Not a legal ball for LGPE\nPlease pick another");
-    }
-    ball += 1;
-    return ball;
-}
-
 int main(int argc, char **argv)
 {
     unsigned char version = *argv[2];
     enum Generation gen_sav;
-    int limit_lang = 9, limit_name = 13;
+    int limit_lang = 9, limit_name = 13, limit_ball = 26;
 
     switch (version)
     {
@@ -77,6 +37,7 @@ int main(int argc, char **argv)
             gen_sav = GEN_FOUR;
             limit_lang = 7;
             limit_name = 8;
+            limit_ball = 24;
             break;
         case 20: // W
         case 21: // B
@@ -85,6 +46,7 @@ int main(int argc, char **argv)
             gen_sav = GEN_FIVE;
             limit_lang = 7;
             limit_name = 8;
+            limit_ball = 25;
             break;
         case 24: // X
         case 25: // Y
@@ -92,6 +54,7 @@ int main(int argc, char **argv)
         case 27: // OR
             gen_sav = GEN_SIX;
             limit_lang = 7;
+            limit_ball = 25;
             break;
         case 30: // Su
         case 31: // Mo
@@ -102,6 +65,7 @@ int main(int argc, char **argv)
         case 42: // LGP
         case 43: // LGE
             gen_sav = GEN_LGPE;
+            limit_ball = 6;
             break;
         case 44: // SW
         case 45: // SH
@@ -179,6 +143,22 @@ int main(int argc, char **argv)
         "Timid", "Hasty", "Serious", "Jolly", "Naive",
         "Modest", "Mild", "Quiet", "Bashful", "Rash",
         "Calm", "Gentle", "Sassy", "Careful", "Quirky"};
+    char *balls[26] = {
+        "Cherish Ball", "Poke Ball", "Great Ball", "Ultra Ball",
+        "Master Ball", "Premier Ball", "Dive Ball", "Dusk Ball",
+        "Heal Ball", "Luxury Ball", "Nest Ball", "Net Ball",
+        "Quick Ball", "Repeat Ball", "Safari Ball", "Timer Ball",
+        "Fast Ball", "Friend Ball", "Heavy Ball", "Level Ball",
+        "Love Ball", "Lure Ball", "Moon Ball", "Sport Ball",
+        "Dream Ball", "Beast Ball"};
+    int ball_ids[26] = {
+        16, 4, 3, 2,
+        1, 12, 7, 13,
+        14, 11, 8, 6,
+        15, 9, 5, 10,
+        17, 22, 20, 18,
+        21, 19, 23, 24,
+        25, 26};
     enum Generation gen_pkm;
     char name[0x27] = {'\0'};
 
@@ -211,7 +191,7 @@ int main(int argc, char **argv)
         while (prop)
         {
             skip = 0;
-            prop = gui_menu_20x2("Pick a property to edit\n\nWarning: these edits will affect\nEVERYTHING in your save/bank,\nand may result in illegal Pokémon", props_count, props);
+            prop = gui_menu_20x2("Pick a property to edit\n\nWarning: these edits will affect\nEVERYTHING in the boxes of\nyour save/bank, and may result\nin illegal Pokémon", props_count, props);
             switch (prop)
             {
                 case 2: // OT Name
@@ -229,7 +209,7 @@ int main(int argc, char **argv)
                     val_1 = limit_num(1, 100, 3);
                     break;
                 case 7: // Shiny
-                    val_1 = gui_menu_20x2("Shiny or not?", 2, shininess);
+                    val_1 = 1 - gui_menu_20x2("Shiny or not?\n\nWarning:\nShiny may take a while", 2, shininess);
                     break;
                 case 8: // all IVs
                     val_1 = limit_num(0, 31, 2);
@@ -247,7 +227,8 @@ int main(int argc, char **argv)
                     val_1 = gui_menu_20x2("Pick a nature", 25, natures);
                     break;
                 case 12: // Ball
-                    val_1 = pick_ball(gen_sav, target != 1);
+                    choice = gui_menu_20x2("Pick a ball", target == 1 ? limit_ball : 26, balls);
+                    val_1 = ball_ids[choice];
                     break;
                 case 13: // PP Ups
                     val_1 = limit_num(0, 3, 1);
@@ -257,6 +238,10 @@ int main(int argc, char **argv)
                     break;
                 case 15: // Random PID
                     choice = gui_choice("Should shiny Pokémon remain shiny?");
+                    if (choice)
+                    {
+                        gui_warn("This may take some time");
+                    }
                     break;
                 // case 16: // Item
                 //     // int (0-?)
