@@ -150,6 +150,7 @@ unsigned int pkx_get_value(char* data, enum Generation gen, enum PKX_Field field
 char* current_directory();
 struct directory* read_directory(char* dir);
 void delete_directory(struct directory* dir);
+char* save_path();
 char* cfg_default_ot();
 unsigned short cfg_default_tid();
 unsigned short cfg_default_sid();
