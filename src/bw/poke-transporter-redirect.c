@@ -99,8 +99,8 @@ int main(int argc, char **argv) {
       /* pathSize: .word <path_size> */
       0xff, 0xff, 0x00, 0x00,
 
-      0x18, 0xd2, 0xc0,       // Record 8 offset
-      0xff, 0xff,             // Record 8 length VAR
+      0x18, 0xd2, 0xc0,       // Record 7 offset
+      0xff, 0xff,             // Record 7 length VAR
       /* savePath: .string <save_path> */
     };
 
