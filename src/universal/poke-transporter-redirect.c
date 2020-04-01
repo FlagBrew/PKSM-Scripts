@@ -105,6 +105,12 @@ int main(int argc, char **argv) {
     };
 
     switch (version) {
+      case 20:
+        patch[VERSION_OFFSET] = 'A';
+        break;
+      case 21:
+        patch[VERSION_OFFSET] = 'B';
+        break;
       case 22:
         patch[VERSION_OFFSET] = 'D';
         break;
@@ -112,7 +118,7 @@ int main(int argc, char **argv) {
         patch[VERSION_OFFSET] = 'E';
         break;
       default:
-        gui_warn("Unsupported version");
+        gui_warn("Unsupported version (only B/W/B2/W2)");
         return 1;
     }
 
