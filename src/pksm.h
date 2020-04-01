@@ -115,6 +115,7 @@ enum Pouch
 
 int gui_choice(char* message);
 void gui_warn(char* warning);
+void gui_splash(char* message);
 int gui_menu_6x5(char* question, int options, char** labels, struct pkx* pokemon, enum Generation generation);
 int gui_menu_20x2(char* question, int options, char** labels);
 void gui_keyboard(char* out, char* hint, int maxChars);
