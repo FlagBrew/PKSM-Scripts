@@ -27,7 +27,7 @@ def main(args):
 			shutil.move(pksmFile, "scripts/" + game.lower())
 
 def generate(game):
-	with open(os.path.join("src", "scripts%s.txt" % game)) as pksmArgFile:
+	with open(os.path.join("src", "scripts%s.txt" % game), 'r', encoding="UTF-8") as pksmArgFile:
 		for line in pksmArgFile:
 			if not line.startswith('#'):
 				line.replace('\\', '/')
