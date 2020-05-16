@@ -163,6 +163,7 @@ int net_tcp_recv(char* buffer, int size, int* received);
 int net_tcp_send(char* ip, int port, char* buffer, int size);
 int net_udp_recv(char* buffer, int size, int* received);
 char* i18n_species(int species);
+char* i18n_form(int gameVersion, int species, int form);
 char* utf16_to_utf8(char* data);
 char* utf8_to_utf16(char* data);
 int fetch_web_content(char** out, int* outSize, char* url);
