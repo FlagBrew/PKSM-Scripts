@@ -26,7 +26,7 @@ int main(int argc, char** argv)
         }
         else if (strlen(injectables->files[chosen]) > 7 && injectables->files[chosen][strlen(injectables->files[chosen]) - 8] == '.')
         {
-            extension = extension = injectables->files[chosen] + strlen(injectables->files[chosen]) - 7;
+            extension = injectables->files[chosen] + strlen(injectables->files[chosen]) - 7;
         }
     }
 
