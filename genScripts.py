@@ -44,18 +44,6 @@ def cleanCScripts(folder):
 
 			data = data.replace("\r\n", "\n")
 
-			# Get rid of all comments
-			commentIndex = data.find("/*")
-			while commentIndex != -1:
-				data = data[:commentIndex] + data[data.find("*/")+2:]
-				commentIndex = data.find("/*")
-
-			commentIndex = data.find("//")
-			while commentIndex != -1:
-				data = data[:commentIndex] + \
-					data[data[commentIndex+2:].find("\n")+1 + commentIndex+2:]
-				commentIndex = data.find("//")
-
 			with open(os.path.join(path.replace("src/", "scripts/"), fullname), 'w', encoding="UTF-8") as f:
 				f.write(data)
 
