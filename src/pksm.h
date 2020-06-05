@@ -112,6 +112,10 @@ enum Pouch
     Candy,
     ZCrystals
 };
+struct JSON
+{
+    void* dummy;
+};
 
 int gui_choice(char* message);
 void gui_warn(char* warning);
@@ -121,25 +125,35 @@ int gui_menu_20x2(char* question, int options, char** labels);
 void gui_keyboard(char* out, char* hint, int maxChars);
 void gui_numpad(unsigned int* out, char* hint, int maxDigits);
 int gui_boxes(int* fromStorage, int* box, int* slot, int doCrypt);
-int sav_sbo();
-int sav_gbo();
+
+void party_get_pkx(char* data, int slot);
+void party_inject_pkx(char* data, enum Generation type, int slot);
 void sav_box_decrypt();
 void sav_box_encrypt();
 void sav_get_pkx(char* data, int box, int slot);
 void sav_inject_pkx(char* data, enum Generation type, int box, int slot, int doTradeEdits);
 int sav_get_value(enum SAV_Field field, ...);
 int sav_get_max(enum SAV_MaxField field, ...);
-char* sav_get_string(unsigned int offset, unsigned int codepoints);
-void sav_set_string(char* string, unsigned int offset, unsigned int codepoints);
 int sav_check_value(enum SAV_CheckValue field, int value);
-void party_get_pkx(char* data, int slot);
-void party_inject_pkx(char* data, enum Generation type, int slot);
-void bank_inject_pkx(char* data, enum Generation type, int box, int slot);
 void sav_inject_wcx(char* data, enum Generation type, int slot, int alternateFormat);
 int sav_wcx_free_slot();
+
+void sav_get_data(char* dataOut, unsigned int size, int off1, int off2);
+void sav_set_data(char* data, unsigned int size, int off1, int off2);
+char sav_get_byte(int off1, int off2);
+void sav_set_byte(char data, int off1, int off2);
+short sav_get_short(int off1, int off2);
+void sav_set_short(short data, int off1, int off2);
+int sav_get_int(int off1, int off2);
+void sav_set_int(int data, int off1, int off2);
+char* sav_get_string(unsigned int offset, unsigned int codepoints);
+void sav_set_string(char* string, unsigned int offset, unsigned int codepoints);
+
+void bank_inject_pkx(char* data, enum Generation type, int box, int slot);
 char* bank_get_pkx(enum Generation* type, int box, int slot);
 int bank_get_size();
 void bank_select();
+
 void pkx_decrypt(char* data, enum Generation type, int isParty);
 void pkx_encrypt(char* data, enum Generation type, int isParty);
 int pkx_box_size(enum Generation gen);
@@ -148,24 +162,46 @@ void pkx_generate(char* data, int species);
 int pkx_is_valid(char* data, enum Generation gen);
 void pkx_set_value(char* data, enum Generation gen, enum PKX_Field field, ...);
 unsigned int pkx_get_value(char* data, enum Generation gen, enum PKX_Field field, ...);
+
 char* current_directory();
 struct directory* read_directory(char* dir);
 void delete_directory(struct directory* dir);
 char* save_path();
+
 char* cfg_default_ot();
 unsigned short cfg_default_tid();
 unsigned short cfg_default_sid();
 int cfg_default_day();
 int cfg_default_month();
 int cfg_default_year();
+
 char* net_ip();
 int net_tcp_recv(char* buffer, int size, int* received);
 int net_tcp_send(char* ip, int port, char* buffer, int size);
 int net_udp_recv(char* buffer, int size, int* received);
+int fetch_web_content(char** out, int* outSize, char* url);
+
 char* i18n_species(int species);
 char* i18n_form(int gameVersion, int species, int form);
+
 char* utf16_to_utf8(char* data);
 char* utf8_to_utf16(char* data);
-int fetch_web_content(char** out, int* outSize, char* url);
 void base64_decode(unsigned char** out, int* outSize, char* data, int size);
 void base64_encode(char** out, int* outSize, unsigned char* data, int size);
+
+struct JSON* json_new();
+void json_parse(struct JSON* out, const char* data);
+void json_delete(struct JSON* freed);
+int json_is_valid(struct JSON* check);
+int json_is_int(struct JSON* check);
+int json_is_bool(struct JSON* check);
+int json_is_string(struct JSON* check);
+int json_is_array(struct JSON* check);
+int json_is_object(struct JSON* check);
+int json_get_int(struct JSON* get);
+int json_get_bool(struct JSON* get);
+const char* json_get_string(struct JSON* get);
+int json_array_size(struct JSON* get);
+struct JSON* json_array_element(struct JSON* array, int index);
+int json_object_contains(struct JSON* get);
+struct JSON* json_object_element(struct JSON* object, const char* elemName);
