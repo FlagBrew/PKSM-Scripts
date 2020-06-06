@@ -4,8 +4,7 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)argv[0];
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     int ofs = 0;
     unsigned short hms[8] = {420, 421, 422, 423, 424, 425, 426, 427};
     int tms[100] = {
@@ -85,7 +84,7 @@ int main(int argc, char **argv)
     for(i = 0; i < tmCount; i++)
     {
         if (version < 30) {
-            unsigned short item = *(unsigned short *)(saveData + ofs + i * 4);
+            unsigned short item = sav_get_short(ofs, i * 4);
             if (item != 0) {
                 for (j = 0; j < hmCount; j++)
                 {
@@ -96,24 +95,24 @@ int main(int argc, char **argv)
                     }
                 }
             }
-            *(unsigned short *)(saveData + ofs + i * 4) = (unsigned short)tms[i];
-            *(unsigned short *)(saveData + ofs + i * 4 + 2) = (unsigned short)quant;
+            sav_set_short(tms[i], ofs, i * 4);
+            sav_set_short(quant, ofs, i * 4 + 2);
         }
         else if (version == 42 || version == 43)
         {
-            *(int *)(saveData + ofs + i * 4) = (1 << 15) + tms[i];
+            sav_set_short((1 << 15) + tms[i], ofs, i * 4);
         }
         else
         {
-            *(int *)(saveData + ofs + i * 4) = (1 << 10) + tms[i];
+            sav_set_short((1 << 15) + tms[i], ofs, i * 4);
         }
     }
     if (k > 0) {
         ofs += tmCount * 4;
         for (i = 0; i < k; i++)
         {
-            *(unsigned short *)(saveData + ofs + i * 4) = foundHMs[i];
-            *(unsigned short *)(saveData + ofs + i * 4 + 2) = 1;
+            sav_set_short(foundHMs[i], ofs, i * 4);
+            sav_set_short(1, ofs, i * 4 + 2);
         }
     }
     gui_warn("All TMs placed in pouch.");

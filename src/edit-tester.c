@@ -3,7 +3,6 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)argv[0];
     char *editTypes[5] = {
         "Toggle bit",
         "Write 1 byte (char)",
@@ -30,19 +29,19 @@ int main(int argc, char **argv)
             {
                 case 0:
                     gui_numpad(&bit, "Which bit (0-7) should be toggled?", 1);
-                    saveData[offset] ^= (1 << bit);
+                    sav_set_byte(sav_get_byte(offset, 0) ^ (1 << bit), offset, 0);
                     break;
                 case 1:
                     gui_keyboard(inputStr, "Value to assign (if hex prefix with 0x)", 5);
-                    saveData[offset] = (char)strtol(inputStr, NULL, 0);
+                    sav_set_byte((char)strtol(inputStr, NULL, 0), offset, 0);
                     break;
                 case 2:
                     gui_keyboard(inputStr, "Value to assign (if hex prefix with 0x)", 7);
-                    *(short *)(saveData + offset) = (short)strtol(inputStr, NULL, 0);
+                    sav_set_short(strtol(inputStr, NULL, 0), offset, 0);
                     break;
                 case 3:
                     gui_keyboard(inputStr, "Value to assign (if hex prefix with 0x)", 11);
-                    *(int *)(saveData + offset) = (int)strtol(inputStr, NULL, 0);
+                    sav_set_int(strtol(inputStr, NULL, 0), offset, 0);
                     break;
                 default:
                     gui_warn("How did you get here?!");

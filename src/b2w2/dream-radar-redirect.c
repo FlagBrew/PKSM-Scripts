@@ -9,7 +9,7 @@
 #define SIZE_OFFSET_BE 0x156
 
 int main(int argc, char **argv) {
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
 
     char patch[] = {
       0x03, 0x7d, 0xa4,       // Record 1 offest

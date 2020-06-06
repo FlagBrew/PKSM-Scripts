@@ -138,6 +138,8 @@ int sav_check_value(enum SAV_CheckValue field, int value);
 void sav_inject_wcx(char* data, enum Generation type, int slot, int alternateFormat);
 int sav_wcx_free_slot();
 
+int sav_gbo();
+int sav_sbo();
 void sav_get_data(char* dataOut, unsigned int size, int off1, int off2);
 void sav_set_data(char* data, unsigned int size, int off1, int off2);
 char sav_get_byte(int off1, int off2);

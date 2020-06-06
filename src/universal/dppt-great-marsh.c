@@ -4,8 +4,7 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)argv[0];
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     int offset, optStart = 0, count;
     char *labelPool[15] = {'\0'};
     struct pkx pkmPool[15];
@@ -74,7 +73,7 @@ int main(int argc, char **argv)
         "Exit script",
     };
 
-    int marsh = *(int *)(saveData + offset);
+    int marsh = sav_get_int(offset, 0);
     int slot;
     for (slot = 0; slot < 6; slot++)
     {
@@ -106,7 +105,7 @@ int main(int argc, char **argv)
 
             pkmAreas[slot].species = spec;
             marsh = marsh | (i << slot * 5);
-            *(int *)(saveData + offset) = marsh;
+            sav_set_int(marsh, offset, 0);
         }
     } while (slot < 6);
 

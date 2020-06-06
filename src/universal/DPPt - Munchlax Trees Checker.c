@@ -4,8 +4,7 @@
 #include <stdio.h>
 
 int main(int argc, char **argv) {
-    unsigned char *saveData = (unsigned char *)argv[0];
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     int TID, SID;
     int res[4];
     char* trees[] = {
@@ -20,12 +19,12 @@ int main(int argc, char **argv) {
     switch (version) {
         case 10:
         case 11:
-            TID = *(unsigned short*)(saveData + sav_gbo() + 0x74);
-            SID = *(unsigned short*)(saveData + sav_gbo() + 0x76);
+            TID = sav_get_short(sav_gbo(), 0x74);
+            SID = sav_get_short(sav_gbo(), 0x76);
             break;
         case 12:
-            TID = *(unsigned short*)(saveData + sav_gbo() + 0x78);
-            SID = *(unsigned short*)(saveData + sav_gbo() + 0x7A);
+            TID = sav_get_short(sav_gbo(), 0x78);
+            SID = sav_get_short(sav_gbo(), 0x7A);
             break;
         default:
             gui_warn("This script is only meant for\nthe Sinnoh games (DPPt)");

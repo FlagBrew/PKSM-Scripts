@@ -4,8 +4,7 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)argv[0];
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     int offsetToday, offsetYesterday;
     struct pkx options[16];
     int species[16] = {133, 438, 440, 52, 173, 35, 174, 311, 39, 137, 351, 312, 439, 183, 113, 298};
@@ -43,8 +42,8 @@ int main(int argc, char **argv)
     };
     int current[3] = {
         0,
-        saveData[gbo + offsetToday],
-        saveData[gbo + offsetYesterday]
+        sav_get_byte(gbo, offsetToday),
+        sav_get_byte(gbo, offsetYesterday)
     };
     for(i = 0; i < 3; i++)
     {
@@ -67,7 +66,7 @@ int main(int argc, char **argv)
         {
             current[slot] = choice;
             slotPkx[slot].species = species[choice];
-            saveData[gbo + (slot == 1 ? offsetToday : offsetYesterday)] = (char)choice;
+            sav_set_byte(choice, gbo, slot == 1 ? offsetToday : offsetYesterday);
         }
         slot = gui_menu_6x5("Which day's visitor do you\nwant to edit?", 3, slots, slotPkx, GEN_FOUR);
     }

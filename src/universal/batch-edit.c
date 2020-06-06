@@ -23,7 +23,7 @@ int limit_num(int min, int max, int max_digits)
 
 int main(int argc, char **argv)
 {
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     enum Generation gen_sav;
     int limit_lang = 9, limit_name = 13, limit_ball = 26;
 

@@ -5,7 +5,7 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     enum Generation gen;
 
     int maxSpecies = 0;
@@ -14,6 +14,14 @@ int main(int argc, char **argv)
 
     switch (version)
     {
+        case 1: // ruby
+        case 2: // sapphire
+        case 3: // emerald
+        case 4: // fire red
+        case 5: // leaf green
+            gen = GEN_THREE;
+            maxSpecies = 386;
+            break;
         case 10:
         case 11:
         case 12:

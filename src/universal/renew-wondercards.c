@@ -4,8 +4,7 @@
 
 int main(int argc, char** argv)
 {
-    unsigned char* saveData = (unsigned char*) argv[0];
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     int offset;
 
     switch (version)
@@ -36,7 +35,7 @@ int main(int argc, char** argv)
 
     for (int i = 0; i < wc_count; i++)
     {
-        saveData[offset + i * wc_size + ofs_renew] = 1;
+        sav_set_byte(1, offset, i * wc_size + ofs_renew);
     }
 
     gui_warn("All injected Wonder Cards have been renewed.\nVisit the delivery person in-game\nto reclaim your gift(s).");

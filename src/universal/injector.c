@@ -6,7 +6,7 @@
 
 int main(int argc, char** argv)
 {
-    unsigned char version         = *argv[2];
+    unsigned char version         = *argv[0];
     struct directory* injectables = read_directory("/3ds/PKSM/inject");
 
     if (injectables->count == 0)
@@ -68,9 +68,10 @@ int main(int argc, char** argv)
         free(data);
     }
     else if ((int)extension &&
-             (!strcasecmp(extension, "pk4") || !strcasecmp(extension, "ek4") || !strcasecmp(extension, "pk5") || !strcasecmp(extension, "ek5") ||
-                 !strcasecmp(extension, "pk6") || !strcasecmp(extension, "ek6") || !strcasecmp(extension, "pk7") || !strcasecmp(extension, "ek7") ||
-                 !strcasecmp(extension, "pb7") || !strcasecmp(extension, "eb7") || !strcasecmp(extension, "pk8") || !strcasecmp(extension, "ek8")))
+             (!strcasecmp(extension, "pk3") || !strcasecmp(extension, "ek3") || !strcasecmp(extension, "pk4") || !strcasecmp(extension, "ek4") ||
+                 !strcasecmp(extension, "pk5") || !strcasecmp(extension, "ek5") || !strcasecmp(extension, "pk6") || !strcasecmp(extension, "ek6") ||
+                 !strcasecmp(extension, "pk7") || !strcasecmp(extension, "ek7") || !strcasecmp(extension, "pb7") || !strcasecmp(extension, "eb7") ||
+                 !strcasecmp(extension, "pk8") || !strcasecmp(extension, "ek8")))
     {
         sav_box_decrypt();
         int fromStorage = 0;
@@ -92,6 +93,10 @@ int main(int argc, char** argv)
             if (!strcasecmp(extension + 1, "b7"))
             {
                 gen = GEN_LGPE;
+            }
+            else if (extension[2] == '3')
+            {
+                gen = GEN_THREE;
             }
             else if (extension[2] == '4')
             {

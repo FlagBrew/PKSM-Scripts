@@ -7,14 +7,14 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     enum Generation gen;
 
     int maxSpecies, maxMoves, maxBalls, maxItems, maxAbility, maxBoxes;
     unsigned int randomizedCount, maxLevel;
     gui_warn("Please enter how many pokemon\nyou would like to generate!");
     gui_numpad(&randomizedCount, "Number of PKMN to generate.", 3);
-    gui_warn("Please enter how the max level\nyou would like to have your pokemon be!");
+    gui_warn("Please enter the max level\nyou would like to have your pokemon be!");
     gui_numpad(&maxLevel, "Max level 1-100", 3);
 
     if(maxLevel <= 0 || maxLevel > 100) {
@@ -25,6 +25,19 @@ int main(int argc, char **argv)
 
     switch (version)
     {
+        case 1: // ruby
+        case 2: // sapphire
+        case 3: // emerald
+        case 4: // fire red
+        case 5: // leaf green
+            gen = GEN_THREE;
+            maxSpecies = 386;
+            maxBoxes = 14;
+            maxItems = (version == 4 || version == 5) ? 374 : (version == 3 ? 376 : 348);
+            maxMoves = 354;
+            maxBalls = 12;
+            maxAbility = 77;
+            break;
         case 10:
         case 11:
         case 12:
@@ -32,7 +45,7 @@ int main(int argc, char **argv)
         case 8:
             gen = GEN_FOUR;
             maxSpecies = 493;
-            maxBalls = 18;
+            maxBalls = 24;
             maxBoxes = 18;
             maxMoves = 467;
             maxAbility = 123;
@@ -45,7 +58,7 @@ int main(int argc, char **argv)
             gen = GEN_FIVE;
             maxSpecies = 649;
             maxBoxes = 24;
-            maxBalls = 19;
+            maxBalls = 25;
             maxMoves = 559;
             maxAbility = 164;
             maxItems = (version == 20 || version == 21) ? 632 : 638;
@@ -56,7 +69,7 @@ int main(int argc, char **argv)
         case 27:
             gen = GEN_SIX;
             maxSpecies = 721;
-            maxBalls = 19;
+            maxBalls = 25;
             maxItems = (version == 26 || version == 27) ? 775 : 717;
             maxBoxes = 31;
             maxMoves = (version == 26 || version == 27) ? 621 : 617;
@@ -79,7 +92,11 @@ int main(int argc, char **argv)
         case 43:
             gen = GEN_LGPE;
             maxSpecies = 153;
+            maxBalls = 26;
             break;
+        default:
+            gui_warn("Sorry this version isn't supported yet by the script!");
+            return 1;
     }
 
     if (randomizedCount > 30*maxBoxes || randomizedCount == 0){

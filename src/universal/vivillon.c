@@ -6,8 +6,7 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)argv[0];
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     int offset;
     enum Generation gen;
 
@@ -67,7 +66,7 @@ int main(int argc, char **argv)
         }
     }
 
-    saveData[offset] = pattern;
+    sav_set_byte(pattern, offset, 0);
     char message[50] = {'\0'};
     sprintf(message, "Save\'s native Vivillon pattern set to %s", labels[pattern]);
     gui_warn(message);
