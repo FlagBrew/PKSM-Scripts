@@ -205,5 +205,5 @@ int json_get_bool(struct JSON* get);
 const char* json_get_string(struct JSON* get);
 int json_array_size(struct JSON* get);
 struct JSON* json_array_element(struct JSON* array, int index);
-int json_object_contains(struct JSON* get);
+int json_object_contains(struct JSON* get, const char* elemName);
 struct JSON* json_object_element(struct JSON* object, const char* elemName);
