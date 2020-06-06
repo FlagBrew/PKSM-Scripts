@@ -10,7 +10,79 @@ int main(int argc, char **argv)
         "Write 4 bytes (int)",
         "Exit script"};
     char inputStr[11] = {'\0'};
-    int offset, lastOfs[4] = { atoi(argv[1]), atoi(argv[1]), atoi(argv[1]) - 2, atoi(argv[1]) - 4 };
+    int offset, lastOfs[4];
+    switch (*argv[0])
+    {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            lastOfs[0] = 0x20000 - 1;
+            lastOfs[1] = 0x20000 - 1;
+            lastOfs[2] = 0x20000 - 2;
+            lastOfs[3] = 0x20000 - 4;
+            break;
+        case 10:
+        case 11:
+        case 12:
+        case 7:
+        case 8:
+        case 20:
+        case 21:
+        case 22:
+        case 23:
+            lastOfs[0] =0x80000 - 1;
+            lastOfs[1] =0x80000 - 1;
+            lastOfs[2] =0x80000 - 2;
+            lastOfs[3] =0x80000 - 4;
+            break;
+        case 24:
+        case 25:
+            lastOfs[0] =0x65600 - 1;
+            lastOfs[1] =0x65600 - 1;
+            lastOfs[2] =0x65600 - 2;
+            lastOfs[3] =0x65600 - 4;
+            break;
+        case 26:
+        case 27:
+            lastOfs[0] =0x76000 - 1;
+            lastOfs[1] =0x76000 - 1;
+            lastOfs[2] =0x76000 - 2;
+            lastOfs[3] =0x76000 - 4;
+            break;
+        case 30:
+        case 31:
+            lastOfs[0] =0x6BE00 - 1;
+            lastOfs[1] =0x6BE00 - 1;
+            lastOfs[2] =0x6BE00 - 2;
+            lastOfs[3] =0x6BE00 - 4;
+            break;
+        case 32:
+        case 33:
+            lastOfs[0] =0x6CC00 - 1;
+            lastOfs[1] =0x6CC00 - 1;
+            lastOfs[2] =0x6CC00 - 2;
+            lastOfs[3] =0x6CC00 - 4;
+            break;
+        case 42:
+        case 43:
+            lastOfs[0] =0x100000 - 1;
+            lastOfs[1] =0x100000 - 1;
+            lastOfs[2] =0x100000 - 2;
+            lastOfs[3] =0x100000 - 4;
+            break;
+        case 44:
+        case 45:
+            lastOfs[0] =0x17195E - 1;
+            lastOfs[1] =0x17195E - 1;
+            lastOfs[2] =0x17195E - 2;
+            lastOfs[3] =0x17195E - 4;
+            break;
+        default:
+            gui_warn("This script does not work with this game")
+            return 1;
+    }
     unsigned int bit;
 
     int type = gui_menu_20x2("Choose an edit type to perform", 5, editTypes);
