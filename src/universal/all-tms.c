@@ -104,7 +104,7 @@ int main(int argc, char **argv)
         }
         else
         {
-            sav_set_short((1 << 15) + tms[i], ofs, i * 4);
+            sav_set_short((1 << 10) + tms[i], ofs, i * 4);
         }
     }
     if (k > 0) {
