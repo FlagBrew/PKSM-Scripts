@@ -80,7 +80,7 @@ int main(int argc, char **argv)
             lastOfs[3] =0x17195E - 4;
             break;
         default:
-            gui_warn("This script does not work with this game")
+            gui_warn("This script does not work with this game");
             return 1;
     }
     unsigned int bit;
