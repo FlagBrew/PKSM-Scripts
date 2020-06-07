@@ -16,8 +16,20 @@ int main(int argc, char **argv)
         case 27:
             configOffset = 0x16C00;
             break;
+        case 30:
+        case 31:
+            configOffset = 0x4400;
+            break;
+        case 32:
+        case 33:
+            configOffset = 0x4800;
+            break;
+        case 42:
+        case 43:
+            configOffset = 0x5600;
+            break;
         default:
-            gui_warn("This script only works on Gen 6 games");
+            gui_warn("Game not supported");
             return 1;
     }
 
