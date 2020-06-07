@@ -43,7 +43,7 @@ int main(int argc, char **argv)
         "Slow",
         "Mid",
         "Fast",
-        "Instant"
+        "Instant (= fast in DP)"
     };
     int choice = gui_menu_20x2("Pick a text speed option", 5, opts);
     if (choice) {
