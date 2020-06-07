@@ -39,16 +39,16 @@ int main(int argc, char **argv)
     
     /*thanks SpiredMoth for the below!*/
     char *opts[5] = {
+        "Exit Script",
         "Slow",
         "Mid",
         "Fast",
-        "Instant",
-        "Exit Script"
+        "Instant"
     };
-    int choice = gui_menu_20x2("Pick a text speed option");
+    int choice = gui_menu_20x2("Pick a text speed option", 5, opts);
     if (choice) {
-        sav_set_byte((sav_get_byte(configOffset, 0) & 0xFC) | choice, configOffset, 0);
-        gui_warn("Changes applied!");
+        sav_set_byte((sav_get_byte(configOffset, 0) & 0xFC) | (choice - 1), configOffset, 0);
+        gui_warn("Change applied!");
     }
 
     return 0;
