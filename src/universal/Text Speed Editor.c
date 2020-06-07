@@ -8,6 +8,10 @@ int main(int argc, char **argv)
     unsigned int configOffset;
     switch (version)
     {
+        case 10:
+        case 11:
+            configOffset = 0x60 + sav_gbo();
+            break;
         case 24:
         case 25:
             configOffset = 0x16200;
@@ -32,14 +36,20 @@ int main(int argc, char **argv)
             gui_warn("Game not supported");
             return 1;
     }
-
-    if (!gui_choice("Would you like your in-game text speed instant?"))
-    {
-        return 1;
+    
+    /*thanks SpiredMoth for the below!*/
+    char *opts[5] = {
+        "Slow",
+        "Mid",
+        "Fast",
+        "Instant",
+        "Exit Script"
+    };
+    int choice = gui_menu_20x2("Pick a text speed option");
+    if (choice) {
+        sav_set_byte((sav_get_byte(configOffset, 0) & 0xFC) | choice, configOffset, 0);
+        gui_warn("Changes applied!");
     }
-
-    /* set the game save config's first byte's smallest bits to 11 for instant text */
-    sav_set_byte(sav_get_byte(configOffset, 0) | 3, configOffset, 0);
 
     return 0;
 }
