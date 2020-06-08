@@ -7,6 +7,8 @@
 "Fulfill Spiritomb encounter requirements" -i 0xeb0 1 0x1 1 -i 0xe18 1 0x20 1
 "Set max Game Corner coins" -i 0x84 2 50000 1
 "Fill Fashion Case" -i 0x4ba8 0x3a "data/GenIV_Fashion_Case.bin" 1
+"Give all ball seals 99x" -i 0x6178 1 99 77
+"Give all ball seals 99x" -d "illegal" -i 0x6178 1 99 80
 "All Master Rank Contests Won" -i 0x1109 1 0xDF 1
 # This scripts changes the ID number at the Jubilife Lottery to the ID of the in-game trade Abra you can receive in oreburg city, allowing you to win the Master Ball if you have that Abra in PC or your Party
 "Lotto ID Number - 25643" -i 0xE14 2 25643 1 -i 0x1131 1 0 1 -i 0x1132 1 0 1
