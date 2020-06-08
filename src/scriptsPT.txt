@@ -7,6 +7,8 @@
 "Set max Game Corner coins" -i 0x88 2 50000 1
 "Get all Pokewatch apps" -i 0x1161 1 25 1 -i 0x1163 1 1 25 -i 0x1184 1 1 1
 "Fill Fashion Case" -i 0x4e38 0x3a "data/GenIV_Fashion_Case.bin" 1
+"Give all ball seals 99x" -i 0x6494 1 99 77
+"Give all ball seals 99x" -d "illegal" -i 0x6494 1 99 80
 "300K Steps" -i 0xE40 4 299999 1 -i 0x61B0 4 299999 1
 "Lotto ID Number - 25643" -i 0xE14 2 25643 1 -i 0x1131 1 0 1 -i 0x1132 1 0 1
 "All Master Rank Contests Won" -i 0x1119 1 31 1
