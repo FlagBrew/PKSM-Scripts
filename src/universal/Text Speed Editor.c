@@ -6,11 +6,13 @@ int main(int argc, char **argv)
     unsigned char version = *argv[0];
 
     unsigned int configOffset;
+    int noInstant = 0;
     switch (version)
     {
         case 10:
         case 11:
             configOffset = 0x60 + sav_gbo();
+            noInstant++;
             break;
         case 24:
         case 25:
@@ -43,9 +45,13 @@ int main(int argc, char **argv)
         "Slow",
         "Mid",
         "Fast",
-        "Instant (= fast in DP)"
+        "Instant"
     };
-    int choice = gui_menu_20x2("Pick a text speed option", 5, opts);
+    int optionCount = 5;
+    if (noInstant) {
+        optionCount--;
+    }
+    int choice = gui_menu_20x2("Pick a text speed option", optionCount, opts);
     if (choice) {
         sav_set_byte((sav_get_byte(configOffset, 0) & 0xFC) | (choice - 1), configOffset, 0);
     }
