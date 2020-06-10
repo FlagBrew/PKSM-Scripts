@@ -6,8 +6,8 @@
 "Unlock all Pokewalker Courses" -i 0xE70C 1 0xFF 3 -i 0xE70F 1 0x07 1
 "Set max Game Corner coins" -i 0x84 2 50000 1
 "Fill Fashion Case" -i 0x3f64 0x3a "data/GenIV_Fashion_Case.bin" 1
-# "Give all ball seals 99x" -i 0x42E0 1 99 77
-# "Give all ball seals 99x" -d "illegal" -i 0x42E0 1 99 80
+"Give all ball seals 99x" -i 0x4E20 1 99 77
+"Give all ball seals 99x" -d "illegal" -i 0x4E20 1 99 80
 "Max Pokeathlon Points" -i 0xE548 3 999999 1
 "Water All Berries" -i 0x226D 1 255 1 -i 0x2279 1 255 1 -i 0x2285 1 255 1 -i 0x2291 1 255 1
 "Berry Pots Harvestable - 51" -i 0x226A 1 51 1 -i 0x2276 1 51 1 -i 0x2282 1 51 1 -i 0x228E 1 51 1 -i 0x2265 1 5 1 -i 0x2271 1 5 1 -i 0x227D 1 5 1 -i 0x2289 1 5 1
