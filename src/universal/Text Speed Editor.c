@@ -48,7 +48,6 @@ int main(int argc, char **argv)
     int choice = gui_menu_20x2("Pick a text speed option", 5, opts);
     if (choice) {
         sav_set_byte((sav_get_byte(configOffset, 0) & 0xFC) | (choice - 1), configOffset, 0);
-        gui_warn("Change applied!");
     }
 
     return 0;
