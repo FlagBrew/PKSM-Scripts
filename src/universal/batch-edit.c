@@ -29,6 +29,16 @@ int main(int argc, char **argv)
 
     switch (version)
     {
+        case 1: // R
+        case 2: // S
+        case 3: // E
+        case 4: // FR
+        case 5: // LG
+            gen_sav = GEN_THREE;
+            limit_lang = 7;
+            limit_name = 8;
+            limit_ball = 13;
+            break;
         case 10: // D
         case 11: // P
         case 12: // PT
@@ -145,17 +155,17 @@ int main(int argc, char **argv)
         "Calm", "Gentle", "Sassy", "Careful", "Quirky"};
     char *balls[26] = {
         "Cherish Ball", "Poke Ball", "Great Ball", "Ultra Ball",
-        "Master Ball", "Premier Ball", "Dive Ball", "Dusk Ball",
-        "Heal Ball", "Luxury Ball", "Nest Ball", "Net Ball",
-        "Quick Ball", "Repeat Ball", "Safari Ball", "Timer Ball",
+        "Master Ball", "Premier Ball", "Dive Ball", "Luxury Ball",
+        "Nest Ball", "Net Ball", "Repeat Ball", "Safari Ball",
+        "Timer Ball", "Dusk Ball", "Heal Ball", "Quick Ball",
         "Fast Ball", "Friend Ball", "Heavy Ball", "Level Ball",
         "Love Ball", "Lure Ball", "Moon Ball", "Sport Ball",
         "Dream Ball", "Beast Ball"};
     int ball_ids[26] = {
         16, 4, 3, 2,
-        1, 12, 7, 13,
-        14, 11, 8, 6,
-        15, 9, 5, 10,
+        1, 12, 7, 11,
+        8, 6, 9, 5,
+        10, 13, 14, 15,
         17, 22, 20, 18,
         21, 19, 23, 24,
         25, 26};
@@ -238,10 +248,6 @@ int main(int argc, char **argv)
                     break;
                 case 15: // Random PID
                     choice = gui_choice("Should shiny Pokémon remain shiny?");
-                    if (choice)
-                    {
-                        gui_warn("This may take some time");
-                    }
                     break;
                 // case 16: // Item
                 //     // int (0-?)
@@ -264,6 +270,7 @@ int main(int argc, char **argv)
                 continue;
             }
 
+            gui_splash("This may take some time");
             for (int box = 0; box < boxes; box++)
             {
                 for (int slot = 0; slot < 30; slot++)
