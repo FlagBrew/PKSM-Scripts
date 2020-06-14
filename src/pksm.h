@@ -148,8 +148,8 @@ short sav_get_short(int off1, int off2);
 void sav_set_short(short data, int off1, int off2);
 int sav_get_int(int off1, int off2);
 void sav_set_int(int data, int off1, int off2);
-char* sav_get_string(unsigned int offset, unsigned int codepoints);
-void sav_set_string(char* string, unsigned int offset, unsigned int codepoints);
+char* sav_get_string(int off1, int off2, unsigned int codepoints);
+void sav_set_string(char* string, int off1, int off2, unsigned int codepoints);
 
 void bank_inject_pkx(char* data, enum Generation type, int box, int slot);
 char* bank_get_pkx(enum Generation* type, int box, int slot);
