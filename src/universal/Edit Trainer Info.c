@@ -326,7 +326,7 @@ int main(int argc, char **argv)
         sav_set_int(id.u32, ofsTID, 0);
         if (!failedAlloc)
         {
-            sav_set_string(otName, ofsName, nameLen16 / 2);
+            sav_set_string(otName, 0, ofsName, nameLen16 / 2);
         }
     }
 
