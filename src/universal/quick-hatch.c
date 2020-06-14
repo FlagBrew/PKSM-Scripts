@@ -5,19 +5,25 @@
 int main(int argc, char **argv)
 {
     unsigned char version = *argv[0];
-    int boxes, egg, friend;
+    int friend;
     enum Generation gen;
 
     switch (version)
     {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            gen = GEN_THREE;
+            friend = 0x29;
+            break;
         case 10:
         case 11:
         case 12:
         case 7:
         case 8:
             gen = GEN_FOUR;
-            boxes = 18;
-            egg = 0x3b;
             friend = 0x14;
             break;
         case 20:
@@ -25,8 +31,6 @@ int main(int argc, char **argv)
         case 22:
         case 23:
             gen = GEN_FIVE;
-            boxes = 24;
-            egg = 0x3b;
             friend = 0x14;
             break;
         case 24:
@@ -34,8 +38,6 @@ int main(int argc, char **argv)
         case 26:
         case 27:
             gen = GEN_SIX;
-            boxes = 31;
-            egg = 0x77;
             friend = 0xca; // OT Friendship controls egg cycles
             break;
         case 30:
@@ -43,37 +45,32 @@ int main(int argc, char **argv)
         case 32:
         case 33:
             gen = GEN_SEVEN;
-            boxes = 32;
-            egg = 0x77;
             friend = 0xca; // OT Friendship controls egg cycles
+            break;
+        case 44:
+        case 45:
+            gen = GEN_EIGHT;
+            friend = 0x112; // OT Friendship controls egg cycles
             break;
         default:
             gui_warn("This script doesn't work\non this game.");
             return 1;
     }
 
-    int box, slot, ofs, boxEggs = 0, partyEggs = 0;
-    unsigned short species;
+    int slots = sav_get_max(MAX_SLOTS), slot,
+        boxEggs = 0, partyEggs = 0;
     char isEgg;
-    char *pkm = malloc(260);
+    char *pkm = malloc(pkx_party_size(gen));
 
     sav_box_decrypt();
-    for (box = 0; box < boxes; box++)
+    for (slot = 0; slot < slots; slot++)
     {
-        for (slot = 0; slot < 30; slot++)
+        sav_get_pkx(pkm, slot / 30, slot % 30);
+        if (pkx_is_valid(pkm, gen) && pkx_get_value(pkm, gen, EGG))
         {
-            sav_get_pkx(pkm, box, slot);
-            species = *(unsigned short *)(pkm + 0x08);
-            if (species > 0)
-            {
-                isEgg = (pkm[egg] >> 6) & 0x1;
-                if (isEgg)
-                {
-                    boxEggs++;
-                    pkm[friend] = 0;
-                    sav_inject_pkx(pkm, gen, box, slot, 0);
-                }
-            }
+            boxEggs++;
+            pkm[friend] = 0;
+            sav_inject_pkx(pkm, gen, slot / 30, slot % 30, 0);
         }
     }
     sav_box_encrypt();
@@ -85,16 +82,11 @@ int main(int argc, char **argv)
     for (slot = 0; slot < 6; slot++)
     {
         party_get_pkx(pkm, slot);
-        species = *(unsigned short *)(pkm + 0x08);
-        if (species > 0)
+        if (pkx_is_valid(pkm, gen) && pkx_get_value(pkm, gen, EGG))
         {
-            isEgg = (pkm[egg] >> 6) & 0x1;
-            if (isEgg)
-            {
-                partyEggs++;
-                pkm[friend] = 0;
-                party_inject_pkx(pkm, gen, slot);
-            }
+            partyEggs++;
+            pkm[friend] = 0;
+            party_inject_pkx(pkm, gen, slot);
         }
     }
     if (partyEggs > 0)
