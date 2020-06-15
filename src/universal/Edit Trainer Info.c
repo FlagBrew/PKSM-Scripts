@@ -126,6 +126,13 @@ int main(int argc, char **argv)
 
     switch (version)
     {
+        case 1:  // RS
+        case 2:  // RS
+        case 3:  // E
+        case 4:  // FRLG
+        case 5:  // FRLG
+            ofsTID = 0xA;
+            break;
         case 7:  // HG
         case 8:  // SS
         case 10: // D
@@ -186,7 +193,22 @@ int main(int argc, char **argv)
         nameLen8 = nameLen16 + 0x8 + (version > 23) * 0x5,
         failedAlloc = 0;
     union trainerID id;
-    id.u32 = sav_get_int(ofsTID, 0);
+    id.u32 = sav_get_int(0, ofsTID);
+
+    // Gen 3 strings are really stupid
+    if (version <= 5)
+    {
+        if (sav_get_value(SAV_LANGUAGE) == 1)
+        {
+            nameLen16 = 0xA;            // Japanese name length: 5
+            nameLen8 = nameLen16 + 0x5;
+        }
+        else
+        {
+            nameLen16 = 0xE;            // Other name length: 7
+            nameLen8 = nameLen16 + 0x7;
+        }
+    }
 
     char *oldName = malloc(nameLen8), *newName = malloc(nameLen8),
         *otName = malloc(nameLen8),
@@ -323,7 +345,7 @@ int main(int argc, char **argv)
 
     if (changes)
     {
-        sav_set_int(id.u32, ofsTID, 0);
+        sav_set_int(id.u32, 0, ofsTID);
         if (!failedAlloc)
         {
             sav_set_string(otName, 0, ofsName, nameLen16 / 2);
