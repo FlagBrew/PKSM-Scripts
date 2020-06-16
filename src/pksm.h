@@ -142,6 +142,8 @@ int sav_gbo();
 int sav_sbo();
 void sav_get_data(char* dataOut, unsigned int size, int off1, int off2);
 void sav_set_data(char* data, unsigned int size, int off1, int off2);
+int sav_get_bit(int off1, int off2, int bit);
+void sav_set_bit(int bitVal, int off1, int off2, int bit);
 char sav_get_byte(int off1, int off2);
 void sav_set_byte(char data, int off1, int off2);
 short sav_get_short(int off1, int off2);
