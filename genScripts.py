@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import shlex, PKSMScript, sys, glob, shutil, os
 
-games = ["LGPE", "USUM", "SM", "ORAS", "XY", "B2W2", "BW", "HGSS", "PT", "DP"]
+games = ["LGPE", "USUM", "SM", "ORAS", "XY", "B2W2", "BW", "HGSS", "PT", "DP", "RS", "E", "FRLG"]
 
 def main(args):
 	print("Generating scripts...")
@@ -27,12 +27,14 @@ def main(args):
 			shutil.move(pksmFile, "scripts/" + game.lower())
 
 def generate(game):
-	with open(os.path.join("src", "scripts%s.txt" % game), 'r', encoding="UTF-8") as pksmArgFile:
-		for line in pksmArgFile:
-			if not line.startswith('#'):
-				line.replace('\\', '/')
-				pksmArgs = PKSMScript.parser.parse_args(shlex.split(line))
-				PKSMScript.main(pksmArgs)
+	path = os.path.join("src", "scripts%s.txt" % game)
+	if os.path.exists(path):
+		with open(path, 'r', encoding="UTF-8") as pksmArgFile:
+			for line in pksmArgFile:
+				if not line.startswith('#'):
+					line.replace('\\', '/')
+					pksmArgs = PKSMScript.parser.parse_args(shlex.split(line))
+					PKSMScript.main(pksmArgs)
 
 def cleanCScripts(folder):
 	os.mkdir(folder.replace("src/", "scripts/"))
