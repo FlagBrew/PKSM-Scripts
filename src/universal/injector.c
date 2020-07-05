@@ -16,7 +16,7 @@ int main(int argc, char** argv)
         return 0;
     }
 
-    int chosen      = gui_menu_20x2("Choose a file to inject", injectables->count, injectables->files);
+    int chosen = gui_menu_20x2("Choose a file to inject", injectables->count, injectables->files);
     char* extension = NULL;
     if (strlen(injectables->files[chosen]) > 3)
     {
@@ -30,9 +30,11 @@ int main(int argc, char** argv)
         }
     }
 
-    if ((int)extension && (!strcasecmp(extension, "pgt") || !strcasecmp(extension, "wc4") || !strcasecmp(extension, "pgf") ||
-                              !strcasecmp(extension, "wc6") || !strcasecmp(extension, "wc7") || !strcasecmp(extension, "wb7") ||
-                              !strcasecmp(extension, "wc6full") || !strcasecmp(extension, "wc7full") || !strcasecmp(extension, "wb7full")))
+    if ((int)extension && (!strcasecmp(extension, "pgt") || !strcasecmp(extension, "wc4") ||
+                              !strcasecmp(extension, "pgf") || !strcasecmp(extension, "wc8") ||
+                              !strcasecmp(extension, "wc6") || !strcasecmp(extension, "wc6full") ||
+                              !strcasecmp(extension, "wc7") || !strcasecmp(extension, "wc7full") ||
+                              !strcasecmp(extension, "wb7") || !strcasecmp(extension, "wb7full")))
     {
         FILE* file = fopen(injectables->files[chosen], "rb");
         fseek(file, 0, SEEK_END);
@@ -64,14 +66,20 @@ int main(int argc, char** argv)
         {
             sav_inject_wcx(data, GEN_LGPE, slot, strlen(extension) > 3);
         }
+        else if (!strncasecmp(extension, "wc8", 3))
+        {
+            sav_inject_wcx(data, GEN_EIGHT, slot, 0);
+        }
 
         free(data);
     }
-    else if ((int)extension &&
-             (!strcasecmp(extension, "pk3") || !strcasecmp(extension, "ek3") || !strcasecmp(extension, "pk4") || !strcasecmp(extension, "ek4") ||
-                 !strcasecmp(extension, "pk5") || !strcasecmp(extension, "ek5") || !strcasecmp(extension, "pk6") || !strcasecmp(extension, "ek6") ||
-                 !strcasecmp(extension, "pk7") || !strcasecmp(extension, "ek7") || !strcasecmp(extension, "pb7") || !strcasecmp(extension, "eb7") ||
-                 !strcasecmp(extension, "pk8") || !strcasecmp(extension, "ek8")))
+    else if ((int)extension && (!strcasecmp(extension, "pk3") || !strcasecmp(extension, "ek3") ||
+                                   !strcasecmp(extension, "pk4") || !strcasecmp(extension, "ek4") ||
+                                   !strcasecmp(extension, "pk5") || !strcasecmp(extension, "ek5") ||
+                                   !strcasecmp(extension, "pk6") || !strcasecmp(extension, "ek6") ||
+                                   !strcasecmp(extension, "pk7") || !strcasecmp(extension, "ek7") ||
+                                   !strcasecmp(extension, "pb7") || !strcasecmp(extension, "eb7") ||
+                                   !strcasecmp(extension, "pk8") || !strcasecmp(extension, "ek8")))
     {
         sav_box_decrypt();
         int fromStorage = 0;
@@ -90,7 +98,7 @@ int main(int argc, char** argv)
             fclose(file);
 
             enum Generation gen;
-            if (!strcasecmp(extension + 1, "b7"))
+            if ((extension[1] == 'b' || extension[1] == 'B') && extension[2] == '7')
             {
                 gen = GEN_LGPE;
             }
