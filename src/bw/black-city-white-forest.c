@@ -80,6 +80,7 @@ int main(int argc, char **argv)
     residents[20].form = 0;
 
     slot = gui_menu_6x5("Edit which slot?\nBack = shareable", 21, slots, residents, GEN_FIVE);
+    char message[29] = {0};
     while (slot < 20)
     {
         present = 0;
@@ -93,9 +94,9 @@ int main(int argc, char **argv)
             {
                 if (i != slot && current[i] == choice) {
                     present = 1;
-                    char message[29] = {0};
                     sprintf(message, "%s\nis already present", trainers[choice]);
                     gui_warn(message);
+                    memset(message, '\0', 29);
                     break;
                 }
             }
