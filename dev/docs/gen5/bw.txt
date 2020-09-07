@@ -6,6 +6,8 @@ Meaning                                     Offset      Length      Max Value   
         - current box                       0           1           23
         - box names                         0x4         0x3c0
         - wallpapers                        0x3c4       24
+        - wallpaper sets unlocked           0x3dc       1
+        - boxes unlocked                    0x3dd       1           24
     - Box 1                                 0x400       0xff0
     - Box 2                                 0x1400      0xff0
     - Box 3                                 0x2400      0xff0
@@ -63,11 +65,10 @@ Meaning                                     Offset      Length      Max Value   
     - Y                                     0x1958e     2
 - Unity Tower, survey                       0x19600     0x1338
     - Geonet location                       0x1a93a     2
-- Pal Pad
-    - Player data                           0x1aa00     0x7c4
-    - Friend data                           0x1b200     0xd54
+- Pal Pad Player data                       0x1aa00     0x7c4
+- Pal Pad Friend data                       0x1b200     0xd54
 - C-Gear Info                               0x1c000     0x2c
-- gym badge data???                         0x1c100     0x658
+- Trainer Card                              0x1c100     0x658
     - gym badge dates                       0x1c704
 - Wondercard data                           0x1c800     0xa94
     - WC seed                               0x1d290
@@ -78,9 +79,10 @@ Meaning                                     Offset      Length      Max Value   
     - seconds to fame                       0x1d93c     4
 - Trainer Card records                      0x1da00     0x1e0
 - ???                                       0x1dc00     0xa8
-- ???                                       0x1dd00     0x460
+- (Mail?)                                   0x1dd00     0x460
 - ???                                       0x1e200     0x1400
 - Musical data (downloaded)                 0x1f700     0x2a4
+    - owned props                           0x1f958     13
 - Black City / White Forest                 0x1fa00     0x2dc
     - TID                                   0x1fa04     2
     - SID                                   0x1fa06     2
@@ -112,7 +114,7 @@ Meaning                                     Offset      Length      Max Value   
         - back slot 8                       0x1fba0
         - back slot 9                       0x1fbb8
         - back slot 10                      0x1fbd0
-- ???                                       0x1fd00     0x34c
+- (IR?)                                     0x1fd00     0x34c
 - Event                                     0x20100     0x3ec
     - Event const                           0x20100
         - starter?                          0x20160
@@ -129,7 +131,7 @@ Meaning                                     Offset      Length      Max Value   
     - Fly                                   0x204b2
 - ???                                       0x20500     0xf8
 - Tournament                                0x20600     0x2fc
-- ???                                       0x20900     0x94
+- (Gimmick?)                                0x20900     0x94
 - Battle Box                                0x20a00     0x35c
     - locked                                0x20d58
 - Daycare                                   0x20e00     0x1cc
@@ -137,9 +139,6 @@ Meaning                                     Offset      Length      Max Value   
         - occupied                          0x20e00     4
         - EXP                               0x20ee0     4
     - slot 2                                0x20ee4
-        - occupied                          0x20ee4     4
-        - EXP                               0x20fc4     4
-    - RNG seed                              0x20fcc
 - Strength boulder status                   0x21000     0x168
 - Trainer2                                  0x21200     0xec
     - money                                 0x21200     4           999999
@@ -177,7 +176,7 @@ Meaning                                     Offset      Length      Max Value   
         - normal                            0x2190e
         - shiny                             0x21917
     - language flags                        0x21920
-- Swarm and overworld info                  0x21b00     0x34
+- Overworld info                            0x21b00     0x34
     - roamers                               0x21b00
         - ? - 642                           0x21b04     14
         - ? - 641                           0x21b18     14
@@ -188,10 +187,27 @@ Meaning                                     Offset      Length      Max Value   
     - swarm                                 0x21b30     1           16          1
     - repel type                            0x21b31?
     - repel steps                           0x21b32?
-- ???                                       0x21c00     0x3c
-- Battle Subway                             0x21d00     0x1ac
+- (Battle Subway play info?)                0x21c00     0x3c
+- Battle Subway (score info?)               0x21d00     0x1ac
     - BP                                    0x21d00     2           9999
-- ???                                       0x21f00     0xb90
+    - Super check                           0x21d04     1
+    - Single past                           0x21d08     2
+    - Double past                           0x21d0a     2
+    - Multi NPC past                        0x21d0c     2
+    - Multi friend past                     0x21d0e     2
+    - Super Single past                     0x21d12     2
+    - Super Double past                     0x21d14     2
+    - Super Multi NPC past                  0x21d16     2
+    - Super Multi friend past               0x21d18     2
+    - Single record                         0x21d1a     2
+    - Double record                         0x21d1c     2
+    - Multi NPC record                      0x21d1e     2
+    - Multi friend record                   0x21d20     2
+    - Super Single record                   0x21d24     2
+    - Super Double record                   0x21d26     2
+    - Super Multi NPC record                0x21d28     2
+    - Super Multi friend record             0x21d2a     2
+- (Battle Subway WiFi info?)                0x21f00     0xb90
 - Online records                            0x22b00     0x9c
 - Entree Forest Pokémon data                0x22c00     0x850
     - Unlock Area 9                         0x23448     1           1
@@ -201,8 +217,36 @@ Meaning                                     Offset      Length      Max Value   
 - ???                                       0x23600     0x284
 - ???                                       0x23900     0x10
 - ???                                       0x23a00     0x5c
-- ???                                       0x23b00     0x16c
-- ???                                       0x23d00     0x40
+- Hall of Fame (1st?)                       0x23b00     0x16c
+    - team slot 1                           0x23b00     0x3c
+        - species                           0x23b00     2
+        - level                             0x23b02     1
+        - flags?                            0x23b03     1
+            - gender                                                0x40        0x40
+        - PID                               0x23b04     4
+        - Trainer ID                        0x23b08     2
+        - Secret ID                         0x23b0a     2
+        - Nickname                          0x23b0c     22
+        - Trainer name                      0x23b22     16
+        - Move 1                            0x23b32     2
+        - Move 2                            0x23b34     2
+        - Move 3                            0x23b36     2
+        - Move 4                            0x23b38     2
+        - unused?                           0x23b3a     2
+    - team slot 2                           0x23b3c     0x3c
+    - team slot 3                           0x23b78     0x3c
+    - team slot 4                           0x23bb4     0x3c
+    - team slot 5                           0x23bf0     0x3c
+    - team slot 6                           0x23c2c     0x3c
+    - clear date - year                     0x23c68     2
+    - clear date - month                    0x23c6a     1
+    - clear date - day                      0x23c6b     1
+- In-game Trade battles                     0x23d00     0x40
+    - Cottonee (B) / Petilil (W)            0x23d00     0x20
+        - Nickname                          0x23d04     22
+        - Trainer ID                        0x23d1c     2
+        - Secret ID                         0x23d1e     2
+    - Minccino                              0x23d20     0x20
 - ???                                       0x23e00     0xfc
 - Checksums                                 0x23f00     0x8c
 - C-Gear Data                               0x52000

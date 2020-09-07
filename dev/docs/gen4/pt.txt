@@ -195,8 +195,13 @@ Meaning                                     Offset      Length      Max Value
 - Honey                                     0x7f38
 - Wondercard flags                          0xb4c0
 - Wondercard data                           0xb5c0
-- General Block save count                  0xcf1c      2
-- General Block checksum                    0xcf2a      2
+- General Block footer                      0xcf18
+    - Storage Block save count              0xcf18      4
+    - General Block save count              0xcf1c      4
+    - General block size                    0xcf20      4
+    - runtime usage (SDK date)              0xcf24      4
+    - runtime usage                         0xcf28      2
+    - General Block checksum                0xcf2a      2
 - Storage Block                             0xcf2c
     - current box                           0xcf2c      1
     - Box 1                                 0xcf30      0xff0
@@ -221,4 +226,38 @@ Meaning                                     Offset      Length      Max Value
     - wallpapers                            0x1f0e0     18
     - save count                            0x1f100     2
     - checksum                              0x1f10e     2
-- Hall of Fame Block                        ?
+- Hall of Fame block                        0x20000     0x2ac0
+    - entry 1                               0x20000     0x16c
+        - team slot 1                       0x20000     0x3c
+            - species                       0x20000     2
+            - level                         0x20002     1
+            - flags?                        0x20003     1
+            - PID                           0x20004     4
+            - Trainer ID                    0x20008     2
+            - Secret ID                     0x2000a     2
+            - nickname                      0x2000c     22
+            - Trainer name                  0x20022     16
+            - move 1                        0x20032     2
+            - move 2                        0x20034     2
+            - move 3                        0x20036     2
+            - move 4                        0x20038     2
+            - unused?                       0x2003a     2
+        - team slot 2                       0x2003c     0x3c
+        - team slot 3                       0x20078     0x3c
+        - team slot 4                       0x200b4     0x3c
+        - team slot 5                       0x200f0     0x3c
+        - team slot 6                       0x2012c     0x3c
+        - clear date year                   0x20168     2
+        - clear date month                  0x2016a     1
+        - clear date day                    0x2016b     1
+    - entry 2                               0x2016c     0x16c
+    - ...
+    - entry 30                              0x2293c     0x16c
+    - block footer                          0x22aa8     0x18
+        - save ID number                    0x22aa8     4
+        - save index number                 0x22aac     4
+        - runtime usage (SDK date)          0x22ab0     4
+        - runtime usage (save index?)       0x22ab4     4
+        - size of block                     0x22ab8     4
+        - runtime usage (always 0x0000?)    0x22abc     2
+        - checksum                          0x22abe     2

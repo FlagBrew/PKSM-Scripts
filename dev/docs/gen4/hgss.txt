@@ -182,11 +182,15 @@ Meaning                                     Offset      Length      Max Value   
     - slot 1 (top-left)                     0xc13c      0x7a
         - area type                         0xc13c      1           0x0b
         - placed objects count              0xc13d      1           30
-        - placed objects                    0xc13e      30*4
-            - object 1 ID                   0xc13e      1           0x17
-            - object 1 map X coordinate     0xc13f      1
-            - object 1 map Y coordinate     0xc140      1
-            - object 1 map Z coordinate     0xc141      1
+        - placed objects                    0xc13e      0x78
+            - object 1                      0xc13e      4
+                - ID                        0xc13e      1           0x17
+                - map X coordinate          0xc13f      1
+                - map Y coordinate          0xc140      1
+                - map Z coordinate          0xc141      1
+            - object 2                      0xc142      4
+            - ...
+            - object 30                     0xc1b2      4
     - slot 2 (top-middle)                   0xc1b6      0x7a
     - slot 3 (top-right)                    0xc230      0x7a
     - slot 4 (bottom-left)                  0xc2aa      0x7a
@@ -216,8 +220,13 @@ Meaning                                     Offset      Length      Max Value   
     - Black                                 0xe55e      1
 - Pokewalker                                0xe70c
     - unlocked courses                      0xe70c      4
-- General Block save count                  0xf618      2
-- General block checksum                    0xf626      2
+- General Block footer                      0xf614
+    - Storage Block save count              0xf614      4
+    - General Block save count              0xf618      4
+    - General Block size                    0xf61c      4
+    - runtime usage (SDK date)              0xf620      4
+    - runtime usage                         0xf624      2
+    - General block checksum                0xf626      2
 - Storage Block                             0xf700
     - Box 1                                 0xf700      0xff0
     - Box 2                                 0x10700     0xff0
@@ -242,4 +251,38 @@ Meaning                                     Offset      Length      Max Value   
     - Box Wallpapers                        0x219d8
     - save count                            0x21a00     2
     - checksum                              0x21a0e     2
-- Hall of Fame Block                        0x23000
+- Hall of Fame Block                        0x23000     0x2ac0
+    - entry 1                               0x23000     0x16c
+        - team slot 1                       0x23000     0x3c
+            - species                       0x23000     2
+            - level                         0x23002     1
+            - flags?                        0x23003     1
+            - PID                           0x23004     4
+            - Trainer ID                    0x23008     2
+            - Secret ID                     0x2300a     2
+            - nickname                      0x2300c     22
+            - Trainer name                  0x23022     16
+            - move 1                        0x23032     2
+            - move 2                        0x23034     2
+            - move 3                        0x23036     2
+            - move 4                        0x23038     2
+            - unused?                       0x2303a     2
+        - team slot 2                       0x2303c     0x3c
+        - team slot 3                       0x23078     0x3c
+        - team slot 4                       0x230b4     0x3c
+        - team slot 5                       0x230f0     0x3c
+        - team slot 6                       0x2312c     0x3c
+        - clear date year                   0x23168     2
+        - clear date month                  0x2316a     1
+        - clear date day                    0x2316b     1
+    - entry 2                               0x2316c     0x16c
+    - ...
+    - entry 30                              0x2593c     0x16c
+    - block footer                          0x25aa8     0x18
+        - save ID number                    0x25aa8     4
+        - save index number                 0x25aac     4
+        - runtime usage (SDK date)          0x25ab0     4
+        - runtime usage                     0x25ab4     4
+        - size of block                     0x25ab8     4
+        - runtime usage                     0x25abc     2
+        - checksum                          0x25abe     2

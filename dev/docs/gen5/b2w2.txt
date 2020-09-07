@@ -6,6 +6,8 @@ Meaning                                     Offset      Length      Max Value   
         - current box                       0           1           23
         - box names                         0x4         0x3c0
         - wallpapers                        0x3c4       24
+        - wallpaper sets unlocked           0x3dc       1
+        - boxes unlocked                    0x3dd       1           24
     - Box 1                                 0x400       0xff0
     - Box 2                                 0x1400      0xff0
     - Box 3                                 0x2400      0xff0
@@ -39,11 +41,11 @@ Meaning                                     Offset      Length      Max Value   
 - Party                                     0x18e00     0x534
     - party count                           0x18e04     1
     - slot 1                                0x18e08
-    - slot 2                                0x18e08
-    - slot 3                                0x18e08
-    - slot 4                                0x18e08
-    - slot 5                                0x18e08
-    - slot 6                                0x18e08
+    - slot 2                                ?
+    - slot 3                                ?
+    - slot 4                                ?
+    - slot 5                                ?
+    - slot 6                                ?
 - Trainer Data                              0x19400     0xb0
     - OT                                    0x19404     16
     - TID                                   0x19414     2           65535
@@ -63,11 +65,11 @@ Meaning                                     Offset      Length      Max Value   
     - Y                                     0x1958e     2
 - Unity Tower, survey                       0x19600     0x1338
     - Geonet location                       0x1a93a     2
-- Pal Pad
-    - Player data                           0x1aa00     0x7c4
-    - Friend data                           0x1b200     0xd54
+- Pal Pad Player data                       0x1aa00     0x7c4
+- Pal Pad Friend data                       0x1b200     0xd54
 - Options / C-Gear Info                     0x1c000     0x94
 - Trainer Card                              0x1c100     0x658
+    - gym badge dates                       0x1c704?
 - Wondercard data                           0x1c800     0xa94
     - WC seed                               0x1d290
 - Dream World (catalog)                     0x1d300     0x1ac
@@ -80,6 +82,7 @@ Meaning                                     Offset      Length      Max Value   
 - Mail                                      0x1dd00     0x460
 - ???                                       0x1e200     0x1400
 - Musical                                   0x1f700     0x2a4
+    - owned props                           0x1f958?    13
 - Fused Reshiram/Zekrom storage             0x1fa00     0xe0
 - IR                                        0x1fb00     0x34c
 - Event                                     0x1ff00     0x4e0
@@ -110,14 +113,16 @@ Meaning                                     Offset      Length      Max Value   
         - occupied?                         0x20d00     4
         - EXP                               0x20de0     4
     - slot 2                                0x20de4
-        - occupied?                         0x20de4     4
-        - EXP                               0x20ec4     4
     - RNG seed                              0x20ecc     8
 - Strength boulder status                   0x20f00     0x1e0
 - Trainer2                                  0x21100     0xf0
     - money                                 0x21100     4           999999
     - badge flags                           0x21104     1           255
     - people passed                         0x21120     4
+    - trainer sayings
+        - ?                                 0x21124
+        - ?                                 0x21136
+        - ?                                 ?
     - badge teams                           0x2115c
         - Aspertia                          0x2115c     12
         - Virbank                           0x21168     12
@@ -127,7 +132,6 @@ Meaning                                     Offset      Length      Max Value   
         - Mistralton                        0x21198     12
         - Opelucid                          0x211a4     12
         - Humilau                           0x211b0     12
-    - trainer sayings                       ?
 - Entralink (level & powers etc.)           0x21200     0x1b4
     - Entree White level                    0x2120c     2
     - Entree Black level                    0x2120e     2
@@ -157,11 +161,27 @@ Meaning                                     Offset      Length      Max Value   
     - swarm                                 0x2192c     1           19          1
     - repel steps                           0x2192d?
     - repel type                            0x2192e?
-- Battle Subway
-    - play info                             0x21a00     0x3c
-    - score info                            0x21b00     0x1ac
-        - BP                                0x21b00     2           9999
-    - WiFi info                             0x21d00     0xb90
+- Battle Subway play info                   0x21a00     0x3c
+- Battle Subway score info                  0x21b00     0x1ac
+    - BP                                    0x21b00     2           9999
+    - Super check                           0x21b04     1
+    - Single past                           0x21b08     2
+    - Double past                           0x21b0a     2
+    - Multi NPC past                        0x21b0c     2
+    - Multi friend past                     0x21b0e     2
+    - Super Single past                     0x21b12     2
+    - Super Double past                     0x21b14     2
+    - Super Multi NPC past                  0x21b16     2
+    - Super Multi friend past               0x21b18     2
+    - Single record                         0x21b1a     2
+    - Double record                         0x21b1c     2
+    - Multi NPC record                      0x21b1e     2
+    - Multi friend record                   0x21b20     2
+    - Super Single record                   0x21b24     2
+    - Super Double record                   0x21b26     2
+    - Super Multi NPC record                0x21b28     2
+    - Super Multi friend record             0x21b2a     2
+- Battle Subway WiFi info                   0x21d00     0xb90
 - Online records                            0x22900     0xac
 - Entree Forest Pokémon data                0x22a00     0x850
     - Unlock Area 9                         0x23248     1           1
@@ -200,42 +220,179 @@ Meaning                                     Offset      Length      Max Value   
         - Rental Master                     0x23790     2
         - Mix                               0x23792     2
         - Mix Master                        0x23794     2
-- ???                                       0x23800     0x16c
-- ???                                       0x23a00     0x80
+- (Hall of Fame (1st?))                     0x23800     0x16c
+    - team slot 1                           0x23800     0x3c
+        - species                           0x23800     2
+        - level                             0x23802     1
+        - ?                                 0x23803     1
+        - PID                               0x23804     4
+        - Trainer ID                        0x23808     2
+        - Secret ID                         0x2380a     2
+        - Nickname                          0x2380c     22
+        - Trainer name                      0x23822     16
+        - Move 1                            0x23832     2
+        - Move 2                            0x23834     2
+        - Move 3                            0x23836     2
+        - Move 4                            0x23838     2
+    - team slot 2                           0x2383c     0x3c
+    - team slot 3                           0x23878     0x3c
+    - team slot 4                           0x238b4     0x3c
+    - team slot 5                           0x238f0     0x3c
+    - team slot 6                           0x2392c     0x3c
+    - clear date - year                     0x23968     2
+    - clear date - month                    0x2396a     1
+    - clear date - day                      0x2396b     1
+- In-game Trade battles                     0x23a00     0x80
+    - Cottonee (B) / Petilil (W)            0x23a00     0x20
+        - Nickname                          0x23a04     22
+        - Trainer ID                        0x23a1c     2
+        - Secret ID                         0x23a1e     2
+    - ???                                   0x23a20     0x20
+    - Excadrill                             0x23a40     0x20
+    - Hippowdon                             0x23a60     0x20
 - Hollow / Rival                            0x23b00     0xfc
 - Join Avenue                               0x23c00     0x16a8
-    - Shop 1
-        - level                             0x24759     1           9
-        - experience                        0x2475a     2
-        - stock                             0x2475c     4
-    - Shop 2
-        - level                             0x2481d     1           9
-        - experience                        0x2481e     2
-        - stock                             0x24820     4
-    - Shop 3
-        - level                             0x248e1     1           9
-        - experience                        0x248e2     2
-        - stock                             0x248e4     4
-    - Shop 4
-        - level                             0x249a5     1           9
-        - experience                        0x249a6     2
-        - stock                             0x249a8     4
-    - Shop 5
-        - level                             0x24a69     1           9
-        - experience                        0x24a6a     2
-        - stock                             0x24a6c     4
-    - Shop 6
-        - level                             0x24b2d     1           9
-        - experience                        0x24b2e     2
-        - stock                             0x24b30     4
-    - Shop 7
-        - level                             0x24bf1     1           9
-        - experience                        0x24bf2     2
-        - stock                             0x24bf4     4
-    - Shop 8
-        - level                             0x24cb5     1           9
-        - experience                        0x24cb6     2
-        - stock                             0x24cb8     4
+    - Visitors                              0x23c08
+        - Visitor 1                         0x23c08     0xc4
+            - character's name              0x23c08     16
+            - country                       0x23c16     1
+            - subregion                     0x23c17     1
+            - shout                         0x23c18     16
+            - gender                        0x23c2a     1           0x10        0x10
+            - Trainer ID                    0x23c2c     2
+            - Secret ID                     0x23c2e     2
+            - played time                   0x23c30     2
+            - sprite                        0x23c32     1
+            - recruit restriction           0x23c34     1
+            - shop choices                  0x23c36     1
+            - Pokémon in dex                0x23c3c     2
+            - favorite Pokémon              0x23c3d     2
+            - Medals                        0x23c41     1
+            - adventure start               0x23c42
+            - Hall of Fame entry            0x23c44
+            - link trades                   0x23c48     4
+            - nicknames given               0x23c4c     4
+            - customers                     0x23c50     4
+            - money spent                   0x23c54     4
+            - Passerby met                  0x23c58     4
+            - link battles                  0x23c5c     4
+            - Pokémon caught                0x23c60     4
+            - eggs hatched                  0x23c64     4
+            - occupant trivia               0x23c68
+            - occupant activities           0x23c78
+            - greeting                      0x23c88     14
+            - farewell                      0x23c98     14
+            - is player                     0x23ca8     1           1
+            - met year                      0x23cab     1
+            - met month                     0x23cac     1
+            - met day                       0x23cad     1
+            - player's Avenue rank          0x23cb3     1
+            - shop level                    0x23cb5     1           9
+            - shop experience               0x23cb6     2
+            - stock                         0x23cb8     1
+            - shop game, type, inv lvl      0x23cbc     2
+        - Visitor 2                         0x23ccc
+        - Visitor 3                         0x23d90
+        - Visitor 4                         0x23e54
+        - Visitor 5                         0x23f18
+        - Visitor 6                         0x23fdc
+        - Visitor 7                         0x240a0
+        - Visitor 8                         0x24164
+    - NPCs                                  0x2422c
+        - NPC 1                             0x2422c     0x60
+            - name                          0x2422c     16
+            - unused? (country)             0x2423a     1
+            - unused? (subregion)           0x2423b     1
+            - NPC greeting                  0x2423c
+            - gender                        0x2424e     1           0x10        0x10
+            - NPC text 1                    0x24258     14
+            - NPC text 2                    0x24268     14
+            - spoken to flag                0x2427b     1           1
+            - text bubble popups?           0x24281
+            - souvenirs given?              0x24288
+        - NPC 2                             0x2428c
+        - NPC 3                             0x242ec
+        - NPC 4                             0x2434c
+        - NPC 5                             0x243ac
+        - NPC 6                             0x2440c
+        - NPC 7                             0x2446c
+        - NPC 8                             0x244cc
+        - NPC 9                             0x2452c
+        - NPC 10                            0x2458c
+        - NPC 11                            0x245ec
+        - NPC 12                            0x2464c
+    - Shops                                 0x246ac
+        - Shop 1                            0x246ac     0xc4
+            - character's name              0x246ac     16
+            - country                       0x246ba     1
+            - subregion                     0x246bb     1
+            - shout                         0x246bc     16
+            - gender                        0x246ce     1           0x10        0x10
+            - Trainer ID                    0x246d0     2
+            - Secret ID                     0x246d2     2
+            - played time                   0x246d4     2
+            - sprite                        0x246d6     1
+            - recruit restriction           0x246d8     1
+            - shop choices                  0x246da     1
+            - Pokémon in dex                0x246e0     2
+            - favorite Pokémon              0x246e1     2
+            - Medals                        0x246e5     1
+            - adventure start               0x246e6
+            - Hall of Fame entry            0x246e8
+            - link trades                   0x246ec     4
+            - nicknames given               0x246f0     4
+            - customers                     0x246f4     4
+            - money spent                   0x246f8     4
+            - Passerby met                  0x246fc     4
+            - link battles                  0x24700     4
+            - Pokémon caught                0x24704     4
+            - eggs hatched                  0x24708     4
+            - occupant trivia               0x2470c
+            - occupant activities           0x2471c
+            - greeting                      0x2472c     14
+            - farewell                      0x2473c     14
+            - is player                     0x2474c     1           1
+            - met year                      0x2474f     1
+            - met month                     0x24750     1
+            - met day                       0x24751     1
+            - player's Avenue rank          0x24757     1
+            - shop level                    0x24759     1           9
+            - shop experience               0x2475a     2
+            - stock                         0x2475c     4
+            - shop game, type, inv lvl      0x24760     2
+        - Shop 2                            0x24770
+        - Shop 3                            0x24834
+        - Shop 4                            0x248f8
+        - Shop 5                            0x249bc
+        - Shop 6                            0x24a80
+        - Shop 7                            0x24b44
+        - Shop 8                            0x24c08
+    - Helpers                               0x24ccc
+        - Helper 1                          0x24ccc     0x58
+            - name                          0x24ccc     16
+            - country                       0x24cda     1
+            - subregion                     0x24cdb     1
+            - first meet line               0x24cdc     16
+            - flags                         0x24cec
+            - sprite                        0x24cf6     1
+            - positioning (in building)     0x24cf8
+            - met year                      0x24cfc     1
+            - met month                     0x24cfd     1
+            - met day                       0x24cfe     1
+            - greeting line 1               0x24d00     14
+            - greeting line 2               0x24d10     14
+        - Helper 2                          0x24d24
+        - Helper 3                          0x24d7c
+        - Helper 4                          0x24dd4
+    - Player Trivia                         0x24e8c     16
+    - Player Activities                     0x24e9c     12
+    - unused                                0x24ea8     4
+    - favorite phrase                       0x24eac     16
+    - impressed phrase                      0x24ebc     16
+    - Join Avenue name                      0x24ef4     26
+    - your title                            0x24f1e     16
+    - rank                                  0x24fcc     2
+    - color                                 0x24fce     2
     - 7 day promotion                       0x24fdc
     - 7 day promotion                       0x24fde
 - Medal data                                0x25300     0x498
@@ -254,7 +411,7 @@ Meaning                                     Offset      Length      Max Value   
     - Difficulty config                     0x25850     4
     - City config                           0x25854     4
     - Chamber config                        0x25858     4
-    - ID                                    0x2585c     4
+    - encryption key                        0x2585c     4
 - Festa Missions                            0x25900     0xfc
     - Funfest Mission data?                 0x25900     39*4
     - Funfest Mission hosted                0x259f0     2
@@ -268,3 +425,40 @@ Meaning                                     Offset      Length      Max Value   
 - Dream Radar?                              0x25e00     0xf0
 - Checksums                                 0x25f00     0x94
 - C-Gear data                               0x52800
+- Memory Link data                          0x7e000     0xa20
+    - block 1                               0x7e000     0x374
+        - unknown (always 0xA10F49AE)       0x7e000     4
+        - update counter                    0x7e004     4
+        - crc                               0x7e008     2
+        - unknown (always 0x0000)           0x7e00a     2
+        - data                              0x7e00c     0x364
+        - crypt seed                        0x7e370     4
+    - block 1 mirror                        0x7e400     0x374
+    - block 2                               0x7e800     0x2a0
+        - unknown (always 0xA10F49AE)       0x7e800     4
+        - update counter                    0x7e804     4
+        - crc                               0x7e808     2
+        - unknown (always 0x0214)           0x7e80a     2
+        - Key data                          0x7e820     0x14
+        - Key System encryption key         0x7e840     4
+        - Trainer - ?                       0x7e844     0x18
+            - Trainer ID                    0x7e844     2
+            - Secret ID                     0x7e846     2
+            - Trainer name                  0x7e848     16
+            - gender?                       0x7e858     1
+            - version?                      0x7e859     1
+        - Trainer - Prop Case               0x7e85c     0x18
+            - Trainer ID                    0x7e85c     2
+            - Secret ID                     0x7e85e     2
+            - Trainer name                  0x7e860     16
+            - gender?                       0x7e870     1
+            - version?                      0x7e871     1
+        - Trainer - ?                       0x7e874     0x18
+            - Trainer ID                    0x7e874     2
+            - Secret ID                     0x7e876     2
+            - Trainer name                  0x7e878     16
+            - gender?                       0x7e888     1
+            - version?                      0x7e889     1
+        - flags                             0x7e88d     1
+        - props                             0x7e894     13
+        - Hall of Fame                      0x7e8b8     0x168

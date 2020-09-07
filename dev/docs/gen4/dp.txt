@@ -103,7 +103,7 @@ Meaning                                     Offset      Length      Max Value   
         - Shaymin                           0x1029
         - Arceus                            0x1029
     - Shaymin map?                          0x102b
-    - Fly                                   0x1112
+    - Fly                                   0x1112      9
     - has obtained Lotto prize              0x1131
 - Poketch
     - enabled                               0x114c      1           1
@@ -213,8 +213,13 @@ Meaning                                     Offset      Length      Max Value   
 - GTS Pokémon                               0x73e8
 - Wondercard flags                          0xa6d0
 - Wondercard Data                           0xa7fc
-- General Block save count                  0xc0f0      2
-- General block checksum                    0xc0fe      2
+- General Block footer                      0xc0ec      0x14
+    - Storage Block save count              0xc0ec      4
+    - General Block save count              0xc0f0      4
+    - General Block size                    0xc0f4      4
+    - runtime usage (SDK date)              0xc0f8      4
+    - runtime usage                         0xc0fc      2
+    - General block checksum                0xc0fe      2
 - Storage                                   0xc100
     - current box                           0xc100      1
     - Box 1                                 0xc104      0xff0
@@ -239,4 +244,38 @@ Meaning                                     Offset      Length      Max Value   
     - wallpapers                            0x1e2b4     18
     - save count                            0x1e2d0     2
     - checksum                              0x1e2de     2
-- Hall of Fame block                        0x20000
+- Hall of Fame block                        0x20000     0x2ac0
+    - entry 1                               0x20000     0x16c
+        - team slot 1                       0x20000     0x3c
+            - species                       0x20000     2
+            - level                         0x20002     1
+            - flags?                        0x20003     1
+            - PID                           0x20004     4
+            - Trainer ID                    0x20008     2
+            - Secret ID                     0x2000a     2
+            - nickname                      0x2000c     22
+            - Trainer name                  0x20022     16
+            - move 1                        0x20032     2
+            - move 2                        0x20034     2
+            - move 3                        0x20036     2
+            - move 4                        0x20038     2
+            - unused?                       0x2003a     2
+        - team slot 2                       0x2003c     0x3c
+        - team slot 3                       0x20078     0x3c
+        - team slot 4                       0x200b4     0x3c
+        - team slot 5                       0x200f0     0x3c
+        - team slot 6                       0x2012c     0x3c
+        - clear date year                   0x20168     2
+        - clear date month                  0x2016a     1
+        - clear date day                    0x2016b     1
+    - entry 2                               0x2016c     0x16c
+    - ...
+    - entry 30                              0x2293c     0x16c
+    - block footer                          0x22aa8     0x18
+        - save ID number                    0x22aa8     4
+        - save index number                 0x22aac     4
+        - runtime usage (SDK date)          0x22ab0     4
+        - runtime usage                     0x22ab4     4
+        - size of block                     0x22ab8     4
+        - runtime usage                     0x22abc     2
+        - checksum                          0x22abe     2
