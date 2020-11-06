@@ -6,14 +6,8 @@ int main(int argc, char **argv)
     unsigned char version = *argv[0];
 
     unsigned int configOffset;
-    int noInstant = 0;
     switch (version)
     {
-        case 10:
-        case 11:
-            configOffset = 0x60 + sav_gbo();
-            noInstant++;
-            break;
         case 24:
         case 25:
             configOffset = 0x16200;
@@ -34,24 +28,31 @@ int main(int argc, char **argv)
         case 43:
             configOffset = 0x5600;
             break;
+        case 44:
+        case 45:
+            configOffset = 0x92EB0306; //actually a key to a uint32
+            break;
         default:
-            gui_warn("Game not supported");
+            if (version < 24) {
+                gui_warn("Game not supported,\nbecause it has no instant speed option.");
+            }
+            else if (version > 45) {
+                gui_warn("Game not supported,\nbecause it released after this script's latest update.");
+            }
+            else {
+                gui_warn("Game not supported.");
+            }
             return 1;
     }
     
-    /*thanks SpiredMoth for the below!*/
     char *opts[5] = {
-        "Exit Script",
+        "Cancel",
         "Slow",
-        "Mid",
+        "Medium",
         "Fast",
         "Instant"
     };
-    int optionCount = 5;
-    if (noInstant) {
-        optionCount--;
-    }
-    int choice = gui_menu_20x2("Pick a text speed option", optionCount, opts);
+    int choice = gui_menu_20x2("Pick a text speed option", 5, opts);
     if (choice) {
         sav_set_byte((sav_get_byte(configOffset, 0) & 0xFC) | (choice - 1), configOffset, 0);
     }
