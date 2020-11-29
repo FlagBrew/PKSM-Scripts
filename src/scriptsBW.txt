@@ -28,8 +28,8 @@
 # Dex
 "Language entries" -d "dex" -i 0x21920 1 0xff 0x1af -i 0x21ace 1 0x07 1
 "Unova seen" -d "dex" -i 0x2165c 0x474 "data/dex/BW_Unova_seen.bin" 1
-"Unova owned" -d "dex" -i 0x21608 0x4c8 "data/dex/BW_Unova_owned.bin" 1
-"National seen" -d "dex" -i 0x2165c 0x474 "data/dex/BW_National_seen.bin" 1
+"Unova owned" -d "dex" -i 0x21608 0x474 "data/dex/BW_Unova_owned.bin" 1
+"National seen" -d "dex" -i 0x2165c 0x4c8 "data/dex/BW_National_seen.bin" 1
 "National owned" -d "dex" -i 0x21608 0x4c8 "data/dex/BW_National_owned.bin" 1
 "Complete" -d "dex" -i 0x21608 0x4c8 "data/dex/BW_Complete.bin" 1
 "Fill Dex - Complete" -d "illegal" -i 0x21608 0x4c8 "data/dex/BW_Complete_illegal.bin" 1
