@@ -187,11 +187,14 @@ int fetch_web_content(char** out, int* outSize, char* url);
 
 char* i18n_species(int species);
 char* i18n_form(int gameVersion, int species, int form);
+int max_pp(enum Generation gen, int move, int ppUps);
 
 char* utf16_to_utf8(char* data);
 char* utf8_to_utf16(char* data);
 void base64_decode(unsigned char** out, int* outSize, char* data, int size);
 void base64_encode(char** out, int* outSize, unsigned char* data, int size);
+void bz2_decompress(unsigned char** out, int* outSize, unsigned char* data, int size);
+void bz2_compress(unsigned char** out, int* outSize, unsigned char* data, int size);
 
 struct JSON* json_new(void);
 void json_parse(struct JSON* out, char* data);
