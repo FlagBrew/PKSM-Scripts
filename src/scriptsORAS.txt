@@ -3,6 +3,7 @@
 "Set max money" -i 0x4208 4 9999999 1
 "Set max Battle Points" -i 0x4230 2 9999 1
 "Set max Current Pokemiles" -i 0x1F4FC 4 9999999 1
+"Refill O-Power energy" -i 0x17441 1 0xA 1
 "Unlock all lv1-3 O-Powers" -i 0x17400 66 "data/OPower.bin" 1
 "Unlock all O-Powers" -d "illegal" -i 0x17400 66 "data/OPower_illegal.bin" 1
 "All Mirage Forests" -i 0x307D4 1 1 1 -i 0x307D8 1 2 1 -i 0x307DC 1 3 1 -i 0x307E0 1 4 1 -i 0x307E4 1 5 1 -i 0x307E8 1 6 1 -i 0x307EC 1 7 1 -i 0x307F0 1 8 1 -i 0x307F4 1 9 1 -i 0x307F8 1 0 1

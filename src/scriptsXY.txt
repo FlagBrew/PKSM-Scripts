@@ -4,6 +4,7 @@
 "Set max Style Points" -i 0x154D 1 255 1
 "Set max Battle Points" -i 0x423C 2 9999 1
 "Set max current Pokemiles" -i 0x1E4FC 4 9999999 1
+"Refill O-Power energy" -i 0x16a41 1 0xA 1
 "Unlock all lv1-3 O-Powers" -i 0x16a00 66 "data/OPower.bin" 1
 "Unlock all O-Powers" -d "illegal" -i 0x16a00 66 "data/OPower_illegal.bin" 1
 "Unlock all Player Clothing" -i 0x1A00 108 "data/XY_AllFashion.bin" 1
