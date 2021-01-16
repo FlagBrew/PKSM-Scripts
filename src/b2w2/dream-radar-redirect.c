@@ -27,10 +27,10 @@ int main(int argc, char **argv) {
       0x03, 0xde, 0x00,       // Record 4 offset
       0x00, 0x20,             // Record 4 length
       0x49, 0x00, 0xa0, 0xe3, // mov  r0, #0x49   ; ascii I
-      0x00, 0x00, 0xc6, 0xe5, // strb r0, [r6,#0] 
+      0x00, 0x00, 0xc6, 0xe5, // strb r0, [r6,#0]
       0x52, 0x00, 0xa0, 0xe3, // mov  r0, #0x52   ; ascii R
       0x01, 0x00, 0xc6, 0xe5, // strb r0, [r6,#1]
-      0xff, 0x00, 0xa0, 0xe3, // mov  r0, <version> 
+      0xff, 0x00, 0xa0, 0xe3, // mov  r0, <version>
       0x02, 0x00, 0xc6, 0xe5, // strb r0, [r6,#2]
       0x4f, 0x00, 0xa0, 0xe3, // mov  r0, #0x4f   ; ascii O
       0x03, 0x00, 0xc6, 0xe5, // strb r0, [r6,#3]
@@ -80,7 +80,7 @@ int main(int argc, char **argv) {
       0x06, 0x40, 0x2d, 0xe9, // stmdb sp!, { r1, r2, lr }
       0x01, 0x00, 0x2d, 0xe9, // stmdb sp!, { r0 }       ; push extra stack location for file handle
       0x0d, 0x10, 0xa0, 0xe1, // mov   r1, sp            ; set r1 to sp to store file handle
-      0x08, 0x00, 0x00, 0xeb, // bl    OpenSDSaveFile   
+      0x08, 0x00, 0x00, 0xeb, // bl    OpenSDSaveFile
       0xa0, 0x2f, 0xb0, 0xe1, // movs  r2, r0, lsr #0x1f ; get the most significant bit of the result
       0x01, 0x20, 0x22, 0xe2, // eor   r2, r2, #0x1      ; flip the bit so true if success
       0x0d, 0x00, 0xa0, 0xe1, // mov   r0, sp            ; set r0 to file handle
@@ -140,14 +140,14 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    char *path_utf16 = utf8_to_utf16(path_utf8);
+    char *path_ucs2 = utf8_to_ucs2(path_utf8);
     free(path_utf8);
-    short *tmp = (short*) path_utf16;
+    short *tmp = (short*) path_ucs2;
     size_t path_size = 1;
     while (*tmp++) ++path_size;
 
     if (path_size > 0xff) {
-        free(path_utf16);
+        free(path_ucs2);
         gui_warn("Save path too long");
         return 1;
     }
@@ -162,20 +162,20 @@ int main(int argc, char **argv) {
     mkdir("/luma/titles", 0777);
     mkdir("/luma/titles/00040000000AE100", 0777);
     FILE *ips = fopen("/luma/titles/00040000000AE100/code.ips", "wb");
-    
+
     if (ips == NULL) {
-        free(path_utf16);
+        free(path_ucs2);
         gui_warn("Failed to open patch file");
         return 1;
     }
 
     fputs("PATCH", ips);
     fwrite(patch, 1, sizeof(patch), ips);
-    fwrite(path_utf16, 2, path_size, ips);
+    fwrite(path_ucs2, 2, path_size, ips);
     fputs("EOF", ips);
     fclose(ips);
 
-    free(path_utf16);
+    free(path_ucs2);
 
     gui_warn("Dream Radar Redirect Complete");
 

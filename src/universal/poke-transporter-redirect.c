@@ -23,10 +23,10 @@ int main(int argc, char **argv) {
       0x11, 0xab, 0x18,       // Record 3 offset
       0x00, 0x20,             // Record 3 length
       0x49, 0x00, 0xa0, 0xe3, // mov  r0, #0x49   ; ascii I
-      0x00, 0x00, 0xc6, 0xe5, // strb r0, [r6,#0] 
+      0x00, 0x00, 0xc6, 0xe5, // strb r0, [r6,#0]
       0x52, 0x00, 0xa0, 0xe3, // mov  r0, #0x52   ; ascii R
       0x01, 0x00, 0xc6, 0xe5, // strb r0, [r6,#1]
-      0xff, 0x00, 0xa0, 0xe3, // mov  r0, <version> 
+      0xff, 0x00, 0xa0, 0xe3, // mov  r0, <version>
       0x02, 0x00, 0xc6, 0xe5, // strb r0, [r6,#2]
       0x4f, 0x00, 0xa0, 0xe3, // mov  r0, #0x4f   ; ascii O
       0x03, 0x00, 0xc6, 0xe5, // strb r0, [r6,#3]
@@ -129,14 +129,14 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    char *path_utf16 = utf8_to_utf16(path_utf8);
+    char *path_ucs2 = utf8_to_ucs2(path_utf8);
     free(path_utf8);
-    short *tmp = (short*) path_utf16;
+    short *tmp = (short*) path_ucs2;
     size_t path_size = 1;
     while (*tmp++) ++path_size;
 
     if (path_size > 0xff) {
-        free(path_utf16);
+        free(path_ucs2);
         gui_warn("Save path too long");
         return 1;
     }
@@ -151,20 +151,20 @@ int main(int argc, char **argv) {
     mkdir("/luma/titles", 0777);
     mkdir("/luma/titles/00040000000C9C00", 0777);
     FILE *ips = fopen("/luma/titles/00040000000C9C00/code.ips", "wb");
-    
+
     if (ips == NULL) {
-        free(path_utf16);
+        free(path_ucs2);
         gui_warn("Failed to open patch file");
         return 1;
     }
 
     fputs("PATCH", ips);
     fwrite(patch, 1, sizeof(patch), ips);
-    fwrite(path_utf16, 2, path_size, ips);
+    fwrite(path_ucs2, 2, path_size, ips);
     fputs("EOF", ips);
     fclose(ips);
 
-    free(path_utf16);
+    free(path_ucs2);
 
     gui_warn("Poke Transporter Redirect Complete");
 
