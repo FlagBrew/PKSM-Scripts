@@ -12,7 +12,8 @@ int main(int argc, char** argv)
     if (injectables->count == 0)
     {
         delete_directory(injectables);
-        gui_warn("There are no files in \'/3ds/PKSM/inject\'!\nPlace Wonder Card or Pokemon files there");
+        gui_warn("There are no files in \'/3ds/PKSM/inject\'!\nPlace Wonder Card or Pokemon files "
+                 "there");
         return 0;
     }
 
@@ -24,7 +25,8 @@ int main(int argc, char** argv)
         {
             extension = injectables->files[chosen] + strlen(injectables->files[chosen]) - 3;
         }
-        else if (strlen(injectables->files[chosen]) > 7 && injectables->files[chosen][strlen(injectables->files[chosen]) - 8] == '.')
+        else if (strlen(injectables->files[chosen]) > 7 &&
+                 injectables->files[chosen][strlen(injectables->files[chosen]) - 8] == '.')
         {
             extension = injectables->files[chosen] + strlen(injectables->files[chosen]) - 7;
         }
@@ -41,7 +43,7 @@ int main(int argc, char** argv)
         int size = ftell(file);
         fseek(file, 0, SEEK_SET);
         char* data = malloc(size);
-        fread(data, size, size, file);
+        fread(data, 1, size, file);
         fclose(file);
 
         int slot = sav_wcx_free_slot();
