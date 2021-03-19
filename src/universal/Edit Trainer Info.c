@@ -200,13 +200,13 @@ int main(int argc, char **argv)
     {
         if (sav_get_value(SAV_LANGUAGE) == 1)
         {
-            nameLen16 = 0xA;            // Japanese name length: 5
-            nameLen8 = nameLen16 + 0x5;
+            nameLen16 = 0xC;            // Japanese name length: 5
+            nameLen8 = nameLen16 + 0x6;
         }
         else
         {
-            nameLen16 = 0xE;            // Other name length: 7
-            nameLen8 = nameLen16 + 0x7;
+            nameLen16 = 0x10;            // Other name length: 7
+            nameLen8 = nameLen16 + 0x8;
         }
     }
 
