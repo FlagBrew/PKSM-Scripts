@@ -92,10 +92,10 @@ int main(int argc, char **argv)
         "Use current bank",
         "Choose bank"
     };
-    int props_count = 17, target = -1, prop = -1,
+    int props_count = 18, target = -1, prop = -1,
         boxes, skip, pkm_size = pkx_box_size(gen_sav),
         choice = 0, val_1 = 0, val_2 = 0;
-    char *props[17] = {
+    char *props[18] = {
         "Exit Script",
         "Previous menu",
         "Set OT name",
@@ -112,9 +112,10 @@ int main(int argc, char **argv)
         "Set PP Ups",
         "Clear moves",
         "Randomize PIDs",
+        "Remove all ribbons",
         "Set Item"
     };
-    enum PKX_Field fields[17] = {
+    enum PKX_Field fields[18] = {
         NICKNAME, // filler
         GENDER, // filler
         OT_NAME,
@@ -131,6 +132,7 @@ int main(int argc, char **argv)
         PP_UPS,
         MOVE,
         PID,
+        NICKNAME, // filler
         ITEM
     };
     char *languages[9] = {
@@ -249,7 +251,21 @@ int main(int argc, char **argv)
                 case 15: // Random PID
                     choice = gui_choice("Should shiny Pokémon remain shiny?");
                     break;
-                // case 16: // Item
+                case 16: // Remove all ribbons
+                    // Since Ribbons not supplied through PKX_Field harcoded offsets
+                    // are required. This test lets allows updates to this script
+                    // subfunction to lag behind PKSM adding new generations
+                    if (target == 1 && gen_sav > GEN_THREE)
+                    {
+                        skip = 1;
+                        gui_warn("This generation is not yet supported.");
+                    }
+                    else
+                    {
+                        gui_warn("Some generations may be missing support.\nSome Pokémon may be skipped.");
+                    }
+                    break;
+                // case 17: // Item
                 //     // int (0-?)
                 //     break;
                 default:
@@ -348,6 +364,39 @@ int main(int argc, char **argv)
                         if (choice && val_2)
                         {
                             pkx_set_value(pkm, gen_pkm, SHINY, 1);
+                        }
+                    }
+                    else if (prop == 16) // Remove all ribbons
+                    {
+                        // No Ribbon entries in PKX_Field enum so offsets are hardcoded
+                        if (gen_pkm == GEN_THREE)
+                        {
+                            *(short *)(pkm + 0x4C) = 0;
+                            pkm[0x4E] = 0;
+                            pkm[0x4F] = 0x80 & pkm[0x4F]; // preserve Fateful Encounter flag if present
+                        }
+                        else if (gen_pkm == GEN_FOUR || gen_pkm == GEN_FIVE)
+                        {
+                            *(int *)(pkm + 0x24) = 0;
+                            *(int *)(pkm + 0x3C) = 0;
+                            *(int *)(pkm + 0x60) = 0;
+                        }
+                        else if (gen_pkm == GEN_SIX || gen_pkm == GEN_SEVEN || gen_pkm == GEN_LGPE)
+                        {
+                            *(int *)(pkm + 0x30) = 0;
+                            *(short *)(pkm + 0x34) = 0;
+                            pkm[0x36] = 0;
+                            if (gen_pkm != GEN_LGPE)
+                            {
+                                *(short *)(pkm + 0x38) = 0;
+                            }
+                        }
+                        else if (gen_pkm == GEN_EIGHT)
+                        {
+                            pkm[0x33] = 0;
+                            *(int *)(pkm + 0x34) = 0;
+                            *(int *)(pkm + 0x38) = 0;
+                            *(short *)(pkm + 0x38) = 0;
                         }
                     }
                     else
