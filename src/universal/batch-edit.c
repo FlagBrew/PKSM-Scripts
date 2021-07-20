@@ -92,10 +92,11 @@ int main(int argc, char **argv)
         "Use current bank",
         "Choose bank"
     };
-    int props_count = 18, target = -1, prop = -1,
+    int props_count = 20, target = -1, prop = -1,
         boxes, skip, pkm_size = pkx_box_size(gen_sav),
-        choice = 0, val_1 = 0, val_2 = 0;
-    char *props[18] = {
+        choice = 0;
+    int values[3] = {0};
+    char *props[20] = {
         "Exit Script",
         "Previous menu",
         "Set OT name",
@@ -113,11 +114,13 @@ int main(int argc, char **argv)
         "Clear moves",
         "Randomize PIDs",
         "Remove all ribbons",
+        "Set Met Date",
+        "Set Egg Date",
         "Set Item"
     };
-    enum PKX_Field fields[18] = {
-        NICKNAME, // filler
-        GENDER, // filler
+    enum PKX_Field fields[20] = {
+        NICKNAME, // filler -- Exit Script
+        GENDER,   // filler -- Previous menu
         OT_NAME,
         TID,
         SID,
@@ -132,9 +135,10 @@ int main(int argc, char **argv)
         PP_UPS,
         MOVE,
         PID,
-        NICKNAME, // filler
-        ITEM
-    };
+        NICKNAME, // filler -- Remove all ribbons
+        MET_YEAR, // filler -- Set Met Date
+        EGG_YEAR, // filler -- Set Egg Date
+        ITEM};
     char *languages[9] = {
         "\u65e5\u672c\u8a9e",          // JAP
         "English",                     // ENG
@@ -212,41 +216,41 @@ int main(int argc, char **argv)
                 case 3: // OT TID
                 case 4: // OT SID
                     gui_warn("IDs must be the old style\nin the range of 0 to 65535");
-                    val_1 = limit_num(0, 65535, 5);
+                    values[0] = limit_num(0, 65535, 5);
                     break;
                 case 5: // OT Gender
-                    val_1 = gui_menu_20x2("Choose OT gender", 2, genders);
+                    values[0] = gui_menu_20x2("Choose OT gender", 2, genders);
                     break;
                 case 6: // Level
-                    val_1 = limit_num(1, 100, 3);
+                    values[0] = limit_num(1, 100, 3);
                     break;
                 case 7: // Shiny
-                    val_1 = 1 - gui_menu_20x2("Shiny or not?\n\nWarning:\nShiny may take a while", 2, shininess);
+                    values[0] = 1 - gui_menu_20x2("Shiny or not?\n\nWarning:\nShiny may take a while", 2, shininess);
                     break;
                 case 8: // all IVs
-                    val_1 = limit_num(0, 31, 2);
+                    values[0] = limit_num(0, 31, 2);
                     break;
                 case 9: // Language
                     choice = gui_menu_20x2("Choose a language", target == 1 ? limit_lang : 9, languages);
-                    val_1 = choice + (choice >= 6 ? 2 : 1);
+                    values[0] = choice + (choice >= 6 ? 2 : 1);
                     break;
                 case 10: // Pokerus
                     choice = gui_menu_20x2("Pick a Pokerus option", 3, pokerus);
-                    val_1 = choice < 2 ? 0xF : 0; // strain
-                    val_2 = choice == 0 ? 4 : 0; // days
+                    values[0] = choice < 2 ? 0xF : 0; // strain
+                    values[1] = choice == 0 ? 4 : 0; // days
                     break;
                 case 11: // Nature
-                    val_1 = gui_menu_20x2("Pick a nature", 25, natures);
+                    values[0] = gui_menu_20x2("Pick a nature", 25, natures);
                     break;
                 case 12: // Ball
                     choice = gui_menu_20x2("Pick a ball", target == 1 ? limit_ball : 26, balls);
-                    val_1 = ball_ids[choice];
+                    values[0] = ball_ids[choice];
                     break;
                 case 13: // PP Ups
-                    val_1 = limit_num(0, 3, 1);
+                    values[0] = limit_num(0, 3, 1);
                     break;
                 case 14: // Clear moves
-                    val_1 = 0;
+                    values[0] = 0;
                     break;
                 case 15: // Random PID
                     choice = gui_choice("Should shiny Pokémon remain shiny?");
@@ -265,7 +269,18 @@ int main(int argc, char **argv)
                         gui_warn("Some generations may be missing support.\nSome Pokémon may be skipped.");
                     }
                     break;
-                // case 17: // Item
+                case 18: // Set Egg Date
+                    gui_warn("Only things with an Egg Date\nwill be edited.");
+                    // intentional fallthrough
+                case 17: // Set Met Date
+                    gui_warn("Input new year value to use");
+                    values[0] = limit_num(prop == 17 ? 2001 : 2000, 2255, 4);
+                    gui_warn("Input new month value to use");
+                    values[1] = limit_num(1, 12, 2); // month
+                    gui_warn("Input new day value to use");
+                    values[2] = limit_num(1, 31, 2); // day
+                    break;
+                // case 19: // Item
                 //     // int (0-?)
                 //     break;
                 default:
@@ -315,8 +330,8 @@ int main(int argc, char **argv)
 
                     if (prop == 15 && gen_pkm != GEN_FOUR && gen_pkm != GEN_THREE)
                     {
-                        val_1 = (rand() & 0xFFFF) << 16;
-                        val_1 |= (rand() & 0xFFFF);
+                        values[0] = (rand() & 0xFFFF) << 16;
+                        values[0] |= (rand() & 0xFFFF);
                     }
 
                     if (prop == 2) // OT name
@@ -327,12 +342,12 @@ int main(int argc, char **argv)
                     {
                         for (int i = 0; i < 6; i++)
                         {
-                            pkx_set_value(pkm, gen_pkm, fields[prop] + i, val_1);
+                            pkx_set_value(pkm, gen_pkm, fields[prop] + i, values[0]);
                         }
                     }
                     else if (prop == 10) // Pokerus
                     {
-                        pkx_set_value(pkm, gen_pkm, fields[prop], val_1, val_2);
+                        pkx_set_value(pkm, gen_pkm, fields[prop], values[0], values[1]);
                     }
                     else if (prop == 13 || prop == 14) // PP Ups, Clear moves
                     {
@@ -341,7 +356,7 @@ int main(int argc, char **argv)
                             int move = pkx_get_value(pkm, gen_pkm, MOVE, i);
                             if (move)
                             {
-                                pkx_set_value(pkm, gen_pkm, fields[prop], i, val_1);
+                                pkx_set_value(pkm, gen_pkm, fields[prop], i, values[0]);
                             }
                         }
                         if (prop == 14)
@@ -351,7 +366,7 @@ int main(int argc, char **argv)
                     }
                     else if (prop == 15) // Randomize PID
                     {
-                        val_2 = pkx_get_value(pkm, gen_pkm, SHINY);
+                        values[1] = pkx_get_value(pkm, gen_pkm, SHINY);
                         if (gen_pkm == GEN_FOUR || gen_pkm == GEN_THREE)
                         {
                             // Gen 3/4 PID is rerolled when setting PID-dependent value
@@ -359,9 +374,9 @@ int main(int argc, char **argv)
                         }
                         else
                         {
-                            pkx_set_value(pkm, gen_pkm, PID, val_1);
+                            pkx_set_value(pkm, gen_pkm, PID, values[0]);
                         }
-                        if (choice && val_2)
+                        if (choice && values[1])
                         {
                             pkx_set_value(pkm, gen_pkm, SHINY, 1);
                         }
@@ -381,7 +396,7 @@ int main(int argc, char **argv)
                             *(int *)(pkm + 0x3C) = 0;
                             *(int *)(pkm + 0x60) = 0;
                         }
-                        else if (gen_pkm == GEN_SIX || gen_pkm == GEN_SEVEN || gen_pkm == GEN_LGPE)
+                        else if (gen_pkm < GEN_EIGHT)
                         {
                             *(int *)(pkm + 0x30) = 0;
                             *(short *)(pkm + 0x34) = 0;
@@ -399,9 +414,25 @@ int main(int argc, char **argv)
                             *(short *)(pkm + 0x38) = 0;
                         }
                     }
+                    else if (prop == 17) // Set Met Date
+                    {
+                        pkx_set_value(pkm, gen_pkm, MET_YEAR, values[0]);
+                        pkx_set_value(pkm, gen_pkm, MET_MONTH, values[1]);
+                        pkx_set_value(pkm, gen_pkm, MET_DAY, values[2]);
+                    }
+                    else if (prop == 18) // Set Egg Date
+                    {
+                        // only edit things with an Egg Date
+                        if (pkx_get_value(pkm, gen_pkm, EGG_LOCATION))
+                        {
+                            pkx_set_value(pkm, gen_pkm, EGG_YEAR, values[0]);
+                            pkx_set_value(pkm, gen_pkm, EGG_MONTH, values[1]);
+                            pkx_set_value(pkm, gen_pkm, EGG_DAY, values[2]);
+                        }
+                    }
                     else
                     {
-                        pkx_set_value(pkm, gen_pkm, fields[prop], val_1);
+                        pkx_set_value(pkm, gen_pkm, fields[prop], values[0]);
                     }
 
                     if (target == 1)
