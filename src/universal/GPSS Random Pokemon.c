@@ -18,7 +18,7 @@ int main(int argc, char** argv)
     unsigned char version = *argv[0];
 
     enum Generation gen;
-    char url[56] = {0};
+    char url[60] = {0};
 
     switch (version)
     {
@@ -28,7 +28,7 @@ int main(int argc, char** argv)
         case 4:
         case 5:
             gen        = GEN_THREE;
-            sprintf(url, "https://flagbrew.org/api/v2/gpss-random?generation=%d",  3);
+            sprintf(url, "https://flagbrew.org/api/v2/gpss/random/6?minGen=3&maxGen=%d",  3);
             break;
         case 10:
         case 11:
@@ -36,38 +36,38 @@ int main(int argc, char** argv)
         case 7:
         case 8:
             gen        = GEN_FOUR;
-            sprintf(url, "https://flagbrew.org/api/v2/gpss-random?generation=%d",  4);
+            sprintf(url, "https://flagbrew.org/api/v2/gpss/random/6?minGen=3&maxGen=%d",  4);
             break;
         case 20:
         case 21:
         case 22:
         case 23:
             gen        = GEN_FIVE;
-            sprintf(url, "https://flagbrew.org/api/v2/gpss-random?generation=%d",  5);
+            sprintf(url, "https://flagbrew.org/api/v2/gpss/random/6?minGen=3&maxGen=%d",  5);
             break;
         case 24:
         case 25:
         case 26:
         case 27:
-            gen        = GEN_SIX;
-            sprintf(url, "https://flagbrew.org/api/v2/gpss-random?generation=%d",  6);
+            gen    = GEN_SIX;
+            sprintf(url, "https://flagbrew.org/api/v2/gpss/random/6?minGen=3&maxGen=%d",  6);
             break;
         case 30:
         case 31:
         case 32:
         case 33:
-            gen        = GEN_SEVEN;
-            sprintf(url, "https://flagbrew.org/api/v2/gpss-random?generation=%d",  7);
+            gen    = GEN_SEVEN;
+            sprintf(url, "https://flagbrew.org/api/v2/gpss/random/6?minGen=3&maxGen=%d",  7);
             break;
         case 42:
         case 43:
-            gen        = GEN_LGPE;
-            sprintf(url, "https://flagbrew.org/api/v2/gpss-random?generation=%s", "LGPE");
+            gui_warn("LGPE not supported");
+            return 0;
             break;
         case 44:
         case 45:
-            gen        = GEN_EIGHT;
-            sprintf(url, "https://flagbrew.org/api/v2/gpss-random?generation=%d",  8);
+            gui_warn("SWSH not supported");
+            return 0;
             break;
     }
 
@@ -86,6 +86,7 @@ int main(int argc, char** argv)
 
             return 1;
         }
+        choice = gui_choice("Do you want to set them as eggs?\nFor EggLocke run");
 
             struct JSON* data = json_new();
             json_parse(data, currentData);
@@ -116,6 +117,9 @@ int main(int argc, char** argv)
                     unsigned char* newPokemon = NULL;
                     int newPokemonSize = 0;
                     base64_decode(&newPokemon, &newPokemonSize, base64, strlen(base64));
+                    if(choice == 1) {
+                        pkx_set_value((char*)newPokemon, currentGen, EGG, 1);
+                    }
                     party_inject_pkx((char*)newPokemon, currentGen, pokemon);
                     free(newPokemon);
                     free(base64);
