@@ -1,7 +1,7 @@
 #include <pksm.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h> 
+#include <string.h>
 
 int main(int argc, char **argv)
 {
@@ -55,7 +55,7 @@ int main(int argc, char **argv)
         sprintf(path, "/3ds/PKSM/scripts/universal/%s", scriptName);
     } else
     {
-        switch (*argv[2]) {
+        switch (*argv[0]) {
             case 1:
             case 2:
                 sprintf(path, "/3ds/PKSM/scripts/rs/%s", scriptName);
@@ -63,7 +63,7 @@ int main(int argc, char **argv)
             case 3:
                 sprintf(path, "/3ds/PKSM/scripts/e/%s", scriptName);
                 break;
-            case 4: 
+            case 4:
             case 5:
                 sprintf(path, "/3ds/PKSM/scripts/frlg/%s", scriptName);
                 break;
