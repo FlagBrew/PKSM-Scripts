@@ -10,8 +10,11 @@ int main(int argc, char **argv)
     gui_warn("We need to receive the script name!");
     char message[50] = {'\0'};
     sprintf(message, "This will lock your console!\n%s", net_ip());
+    char splash[50] = {'\0'};
+    sprintf(splash, "Waiting for data...\n%s", net_ip());
     if (gui_choice(message))
     {
+        gui_splash(splash);
         char data[4];
         int received;
         net_tcp_recv(data, 4, &received);
@@ -28,7 +31,8 @@ int main(int argc, char **argv)
             buf[27] = '\0';
             if (gui_choice(buf))
             {
-                char* recvData = malloc(size);
+                gui_splash(splash);
+                char *recvData = malloc(size);
                 if (recvData != NULL)
                 {
                     net_tcp_recv(recvData, size, &received);
@@ -112,6 +116,7 @@ int main(int argc, char **argv)
     path[91] = '\0';
     if (gui_choice(message))
     {
+        gui_splash(splash);
         char data[4];
         int received;
         net_tcp_recv(data, 4, &received);
@@ -128,7 +133,8 @@ int main(int argc, char **argv)
             buf[27] = '\0';
             if (gui_choice(buf))
             {
-                char* recvData = malloc(size);
+                gui_splash(splash);
+                char *recvData = malloc(size);
                 if (recvData != NULL)
                 {
                     net_tcp_recv(recvData, size, &received);
