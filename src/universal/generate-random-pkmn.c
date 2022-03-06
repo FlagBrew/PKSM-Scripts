@@ -12,8 +12,14 @@ int main(int argc, char **argv)
 
     int maxSpecies, maxMoves, maxBalls, maxItems, maxAbility, maxSlots;
     unsigned int randomizedCount, maxLevel;
-    gui_warn("Please enter how many pokemon\nyou would like to generate!");
-    gui_numpad(&randomizedCount, "Number of PKMN to generate.", 3);
+    int gen_party = gui_choice("Do you want to inject into your box or your party?\nThis Will Generate 6 PKMN");
+    if(gen_party == 1) {
+        randomizedCount = 6;
+    } else {
+        gui_warn("Please enter how many pokemon\nyou would like to generate!");
+        gui_numpad(&randomizedCount, "Number of PKMN to generate.", 3);
+    }    
+    int gen_eggs = gui_choice("Do you want to generate eggs?\nThis is for EggLocke runs");
     gui_warn("Please enter the max level\nyou would like to have your pokemon be!");
     gui_numpad(&maxLevel, "Max level 1-100", 3);
 
@@ -161,8 +167,14 @@ int main(int argc, char **argv)
                 pkx_set_value(data, gen, NICKNAME, name);
                 free(name);
             }
-            sav_inject_pkx(data, gen, i / 30, i % 30, 0);
-
+            if (gen_eggs == 1){
+                pkx_set_value(data, gen, EGG, 1);
+            }
+            if(gen_party == 1) {
+                party_inject_pkx(data, gen, i);
+            } else {
+                sav_inject_pkx(data, gen, i / 30, i % 30, 0);
+            }
         }
 
         free(data);

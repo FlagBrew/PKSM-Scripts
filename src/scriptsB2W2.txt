@@ -41,64 +41,6 @@
 "National owned" -d "dex" -i 0x21408 0x4d0 "data/dex/B2W2_National_owned.bin" 1
 "Complete" -d "dex" -i 0x21408 0x4d0 "data/dex/B2W2_Complete.bin" 1
 "Fill Dex - Complete" -d "illegal" -i 0x21408 0x4d0 "data/dex/B2W2_Complete_illegal.bin" 1
-# Pass Powers
-"Pass Power 1 - Hatching S" -d "powers" -i 0x213A0 1 33 1
-"Pass Power 1 - Bargain S" -d "powers" -i 0x213A0 1 34 1
-"Pass Power 1 - Befriending S" -d "powers" -i 0x213A0 1 35 1
-"Pass Power 1 - Exp Points S" -d "powers" -i 0x213A0 1 36 1
-"Pass Power 1 - Prize Money S" -d "powers" -i 0x213A0 1 37 1
-"Pass Power 1 - Capture S" -d "powers" -i 0x213A0 1 38 1
-"Pass Power 1 - Explorer S" -d "powers" -i 0x213A0 1 58 1
-"Pass Power 1 - Grotto S" -d "powers" -i 0x213A0 1 60 1
-"Pass Power 1 - Lucky S" -d "powers" -i 0x213A0 1 62 1
-"Pass Power 1 - HP Restore MAX" -d "powers" -i 0x213A0 1 39 1
-"Pass Power 1 - Hatching MAX" -d "powers" -i 0x213A0 1 40 1
-"Pass Power 1 - Bargain MAX" -d "powers" -i 0x213A0 1 41 1
-"Pass Power 1 - Befriending MAX" -d "powers" -i 0x213A0 1 42 1
-"Pass Power 1 - Exp Points MAX" -d "powers" -i 0x213A0 1 43 1
-"Pass Power 1 - Prize Money MAX" -d "powers" -i 0x213A0 1 44 1
-"Pass Power 1 - Capture MAX" -d "powers" -i 0x213A0 1 45 1
-"Pass Power 1 - Search MAX" -d "powers" -i 0x213A0 1 59 1
-"Pass Power 1 - Grotto MAX" -d "powers" -i 0x213A0 1 61 1
-"Pass Power 1 - Lucky MAX" -d "powers" -i 0x213A0 1 63 1
-"Pass Power 2 - Hatching S" -d "powers" -i 0x213a1 1 33 1
-"Pass Power 2 - Bargain S" -d "powers" -i 0x213a1 1 34 1
-"Pass Power 2 - Befriending S" -d "powers" -i 0x213a1 1 35 1
-"Pass Power 2 - Exp Points S" -d "powers" -i 0x213a1 1 36 1
-"Pass Power 2 - Prize Money S" -d "powers" -i 0x213a1 1 37 1
-"Pass Power 2 - Capture S" -d "powers" -i 0x213a1 1 38 1
-"Pass Power 2 - Explorer S" -d "powers" -i 0x213a1 1 58 1
-"Pass Power 2 - Grotto S" -d "powers" -i 0x213a1 1 60 1
-"Pass Power 2 - Lucky S" -d "powers" -i 0x213a1 1 62 1
-"Pass Power 2 - HP Restore MAX" -d "powers" -i 0x213A1 1 39 1
-"Pass Power 2 - Hatching MAX" -d "powers" -i 0x213A1 1 40 1
-"Pass Power 2 - Bargain MAX" -d "powers" -i 0x213A1 1 41 1
-"Pass Power 2 - Befriending MAX" -d "powers" -i 0x213A1 1 42 1
-"Pass Power 2 - Exp Points MAX" -d "powers" -i 0x213A1 1 43 1
-"Pass Power 2 - Prize Money MAX" -d "powers" -i 0x213A1 1 44 1
-"Pass Power 2 - Capture MAX" -d "powers" -i 0x213A1 1 45 1
-"Pass Power 2 - Search MAX" -d "powers" -i 0x213A1 1 59 1
-"Pass Power 2 - Grotto MAX" -d "powers" -i 0x213A1 1 61 1
-"Pass Power 2 - Lucky MAX" -d "powers" -i 0x213A1 1 63 1
-"Pass Power 3 - Hatching S" -d "powers" -i 0x213a2 1 33 1
-"Pass Power 3 - Bargain S" -d "powers" -i 0x213a2 1 34 1
-"Pass Power 3 - Befriending S" -d "powers" -i 0x213a2 1 35 1
-"Pass Power 3 - Exp Points S" -d "powers" -i 0x213a2 1 36 1
-"Pass Power 3 - Prize Money S" -d "powers" -i 0x213a2 1 37 1
-"Pass Power 3 - Capture S" -d "powers" -i 0x213a2 1 38 1
-"Pass Power 3 - Explorer S" -d "powers" -i 0x213a2 1 58 1
-"Pass Power 3 - Grotto S" -d "powers" -i 0x213a2 1 60 1
-"Pass Power 3 - Lucky S" -d "powers" -i 0x213a2 1 62 1
-"Pass Power 3 - HP Restore MAX" -d "powers" -i 0x213A2 1 39 1
-"Pass Power 3 - Hatching MAX" -d "powers" -i 0x213A2 1 40 1
-"Pass Power 3 - Bargain MAX" -d "powers" -i 0x213A2 1 41 1
-"Pass Power 3 - Befriending MAX" -d "powers" -i 0x213A2 1 42 1
-"Pass Power 3 - Exp Points MAX" -d "powers" -i 0x213A2 1 43 1
-"Pass Power 3 - Prize Money MAX" -d "powers" -i 0x213A2 1 44 1
-"Pass Power 3 - Capture MAX" -d "powers" -i 0x213A2 1 45 1
-"Pass Power 3 - Explorer MAX" -d "powers" -i 0x213A2 1 59 1
-"Pass Power 3 - Grotto MAX" -d "powers" -i 0x213A2 1 61 1
-"Pass Power 3 - Lucky MAX" -d "powers" -i 0x213A2 1 63 1
 # Day Care EXP
 "Set 10,000 Exp gained" -d "daycare" -i 0x20DE0 4 10000 1 -i 0x20EC4 4 10000 1
 "Set 50,000 Exp gained" -d "daycare" -i 0x20DE0 4 50000 1 -i 0x20EC4 4 50000 1
