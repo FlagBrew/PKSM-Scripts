@@ -6,13 +6,11 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)argv[0];
-    unsigned char version = *argv[2];
     enum Generation gen;
     int gbo = sav_gbo(), numOpts = 3, pkmSize,
         ofsSlots[5] = {0}, ofsPkm, ofsExp;
 
-    switch (version)
+    switch (*argv[0])
     {
         case 10:
         case 11:
@@ -102,17 +100,17 @@ int main(int argc, char **argv)
         {
             continue;
         }
-        memcpy(pkm, saveData + gbo + ofsSlots[i] + ofsPkm, pkmSize);
+        sav_get_data(pkm, pkmSize, gbo, ofsSlots[i] + ofsPkm);
         pkx_decrypt(pkm, gen, gen != GEN_SIX);
 
         // verify occupied slot
         if ((gen == GEN_FOUR && pkx_is_valid(pkm, gen)) ||
-            (gen != GEN_FOUR && saveData[ofsSlots[i]] == 1))
+            (gen != GEN_FOUR && sav_get_byte(gbo, ofsSlots[i]) == 1))
         {
             // fill pkx and EXP
             slots[i].species = pkx_get_value(pkm, gen, SPECIES);
             slots[i].form = pkx_get_value(pkm, gen, FORM);
-            steps[i] = *(int *)(saveData + gbo + ofsSlots[i] + ofsExp);
+            steps[i] = sav_get_int(gbo, ofsSlots[i] + ofsExp);
         }
     }
     free(pkm);
@@ -144,17 +142,17 @@ int main(int argc, char **argv)
         gui_warn(expString);
         gui_numpad(&newExp, expString, 7);
         steps[i] = newExp;
-        steps[0] += 1; // track changes
+        steps[0] += 1;  // track that changes were made
     }
 
-    // store EXP back to save
+    // if changes were made, store EXP back to save
     if (steps[0])
     {
         for (i = 0; i < 5; i++)
         {
             if (slots[i].species != 0)
             {
-                *(int *)(saveData + gbo + ofsSlots[i] + ofsExp) = steps[i];
+                sav_set_int(steps[i], gbo, ofsSlots[i] + ofsExp);
             }
         }
     }
