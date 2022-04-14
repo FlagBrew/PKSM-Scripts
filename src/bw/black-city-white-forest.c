@@ -86,7 +86,7 @@ int main(int argc, char **argv)
         present = 0;
         // front slots match loaded save, back slots are opposite
         opts = (game ^ (slot > 9)) * 31;
-        choice = gui_menu_6x5("Pick a resident", 31, trainers, &pkxOpts[opts], GEN_FIVE);
+        choice = gui_menu_6x5("Pick a resident\n\nNote: you can find a 'none'\noption by scrolling to\nthe second page", 31, trainers, &pkxOpts[opts], GEN_FIVE);
 
         // do not duplicate trainers
         if (choice < 30) {
