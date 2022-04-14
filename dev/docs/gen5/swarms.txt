@@ -9,23 +9,25 @@ Swarm count
 
 Value is just the 1-byte index in the swarm list
 
+Note: Route 8 encounters are inaccessible during winter, which the games allude to by not mentioning Route 8 outbreaks during winter (Croagunk in BW, Quagsire in B2W2)
+
 Index       B               W               B2              W2
 0           Farfetch'd      Farfetch'd      Farfetch'd      Farfetch'd
 1           Wynaut          Wynaut          Hypno           Hypno
 2           Volbeat         Illumise        Plusle          Minun
-3           Hippopotas      Hippopotas      Volbeat         Illumise
-4           Smeargle        Smeargle        Swalot          Swalot
-5           Plusle          Minun           Hippowdon       Hippowdon
-6           Sentret         Sentret         Natu            Natu
-7           Croagunk        Croagunk        Furret          Furret
-8           Houndour        Poochyena       Doduo           Doduo
-9           Tyrogue         Tyrogue         Quagsire        Quagsire
-10          Shroomish       Paras           Masquerain      Masquerain
-11          Doduo           Doduo           Swellow         Swellow
-12          Shuppet         Shuppet         Slowpoke        Slowpoke
-13          Yanma           Yanma           Fearow          Fearow
-14          Mankey          Mankey          Pineco          Pineco
-15          Pineco          Pineco          Hoppip          Hoppip
-16          Exeggcute       Exeggcute       Cacturne        Cacturne
+3           Hippopotas      Hippopotas      Volbeat         Swalot
+4           Smeargle        Smeargle        Swalot          Hippowdon
+5           Plusle          Minun           Hippowdon       Natu
+6           Sentret         Sentret         Natu            Furret
+7           Croagunk        Croagunk        Furret          Doduo
+8           Houndour        Poochyena       Doduo           Quagsire
+9           Tyrogue         Tyrogue         Quagsire        Masquerain
+10          Shroomish       Paras           Masquerain      Swellow
+11          Doduo           Doduo           Swellow         Slowpoke
+12          Shuppet         Shuppet         Slowpoke        Fearow
+13          Yanma           Yanma           Fearow          Pineco
+14          Mankey          Mankey          Pineco          Hoppip
+15          Pineco          Pineco          Hoppip          Cacturne
+16          Exeggcute       Exeggcute       Cacturne        Illumise
 17          -               -               Sudowoodo       Mr. Mime
 18          -               -               Ariados         Ledian

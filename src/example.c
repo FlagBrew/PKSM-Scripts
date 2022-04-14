@@ -4,9 +4,7 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)argv[0];
-    int saveLength = atoi(argv[1]);
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     sav_gbo();
     sav_sbo();
 

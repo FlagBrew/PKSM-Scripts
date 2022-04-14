@@ -44,7 +44,7 @@ union trainerID
  *          offset: 0x1418
  *          bytes: 8
  */
-int checkOnlineID(int version, unsigned char* saveData)
+int checkOnlineID(int version)
 {
     int ofsSyncID = 0, sizeSyncID = 0, i;
     switch (version)
@@ -73,7 +73,7 @@ int checkOnlineID(int version, unsigned char* saveData)
     // ???: (Gen 7) check NexUniqueID and/or FestaID?
     for (i = 0; i < sizeSyncID; i++)
     {
-        if (saveData[ofsSyncID + i] != 0)
+        if (sav_get_byte(ofsSyncID, i) != 0)
         {
             return 1;
         }
@@ -81,7 +81,7 @@ int checkOnlineID(int version, unsigned char* saveData)
     return 0;
 }
 
-void clearSyncID(int version, unsigned char* saveData)
+void clearSyncID(int version)
 {
     int ofsSyncID = 0, i;
     switch (version)
@@ -106,14 +106,13 @@ void clearSyncID(int version, unsigned char* saveData)
 
     for (i = 0; i < 8; i++)
     {
-        saveData[ofsSyncID + i] = 0;
+        sav_set_byte(0, ofsSyncID, i);
     }
 }
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)argv[0];
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     unsigned int gbo = sav_gbo(), ofsTID = 0, ofsName = 0;
     char *fields[] = {
         "Exit script",
@@ -127,6 +126,13 @@ int main(int argc, char **argv)
 
     switch (version)
     {
+        case 1:  // RS
+        case 2:  // RS
+        case 3:  // E
+        case 4:  // FRLG
+        case 5:  // FRLG
+            ofsTID = 0xA;
+            break;
         case 7:  // HG
         case 8:  // SS
         case 10: // D
@@ -168,7 +174,7 @@ int main(int argc, char **argv)
     }
 
     // check for (and possibly remove) GameSync ID
-    if (checkOnlineID(version, saveData))
+    if (checkOnlineID(version))
     {
         gui_warn("GameSync ID found.\nEditing trainer info may get you banned.");
         if (gui_choice("Exit script without editing (A)\nor remove GameSync ID and continue (B)"))
@@ -176,7 +182,7 @@ int main(int argc, char **argv)
             return 1;
         }
         /* remove GameSync ID */
-        clearSyncID(version, saveData);
+        clearSyncID(version);
         gui_warn("Beware: GameSync ID may not be the\nonly thing looked at by online checks");
     }
 
@@ -187,7 +193,22 @@ int main(int argc, char **argv)
         nameLen8 = nameLen16 + 0x8 + (version > 23) * 0x5,
         failedAlloc = 0;
     union trainerID id;
-    id.u32 = *(unsigned int *)(saveData + ofsTID);
+    id.u32 = sav_get_int(0, ofsTID);
+
+    // Gen 3 strings are really stupid
+    if (version <= 5)
+    {
+        if (sav_get_value(SAV_LANGUAGE) == 1)
+        {
+            nameLen16 = 0xC;            // Japanese name length: 5
+            nameLen8 = nameLen16 + 0x6;
+        }
+        else
+        {
+            nameLen16 = 0x10;            // Other name length: 7
+            nameLen8 = nameLen16 + 0x8;
+        }
+    }
 
     char *oldName = malloc(nameLen8), *newName = malloc(nameLen8),
         *otName = malloc(nameLen8),
@@ -282,7 +303,7 @@ int main(int argc, char **argv)
                     gui_warn(currentData);
                     memset(newName, '\0', nameLen8);
                     gui_keyboard(newName, "Enter new OT name", nameLen16 / 2);
-                    sprintf(currentData, "OT name set to %s", oldName);
+                    sprintf(currentData, "OT name set to %s", newName);
                     gui_warn(currentData);
                     memset(otName, '\0', nameLen8);
                     strcpy(otName, newName);
@@ -324,10 +345,10 @@ int main(int argc, char **argv)
 
     if (changes)
     {
-        *(unsigned int *)(saveData + ofsTID) = id.u32;
+        sav_set_int(id.u32, 0, ofsTID);
         if (!failedAlloc)
         {
-            sav_set_string(otName, ofsName, nameLen16 / 2);
+            sav_set_string(otName, 0, ofsName, nameLen16 / 2);
         }
     }
 

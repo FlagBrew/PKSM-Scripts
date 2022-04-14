@@ -4,19 +4,20 @@
 "Set max Style Points" -i 0x154D 1 255 1
 "Set max Battle Points" -i 0x423C 2 9999 1
 "Set max current Pokemiles" -i 0x1E4FC 4 9999999 1
+"Refill O-Power energy" -i 0x16a41 1 0xA 1
 "Unlock all lv1-3 O-Powers" -i 0x16a00 66 "data/OPower.bin" 1
 "Unlock all O-Powers" -d "illegal" -i 0x16a00 66 "data/OPower_illegal.bin" 1
-"Renew 1st WonderCard" -i 0x1BD52 1 1 1
-"Renew 2nd WonderCard" -i 0x1BE5A 1 1 1
-"Renew 3rd WonderCard" -i 0x1BF62 1 1 1
+"Unlock all Player Clothing" -i 0x1A00 108 "data/XY_AllFashion.bin" 1
 "Supreme Honor Pokepuffs" -i 0x00000 1 22 100
 "Battle Chateau - become Grand Duke or Dutchess" -i 0x1D800 38 "data/XY_Chateau.bin" 1
-"Pokemon Link - Bank Celebi" -i 0x20000 2630 "data/link/LINK_Celebi.bin" 1
-"Pokemon Link - HA Johto Starters" -i 0x20000 2630 "data/link/LINK_Johto_Starters.bin" 1
-"Pokemon Link - HA Regi Trio" -i 0x20000 2630 "data/link/LINK_Regi_Trio.bin" 1
-"Pokemon Link - Demo Glalie" -i 0x20000 2630 "data/link/LINK_Glalie.bin" 1
-"Pokemon Link - Demo Steelix" -i 0x20000 2630 "data/link/LINK_Steelix.bin" 1
-"Pokemon Link - BP & Pokemiles" -i 0x20000 2630 "data/link/LINK_BP_Pokemiles.bin" 1
+# Pokémon Link
+"Pokemon Link enabled" -i 0x1FFFF 1 0x80 1
+"Pokemon Link - Bank Celebi" -i 0x20000 2630 "data/link/LINK_Celebi.bin" 1 -i 0x1FFFF 1 0x80 1
+"Pokemon Link - HA Johto Starters" -i 0x20000 2630 "data/link/LINK_Johto_Starters.bin" 1 -i 0x1FFFF 1 0x80 1
+"Pokemon Link - HA Regi Trio" -i 0x20000 2630 "data/link/LINK_Regi_Trio.bin" 1 -i 0x1FFFF 1 0x80 1
+"Pokemon Link - Demo Glalie" -i 0x20000 2630 "data/link/LINK_Glalie.bin" 1 -i 0x1FFFF 1 0x80 1
+"Pokemon Link - Demo Steelix" -i 0x20000 2630 "data/link/LINK_Steelix.bin" 1 -i 0x1FFFF 1 0x80 1
+"Pokemon Link - BP & Pokemiles" -i 0x20000 2630 "data/link/LINK_BP_Pokemiles.bin" 1 -i 0x1FFFF 1 0x80 1
 # Changes the flag that controls your starter and which bird is obtainable
 "Set Kanto bird - Articuno" -i 0x14A60 2 0 1 -i 0x17E1C 1 144 1
 "Set Kanto bird - Zapdos" -i 0x14A60 2 1 1 -i 0x17E1C 1 145 1

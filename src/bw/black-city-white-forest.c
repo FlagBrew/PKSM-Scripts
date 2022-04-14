@@ -5,8 +5,7 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)argv[0];
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     int ofs = 0x1fa08,
         ofsRes, i, slot, choice, opts,
         current[21];
@@ -60,9 +59,9 @@ int main(int argc, char **argv)
     {
         ofsRes = ofs + 0x18 * slot;
         // only add visible trainers
-        if (saveData[ofsRes])
+        if (sav_get_byte(ofsRes, 0))
         {
-            current[slot] = saveData[ofsRes + 1];
+            current[slot] = sav_get_byte(ofsRes + 1, 0);
             residents[slot].species = species[game][current[slot]];
         }
         else
@@ -81,12 +80,13 @@ int main(int argc, char **argv)
     residents[20].form = 0;
 
     slot = gui_menu_6x5("Edit which slot?\nBack = shareable", 21, slots, residents, GEN_FIVE);
+    char message[29] = {0};
     while (slot < 20)
     {
         present = 0;
         // front slots match loaded save, back slots are opposite
         opts = (game ^ (slot > 9)) * 31;
-        choice = gui_menu_6x5("Pick a resident", 31, trainers, &pkxOpts[opts], GEN_FIVE);
+        choice = gui_menu_6x5("Pick a resident\n\nNote: you can find a 'none'\noption by scrolling to\nthe second page", 31, trainers, &pkxOpts[opts], GEN_FIVE);
 
         // do not duplicate trainers
         if (choice < 30) {
@@ -94,9 +94,9 @@ int main(int argc, char **argv)
             {
                 if (i != slot && current[i] == choice) {
                     present = 1;
-                    char message[29] = {0};
-                    snprintf(message, "%s\nis already present", trainers[choice]);
+                    sprintf(message, "%s\nis already present", trainers[choice]);
                     gui_warn(message);
+                    memset(message, '\0', 29);
                     break;
                 }
             }
@@ -106,11 +106,11 @@ int main(int argc, char **argv)
             current[slot] = choice;
             residents[slot].species = pkxOpts[opts + choice].species;
             ofsRes = ofs + slot * 0x18;
-            saveData[ofsRes] = choice < 30; // resident presence
-            saveData[ofsRes + 1] = choice % 30; // resident ID
+            sav_set_byte(choice < 30, ofsRes, 0); // resident presence
+            sav_set_byte(choice % 30, ofsRes + 1, 0); // resident ID
             if (slot < 10) {
                 // only set "stay" value for front slots
-                saveData[ofsRes + 2] = 100; // "stay" value
+                sav_set_byte(100, ofsRes + 2, 0); // "stay" value
             }
         }
 

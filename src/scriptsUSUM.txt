@@ -4,15 +4,13 @@
 "Set max Battle Points" -i 0x0451C 4 9999 1
 "Set max Festival Coins" -i 0x51308 4 9999999 1
 "Set Island Points to 100" -i 0x6BE03 4 100 1
+"Set max Mantine Surf Scores" -i 0x4538 4 999999 4
 "Set 100 hatched eggs" -i 0x6A220 4 100 1
 "Set max Camera Shots" -i 0x65604 4 9999999 1
 "Set max Thumbs Up" -i 0x6560C 4 9999999 1
 "Set max Camera Version" -i 0x65600 2 4 1
 "Set Moon time" -i 0x4a48 8 43200 1
 "Set Sun time" -i 0x4a48 8 86400 1
-"Renew 1st WonderCard" -i 0x66352 1 1 1
-"Renew 2nd WonderCard" -i 0x6645A 1 1 1
-"Renew 3rd WonderCard" -i 0x66562 1 1 1
 "All Pokebeans" -i 0x40e4c 1 0xFF 15
 "10 Zygarde Cells" -i 0x1F42 2 10 1
 "50 Zygarde Cells" -i 0x1F42 2 50 1

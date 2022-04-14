@@ -12,9 +12,6 @@
 "50 Zygarde Cells" -i 0x1D42 2 50 1
 "100 Zygarde Cells" -i 0x1D42 2 100 1
 "999 Zygarde Cells" -i 0x1D42 2 999 1
-"Renew 1st WonderCard" -i 0x65D52 1 1 1
-"Renew 2nd WonderCard" -i 0x65E5A 1 1 1
-"Renew 3rd WonderCard" -i 0x65F62 1 1 1
 "All Pokebeans" -i 0x40A4c 1 0xFF 15
 "Battle Royal - Master" -i 0x69DDA 1 5 1 -i 0x6B220 1 3 1
 # Mass injection

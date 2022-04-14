@@ -4,15 +4,13 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)argv[0];
-
     int start = 0x1e7ff;
     int size = 0x15;
     for(int i = 1; i < 101; i++)
     {
         int ofs = start + (i * size);
-        if (saveData[ofs] != 0) {
-            saveData[ofs] = 0x3d;
+        if (sav_get_byte(ofs, 0) != 0) {
+            sav_set_byte(0x3d, ofs, 0);
         }
     }
     gui_warn("All Friend Safari slots\nunlocked and revealed");

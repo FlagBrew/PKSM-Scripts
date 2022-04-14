@@ -4,18 +4,16 @@
 #include <stdio.h>
 
 union FeebasSeed {
-    unsigned long seed;
+    unsigned int seed;
     unsigned char part[4];
 };
 
 int main(int argc, char **argv) {
-    unsigned char *saveData = (unsigned char *)argv[0];
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     union FeebasSeed feebasSeed;
-    int gbo = sav_gbo();
-    unsigned int sday = *(unsigned char*)(saveData + gbo + 0x1C),
-        smon = *(unsigned char*)(saveData + gbo + 0x18),
-        syear = (*(unsigned char*)(saveData + gbo + 0x14)) + 2000;
+    unsigned int sday = sav_get_byte(0x1C, 0),
+        smon = sav_get_byte(0x18, 0),
+        syear = sav_get_byte(0x14, 0) + 2000;
     int xpos[4], ypos[4];
     int spot[] = {
         585, 586, 587, 588, 589, 590, 591, 592, 593, 594,
@@ -66,10 +64,10 @@ int main(int argc, char **argv) {
     {
         case 10:
         case 11:
-            feebasSeed.seed = *(unsigned long*)(saveData + gbo + 0x53C8);
+            feebasSeed.seed = sav_get_int(0x53C8, 0);
             break;
         case 12:
-            feebasSeed.seed = *(unsigned long*)(saveData + gbo + 0x5664);
+            feebasSeed.seed = sav_get_int(0x5664, 0);
             break;
         default:
             gui_warn("This script is only meant for\nthe Sinnoh games (DPPt)");
@@ -83,7 +81,7 @@ int main(int argc, char **argv) {
     }
 
     char msg[120] = {'\0'};
-    sprintf(&msg, "Your Feebas Tiles for %u/%u/%u (DD/MM/YYYY)\n(the day you last saved) are, as follows...", sday, smon, syear);
+    sprintf(msg, "Your Feebas Tiles for %u/%u/%u (DD/MM/YYYY)\n(the day you last saved) are, as follows...", sday, smon, syear);
     gui_warn(msg);
     sprintf(msg, "Row #%i from the top, Column #%i from the left\nRow #%i from the top, Column #%i from the left", ypos[0], xpos[0], ypos[1], xpos[1]);
     gui_warn(msg);

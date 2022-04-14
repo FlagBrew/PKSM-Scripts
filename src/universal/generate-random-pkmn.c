@@ -7,24 +7,42 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     enum Generation gen;
 
-    int maxSpecies, maxMoves, maxBalls, maxItems, maxAbility, maxBoxes;
+    int maxSpecies, maxMoves, maxBalls, maxItems, maxAbility, maxSlots;
     unsigned int randomizedCount, maxLevel;
-    gui_warn("Please enter how many pokemon\nyou would like to generate!");
-    gui_numpad(&randomizedCount, "Number of PKMN to generate.", 3);
-    gui_warn("Please enter how the max level\nyou would like to have your pokemon be!");
+    int gen_party = gui_choice("Do you want to inject into your box or your party?\nThis Will Generate 6 PKMN");
+    if(gen_party == 1) {
+        randomizedCount = 6;
+    } else {
+        gui_warn("Please enter how many pokemon\nyou would like to generate!");
+        gui_numpad(&randomizedCount, "Number of PKMN to generate.", 3);
+    }    
+    int gen_eggs = gui_choice("Do you want to generate eggs?\nThis is for EggLocke runs");
+    gui_warn("Please enter the max level\nyou would like to have your pokemon be!");
     gui_numpad(&maxLevel, "Max level 1-100", 3);
 
     if(maxLevel <= 0 || maxLevel > 100) {
          gui_warn("You must choose a level\nbetween 1-100!");
          return 1;
     }
-
+    maxSlots = sav_get_max(MAX_SLOTS);
 
     switch (version)
     {
+        case 1: // ruby
+        case 2: // sapphire
+        case 3: // emerald
+        case 4: // fire red
+        case 5: // leaf green
+            gen = GEN_THREE;
+            maxSpecies = 386;
+            maxItems = (version == 4 || version == 5) ? 374 : (version == 3 ? 376 : 348);
+            maxMoves = 354;
+            maxBalls = 12;
+            maxAbility = 77;
+            break;
         case 10:
         case 11:
         case 12:
@@ -32,8 +50,7 @@ int main(int argc, char **argv)
         case 8:
             gen = GEN_FOUR;
             maxSpecies = 493;
-            maxBalls = 18;
-            maxBoxes = 18;
+            maxBalls = 24;
             maxMoves = 467;
             maxAbility = 123;
             maxItems = (version == 11 || version == 10) ? 464 : (version == 12 ? 467 : 536);
@@ -44,8 +61,7 @@ int main(int argc, char **argv)
         case 23:
             gen = GEN_FIVE;
             maxSpecies = 649;
-            maxBoxes = 24;
-            maxBalls = 19;
+            maxBalls = 25;
             maxMoves = 559;
             maxAbility = 164;
             maxItems = (version == 20 || version == 21) ? 632 : 638;
@@ -56,9 +72,8 @@ int main(int argc, char **argv)
         case 27:
             gen = GEN_SIX;
             maxSpecies = 721;
-            maxBalls = 19;
+            maxBalls = 25;
             maxItems = (version == 26 || version == 27) ? 775 : 717;
-            maxBoxes = 31;
             maxMoves = (version == 26 || version == 27) ? 621 : 617;
             maxAbility = (version == 26 || version == 27) ? 191 : 188;
             break;
@@ -69,7 +84,6 @@ int main(int argc, char **argv)
             gen = GEN_SEVEN;
             maxBalls = 26;
             maxMoves = 720;
-            maxBoxes = 32;
             maxSpecies = (version == 32 || version == 33) ? 807 : 802;
             maxMoves = (version == 32 || version == 33) ? 728 : 720;
             maxItems = (version == 32 || version == 33) ? 959 : 920;
@@ -79,12 +93,16 @@ int main(int argc, char **argv)
         case 43:
             gen = GEN_LGPE;
             maxSpecies = 153;
+            maxBalls = 26;
             break;
+        default:
+            gui_warn("Sorry this version isn't supported yet by the script!");
+            return 1;
     }
 
-    if (randomizedCount > 30*maxBoxes || randomizedCount == 0){
+    if (randomizedCount > maxSlots || randomizedCount == 0){
         char part2[80] = {0};
-        sprintf(part2, "You've inputted an invalid number\nYou must generate between 1-%d pokemon!", 30*maxBoxes);
+        sprintf(part2, "You've inputted an invalid number\nYou must generate between 1-%d pokemon!", maxSlots);
         gui_warn(part2);
     } else {
         int randNick = gui_choice("Do you want to randomize nicknames?\nThis could produce weirdness.");
@@ -149,8 +167,14 @@ int main(int argc, char **argv)
                 pkx_set_value(data, gen, NICKNAME, name);
                 free(name);
             }
-            sav_inject_pkx(data, gen, i / 30, i % 30, 0);
-
+            if (gen_eggs == 1){
+                pkx_set_value(data, gen, EGG, 1);
+            }
+            if(gen_party == 1) {
+                party_inject_pkx(data, gen, i);
+            } else {
+                sav_inject_pkx(data, gen, i / 30, i % 30, 0);
+            }
         }
 
         free(data);

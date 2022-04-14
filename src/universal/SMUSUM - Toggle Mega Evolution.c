@@ -5,8 +5,7 @@
 
 int main(int argc, char** argv)
 {
-    unsigned char* saveData = (unsigned char*) argv[0];
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     int offset;
 
     switch (version)
@@ -24,11 +23,12 @@ int main(int argc, char** argv)
             return 1;
     }
 
-    if ((saveData[offset] & 0x01) == 0)
+    char currentVal = sav_get_byte(offset, 0);
+    if ((currentVal & 0x01) == 0)
     {
         if (gui_choice("Mega evolution is locked.\nUnlock it?"))
         {
-            saveData[offset] = (saveData[offset] ^ 0x01);
+            sav_set_byte(currentVal ^ 0x01, offset, 0);
             gui_warn("Mega evolution successfully unlocked!");
         }
         else
@@ -40,7 +40,7 @@ int main(int argc, char** argv)
     {
         if (gui_choice("Mega evolution is unlocked.\nLock it?"))
         {
-            saveData[offset] = (saveData[offset] ^ 0x01);
+            sav_set_byte(currentVal ^ 0x01, offset, 0);
             gui_warn("Mega evolution successfully locked!");
         }
         else

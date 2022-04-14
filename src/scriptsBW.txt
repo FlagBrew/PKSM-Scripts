@@ -28,19 +28,11 @@
 # Dex
 "Language entries" -d "dex" -i 0x21920 1 0xff 0x1af -i 0x21ace 1 0x07 1
 "Unova seen" -d "dex" -i 0x2165c 0x474 "data/dex/BW_Unova_seen.bin" 1
-"Unova owned" -d "dex" -i 0x21608 0x4c8 "data/dex/BW_Unova_owned.bin" 1
-"National seen" -d "dex" -i 0x2165c 0x474 "data/dex/BW_National_seen.bin" 1
+"Unova owned" -d "dex" -i 0x21608 0x474 "data/dex/BW_Unova_owned.bin" 1
+"National seen" -d "dex" -i 0x2165c 0x4c8 "data/dex/BW_National_seen.bin" 1
 "National owned" -d "dex" -i 0x21608 0x4c8 "data/dex/BW_National_owned.bin" 1
 "Complete" -d "dex" -i 0x21608 0x4c8 "data/dex/BW_Complete.bin" 1
 "Fill Dex - Complete" -d "illegal" -i 0x21608 0x4c8 "data/dex/BW_Complete_illegal.bin" 1
-# Pass Powers
-"HP Restore MAX" -d "PassPowers" -i 0x214A0 1 39 1
-"Hatching MAX" -d "PassPowers" -i 0x214A0 1 40 1
-"Bargain MAX" -d "PassPowers" -i 0x214A0 1 41 1
-"Befriending MAX" -d "PassPowers" -i 0x214A0 1 42 1
-"Exp Points MAX" -d "PassPowers" -i 0x214A0 1 43 1
-"Prize Money MAX" -d "PassPowers" -i 0x214A0 1 44 1
-"Capture MAX" -d "PassPowers" -i 0x214A0 1 45 1
 # Day Care EXP
 "Set 10,000 Exp gained" -d "daycare" -i 0x20EE0 4 10000 1 -i 0x20FC4 4 10000 1
 "Set 50,000 Exp gained" -d "daycare" -i 0x20EE0 4 50000 1 -i 0x20FC4 4 50000 1

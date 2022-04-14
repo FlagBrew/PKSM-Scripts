@@ -5,8 +5,7 @@
 
 int main(int argc, char **argv)
 {
-    unsigned char *saveData = (unsigned char *)argv[0];
-    unsigned char version = *argv[2];
+    unsigned char version = *argv[0];
     unsigned short tid, sid;
     char m[4] = {0}, opts = 8, game;
     int ofsHoney = sav_gbo(),
@@ -32,15 +31,15 @@ int main(int argc, char **argv)
     {
     case 10:
     case 11:
-        tid = *(unsigned short *)(saveData + ofsHoney + 0x74);
-        sid = *(unsigned short *)(saveData + ofsHoney + 0x76);
+        tid = sav_get_short(ofsHoney, 0x74);
+        sid = sav_get_short(ofsHoney, 0x76);
         ofsHoney += 0x72E4;
         specNums[6] = 266;
         game = 0;
         break;
     case 12:
-        tid = *(unsigned short *)(saveData + ofsHoney + 0x78);
-        sid = *(unsigned short *)(saveData + ofsHoney + 0x7A);
+        tid = sav_get_short(ofsHoney, 0x78);
+        sid = sav_get_short(ofsHoney, 0x7A);
         ofsHoney += 0x7F38;
         opts = 7;
         game = 1;
@@ -71,7 +70,7 @@ int main(int argc, char **argv)
     for (tree = 0; tree < 21; tree++)
     {
         ofsTree = ofsHoney + 8 * tree;
-        treePkm[tree].species = pos[game][saveData[ofsTree + 6]][saveData[ofsTree + 4]];
+        treePkm[tree].species = pos[game][sav_get_byte(ofsTree, 6)][sav_get_byte(ofsTree, 4)];
         treePkm[tree].form = 0;
     }
     treePkm[21].species = 0;
@@ -100,17 +99,17 @@ int main(int argc, char **argv)
         treePkm[tree].species = specNums[pkm];
 
         ofsTree = ofsHoney + 8 * tree;
-        *(int *)(saveData + ofsTree) = 1080; // remaining time (minutes)
-        saveData[ofsTree + 7] = 3; // shake
+        sav_set_int(1080, ofsTree, 0);
+        sav_set_byte(3, ofsTree, 7); // shake
         for (group = 1; group < 4; group++)
         {
             for (slot = 0; slot < 6; slot++)
             {
                 if (pos[game][group][slot] == specNums[pkm])
                 {
-                    saveData[ofsTree + 4] = slot; // slot (within group)
-                    saveData[ofsTree + 5] = group - 1; // subtable (always == group - 1)
-                    saveData[ofsTree + 6] = group; // group
+                    sav_set_byte(slot, ofsTree, 4); // slot (within group)
+                    sav_set_byte(group - 1, ofsTree, 5); // subtable (always == group - 1)
+                    sav_set_byte(group, ofsTree, 6); // group
                     break;
                 }
             }
