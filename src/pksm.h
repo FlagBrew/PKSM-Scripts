@@ -137,6 +137,7 @@ int sav_wcx_free_slot(void);
 int sav_get_value(enum SAV_Field field, ...);
 int sav_get_max(enum SAV_MaxField field, ...);
 int sav_check_value(enum SAV_CheckValue field, int value);
+void sav_register_pkx_dex(char* data, enum Generation gen);
 void party_get_pkx(char* data, int slot);
 void party_inject_pkx(char* data, enum Generation type, int slot);
 void bank_inject_pkx(char* data, enum Generation type, int box, int slot);
