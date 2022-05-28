@@ -53,12 +53,23 @@ int main(int argc, char **argv)
     if (choice)
     {
         sav_box_decrypt();
-        int pkmSizeSav = pkx_box_size(genSav), maxSlots = sav_get_max(MAX_SLOTS) - 1, species, isEgg = 0;
+        int pkmSizeSav = pkx_box_size(genSav), slot = 0, maxSlots = sav_get_max(MAX_SLOTS) - 1, species, isEgg = 0, slotsPerBox = (maxSlots + 1) / sav_get_max(MAX_BOXES);
         char *pkxSav = malloc(pkmSizeSav), *pkxInject = malloc(pkmSizeSav), *pkxBank;
         enum Generation genBank;
+        if (genSav == GEN_LGPE) slotsPerBox = 30;
         sav_get_pkx(pkxSav, 0, 0); // save what's already in Box 1 slot 1
 
-        sav_get_pkx(pkxSav, 0, 0);
+        // v9.2.0-656eb68 (stable) compatibility: find a slot with a valid pkm to use for injection
+        while (!pkx_is_valid(pkxSav, genSav) && slot < maxSlots)
+        {
+            slot++;
+            sav_get_pkx(pkxSav, slot / slotsPerBox, slot % slotsPerBox);
+        }
+        if (slot == maxSlots)
+        {
+            gui_warn("Could not find a usable box slot.\nExiting script without editing the Pokédex");
+            return 0;
+        }
 
         gui_splash("Injecting data\nThis may take a while.");
         maxSlots = bank_get_size() * 30;
@@ -91,14 +102,14 @@ int main(int argc, char **argv)
                     // native/foreign for XY
                     pkx_set_value(pkxInject, genSav, ORIGINAL_GAME, pkx_get_value(pkxBank, genBank, ORIGINAL_GAME));
 
-                    sav_inject_pkx(pkxInject, genSav, 0, 0, 0);
+                    sav_inject_pkx(pkxInject, genSav, slot / slotsPerBox, slot % slotsPerBox, 0);
                 }
             }
             free(pkxBank);
         }
 
         // cleanup
-        sav_inject_pkx(pkxSav, genSav, 0, 0, 0);
+        sav_inject_pkx(pkxSav, genSav, slot / slotsPerBox, slot % slotsPerBox, 0);
         sav_box_encrypt();
         free(pkxSav);
         free(pkxInject);

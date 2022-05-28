@@ -63,12 +63,13 @@ int main(int argc, char **argv)
     sav_box_decrypt();
     if (gen != GEN_LGPE)
     {
+        int slotsPerBox = sav_get_max(MAX_SLOTS) / sav_get_max(MAX_BOXES);
         char* data = malloc(pkx_box_size(gen));
         for (int i = 0; i < maxSpecies; i++)
         {
             pkx_generate(data, i + 1);
             pkx_set_value(data, gen, SHINY, shiny);
-            sav_inject_pkx(data, gen, i / 30, i % 30, 0);
+            sav_inject_pkx(data, gen, i / slotsPerBox, i % slotsPerBox, 0);
         }
         free(data);
     }

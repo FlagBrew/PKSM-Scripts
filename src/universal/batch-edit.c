@@ -94,7 +94,7 @@ int main(int argc, char **argv)
     };
     int props_count = 20, target = -1, prop = -1,
         boxes, skip, pkm_size = pkx_box_size(gen_sav),
-        choice = 0;
+        choice = 0, slots_per_box;
     int values[3] = {0};
     char *props[20] = {
         "Exit Script",
@@ -198,10 +198,17 @@ int main(int argc, char **argv)
             boxes = sav_get_max(MAX_BOXES);
             gen_pkm = gen_sav;
             sav_box_decrypt();
+            if (gen_sav == GEN_LGPE) {
+                slots_per_box = sav_get_max(MAX_SLOTS) / boxes;
+            }
+            else {
+                slots_per_box = 30;
+            }
         }
         else
         {
             boxes = bank_get_size();
+            slots_per_box = 30;
         }
 
         while (prop)
@@ -304,7 +311,7 @@ int main(int argc, char **argv)
             gui_splash("This may take some time");
             for (int box = 0; box < boxes; box++)
             {
-                for (int slot = 0; slot < 30; slot++)
+                for (int slot = 0; slot < slots_per_box; slot++)
                 {
                     if (target == 1 && gen_sav == GEN_LGPE && box * 30 + slot == 1000)
                     {

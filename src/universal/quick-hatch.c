@@ -58,19 +58,19 @@ int main(int argc, char **argv)
     }
 
     int slots = sav_get_max(MAX_SLOTS), slot,
-        boxEggs = 0, partyEggs = 0;
+        boxEggs = 0, partyEggs = 0, slotsPerBox = slots / sav_get_max(MAX_BOXES);
     char isEgg;
     char *pkm = malloc(pkx_party_size(gen));
 
     sav_box_decrypt();
     for (slot = 0; slot < slots; slot++)
     {
-        sav_get_pkx(pkm, slot / 30, slot % 30);
+        sav_get_pkx(pkm, slot / slotsPerBox, slot % slotsPerBox);
         if (pkx_is_valid(pkm, gen) && pkx_get_value(pkm, gen, EGG))
         {
             boxEggs++;
             pkm[friend] = 0;
-            sav_inject_pkx(pkm, gen, slot / 30, slot % 30, 0);
+            sav_inject_pkx(pkm, gen, slot / slotsPerBox, slot % slotsPerBox, 0);
         }
     }
     sav_box_encrypt();
