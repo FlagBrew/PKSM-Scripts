@@ -1,6 +1,7 @@
 scripts
 *.pksm
 __pycache__
+script_list.txt
 
 # dev tools - Node.js
 dev/**/*

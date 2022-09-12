@@ -10,7 +10,7 @@ int main(int argc, char **argv)
     unsigned char version = *argv[0];
     enum Generation gen;
 
-    int maxSpecies, maxMoves, maxBalls, maxItems, maxAbility, maxSlots;
+    int maxSpecies, maxMoves, maxBalls, maxItems, maxAbility, maxSlots, slotsPerBox;
     unsigned int randomizedCount, maxLevel;
     int gen_party = gui_choice("Do you want to inject into your box or your party?\nThis Will Generate 6 PKMN");
     if(gen_party == 1) {
@@ -28,6 +28,7 @@ int main(int argc, char **argv)
          return 1;
     }
     maxSlots = sav_get_max(MAX_SLOTS);
+    slotsPerBox = maxSlots / sav_get_max(MAX_BOXES);
 
     switch (version)
     {
@@ -94,6 +95,7 @@ int main(int argc, char **argv)
             gen = GEN_LGPE;
             maxSpecies = 153;
             maxBalls = 26;
+            slotsPerBox = 30;
             break;
         default:
             gui_warn("Sorry this version isn't supported yet by the script!");
@@ -173,7 +175,7 @@ int main(int argc, char **argv)
             if(gen_party == 1) {
                 party_inject_pkx(data, gen, i);
             } else {
-                sav_inject_pkx(data, gen, i / 30, i % 30, 0);
+                sav_inject_pkx(data, gen, i / slotsPerBox, i % slotsPerBox, 0);
             }
         }
 

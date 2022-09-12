@@ -55,6 +55,7 @@
 "National owned" -d "dex" -i 0x15008 0xc1e "data/dex/ORAS_National_owned.bin" 1
 "Complete" -d "dex" -i 0x15008 0xc1e "data/dex/ORAS_Complete.bin" 1
 "Fill Dex - Complete" -d "illegal" -i 0x15008 0xc1e "data/dex/ORAS_Complete_illegal.bin" 1
+"Max DexNav levels - Complete" -d "illegal" -i 0x15686 2 999 721
 # Battle Maison
 "Singles streak - 19" -d "maison" -i 0x1BBC0 2 19 1
 "Doubles streak - 19" -d "maison" -i 0x1BBC8 2 19 1

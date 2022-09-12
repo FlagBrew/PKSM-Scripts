@@ -58,8 +58,6 @@ int main(int argc, char **argv)
         enum Generation genBank;
         sav_get_pkx(pkxSav, 0, 0); // save what's already in Box 1 slot 1
 
-        sav_get_pkx(pkxSav, 0, 0);
-
         gui_splash("Injecting data\nThis may take a while.");
         maxSlots = bank_get_size() * 30;
         pkx_generate(pkxInject, 1);

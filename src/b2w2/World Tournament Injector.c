@@ -22,11 +22,11 @@ int main (int argc, char **argv) {
     mkdir("/3ds/PKSM", 0777);
     mkdir("/3ds/PKSM/PWT", 0777);
 
-    struct directory *skins = read_directory("/3ds/PKSM/PWT");
+    struct directory *tourneys = read_directory("/3ds/PKSM/PWT");
 
-    if (skins->count == 0) {
+    if (tourneys->count == 0) {
         gui_warn("There are no files in \'/3ds/PKSM/PWT\'!\nPlace .pwt files there");
-        delete_directory(skins);
+        delete_directory(tourneys);
         return 0;
     }
 
@@ -46,14 +46,14 @@ int main (int argc, char **argv) {
             return 0;
         }
 
-        int chosen = gui_menu_20x2("Choose a file to inject", skins->count, skins->files);
+        int chosen = gui_menu_20x2("Choose a file to inject", tourneys->count, tourneys->files);
 
         char* extension = NULL;
-        if (strlen(skins->files[chosen]) > 3)
+        if (strlen(tourneys->files[chosen]) > 3)
         {
-            if (skins->files[chosen][strlen(skins->files[chosen]) - 4] == '.')
+            if (tourneys->files[chosen][strlen(tourneys->files[chosen]) - 4] == '.')
             {
-                extension = skins->files[chosen] + strlen(skins->files[chosen]) - 3;
+                extension = tourneys->files[chosen] + strlen(tourneys->files[chosen]) - 3;
             }
         }
 
@@ -62,7 +62,7 @@ int main (int argc, char **argv) {
             return 1;
         }
 
-        FILE* file = fopen(skins->files[chosen], "rb");
+        FILE* file = fopen(tourneys->files[chosen], "rb");
         fseek(file, 0, SEEK_END);
         int size = ftell(file);
         if (size != tourneySize) {
