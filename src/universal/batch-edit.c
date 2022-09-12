@@ -198,7 +198,7 @@ int main(int argc, char **argv)
             boxes = sav_get_max(MAX_BOXES);
             gen_pkm = gen_sav;
             sav_box_decrypt();
-            if (gen_sav == GEN_LGPE) {
+            if (gen_sav != GEN_LGPE) {
                 slots_per_box = sav_get_max(MAX_SLOTS) / boxes;
             }
             else {
