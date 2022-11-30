@@ -72,7 +72,7 @@ int main(int argc, char** argv)
     if (gen == GEN_LGPE)
     {
         // LGPE is weird
-        int response = fetch_web_content(&currentData, &currentDataSize, "https://dex.flagbrew.org/pb7.txt");
+        int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pb7.txt");
         currentGen   = GEN_LGPE;
         if (response != 200 || currentData == NULL || currentDataSize == 0)
         {
@@ -130,7 +130,7 @@ int main(int argc, char** argv)
                 if (currentGen != GEN_THREE)
                 {
                     free(currentData);
-                    int response = fetch_web_content(&currentData, &currentDataSize, "https://dex.flagbrew.org/pk3.txt");
+                    int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk3.txt");
                     currentGen   = GEN_THREE;
                     if (response != 200 || currentData == NULL || currentDataSize == 0)
                     {
@@ -168,7 +168,7 @@ int main(int argc, char** argv)
                 if (currentGen != GEN_FOUR)
                 {
                     free(currentData);
-                    int response = fetch_web_content(&currentData, &currentDataSize, "https://dex.flagbrew.org/pk4.txt");
+                    int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk4.txt");
                     currentGen   = GEN_FOUR;
                     if (response != 200 || currentData == NULL || currentDataSize == 0)
                     {
@@ -206,7 +206,7 @@ int main(int argc, char** argv)
                 if (currentGen != GEN_FIVE)
                 {
                     free(currentData);
-                    int response = fetch_web_content(&currentData, &currentDataSize, "https://dex.flagbrew.org/pk5.txt");
+                    int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk5.txt");
                     currentGen   = GEN_FIVE;
                     if (response != 200 || currentData == NULL || currentDataSize == 0)
                     {
@@ -244,7 +244,7 @@ int main(int argc, char** argv)
                 if (currentGen != GEN_SIX)
                 {
                     free(currentData);
-                    int response = fetch_web_content(&currentData, &currentDataSize, "https://dex.flagbrew.org/pk6.txt");
+                    int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk6.txt");
                     currentGen   = GEN_SIX;
                     if (response != 200 || currentData == NULL || currentDataSize == 0)
                     {
@@ -282,7 +282,7 @@ int main(int argc, char** argv)
                 if (currentGen != GEN_SEVEN)
                 {
                     free(currentData);
-                    int response = fetch_web_content(&currentData, &currentDataSize, "https://dex.flagbrew.org/pk7.txt");
+                    int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk7.txt");
                     currentGen   = GEN_SEVEN;
                     if (response != 200 || currentData == NULL || currentDataSize == 0)
                     {
@@ -320,7 +320,7 @@ int main(int argc, char** argv)
                 if (currentGen != GEN_LGPE)
                 {
                     free(currentData);
-                    int response = fetch_web_content(&currentData, &currentDataSize, "https://dex.flagbrew.org/pb7.txt");
+                    int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pb7.txt");
                     currentGen   = GEN_LGPE;
                     if (response != 200 || currentData == NULL || currentDataSize == 0)
                     {
@@ -363,7 +363,7 @@ int main(int argc, char** argv)
                 if (currentGen != GEN_EIGHT)
                 {
                     free(currentData);
-                    int response = fetch_web_content(&currentData, &currentDataSize, "https://dex.flagbrew.org/pk8.txt");
+                    int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk8.txt");
                     currentGen   = GEN_EIGHT;
                     if (response != 200 || currentData == NULL || currentDataSize == 0)
                     {
