@@ -10,61 +10,77 @@ int main(int argc, char **argv)
 
     int maxSpecies = 0;
 
-    int shiny = gui_choice("Would you like your Pok\u00e1mon to be shiny?");
-
     switch (version)
     {
-        case 1: // ruby
-        case 2: // sapphire
-        case 3: // emerald
-        case 4: // fire red
-        case 5: // leaf green
-            gen = GEN_THREE;
-            maxSpecies = 386;
-            break;
-        case 10:
-        case 11:
-        case 12:
-        case 7:
-        case 8:
-            gen = GEN_FOUR;
-            maxSpecies = 493;
-            break;
-        case 20:
-        case 21:
-        case 22:
-        case 23:
-            gen = GEN_FIVE;
-            maxSpecies = 649;
-            break;
-        case 24:
-        case 25:
-        case 26:
-        case 27:
-            gen = GEN_SIX;
-            maxSpecies = 721;
-            break;
-        case 30:
-        case 31:
-            gen = GEN_SEVEN;
-            maxSpecies = 802;
-            break;
-        case 32:
-        case 33:
-            gen = GEN_SEVEN;
-            maxSpecies = 807;
-            break;
-        case 42:
-        case 43:
-            gen = GEN_LGPE;
-            break;
+    case 35: // red
+    case 36: // green[jp]/blue[int]
+    case 37: // blue[jp]
+    case 38: // yellow[jp]
+        gen = GEN_ONE;
+        maxSpecies = 151;
+        break;
+    case 39: // gold
+    case 40: // silver
+    case 41: // crystal
+        gen = GEN_TWO;
+        maxSpecies = 251;
+        break;
+    case 1: // ruby
+    case 2: // sapphire
+    case 3: // emerald
+    case 4: // fire red
+    case 5: // leaf green
+        gen = GEN_THREE;
+        maxSpecies = 386;
+        break;
+    case 10:
+    case 11:
+    case 12:
+    case 7:
+    case 8:
+        gen = GEN_FOUR;
+        maxSpecies = 493;
+        break;
+    case 20:
+    case 21:
+    case 22:
+    case 23:
+        gen = GEN_FIVE;
+        maxSpecies = 649;
+        break;
+    case 24:
+    case 25:
+    case 26:
+    case 27:
+        gen = GEN_SIX;
+        maxSpecies = 721;
+        break;
+    case 30:
+    case 31:
+        gen = GEN_SEVEN;
+        maxSpecies = 802;
+        break;
+    case 32:
+    case 33:
+        gen = GEN_SEVEN;
+        maxSpecies = 807;
+        break;
+    case 42:
+    case 43:
+        gen = GEN_LGPE;
+        break;
+    }
+    int shiny = 0;
+    if (gen != GEN_ONE)
+    {
+        shiny = gui_choice("Would you like your Pok\u00e1mon to be shiny?");
     }
 
     sav_box_decrypt();
     if (gen != GEN_LGPE)
     {
         int slotsPerBox = sav_get_max(MAX_SLOTS) / sav_get_max(MAX_BOXES);
-        char* data = malloc(pkx_box_size(gen));
+        char *data = malloc(pkx_box_size(gen));
         for (int i = 0; i < maxSpecies; i++)
         {
             pkx_generate(data, i + 1);
@@ -75,7 +91,7 @@ int main(int argc, char **argv)
     }
     else
     {
-        char* data = malloc(pkx_box_size(gen));
+        char *data = malloc(pkx_box_size(gen));
         for (int i = 0; i < 151; i++)
         {
             pkx_generate(data, i + 1);
