@@ -80,7 +80,7 @@ int main(int argc, char **argv)
 
     if (gen != GEN_ONE)
     {
-        int gen_eggs = gui_choice("Do you want to generate eggs?\nThis is for EggLocke runs");
+        gen_eggs = gui_choice("Do you want to generate eggs?\nThis is for EggLocke runs");
     }
 
     gui_warn("Please enter the max level\nyou would like to have your pokemon be!");
