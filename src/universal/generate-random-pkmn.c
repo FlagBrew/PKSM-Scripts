@@ -64,7 +64,7 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    int maxSpecies, maxMoves, maxBalls, maxItems, maxAbility, maxSlots, slotsPerBox;
+    int maxSpecies, maxMoves, maxBalls, maxItems, maxIV = 32, maxAbility, maxSlots, slotsPerBox;
     unsigned int randomizedCount, maxLevel;
     int gen_party = gui_choice("Do you want to inject into your box or your party?\nThis Will Generate 6 PKMN");
     if (gen_party == 1)
@@ -100,11 +100,13 @@ int main(int argc, char **argv)
         maxSpecies = 151;
         maxBalls = 5;
         maxMoves = 165;
+        maxIV = 16;
         break;
     case GEN_TWO:
         maxSpecies = 251;
         maxMoves = 251;
         maxItems = 255;
+        maxIV = 16;
         break;
     case GEN_THREE:
         maxSpecies = 386;
@@ -182,43 +184,32 @@ int main(int argc, char **argv)
                 }
             }
             pkx_generate(data, pokemonID);
-            // Shiny Status
-            if (gen != GEN_ONE)
-            {
-                pkx_set_value(data, gen, SHINY, rand() % 2);
-            }
             // Level
             pkx_set_value(data, gen, LEVEL, rand() % maxLevel + 1);
             // IVs
-            pkx_set_value(data, gen, IV_HP, rand() % 32);
-            pkx_set_value(data, gen, IV_ATK, rand() % 32);
-            pkx_set_value(data, gen, IV_DEF, rand() % 32);
-            pkx_set_value(data, gen, IV_SPEED, rand() % 32);
-            pkx_set_value(data, gen, IV_SPATK, rand() % 32);
-            pkx_set_value(data, gen, IV_SPDEF, rand() % 32);
+            pkx_set_value(data, gen, IV_HP, rand() % maxIV);
+            pkx_set_value(data, gen, IV_ATK, rand() % maxIV);
+            pkx_set_value(data, gen, IV_DEF, rand() % maxIV);
+            pkx_set_value(data, gen, IV_SPEED, rand() % maxIV);
+            pkx_set_value(data, gen, IV_SPATK, rand() % maxIV);
+            pkx_set_value(data, gen, IV_SPDEF, rand() % maxIV);
+            // Shiny Status
+            pkx_set_value(data, gen, SHINY, rand() % 2);
             // Nature
             if (gen != GEN_ONE && gen != GEN_TWO)
             {
                 pkx_set_value(data, gen, NATURE, rand() % 25);
             }
-            // Gender
             if (gen != GEN_ONE)
             {
+                // Gender
                 pkx_set_value(data, gen, GENDER, rand() % 3);
+                // Pokerus
+                pkx_set_value(data, gen, POKERUS, rand() % 16, rand() % 5);
             }
             // Since LGPE is weird, we can't really do extra stuff for it.
             if (gen != GEN_LGPE)
             {
-                // Capture Ball
-                if (gen != GEN_TWO)
-                {
-                    pkx_set_value(data, gen, BALL, rand() % maxBalls + 1);
-                }
-                else
-                {
-                    int genTwoBalls[13] = {1, 2, 3, 4, 5, 17, 18, 19, 20, 21, 22, 23, 24};
-                    pkx_set_value(data, gen, BALL, genTwoBalls[rand() % 13]);
-                }
                 for (int ii = 0; ii < 4; ii++)
                 {
                     // Move
@@ -229,16 +220,13 @@ int main(int argc, char **argv)
                 {
                     pkx_set_value(data, gen, ITEM, rand() % maxItems + 1);
                 }
-                // Ability
                 if (gen != GEN_ONE && gen != GEN_TWO)
                 {
+                    // Ability
                     pkx_set_value(data, gen, ABILITY, rand() % maxAbility + 1);
+                    // Capture Ball
+                    pkx_set_value(data, gen, BALL, rand() % maxBalls + 1);
                 }
-            }
-            // Pokerus
-            if (gen != GEN_ONE)
-            {
-                pkx_set_value(data, gen, POKERUS, rand() % 16, rand() % 5);
             }
             if (randNick == 1)
             {
