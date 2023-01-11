@@ -66,22 +66,23 @@ int main(int argc, char **argv)
 
     int maxSpecies, maxMoves, maxBalls, maxItems, maxIV = 32, maxAbility, maxSlots, slotsPerBox;
     unsigned int randomizedCount, maxLevel;
-    int gen_party = gui_choice("Do you want to inject into your box or your party?\nThis Will Generate 6 PKMN");
+    int gen_party = gui_choice("Do you want to inject into your party?\nThis Will Generate 6 PKMN");
     if (gen_party == 1)
     {
         randomizedCount = 6;
     }
     else
     {
-        gui_warn("Please enter how many pokemon\nyou would like to generate!");
-        gui_numpad(&randomizedCount, "Number of PKMN to generate.", 3);
-
         maxSlots = sav_get_max(MAX_SLOTS);
         slotsPerBox = maxSlots / sav_get_max(MAX_BOXES);
 
+        char part2[80] = {0};
+        sprintf(part2, "How many pokemon should be generated?\nPossible: 1-%d", maxSlots);
+        gui_warn(part2);
+        gui_numpad(&randomizedCount, "Number of PKMN to generate.", 3);
+
         if (randomizedCount > maxSlots || randomizedCount == 0)
         {
-            char part2[80] = {0};
             sprintf(part2, "You've inputted an invalid number\nYou must generate between 1-%d pokemon!", maxSlots);
             gui_warn(part2);
             return 1;
@@ -108,7 +109,6 @@ int main(int argc, char **argv)
     {
     case GEN_ONE:
         maxSpecies = 151;
-        maxBalls = 5;
         maxMoves = 165;
         maxIV = 16;
         break;
@@ -166,7 +166,7 @@ int main(int argc, char **argv)
     }
 
     int randNick = gui_choice("Do you want to randomize nicknames?\nThis could produce weirdness.");
-    gui_warn("Depending on how many to generate\nthis might take awhile!");
+    gui_splash("Generating pokemon\nThis might take awhile!");
     sav_box_decrypt();
     srand(time(0) + version);
     char *data = malloc(pkx_box_size(gen));
