@@ -105,6 +105,8 @@ int main(int argc, char **argv)
         return 1;
     }
 
+    int gen_shiny = gui_choice("Do you want to randomize shininess?\nThis may cause the script to run long");
+
     switch (gen)
     {
     case GEN_ONE:
@@ -195,8 +197,6 @@ int main(int argc, char **argv)
         pkx_set_value(data, gen, IV_SPEED, rand() % maxIV);
         pkx_set_value(data, gen, IV_SPATK, rand() % maxIV);
         pkx_set_value(data, gen, IV_SPDEF, rand() % maxIV);
-        // Shiny Status
-        pkx_set_value(data, gen, SHINY, rand() % 2);
         // Nature
         if (gen != GEN_ONE && gen != GEN_TWO)
         {
@@ -244,6 +244,11 @@ int main(int argc, char **argv)
                 // Capture Ball
                 pkx_set_value(data, gen, BALL, rand() % maxBalls + 1);
             }
+        }
+        // Shiny Status
+        if (gen_shiny)
+        {
+            pkx_set_value(data, gen, SHINY, rand() % 2);
         }
         if (randNick == 1)
         {
