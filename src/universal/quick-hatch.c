@@ -10,6 +10,12 @@ int main(int argc, char **argv)
 
     switch (version)
     {
+        case 39: // VC Gold
+        case 40: // VC Silver
+        case 41: // VC Crystal
+            gen = GEN_TWO;
+            friend = 0x1e;
+            break;
         case 1:
         case 2:
         case 3:

@@ -28,7 +28,19 @@ int main(int argc, char **argv)
         case 32: case 33:
             genSav = GEN_SEVEN;
             break;
-        case 42: case 43:
+        case 35: // VC Red
+        case 36: // VC Green [JP] / Blue [INT]
+        case 37: // VC Blue [JP]
+        case 38: // VC Yellow
+            genSav = GEN_ONE;
+            break;
+        case 39: // VC Gold
+        case 40: // VC Silver
+        case 41: // VC Crystal
+            genSav = GEN_TWO;
+            break;
+        case 42:
+        case 43:
             genSav = GEN_LGPE;
             break;
         case 44: case 45:

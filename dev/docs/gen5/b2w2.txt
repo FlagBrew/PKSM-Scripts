@@ -139,23 +139,23 @@ Meaning                                     Offset      Length      Max Value   
     - Pass Power 2                          0x213a1
     - Pass Power 3                          0x213a2
 - PokeDex                                   0x21400     0x4dc
-    - owned flags                           0x21408
+    - owned flags                           0x21408     0x54
     - seen flags
-        - normal male                       0x2145c
-        - normal female                     0x214b0
-        - shiny male                        0x21504
-        - shiny female                      0x21558
+        - normal male                       0x2145c     0x54
+        - normal female                     0x214b0     0x54
+        - shiny male                        0x21504     0x54
+        - shiny female                      0x21558     0x54
     - display
-        - normal male                       0x215ac
-        - normal female                     0x21600
-        - shiny male                        0x21654
-        - shiny female                      0x216a8
+        - normal male                       0x215ac     0x54
+        - normal female                     0x21600     0x54
+        - shiny male                        0x21654     0x54
+        - shiny female                      0x216a8     0x54
     - form seen
-        - normal                            0x216fc
-        - shiny                             0x21707
+        - normal                            0x216fc     11
+        - shiny                             0x21707     11
     - form display
-        - normal                            0x21712
-        - shiny                             0x2171d
+        - normal                            0x21712     11
+        - shiny                             0x2171d     11
     - language flags                        0x21728
 - Overworld info                            0x21900     0x34
     - swarm                                 0x2192c     1           19          1

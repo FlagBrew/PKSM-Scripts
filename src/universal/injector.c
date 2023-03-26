@@ -75,7 +75,9 @@ int main(int argc, char** argv)
 
         free(data);
     }
-    else if ((int)extension && (!strcasecmp(extension, "pk3") || !strcasecmp(extension, "ek3") ||
+    else if ((int)extension && ( !strcasecmp(extension, "pk1") || !strcasecmp(extension, "ek1") ||
+                                   !strcasecmp(extension, "pk2") || !strcasecmp(extension, "ek2") ||
+                                   !strcasecmp(extension, "pk3") || !strcasecmp(extension, "ek3") ||
                                    !strcasecmp(extension, "pk4") || !strcasecmp(extension, "ek4") ||
                                    !strcasecmp(extension, "pk5") || !strcasecmp(extension, "ek5") ||
                                    !strcasecmp(extension, "pk6") || !strcasecmp(extension, "ek6") ||
@@ -103,6 +105,14 @@ int main(int argc, char** argv)
             if ((extension[1] == 'b' || extension[1] == 'B') && extension[2] == '7')
             {
                 gen = GEN_LGPE;
+            }
+            else if (extension[2] == '1')
+            {
+                gen = GEN_ONE;
+            }
+            else if (extension[2] == '2')
+            {
+                gen = GEN_TWO;
             }
             else if (extension[2] == '3')
             {
