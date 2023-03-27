@@ -63,6 +63,19 @@ int main(int argc, char** argv)
             gen        = GEN_EIGHT;
             maxSpecies = 890;
             break;
+        case 35:
+        case 36:
+        case 37:
+        case 38:
+            gen        = GEN_ONE;
+            maxSpecies = 151;
+            break;
+        case 39:
+        case 40:
+        case 41:
+            gen        = GEN_TWO;
+            maxSpecies = 251;
+            break;
     }
 
     char* currentData          = NULL;
@@ -72,8 +85,9 @@ int main(int argc, char** argv)
     if (gen == GEN_LGPE)
     {
         // LGPE is weird
-        int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pb7.txt");
-        currentGen   = GEN_LGPE;
+        int response = fetch_web_content(
+            &currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pb7.txt");
+        currentGen = GEN_LGPE;
         if (response != 200 || currentData == NULL || currentDataSize == 0)
         {
             char printMe[64];
@@ -106,19 +120,80 @@ int main(int argc, char** argv)
         free(currentData);
         return 0;
     }
-    /*
-    else if (gen == GEN_ONE || gen == GEN_TWO)
+    else if (gen == GEN_ONE)
     {
-        if (species <= 151)
+        int response = fetch_web_content(
+            &currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk1.txt");
+        currentGen = GEN_LGPE;
+        if (response != 200 || currentData == NULL || currentDataSize == 0)
         {
-            // get from g1
+            char printMe[64];
+            sprintf(printMe, "Problem downloading dex: %i", response);
+            gui_warn(printMe);
+
+            free(currentData);
+
+            return 1;
         }
-        else if (species <= 252)
+
+        char* currentPokemon = currentData;
+        for (int pokemon = 1; pokemon <= maxSpecies; pokemon++)
         {
-            // get from g2
+            char* nextNewline = strchr(currentPokemon, '\n');
+            int badNewline    = *(nextNewline - 1) == '\r';
+            int size          = (int)nextNewline - (int)currentPokemon - (badNewline ? 1 : 0);
+
+            unsigned char* newPokemon = NULL;
+            int newPokemonSize        = 0;
+            base64_decode(&newPokemon, &newPokemonSize, currentPokemon, size);
+
+            sav_inject_pkx((char*)newPokemon, GEN_ONE, pokemon / 20, pokemon % 20, 0);
+
+            free(newPokemon);
+
+            currentPokemon = nextNewline + 1;
         }
+
+        free(currentData);
+        return 0;
     }
-    */
+    else if (gen == GEN_TWO)
+    {
+        int response = fetch_web_content(
+            &currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk2.txt");
+        currentGen = GEN_LGPE;
+        if (response != 200 || currentData == NULL || currentDataSize == 0)
+        {
+            char printMe[64];
+            sprintf(printMe, "Problem downloading dex: %i", response);
+            gui_warn(printMe);
+
+            free(currentData);
+
+            return 1;
+        }
+
+        char* currentPokemon = currentData;
+        for (int pokemon = 1; pokemon <= maxSpecies; pokemon++)
+        {
+            char* nextNewline = strchr(currentPokemon, '\n');
+            int badNewline    = *(nextNewline - 1) == '\r';
+            int size          = (int)nextNewline - (int)currentPokemon - (badNewline ? 1 : 0);
+
+            unsigned char* newPokemon = NULL;
+            int newPokemonSize        = 0;
+            base64_decode(&newPokemon, &newPokemonSize, currentPokemon, size);
+
+            sav_inject_pkx((char*)newPokemon, GEN_TWO, pokemon / 20, pokemon % 20, 0);
+
+            free(newPokemon);
+
+            currentPokemon = nextNewline + 1;
+        }
+
+        free(currentData);
+        return 0;
+    }
     else
     {
         char* currentPokemon = NULL;
@@ -130,8 +205,9 @@ int main(int argc, char** argv)
                 if (currentGen != GEN_THREE)
                 {
                     free(currentData);
-                    int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk3.txt");
-                    currentGen   = GEN_THREE;
+                    int response = fetch_web_content(
+                        &currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk3.txt");
+                    currentGen = GEN_THREE;
                     if (response != 200 || currentData == NULL || currentDataSize == 0)
                     {
                         char printMe[64];
@@ -153,9 +229,11 @@ int main(int argc, char** argv)
                 int newPokemonSize        = 0;
                 base64_decode(&newPokemon, &newPokemonSize, currentPokemon, size);
 
-                if (sav_check_value(SAV_VALUE_SPECIES, pkx_get_value((char*)newPokemon, GEN_THREE, SPECIES)))
+                if (sav_check_value(
+                        SAV_VALUE_SPECIES, pkx_get_value((char*)newPokemon, GEN_THREE, SPECIES)))
                 {
-                    sav_inject_pkx((char*)newPokemon, GEN_THREE, (species - 1) / 30, (species - 1) % 30, 0);
+                    sav_inject_pkx(
+                        (char*)newPokemon, GEN_THREE, (species - 1) / 30, (species - 1) % 30, 0);
                 }
 
                 free(newPokemon);
@@ -168,8 +246,9 @@ int main(int argc, char** argv)
                 if (currentGen != GEN_FOUR)
                 {
                     free(currentData);
-                    int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk4.txt");
-                    currentGen   = GEN_FOUR;
+                    int response = fetch_web_content(
+                        &currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk4.txt");
+                    currentGen = GEN_FOUR;
                     if (response != 200 || currentData == NULL || currentDataSize == 0)
                     {
                         char printMe[64];
@@ -191,9 +270,11 @@ int main(int argc, char** argv)
                 int newPokemonSize        = 0;
                 base64_decode(&newPokemon, &newPokemonSize, currentPokemon, size);
 
-                if (sav_check_value(SAV_VALUE_SPECIES, pkx_get_value((char*)newPokemon, GEN_FOUR, SPECIES)))
+                if (sav_check_value(
+                        SAV_VALUE_SPECIES, pkx_get_value((char*)newPokemon, GEN_FOUR, SPECIES)))
                 {
-                    sav_inject_pkx((char*)newPokemon, GEN_FOUR, (species - 1) / 30, (species - 1) % 30, 0);
+                    sav_inject_pkx(
+                        (char*)newPokemon, GEN_FOUR, (species - 1) / 30, (species - 1) % 30, 0);
                 }
 
                 free(newPokemon);
@@ -206,8 +287,9 @@ int main(int argc, char** argv)
                 if (currentGen != GEN_FIVE)
                 {
                     free(currentData);
-                    int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk5.txt");
-                    currentGen   = GEN_FIVE;
+                    int response = fetch_web_content(
+                        &currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk5.txt");
+                    currentGen = GEN_FIVE;
                     if (response != 200 || currentData == NULL || currentDataSize == 0)
                     {
                         char printMe[64];
@@ -229,9 +311,11 @@ int main(int argc, char** argv)
                 int newPokemonSize        = 0;
                 base64_decode(&newPokemon, &newPokemonSize, currentPokemon, size);
 
-                if (sav_check_value(SAV_VALUE_SPECIES, pkx_get_value((char*)newPokemon, GEN_FIVE, SPECIES)))
+                if (sav_check_value(
+                        SAV_VALUE_SPECIES, pkx_get_value((char*)newPokemon, GEN_FIVE, SPECIES)))
                 {
-                    sav_inject_pkx((char*)newPokemon, GEN_FIVE, (species - 1) / 30, (species - 1) % 30, 0);
+                    sav_inject_pkx(
+                        (char*)newPokemon, GEN_FIVE, (species - 1) / 30, (species - 1) % 30, 0);
                 }
 
                 free(newPokemon);
@@ -244,8 +328,9 @@ int main(int argc, char** argv)
                 if (currentGen != GEN_SIX)
                 {
                     free(currentData);
-                    int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk6.txt");
-                    currentGen   = GEN_SIX;
+                    int response = fetch_web_content(
+                        &currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk6.txt");
+                    currentGen = GEN_SIX;
                     if (response != 200 || currentData == NULL || currentDataSize == 0)
                     {
                         char printMe[64];
@@ -267,9 +352,11 @@ int main(int argc, char** argv)
                 int newPokemonSize        = 0;
                 base64_decode(&newPokemon, &newPokemonSize, currentPokemon, size);
 
-                if (sav_check_value(SAV_VALUE_SPECIES, pkx_get_value((char*)newPokemon, GEN_SIX, SPECIES)))
+                if (sav_check_value(
+                        SAV_VALUE_SPECIES, pkx_get_value((char*)newPokemon, GEN_SIX, SPECIES)))
                 {
-                    sav_inject_pkx((char*)newPokemon, GEN_SIX, (species - 1) / 30, (species - 1) % 30, 0);
+                    sav_inject_pkx(
+                        (char*)newPokemon, GEN_SIX, (species - 1) / 30, (species - 1) % 30, 0);
                 }
 
                 free(newPokemon);
@@ -282,8 +369,9 @@ int main(int argc, char** argv)
                 if (currentGen != GEN_SEVEN)
                 {
                     free(currentData);
-                    int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk7.txt");
-                    currentGen   = GEN_SEVEN;
+                    int response = fetch_web_content(
+                        &currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk7.txt");
+                    currentGen = GEN_SEVEN;
                     if (response != 200 || currentData == NULL || currentDataSize == 0)
                     {
                         char printMe[64];
@@ -305,9 +393,11 @@ int main(int argc, char** argv)
                 int newPokemonSize        = 0;
                 base64_decode(&newPokemon, &newPokemonSize, currentPokemon, size);
 
-                if (sav_check_value(SAV_VALUE_SPECIES, pkx_get_value((char*)newPokemon, GEN_SEVEN, SPECIES)))
+                if (sav_check_value(
+                        SAV_VALUE_SPECIES, pkx_get_value((char*)newPokemon, GEN_SEVEN, SPECIES)))
                 {
-                    sav_inject_pkx((char*)newPokemon, GEN_SEVEN, (species - 1) / 30, (species - 1) % 30, 0);
+                    sav_inject_pkx(
+                        (char*)newPokemon, GEN_SEVEN, (species - 1) / 30, (species - 1) % 30, 0);
                 }
 
                 free(newPokemon);
@@ -320,8 +410,9 @@ int main(int argc, char** argv)
                 if (currentGen != GEN_LGPE)
                 {
                     free(currentData);
-                    int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pb7.txt");
-                    currentGen   = GEN_LGPE;
+                    int response = fetch_web_content(
+                        &currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pb7.txt");
+                    currentGen = GEN_LGPE;
                     if (response != 200 || currentData == NULL || currentDataSize == 0)
                     {
                         char printMe[64];
@@ -348,9 +439,11 @@ int main(int argc, char** argv)
                 int newPokemonSize        = 0;
                 base64_decode(&newPokemon, &newPokemonSize, currentPokemon, size);
 
-                if (sav_check_value(SAV_VALUE_SPECIES, pkx_get_value((char*)newPokemon, GEN_LGPE, SPECIES)))
+                if (sav_check_value(
+                        SAV_VALUE_SPECIES, pkx_get_value((char*)newPokemon, GEN_LGPE, SPECIES)))
                 {
-                    sav_inject_pkx((char*)newPokemon, GEN_LGPE, (species - 1) / 30, (species - 1) % 30, 0);
+                    sav_inject_pkx(
+                        (char*)newPokemon, GEN_LGPE, (species - 1) / 30, (species - 1) % 30, 0);
                 }
 
                 free(newPokemon);
@@ -363,8 +456,9 @@ int main(int argc, char** argv)
                 if (currentGen != GEN_EIGHT)
                 {
                     free(currentData);
-                    int response = fetch_web_content(&currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk8.txt");
-                    currentGen   = GEN_EIGHT;
+                    int response = fetch_web_content(
+                        &currentData, &currentDataSize, "https://cdn.sigkill.tech/dex/pk8.txt");
+                    currentGen = GEN_EIGHT;
                     if (response != 200 || currentData == NULL || currentDataSize == 0)
                     {
                         char printMe[64];
@@ -386,9 +480,11 @@ int main(int argc, char** argv)
                 int newPokemonSize        = 0;
                 base64_decode(&newPokemon, &newPokemonSize, currentPokemon, size);
 
-                if (sav_check_value(SAV_VALUE_SPECIES, pkx_get_value((char*)newPokemon, GEN_EIGHT, SPECIES)))
+                if (sav_check_value(
+                        SAV_VALUE_SPECIES, pkx_get_value((char*)newPokemon, GEN_EIGHT, SPECIES)))
                 {
-                    sav_inject_pkx((char*)newPokemon, GEN_EIGHT, (species - 1) / 30, (species - 1) % 30, 0);
+                    sav_inject_pkx(
+                        (char*)newPokemon, GEN_EIGHT, (species - 1) / 30, (species - 1) % 30, 0);
                 }
 
                 free(newPokemon);
