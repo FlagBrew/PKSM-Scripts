@@ -12,8 +12,8 @@ int main(int argc, char **argv)
         ofsKeystone = 0xEB0;
         break;
     case 12:
-        ofsKeystone = 0xE28;
-        ofsGreets = 0xEC0;
+        ofsGreets = 0xE28;
+        ofsKeystone = 0xEC0;
         break;
     default:
         gui_warn("This script only works on DP/Pt.");
