@@ -5,7 +5,7 @@
 
 int main(int argc, char **argv) {
     unsigned char version = *argv[0];
-    int TID, SID;
+    unsigned int TID, SID;
     int res[4];
     char* trees[] = {
         "Route 205 (Near Floaroma Town)", "Route 205 (Near Eterna City)", "Route 206 (Under Bike Path)",
