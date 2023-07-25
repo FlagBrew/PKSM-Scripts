@@ -25,17 +25,7 @@
 "Give all pokeballs 99x" -d "items" -i 0xD04 84 "data/HGSS_AllPokeballs.bin" 1
 "Give all pokeballs 99x" -d "illegal" -i 0xD04 96 "data/HGSS_AllPokeballs_illegal.bin" 1
 "Give all Apricorns 99x" -d "items" -i 0xE558 1 99 7
-"Items slot 1 - Heart Scale x999" -d "items" -i 0x644 2 93 1 -i 0x646 2 999 1
-"Items slot 1 - Max Repel x999" -d "items" -i 0x644 2 77 1 -i 0x646 2 999 1
-"Medicine slot 1 - PP Max x999" -d "items" -i 0xB64 2 53 1 -i 0xB66 2 999 1
-"Medicine slot 1 - Rare Candy x999" -d "items" -i 0xB64 2 50 1 -i 0xB66 2 999 1
 "Medicine slots 1-6 - stat vitamins x999" -d "items" -i 0xB64 2 45 1 -i 0xB66 2 999 1 -i 0xB68 2 46 1 -i 0xB6A 2 999 1 -i 0xB6C 2 47 1 -i 0xB6E 2 999 1 -i 0xB70 2 48 1 -i 0xB72 2 999 1 -i 0xB74 2 49 1 -i 0xB76 2 999 1 -i 0xB78 2 52 1 -i 0xB7A 2 999 1
-"Items slot 1 x999" -d "items" -i 0x646 2 999 1
-"Medicines slot 1 x999" -d "items" -i 0xB66 2 999 1
-"Battle items slot 1 x999" -d "items" -i 0xD66 2 999 1
-"Berries slot 1 x999" -d "items" -i 0xC06 2 999 1
-"TM&HM slot 1 x999" -d "items" -i 0x9A2 2 99 1
-"Pokeballs slot 1 x999" -d "items" -i 0xD06 2 999 1
 "Give all Apricorns x255" -d "items" -i 0xE558 1 255 7
 # Dex
 "Language entries" -d "dex" -i 0x13fc 1 0x3f 493

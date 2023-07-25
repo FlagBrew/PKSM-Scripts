@@ -39,14 +39,7 @@
 "Give all items 99x" -d "items" -i 0x400 1076 "data/ORAS_AllItems.bin" 1
 "Give all items 99x" -d "illegal" -i 0x400 1220 "data/ORAS_AllItems_illegal.bin" 1
 "Give all medicines 99x" -d "items" -i 0xD70 216 "data/ORAS_AllMedicines.bin" 1
-"Items slot 1 - Heart Scale x999" -d "items" -i 0x400 2 93 1 -i 0x402 2 999 1
-"Items slot 1 - Max Repel x999" -d "items" -i 0x400 2 77 1 -i 0x402 2 999 1
-"Items slot 1 x999" -d "items" -i 0x402 2 999 1
-"Medicine slot 1 - PP Max x999" -d "items" -i 0xD70 2 53 1 -i 0xD72 2 999 1
-"Medicine slot 1 - Rare Candy x999" -d "items" -i 0xD70 2 50 1 -i 0xD72 2 999 1
 "Medicine slots 1-6 - stat vitamins x999" -d "items" -i 0xD70 2 45 1 -i 0xD72 2 999 1 -i 0xD74 2 46 1 -i 0xD76 2 999 1 -i 0xD78 2 47 1 -i 0xD7A 2 999 1 -i 0xD7C 2 48 1 -i 0xD7E 2 999 1 -i 0xD80 2 49 1 -i 0xD82 2 999 1 -i 0xD84 2 52 1 -i 0xD86 2 999 1
-"Medicine slot 1 x999" -d "items" -i 0xD72 2 999 1
-"Berries slot 1 x999" -d "items" -i 0xE72 2 999 1
 # Dex
 "Language entries" -d "dex" -i 0x15400 1 0xff 0x276 -i 0x15676 1 0x7f 1
 "Hoenn seen" -d "dex" -i 0x15068 0xbbe "data/dex/ORAS_Hoenn_seen.bin" 1
