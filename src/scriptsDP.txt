@@ -45,8 +45,8 @@
 "Battle Tower Multi - 49 Streak" -d "tower" -i 0x5FD4 2 49 1 -i 0x6608 2 7 1 -i 0x6601 1 31 1
 "Battle Tower Multi Link - 49 Streak" -d "tower" -i 0x5FD8 2 49 1 -i 0x660A 2 7 1 -i 0x6601 1 31 1
 "Battle Tower Wi-Fi - 49 Streak" -d "tower" -i 0x5FDC 2 49 1 -i 0x660C 2 7 1 -i 0x6601 1 31 1
-"Battle Tower - Skip to Last Battle" -i 0x65BE 1 7 1
-"Use 1st 3 Party PKMN" -i 0x65BF 1 0 1 -i 0x65C0 1 1 1 -i 0x65C1 1 2 1
+"Battle Tower - Skip to Last Battle" -d "tower" -i 0x65BE 1 7 1
+"Use 1st 3 Party PKMN" -d "tower" -i 0x65BF 1 0 1 -i 0x65C0 1 1 1 -i 0x65C1 1 2 1
 # Poffins
 "Poffin 1 - Mild" -d "poffin" -i 0x5050 1 28 1 -i 0x5051 1 99 5 -i 0x5056 1 1 1 -i 0x5057 1 0 1
 "Poffin 2 - Mild" -d "poffin" -i 0x5058 1 28 1 -i 0x5059 1 99 5 -i 0x505E 1 1 1 -i 0x505F 1 0 1

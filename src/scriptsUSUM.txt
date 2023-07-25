@@ -100,13 +100,13 @@
 "12 Battles" -d "agency" -i 0x6C55D 1 204 1
 "14 Battles" -d "agency" -i 0x6C55D 1 236 1
 # Battle Tree
-"Singles streak 19" -i 0x6B800 2 19 1
-"Doubles streak 19" -i 0x6B808 2 19 1
-"Multi streak 19" -i 0x6B810 2 19 1
-"Super Singles streak 49" -i 0x6B802 2 49 1
-"Super Doubles streak 49" -i 0x6B80A 2 49 1
-"Super Multi streak 49" -i 0x6B812 2 49 1
-"Receive all prizes" -i 0x6B952 1 0xc8 1
+"Singles streak 19" -d "tree" -i 0x6B800 2 19 1
+"Doubles streak 19" -d "tree" -i 0x6B808 2 19 1
+"Multi streak 19" -d "tree" -i 0x6B810 2 19 1
+"Super Singles streak 49" -d "tree" -i 0x6B802 2 49 1
+"Super Doubles streak 49" -d "tree" -i 0x6B80A 2 49 1
+"Super Multi streak 49" -d "tree" -i 0x6B812 2 49 1
+"Receive all prizes" -d "tree" -i 0x6B952 1 0xc8 1
 # Reset
 "Cosmog" -d "reset" -i 0x2688 1 167 1
 "Aerodactyl" -d "reset" -i 0x260f 1 32 1
