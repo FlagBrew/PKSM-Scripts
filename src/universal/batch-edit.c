@@ -92,10 +92,12 @@ int main(int argc, char **argv)
         "Use current bank",
         "Choose bank"
     };
-    int props_count = 20, target = -1, prop = -1,
+    int target = -1, prop = -1,
         boxes, skip, pkm_size = pkx_box_size(gen_sav),
         choice = 0, slots_per_box;
     int values[3] = {0};
+
+    /* Editable Props */
     char *props[20] = {
         "Exit Script",
         "Previous menu",
@@ -116,6 +118,9 @@ int main(int argc, char **argv)
         "Remove all ribbons",
         "Set Met Date",
         "Set Egg Date",
+
+        // NEW: add new options here
+
         "Set Item"
     };
     enum PKX_Field fields[20] = {
@@ -138,7 +143,12 @@ int main(int argc, char **argv)
         NICKNAME, // filler -- Remove all ribbons
         MET_YEAR, // filler -- Set Met Date
         EGG_YEAR, // filler -- Set Egg Date
+
+        // NEW: add 1 PKX_FIELD for your new option here
+
         ITEM};
+
+    /* Sub-option variables */
     char *languages[9] = {
         "\u65e5\u672c\u8a9e",          // JAP
         "English",                     // ENG
@@ -179,6 +189,11 @@ int main(int argc, char **argv)
     char name[0x27] = {'\0'};
 
     srand(time(0) + version);
+    int props_count = sizeof(props);
+    if (sizeof(fields) < props_count)
+    {
+        props_count = sizeof(fields);
+    }
 
     gui_warn("Edits made by this script may result\nin illegal Pokémon");
     while (target && prop)
@@ -287,6 +302,7 @@ int main(int argc, char **argv)
                     gui_warn("Input new day value to use");
                     values[2] = limit_num(1, 31, 2); // day
                     break;
+                // NEW: add case for new option here
                 // case 19: // Item
                 //     // int (0-?)
                 //     break;
@@ -437,6 +453,7 @@ int main(int argc, char **argv)
                             pkx_set_value(pkm, gen_pkm, EGG_DAY, values[2]);
                         }
                     }
+                    // NEW: add new if case for prop editing here
                     else
                     {
                         pkx_set_value(pkm, gen_pkm, fields[prop], values[0]);
