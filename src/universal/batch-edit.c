@@ -98,7 +98,7 @@ int main(int argc, char **argv)
     int values[3] = {0};
 
     /* Editable Props */
-    char *props[20] = {
+    char *props[21] = {
         "Exit Script",
         "Previous menu",
         "Set OT name",
@@ -118,12 +118,13 @@ int main(int argc, char **argv)
         "Remove all ribbons",
         "Set Met Date",
         "Set Egg Date",
+        "Clear nicknames",
 
         // NEW: add new options here
 
         "Set Item"
     };
-    enum PKX_Field fields[20] = {
+    enum PKX_Field fields[21] = {
         NICKNAME, // filler -- Exit Script
         GENDER,   // filler -- Previous menu
         OT_NAME,
@@ -143,6 +144,7 @@ int main(int argc, char **argv)
         NICKNAME, // filler -- Remove all ribbons
         MET_YEAR, // filler -- Set Met Date
         EGG_YEAR, // filler -- Set Egg Date
+        NICKNAMED,
 
         // NEW: add 1 PKX_FIELD for your new option here
 
@@ -302,8 +304,10 @@ int main(int argc, char **argv)
                     gui_warn("Input new day value to use");
                     values[2] = limit_num(1, 31, 2); // day
                     break;
+                case 19: // Clear nicknames
+                    break;
                 // NEW: add case for new option here
-                // case 19: // Item
+                // case 20: // Item
                 //     // int (0-?)
                 //     break;
                 default:
@@ -452,6 +456,11 @@ int main(int argc, char **argv)
                             pkx_set_value(pkm, gen_pkm, EGG_MONTH, values[1]);
                             pkx_set_value(pkm, gen_pkm, EGG_DAY, values[2]);
                         }
+                    }
+                    else if (prop == 19) // Clear nickname
+                    {
+                        pkx_set_value(pkm, gen_pkm, NICKNAME, i18n_species(pkx_get_value(pkm, gen_pkm, SPECIES)));
+                        pkx_set_value(pkm, gen_pkm, NICKNAMED, 0);
                     }
                     // NEW: add new if case for prop editing here
                     else
