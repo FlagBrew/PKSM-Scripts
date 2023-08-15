@@ -147,6 +147,7 @@ int main(int argc, char **argv)
                     {
                         fwrite(recvData, 1, size, script);
                         fclose(script);
+                        gui_warn("Script successfully written to SD card!");
                     }
                     else
                     {

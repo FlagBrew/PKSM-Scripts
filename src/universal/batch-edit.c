@@ -98,6 +98,8 @@ int main(int argc, char **argv)
     int values[3] = {0};
 
     /* Editable Props */
+    // NEW: increase props_count for the number of new options being added
+    int props_count = 21;
     char *props[21] = {
         "Exit Script",
         "Previous menu",
@@ -122,8 +124,7 @@ int main(int argc, char **argv)
 
         // NEW: add new options here
 
-        "Set Item"
-    };
+        "Set Item"};
     enum PKX_Field fields[21] = {
         NICKNAME, // filler -- Exit Script
         GENDER,   // filler -- Previous menu
@@ -191,11 +192,6 @@ int main(int argc, char **argv)
     char name[0x27] = {'\0'};
 
     srand(time(0) + version);
-    int props_count = sizeof(props);
-    if (sizeof(fields) < props_count)
-    {
-        props_count = sizeof(fields);
-    }
 
     gui_warn("Edits made by this script may result\nin illegal Pokémon");
     while (target && prop)
@@ -459,8 +455,12 @@ int main(int argc, char **argv)
                     }
                     else if (prop == 19) // Clear nickname
                     {
-                        pkx_set_value(pkm, gen_pkm, NICKNAME, i18n_species(pkx_get_value(pkm, gen_pkm, SPECIES)));
-                        pkx_set_value(pkm, gen_pkm, NICKNAMED, 0);
+                        // Eggs shouldn't be nicknamed
+                        if (!pkx_get_value(pkm, gen_pkm, EGG))
+                        {
+                            pkx_set_value(pkm, gen_pkm, NICKNAME, i18n_species(pkx_get_value(pkm, gen_pkm, SPECIES)));
+                            pkx_set_value(pkm, gen_pkm, NICKNAMED, 0);
+                        }
                     }
                     // NEW: add new if case for prop editing here
                     else

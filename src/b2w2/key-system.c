@@ -22,22 +22,25 @@ int main(int argc, char **argv)
     int ID = sav_get_int(0x25800, 0x5c);
     int keyOffset = 0x25800 + 0x28;
     int choice;
-    char message[25] = {'\0'};
+    char message[51] = {'\0'};
 
     do
     {
         choice = gui_menu_20x2("Obtain which key or\nunlock which feature?", 11, &keyStrings[0]);
-        if (choice != 10) {
+        if (choice < 5) {
             sav_set_int(ID ^ keyVals[choice], keyOffset, choice * 4);
-            if (choice < 5) {
-                sprintf(message, "%s obtained", keyStrings[choice]);
-                gui_warn(message);
-            }
-            else
+            sprintf(message, "%s obtained\nAlso unlock %s?", keyStrings[choice], keyStrings[choice + 5]);
+            if (gui_choice(message))
             {
-                sprintf(message, "%s unlocked", keyStrings[choice]);
-                gui_warn(message);
+                choice += 5;
             }
+            memset(message, '\0', 51);
+        }
+        if (choice > 4 && choice < 10)
+        {
+            sav_set_int(ID ^ keyVals[choice], keyOffset, choice * 4);
+            sprintf(message, "%s unlocked", keyStrings[choice]);
+            gui_warn(message);
         }
     } while (choice != 10);
     return 0;
