@@ -330,7 +330,7 @@ void sav_set_int(int data, int off1, int off2);
 char* sav_get_string(int off1, int off2, unsigned int codepoints);
 void sav_set_string(char* string, int off1, int off2, unsigned int codepoints);
 int sav_get_palpark(char** out, int* outSize);
-int sav_set_palpark(char** data, enum Generation* gen, int inSize);
+int sav_set_palpark(char** data, enum Generation* gens, int inSize);
 
 void pkx_decrypt(char* data, enum Generation type, int isParty);
 void pkx_encrypt(char* data, enum Generation type, int isParty);
