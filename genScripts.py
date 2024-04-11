@@ -56,7 +56,11 @@ def cleanCScripts(folder):
 
 			data = data.replace("\r\n", "\n")
 
-			with open(os.path.join(path.replace("src/", "scripts/"), fullname), 'w', encoding="UTF-8") as f:
+			outpath = os.path.join(path.replace("src/", "scripts/"), fullname)
+
+			os.makedirs(name=os.path.dirname(outpath), exist_ok=True)
+
+			with open(outpath, 'w', encoding="UTF-8") as f:
 				f.write(data)
 			scripts_list.append(f"{path[4:]}/{fullname}")
 	return scripts_list
