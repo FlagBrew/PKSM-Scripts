@@ -5,7 +5,7 @@
 int main(int argc, char **argv)
 {
     unsigned char version = *argv[0];
-    int friend;
+    int friend, remaining = 0;
     enum Generation gen;
 
     switch (version)
@@ -14,6 +14,7 @@ int main(int argc, char **argv)
         case 40: // VC Silver
         case 41: // VC Crystal
             gen = GEN_TWO;
+            remaining = 1;
             friend = 0x1e;
             break;
         case 1:
@@ -75,7 +76,7 @@ int main(int argc, char **argv)
         if (pkx_is_valid(pkm, gen) && pkx_get_value(pkm, gen, EGG))
         {
             boxEggs++;
-            pkm[friend] = 0;
+            pkm[friend] = remaining;
             sav_inject_pkx(pkm, gen, slot / slotsPerBox, slot % slotsPerBox, 0);
         }
     }
@@ -91,7 +92,7 @@ int main(int argc, char **argv)
         if (pkx_is_valid(pkm, gen) && pkx_get_value(pkm, gen, EGG))
         {
             partyEggs++;
-            pkm[friend] = 0;
+            pkm[friend] = remaining;
             party_inject_pkx(pkm, gen, slot);
         }
     }
