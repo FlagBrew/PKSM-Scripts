@@ -183,7 +183,8 @@ int main(int argc, char **argv)
         {
             return 1;
         }
-        
+        generateSyncID(version);
+        gui_warn("GameSync ID generated");
     }
 
     return 0;
