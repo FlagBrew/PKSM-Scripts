@@ -42,6 +42,7 @@
 int checkOnlineID(int version)
 {
     int ofsSyncID = 0, sizeSyncID = 0, i;
+    sizeSyncID = 8;
     switch (version)
     {
         case 24:
@@ -49,17 +50,14 @@ int checkOnlineID(int version)
         case 26:
         case 27:
             ofsSyncID = 0x14008;
-            sizeSyncID = 8;
             break;
         case 30:
         case 31:
             ofsSyncID = 0x1210;
-            sizeSyncID = 8;
             break;
         case 32:
         case 33:
             ofsSyncID = 0x1410;
-            sizeSyncID = 8;
             break;
         default:
             return 0;
