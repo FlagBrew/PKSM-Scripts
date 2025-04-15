@@ -143,31 +143,6 @@ int main(int argc, char **argv)
 
     switch (version)
     {
-        case 1:  // RS
-        case 2:  // RS
-        case 3:  // E
-        case 4:  // FRLG
-        case 5:  // FRLG
-            ofsTID = 0xA;
-            break;
-        case 7:  // HG
-        case 8:  // SS
-        case 10: // D
-        case 11: // P
-            ofsName = 0x64 + gbo;
-            ofsTID = 0x74 + gbo;
-            break;
-        case 12: // PT
-            ofsName = 0x68 + gbo;
-            ofsTID = 0x78 + gbo;
-            break;
-        case 20: // W
-        case 21: // B
-        case 22: // W2
-        case 23: // B2
-            ofsName = 0x19404;
-            ofsTID = 0x19414;
-            break;
         case 24: // X
         case 25: // Y
         case 26: // AS
