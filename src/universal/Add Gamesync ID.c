@@ -41,8 +41,7 @@
  */
 int checkOnlineID(int version)
 {
-    int ofsSyncID = 0, sizeSyncID = 0, i;
-    sizeSyncID = 8;
+    int ofsSyncID = 0, sizeSyncID = 8, i;
     switch (version)
     {
         case 24:
