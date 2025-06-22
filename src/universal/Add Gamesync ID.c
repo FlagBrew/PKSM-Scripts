@@ -134,7 +134,7 @@ void generateSyncID(int version)
 int main(int argc, char **argv)
 {
     // Seed the RNG
-    srand(time(0))
+    srand(time(0));
     unsigned char version = *argv[0];
     unsigned int gbo = sav_gbo(), ofsTID = 0, ofsName = 0;
 
