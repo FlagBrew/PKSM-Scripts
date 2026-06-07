@@ -144,6 +144,10 @@ int main(int argc, char** argv)
             base64_decode(&newPkmn, &newPkmSize, currentPokemon, size);
 
             species = pkx_get_value((char*)newPkmn, genData, SPECIES);
+            // Reset nicknames to the species default (fixes broken/garbled
+            // nicknames present in the downloaded living dex data)
+            pkx_set_value((char*)newPkmn, genData, NICKNAME, i18n_species(species));
+            pkx_set_value((char*)newPkmn, genData, NICKNAMED, 0);
             if (target == 1)
             {
                 if (sav_check_value(SAV_VALUE_SPECIES, species) &&
