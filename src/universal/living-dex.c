@@ -84,6 +84,8 @@ int main(int argc, char **argv)
         for (int i = 0; i < maxSpecies; i++)
         {
             pkx_generate(data, i + 1);
+            pkx_set_value(data, gen, NICKNAME, i18n_species(i + 1));
+            pkx_set_value(data, gen, NICKNAMED, 0);
             pkx_set_value(data, gen, SHINY, shiny);
             sav_inject_pkx(data, gen, i / slotsPerBox, i % slotsPerBox, 0);
         }
@@ -95,13 +97,19 @@ int main(int argc, char **argv)
         for (int i = 0; i < 151; i++)
         {
             pkx_generate(data, i + 1);
+            pkx_set_value(data, gen, NICKNAME, i18n_species(i + 1));
+            pkx_set_value(data, gen, NICKNAMED, 0);
             pkx_set_value(data, gen, SHINY, shiny);
             sav_inject_pkx(data, gen, i / 30, i % 30, 0);
         }
         pkx_generate(data, 808);
+        pkx_set_value(data, gen, NICKNAME, i18n_species(808));
+        pkx_set_value(data, gen, NICKNAMED, 0);
         pkx_set_value(data, gen, SHINY, shiny);
         sav_inject_pkx(data, gen, 151 / 30, 151 % 30, 0);
         pkx_generate(data, 809);
+        pkx_set_value(data, gen, NICKNAME, i18n_species(809));
+        pkx_set_value(data, gen, NICKNAMED, 0);
         pkx_set_value(data, gen, SHINY, shiny);
         sav_inject_pkx(data, gen, 152 / 30, 152 % 30, 0);
         free(data);
