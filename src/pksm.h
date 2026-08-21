@@ -292,6 +292,9 @@ void gui_warn(char* warning);
 void gui_splash(char* notification);
 int gui_menu_6x5(
     char* question, int options, char** labels, struct pkx* pokemon, enum Generation generation);
+int gui_menu_10x2(char* question, int options, char** labels);
+/* Deprecated: renamed to gui_menu_10x2 when the menu went from 40 entries
+   over 20 rows to 20 entries over 10. Still works, but prefer the new name. */
 int gui_menu_20x2(char* question, int options, char** labels);
 void gui_keyboard(char* out, char* hint, int maxChars);
 void gui_numpad(unsigned int* out, char* hint, int maxDigits);

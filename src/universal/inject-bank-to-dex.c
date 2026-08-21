@@ -56,7 +56,7 @@ int main(int argc, char **argv)
         "Current bank",
         "Another bank"
     };
-    int choice = gui_menu_20x2("Which bank should be injected\ninto your save's Pokédex?", 3, bankOpts);
+    int choice = gui_menu_10x2("Which bank should be injected\ninto your save's Pokédex?", 3, bankOpts);
     if (choice == 2)
     {
         bank_select();

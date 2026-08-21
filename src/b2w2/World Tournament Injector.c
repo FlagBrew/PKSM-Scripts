@@ -39,14 +39,14 @@ int main (int argc, char **argv) {
     char *options[] = {"Slot 1", "Slot 2", "Slot 3", "Exit Script"};
 
     while (1) {
-        int choice = gui_menu_20x2("Choose a Tournament slot", 4, options);
+        int choice = gui_menu_10x2("Choose a Tournament slot", 4, options);
 
         if (choice == 3) {
             free(data);
             return 0;
         }
 
-        int chosen = gui_menu_20x2("Choose a file to inject", tourneys->count, tourneys->files);
+        int chosen = gui_menu_10x2("Choose a file to inject", tourneys->count, tourneys->files);
 
         char* extension = NULL;
         if (strlen(tourneys->files[chosen]) > 3)

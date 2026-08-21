@@ -55,7 +55,7 @@ int main(int argc, char **argv)
 
     while (1)
     {
-        clock = gui_menu_20x2("Which RTC time do you want\nto change?", 3, clocks);
+        clock = gui_menu_10x2("Which RTC time do you want\nto change?", 3, clocks);
         if (!clock)
         {
             break;
@@ -78,7 +78,7 @@ int main(int argc, char **argv)
                 second = elapsed[4];
             }
             sprintf(clock_question, "Which portion do you\nwant to edit?\n\n%s RTC:\n%u:%02u:%02u:%02u", clocks[clock], day, hour, minute, second);
-            time = gui_menu_20x2(clock_question, 5, times);
+            time = gui_menu_10x2(clock_question, 5, times);
             if (!time)
             {
                 break;

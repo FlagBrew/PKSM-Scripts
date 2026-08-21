@@ -234,7 +234,7 @@ int main(int argc, char **argv)
 
     int opts = 5 + 2 * (version > 27),
         changes = 0,
-        choice = gui_menu_20x2("Edit which piece of trainer info?", opts, fields);
+        choice = gui_menu_10x2("Edit which piece of trainer info?", opts, fields);
     while (choice != 0)
     {
         memset(currentData, '\0', 60);
@@ -340,7 +340,7 @@ int main(int argc, char **argv)
         {
             changes += 1;
         }
-        choice = gui_menu_20x2("Edit which piece of trainer info?", opts, fields);
+        choice = gui_menu_10x2("Edit which piece of trainer info?", opts, fields);
     }
 
     if (changes)

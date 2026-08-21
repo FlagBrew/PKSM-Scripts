@@ -196,7 +196,7 @@ int main(int argc, char **argv)
     gui_warn("Edits made by this script may result\nin illegal Pokémon");
     while (target && prop)
     {
-        target = gui_menu_20x2("Pick a group of Pokémon to edit", 4, targets);
+        target = gui_menu_10x2("Pick a group of Pokémon to edit", 4, targets);
         if (target == 0)
         {
             break;
@@ -227,7 +227,7 @@ int main(int argc, char **argv)
         while (prop)
         {
             skip = 0;
-            prop = gui_menu_20x2("Pick a property to edit\n\nWarning: these edits will affect\nEVERYTHING in the boxes of\nyour save/bank, and may result\nin illegal Pokémon", props_count, props);
+            prop = gui_menu_10x2("Pick a property to edit\n\nWarning: these edits will affect\nEVERYTHING in the boxes of\nyour save/bank, and may result\nin illegal Pokémon", props_count, props);
             switch (prop)
             {
                 case 2: // OT Name
@@ -239,31 +239,31 @@ int main(int argc, char **argv)
                     values[0] = limit_num(0, 65535, 5);
                     break;
                 case 5: // OT Gender
-                    values[0] = gui_menu_20x2("Choose OT gender", 2, genders);
+                    values[0] = gui_menu_10x2("Choose OT gender", 2, genders);
                     break;
                 case 6: // Level
                     values[0] = limit_num(1, 100, 3);
                     break;
                 case 7: // Shiny
-                    values[0] = 1 - gui_menu_20x2("Shiny or not?\n\nWarning:\nShiny may take a while", 2, shininess);
+                    values[0] = 1 - gui_menu_10x2("Shiny or not?\n\nWarning:\nShiny may take a while", 2, shininess);
                     break;
                 case 8: // all IVs
                     values[0] = limit_num(0, 31, 2);
                     break;
                 case 9: // Language
-                    choice = gui_menu_20x2("Choose a language", target == 1 ? limit_lang : 9, languages);
+                    choice = gui_menu_10x2("Choose a language", target == 1 ? limit_lang : 9, languages);
                     values[0] = choice + (choice >= 6 ? 2 : 1);
                     break;
                 case 10: // Pokerus
-                    choice = gui_menu_20x2("Pick a Pokerus option", 3, pokerus);
+                    choice = gui_menu_10x2("Pick a Pokerus option", 3, pokerus);
                     values[0] = choice < 2 ? 0xF : 0; // strain
                     values[1] = choice == 0 ? 4 : 0; // days
                     break;
                 case 11: // Nature
-                    values[0] = gui_menu_20x2("Pick a nature", 25, natures);
+                    values[0] = gui_menu_10x2("Pick a nature", 25, natures);
                     break;
                 case 12: // Ball
-                    choice = gui_menu_20x2("Pick a ball", target == 1 ? limit_ball : 26, balls);
+                    choice = gui_menu_10x2("Pick a ball", target == 1 ? limit_ball : 26, balls);
                     values[0] = ball_ids[choice];
                     break;
                 case 13: // PP Ups

@@ -54,7 +54,7 @@ int main (int argc, char **argv) {
         return 0;
     }
 
-    int chosen = gui_menu_20x2("Choose a file to inject", musicals->count, musicals->files);
+    int chosen = gui_menu_10x2("Choose a file to inject", musicals->count, musicals->files);
 
     char* extension = NULL;
     if (strlen(musicals->files[chosen]) > 3)

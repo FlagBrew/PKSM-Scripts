@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 
     do
     {
-        choice = gui_menu_20x2("Obtain which key or\nunlock which feature?", 11, &keyStrings[0]);
+        choice = gui_menu_10x2("Obtain which key or\nunlock which feature?", 11, &keyStrings[0]);
         if (choice < 5) {
             sav_set_int(ID ^ keyVals[choice], keyOffset, choice * 4);
             sprintf(message, "%s obtained\nAlso unlock %s?", keyStrings[choice], keyStrings[choice + 5]);

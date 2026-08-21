@@ -38,7 +38,7 @@ int main(int argc, char** argv)
         "Use current bank",
         "Choose bank"
     };
-    int target = gui_menu_20x2("Where should the living dex\nbe injected?\n\nWarning:\nInjection starts at\nBox 1 Slot 1\nwhich may overwrite\nanything already there", 4, targets);
+    int target = gui_menu_10x2("Where should the living dex\nbe injected?\n\nWarning:\nInjection starts at\nBox 1 Slot 1\nwhich may overwrite\nanything already there", 4, targets);
     if (target == 0)
     {
         return 0;

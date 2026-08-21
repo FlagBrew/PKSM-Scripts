@@ -12,7 +12,7 @@ int main(int argc, char **argv)
     int style = sav_get_byte(0, 0x147A);
     char msg[50] = {'\0'};
     sprintf(msg, "Choose a Battle Style\n\nCurrent: %s", labels[style + 1]);
-    style = gui_menu_20x2(msg, 10, labels);
+    style = gui_menu_10x2(msg, 10, labels);
     if (style)
     {
         sav_set_byte(style - 1, 0, 0x147A);

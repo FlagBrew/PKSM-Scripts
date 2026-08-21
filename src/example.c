@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 
     /* gui_menu function demos */
     gui_menu_6x5("This displays Pokemon!", 13, &labels[0], &showMe[0], GEN_SEVEN);
-    gui_menu_20x2("And this displays text!", 13, &labels[0]);
+    gui_menu_10x2("And this displays text!", 13, &labels[0]);
 
     /* keyboard and numpad demos */
     unsigned int quant = 21;

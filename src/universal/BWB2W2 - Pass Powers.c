@@ -87,12 +87,12 @@ int main(int argc, char** argv)
 
     do
     {
-        choice = gui_menu_20x2("Which slot would you like to edit?", numChoices, choices);
+        choice = gui_menu_10x2("Which slot would you like to edit?", numChoices, choices);
 
         if (choice != numChoices-1)
         {
             char newval =
-                (char)gui_menu_20x2("Which pass power would you like?", namesSize, &power_names[0]);
+                (char)gui_menu_10x2("Which pass power would you like?", namesSize, &power_names[0]);
 
             sav_set_byte(power_values[newval], 0, offset + choice);
 

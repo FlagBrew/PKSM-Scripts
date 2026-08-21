@@ -30,7 +30,7 @@ int main(int argc, char** argv)
     }
 
     char *languages[9] = {"\u65e5\u672c\u8a9e", "English", "Fran\u00e7ais", "Italiano", "Deutsche", "Espa\u00f1ol", "\ud55c\uad6d\uc5b4", "\u4e2d\u6587 (\u7b80\u4f53)", "\u4e2d\u6587 (\u7e41\u9ad4)"};
-    char choice = (char)gui_menu_20x2("Choose the language you want\nfor your save", version < 30 ? 7 : 9, &languages[0]);
+    char choice = (char)gui_menu_10x2("Choose the language you want\nfor your save", version < 30 ? 7 : 9, &languages[0]);
 
     sav_set_byte(choice + (choice >= 6 ? 2 : 1), offset, 0);
     char message[40] = {'\0'};

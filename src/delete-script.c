@@ -6,7 +6,7 @@
 void deleteFile(char* dir)
 {
     struct directory* folder = read_directory(dir);
-    int file                 = gui_menu_20x2(
+    int file                 = gui_menu_10x2(
         "Please select the script\nyou wish to delete!", (*folder).count, (*folder).files);
     char* data = malloc(48 + 1 + strlen((*folder).files[file]) + 1);
     sprintf(data, "Do you wish to delete the following file/folder?\n%s", (*folder).files[file]);
@@ -42,7 +42,7 @@ int main(int argc, char** argv)
                 folder = NULL;
             }
             folder = read_directory("/3ds/pksm/scripts");
-            f = gui_menu_20x2("Please select the folder\nyou wish to delete from!", (*folder).count,
+            f = gui_menu_10x2("Please select the folder\nyou wish to delete from!", (*folder).count,
                 (*folder).files);
             deleteFile((*folder).files[f]);
         }

@@ -111,7 +111,7 @@ int main(int argc, char **argv)
     int inject_another;
     do
     {
-        int choice = gui_menu_20x2("Select the ticket\nyou want to inject", n_opts, opts);
+        int choice = gui_menu_10x2("Select the ticket\nyou want to inject", n_opts, opts);
         switch(choice)
         {
             case 0:

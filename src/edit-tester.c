@@ -137,13 +137,13 @@ int main(int argc, char **argv)
         0
     };
 
-    int type = gui_menu_20x2("Choose an edit type to perform", 5, editTypes);
+    int type = gui_menu_10x2("Choose an edit type to perform", 5, editTypes);
     while (type < 4)
     {
         // SwSh block selection
         if (gen == GEN_EIGHT)
         {
-            block = swshKeys[gui_menu_20x2("Which block do you\nwant to edit?", 13, swshBlocks)];
+            block = swshKeys[gui_menu_10x2("Which block do you\nwant to edit?", 13, swshBlocks)];
             if (block == 12)
             {
                 gui_keyboard(inputStr, "Key of block to edit, in hex", 11);
@@ -190,7 +190,7 @@ int main(int argc, char **argv)
             }
         }
 
-        type = gui_menu_20x2("Choose an edit type to perform", 5, editTypes);
+        type = gui_menu_10x2("Choose an edit type to perform", 5, editTypes);
     }
 
     return 0;
