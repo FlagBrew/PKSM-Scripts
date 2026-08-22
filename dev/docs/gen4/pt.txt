@@ -40,8 +40,12 @@ Meaning                                     Offset      Length      Max Value
     - greets towards Spiritomb              0xe28
     - total met Underground                 0xe3e
     - Prints                                0xe4a
+    - Cresselia roamer status               0xe5c       2           2
+    - Mesprit roamer status                 0xe5e       2           2
     - Odd Keystone inserted                 0xec0
 - Event Flag                                0xfec
+    - Mesprit gone (Verity Cavern) bit 7    0x1027
+    - Cresselia gone (Fullmoon Is.) bit 7   0x1035
     - Fly                                   0x1122
     - has obtained lotto prize              0x1141
 - Poketch
@@ -193,6 +197,22 @@ Meaning                                     Offset      Length      Max Value
     - today                                 0x7f30      1           15
     - yesterday                             0x7f32      1           15
 - Honey                                     0x7f38
+- Roamers                                   0x7ff4      0x14        per entry
+    - entry 0 (Mesprit)                     0x7ff4      0x14
+    - entry 1 (Cresselia)                   0x8008      0x14
+    - entry 2 (unused)                      0x801c      0x14
+    - entry 3 (Moltres)                     0x8030      0x14
+    - entry 4 (Zapdos)                      0x8044      0x14
+    - entry 5 (Articuno)                    0x8058      0x14
+    - entry fields
+        - location                          +0x00       4
+        - IVs (packed)                      +0x04       4
+        - PID                               +0x08       4
+        - species                           +0x0c       2
+        - current HP                        +0x0e       2
+        - level                             +0x10       1
+        - status condition                  +0x11       1
+        - is active                         +0x12       1
 - Wondercard flags                          0xb4c0
 - Wondercard data                           0xb5c0
 - General Block footer                      0xcf18

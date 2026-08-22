@@ -71,7 +71,6 @@
 "Darkrai" -d "reset" -i 0x1027 1 0x50 1 -i 0x0e22 1 0x09 1 -i 0x0e23 1 0x12 1
 "Dialga or Palkia & Darkrai" -d "reset" -i 0x0ecc 2 0x05 1 -i 0x1007 1 96 1 -i 0x1018 1 248 1 -i 0x105B 1 0 1 -i 0x105C 1 253 1 -i 0x1027 1 60 1
 "Happiny Egg" -d "reset" -i 0x0FFB 1 70 1
-"Mesprit" -d "reset" -i 0x101B 1 31 1
 "Mild Poffin" -d "reset" -i 0x1007 1 96 1
 "Palkia" -d "reset" -i 0x0ecc 1 0x05 1
 "Riolu Egg" -d "reset" -i 0x0FF8 1 159 1 -i 0x101C 1 167 1

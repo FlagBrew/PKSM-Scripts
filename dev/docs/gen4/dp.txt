@@ -85,6 +85,8 @@ Meaning                                     Offset      Length      Max Value   
     - Oak's Letter ?                        0xe24
     - Azure Flute ?                         0xe26
     - total met Underground                 0xe2e
+    - Cresselia roamer status               0xe4c       2           2
+    - Mesprit roamer status                 0xe4e       2           2
     - Odd Keystone inserted                 0xeb0
     - Palkia?                               0xecc
     - Heatran                               0xed8
@@ -94,11 +96,11 @@ Meaning                                     Offset      Length      Max Value   
     - Oak Route 224?                        0x1001
     - Fullmoon Ferry?                       0x1002
     - Newmoon Ferry?                        0x1003
-    - Lake? (trio related)                  0x101b
+    - Mesprit/Azelf/Uxie gone (bits 5/6/7)  0x101b
     - Darkrai?                              0x1027
     - Regigigas                             0x1028
     - legends battle-able?                  0x1029
-        - Cresselia                         0x1029
+        - Cresselia gone (Fullmoon) bit 5   0x1029
         - Giratina                          0x1029
         - Shaymin                           0x1029
         - Arceus                            0x1029
@@ -210,6 +212,19 @@ Meaning                                     Offset      Length      Max Value   
     - today                                 0x72dc      1           15
     - yesterday                             0x72de      1           15
 - Honey Trees                               0x72e4
+- Roamers                                   0x73a0      0x14        per entry
+    - entry 0 (Mesprit)                     0x73a0      0x14
+    - entry 1 (Cresselia)                   0x73b4      0x14
+    - entry 2 (unused)                      0x73c8      0x14
+    - entry fields
+        - location                          +0x00       4
+        - IVs (packed)                      +0x04       4
+        - PID                               +0x08       4
+        - species                           +0x0c       2
+        - current HP                        +0x0e       2
+        - level                             +0x10       1
+        - status condition                  +0x11       1
+        - is active                         +0x12       1
 - GTS Pokémon                               0x73e8
 - Wondercard flags                          0xa6d0
 - Wondercard Data                           0xa7fc
