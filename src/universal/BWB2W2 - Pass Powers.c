@@ -4,6 +4,12 @@
 #include <string.h>
 #include <unistd.h>
 
+// Items pocket, shared by BW and B2W2
+#define POUCH_ITEMS 0x18400
+#define POUCH_ITEMS_SLOTS 261
+#define PASS_ORB 575
+#define PASS_ORB_MAX 65535
+
 // NOTE: 46 and 47 are unused, and only <= 48 are valid for BW
 char* power_names[62] = {"None", "Encounter +1", "Encounter +2", "Encounter +3", "Encounter -1",
     "Encounter -2", "Encounter -3", "Hatching +1", "Hatching +2", "Hatching +3", "Befriending +1",
@@ -26,7 +32,14 @@ int power_values[62] = {48, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 
 char* valToString(int val)
 {
-    if (val <= 45)
+    if (val < 0 || val > 63)
+    {
+        // Not a pass power value at all: BW only uses the first of the three
+        // bytes, so the two after it hold unrelated data that must never be
+        // used to index power_names
+        return power_names[0];
+    }
+    else if (val <= 45)
     {
         return power_names[val + 1];
     }
@@ -40,6 +53,23 @@ char* valToString(int val)
     }
 }
 
+// Gen 5 pockets are a contiguous list terminated by an empty entry, so the
+// first id of 0 is both the end of the list and the first free slot.
+// Returns -1 if the pocket is full and holds no Pass Orbs.
+int findPassOrbSlot(void)
+{
+    int i;
+    for (i = 0; i < POUCH_ITEMS_SLOTS; i++)
+    {
+        unsigned short id = sav_get_short(0, POUCH_ITEMS + i * 4);
+        if (id == 0 || id == PASS_ORB)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 int main(int argc, char** argv)
 {
     char version = *argv[0];
@@ -51,45 +81,60 @@ int main(int argc, char** argv)
 
     int namesSize;
     int offset;
+    int numSlots;
 
     char slot1[30];
     char slot2[30];
     char slot3[30];
+    char orbs[30];
 
     char** choices;
     int numChoices;
-    char* bwchoices[2] = {slot1, "Exit"};
-    char* b2w2choices[4] = {slot1, slot2, slot3, "Exit"};
+    char* bwchoices[3] = {slot1, orbs, "Exit"};
+    char* b2w2choices[5] = {slot1, slot2, slot3, orbs, "Exit"};
 
     switch (version)
     {
         case 20: // B
         case 21: // W
-            choices=bwchoices;
-            numChoices = 2;
+            choices = bwchoices;
+            numSlots = 1;
+            numChoices = 3;
             offset    = 0x214A0;
             namesSize = 47;
             break;
         case 22: // B2
         case 23: // W2
             choices = b2w2choices;
-            numChoices = 4;
+            numSlots = 3;
+            numChoices = 5;
             offset    = 0x213A0;
             namesSize = 62;
             break;
     }
 
-    sprintf(slot1, "Slot 1: %s", valToString(sav_get_byte(0, offset)));
-    sprintf(slot2, "Slot 2: %s", valToString(sav_get_byte(0, offset + 1)));
-    sprintf(slot3, "Slot 3: %s", valToString(sav_get_byte(0, offset + 2)));
+    int i;
+    for (i = 0; i < numSlots; i++)
+    {
+        sprintf(choices[i], "Slot %i: %s", i + 1, valToString(sav_get_byte(0, offset + i)));
+    }
+
+    int orbSlot = findPassOrbSlot();
+    int orbCount = 0;
+    if (orbSlot >= 0 && sav_get_short(0, POUCH_ITEMS + orbSlot * 4) == PASS_ORB)
+    {
+        // the count is a u16, so mask off any sign extension
+        orbCount = sav_get_short(0, POUCH_ITEMS + orbSlot * 4 + 2) & 0xFFFF;
+    }
+    sprintf(orbs, "Pass Orbs: %i", orbCount);
 
     int choice;
 
     do
     {
-        choice = gui_menu_10x2("Which slot would you like to edit?", numChoices, choices);
+        choice = gui_menu_10x2("What would you like to edit?", numChoices, choices);
 
-        if (choice != numChoices-1)
+        if (choice < numSlots)
         {
             char newval =
                 (char)gui_menu_10x2("Which pass power would you like?", namesSize, &power_names[0]);
@@ -97,6 +142,33 @@ int main(int argc, char** argv)
             sav_set_byte(power_values[newval], 0, offset + choice);
 
             sprintf(choices[choice], "Slot %i: %s", (int)choice + 1, valToString(power_values[newval]));
+        }
+        else if (choice == numSlots)
+        {
+            if (orbSlot < 0)
+            {
+                gui_warn("Your Items pocket is full,\nso Pass Orbs can't be added.");
+            }
+            else
+            {
+                // The MAX pass powers cost 9999 orbs to activate, which is well
+                // past what the game itself lets you carry
+                unsigned int quantity = 9999;
+                gui_numpad(&quantity, "How many Pass Orbs?", 5);
+                if (quantity < 1)
+                {
+                    quantity = 1;
+                }
+                else if (quantity > PASS_ORB_MAX)
+                {
+                    quantity = PASS_ORB_MAX;
+                }
+
+                sav_set_short(PASS_ORB, 0, POUCH_ITEMS + orbSlot * 4);
+                sav_set_short(quantity, 0, POUCH_ITEMS + orbSlot * 4 + 2);
+
+                sprintf(orbs, "Pass Orbs: %i", (int)quantity);
+            }
         }
     }
     while (choice != numChoices-1);
