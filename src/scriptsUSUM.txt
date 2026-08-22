@@ -113,7 +113,6 @@
 "Porygon" -d "reset" -i 0x260d 1 16 1
 "Partner Cap Pikachu" -d "reset" -i 0x280A 1 84 1
 "Surfing Pikachu" -d "reset" -i 0x2610 1 0 1
-"Type Null" -d "reset" -i 0x2621 1 32 1 -i 0x2659 1 219 1
 "Poipole" -d "reset" -i 0x25f1 1 95 1 -i 0x26A7 1 162 1
 "Solgaleo and Lunala" -d "reset" -i 0x23F2 1 1 1 -i 0x261E 1 220 1 -i 0x269b 1 211 1
 "Necrozma" -d "reset" -i 0x2692 1 0x72 1

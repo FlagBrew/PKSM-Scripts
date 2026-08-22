@@ -54,7 +54,7 @@ Meaning                                     Offset      Length      Max Value   
         - Zygarde cells picked up count?    0x1d52
         - Zygarde cells locations flags?    0x1d8c
     - event flag                            0x23d0
-        - Type: Null                        0x240e
+        - Type: Null                        0x240e      1           0x08        0x08
     - Hall of Fame                          0x25c0
 - Pokedex                                   0x2a00      0xf78
     - National dex                          0x2a04      1           1           1

@@ -92,8 +92,8 @@ Meaning                                     Offset      Length      Max Value   
         - Po Town Nuggets                   0x2616
         - Nanu event                        0x2616
         - Team Skull Pose                   0x2617
-        - Type: Null                        0x2621
-        - Type: Null                        0x2659
+        - Type: Null (Aether Paradise)      0x2621      1           0x40        0x40
+        - Type: Null (Ancient Poni Path)    0x2659      1           0x20        0x20
         - Janitor                           0x2682
         - Magearna                          0x2687      1           0x20        0x20
         - Cosmog                            0x2688      1           0x10        0x10

@@ -60,7 +60,6 @@
 "Super Multi streak - 49" -d "tree" -i 0x6B212 2 49 1
 "Receive all prizes" -d "tree" -i 0x6B352 1 0xc8 1
 # Reset
-"Type Null" -d "reset" -i 0x240e 1 156 1
 "Red and Blue" -d "reset" -i 0x1F68 1 1 1
 "Gamefreak Battle" -d "reset" -i 0x25A3 1 0 1
 "Cosmog" -d "reset" -i 0x2468 1 250 1
