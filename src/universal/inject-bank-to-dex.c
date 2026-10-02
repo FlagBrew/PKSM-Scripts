@@ -72,7 +72,14 @@ int main(int argc, char **argv)
 
         gui_splash("Injecting data\nThis may take a while.");
         maxSlots = bank_get_size() * 30;
+        // clear junk from pkx to inject
+        for (int i = 0; i < pkmSizeSav; i++)
+        {
+            pkxInject[i] = 0;
+        }
         pkx_generate(pkxInject, 1);
+        // fix PKX_Fields with illegal 0 value  // TODO: any others?
+        pkx_set_value(pkxInject, genSav, BALL, 4);
         for (int i = 0; i < maxSlots; i++)
         {
             pkxBank = bank_get_pkx(&genBank, i / 30, i % 30);
