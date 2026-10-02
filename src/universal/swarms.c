@@ -29,7 +29,6 @@ int main(int argc, char **argv)
         211, 427, 370, 280, 193, 209,
         223, 333, 132, 183, 206, 401,
         278, 340};
-    int ss[2] = {317, 303}; // SS exclusives (Gulpin, Mawile)
     int w[17] = {
          83, 360, 314, 449, 235, 312,
         161, 453, 261, 236,  46,  84,
@@ -67,6 +66,12 @@ int main(int argc, char **argv)
         case 7:
         case 8:
             list = hgss;
+            // value of ROMCode allows separation of SS from HG
+            if (sav_get_byte(gbo, 0x64 + 0x1C) == 8)
+            {
+                list[1] = 316;
+                list[2] = 303;
+            }
             total = 20;
             ofs = 0x68a8;
             gen = GEN_FOUR;
@@ -104,21 +109,12 @@ int main(int argc, char **argv)
             return 1;
     }
 
-    char tempStr[2][33] = {'\0', '\0'};
     char msg[66] = {'\0'};
     for (int i = 0; i < total; i++)
     {
         options[i].species = list[i];
         options[i].form = 0;
-        if ((version == 7 || version == 8) && (i == 1 || i == 2))
-        {
-            sprintf(tempStr[i - 1], "%s (HG)\n%s (SS)", i18n_species(list[i]), i18n_species(ss[i - 1]));
-            labels[i] = tempStr[i - 1];
-        }
-        else
-        {
-            labels[i] = i18n_species(list[i]);
-        }
+        labels[i] = i18n_species(list[i]);
     }
 
     if (gen == GEN_FOUR)
